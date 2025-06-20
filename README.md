@@ -1,4 +1,4 @@
-# Paperclips
+# PPC
 
 An addictive Idle/incremental/clicker game built with React.
 
