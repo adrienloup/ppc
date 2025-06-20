@@ -1,0 +1,24 @@
+@use '@/src/common/assets/styles/index' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-2);
+  font-family: var(--font-text), sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: var(--color-3);
+}

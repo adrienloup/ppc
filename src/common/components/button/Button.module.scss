@@ -1,0 +1,24 @@
+.button {
+  background-color: transparent;
+  border: none;
+  line-height: 1;
+  text-decoration: none;
+  font-family: var(--theme-font-text), sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 0.25rem solid var(--color-7);
+  }
+
+  &.active,
+  &:active {
+    outline: 0.35rem solid var(--color-7);
+    transition: outline 50ms var(--ease-quad);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+}

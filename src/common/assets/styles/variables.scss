@@ -1,0 +1,34 @@
+@mixin font {
+  --font-text: 'Simplest';
+}
+
+@mixin color {
+  --color-1: #030009;
+  --color-2: #252529;
+}
+
+@mixin size {
+  --font-size-l: 4rem;
+  --font-size-m: 2rem;
+  --font-size-s: 1rem;
+}
+
+@mixin spacing {
+  --spacing-l: 2rem;
+  --spacing-m: 1rem;
+  --spacing-s: 0.5rem;
+}
+
+@mixin easing {
+  --ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --ease-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-expo: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+:root {
+  @include font();
+  @include color();
+  @include size();
+  @include spacing();
+  @include easing();
+}
