@@ -1,13 +1,13 @@
 import { useGame } from '@/src/features/game/infrastructure/useGame.ts';
 import styles from '@/src/common/components/header/Header.module.scss';
-import type { NamePage } from '@/src/features/game/domain/NamePage.ts';
+import type { NameScreen } from '@/src/features/game/domain/NameScreen.ts';
 
 export const HeaderComponent = () => {
   const [game, setGame] = useGame();
 
-  const goToPage = (page: NamePage) => {
-    if (page === game.page) return;
-    setGame({ ...game, page: page });
+  const goTo = (screen: NameScreen) => {
+    if (screen === game.screen) return;
+    setGame({ ...game, screen: screen });
   };
 
   return (
@@ -16,11 +16,11 @@ export const HeaderComponent = () => {
       role="banner"
     >
       <div className={styles.nav}>
-        {(['page1', 'page2', 'page3', 'page4'] as NamePage[]).map((p) => (
+        {(['screen1', 'screen2', 'screen3', 'screen4'] as NameScreen[]).map((p) => (
           <button
             key={p}
-            onClick={() => goToPage(p)}
-            className={game.page === p ? styles.active : ''}
+            onClick={() => goTo(p)}
+            className={game.screen === p ? styles.active : ''}
           >
             {p.toUpperCase()}
           </button>

@@ -11,12 +11,14 @@
   }
 }
 
-:root {
-  font-synthesis: none;
+body {
+  overflow: hidden;
+  background-color: var(--color-1);
+  line-height: 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-2);
+  font-synthesis: style;
   font-family: var(--font-text), sans-serif;
   font-weight: normal;
   font-size: 16px;

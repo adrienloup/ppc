@@ -1,6 +1,6 @@
-import type { NamePage } from '@/src/features/game/domain/NamePage.ts';
+import type { NameScreen } from '@/src/features/game/domain/NameScreen.ts';
 
 export interface Game {
-  page: NamePage;
+  screen: NameScreen;
   isPlay: boolean;
 }
