@@ -4,7 +4,7 @@ import type { Children } from '@/src/common/shared/types/Children.ts';
 import type { Game } from '@/src/features/game/domain/Game.ts';
 
 export function GameProvider({ children }: { children: Children }) {
-  const [game, setGame] = useState<Game>({ screen: 'screen1', isPlay: true });
+  const [game, setGame] = useState<Game>({ isPlay: true });
 
   return <GameContext.Provider value={[game, setGame]}>{children}</GameContext.Provider>;
 }

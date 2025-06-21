@@ -1,6 +1,6 @@
 import { GameProvider } from '@/src/features/game/infrastructure/GameProvider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
-import type { Children } from '@/src/common/shared/types/children.ts';
+import type { Children } from '@/src/common/shared/types/Children.ts';
 
 type Providers = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?][];
 

@@ -1,9 +1,10 @@
-$tablet-landscape: 1280px;
+//$tablet-landscape: 1280px;
 
 .card {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-s);
+  padding: var(--spacing-s);
 }
 //
 //.manufacturing {
@@ -69,8 +70,8 @@ $tablet-landscape: 1280px;
 //.title {
 //  padding-bottom: 0.2rem;
 //  text-transform: uppercase;
-//  font-size: var(--font-size-s);
-//  box-shadow: 0 0.2rem var(--theme-color-2);
+//  font-size: var(--font-size-m);
+//  box-shadow: 0 0.2rem white;
 //}
 //
 //.subtitle {

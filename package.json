@@ -1,7 +1,7 @@
 {
   "name": "ppc",
   "private": true,
-  "version": "24.0.1",
+  "version": "0.25.1",
   "type": "module",
   "author": "Adrien Loup",
   "scripts": {
@@ -15,7 +15,6 @@
     "test:e2e:run": "cypress run --config-file cypress.config.ts"
   },
   "dependencies": {
-    "@react-spring/web": "^10.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

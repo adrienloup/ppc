@@ -1,7 +1,5 @@
 .footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position: relative;
   z-index: 1;
   display: flex;
   padding: var(--spacing-s);
