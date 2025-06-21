@@ -1,12 +1,13 @@
-.wrapper {
+.main {
   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 200vw;
   height: 200vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  top: 0;
-  left: 0;
 }
 
 .page {

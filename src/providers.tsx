@@ -1,0 +1,18 @@
+import { GameProvider } from '@/src/features/game/infrastructure/GameProvider.tsx';
+import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
+import type { Children } from '@/src/common/shared/types/children.ts';
+
+type Providers = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?][];
+
+const allProviders = (providers: Providers) =>
+  providers.reduce(
+    (AccumulatedProviders, [Provider, props]) =>
+      ({ children }) => (
+        <AccumulatedProviders>
+          <Provider {...props}>{children}</Provider>
+        </AccumulatedProviders>
+      ),
+    ({ children }: { children: Children }) => <>{children}</>
+  );
+
+export const Providers: FunctionComponent<{ children: Children }> = allProviders([[GameProvider]]);
