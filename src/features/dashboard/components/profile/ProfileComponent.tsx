@@ -4,12 +4,15 @@ import styles from '@/src/features/dashboard/components/profile/ProfileComponent
 export const ProfileComponent = ({ isActive }: { isActive: boolean }) => {
   return (
     <div className={classNames([styles.profile, isActive ? styles.active : ''])}>
-      <div className={styles.inner}>screen 1</div>
+      <article className={styles.article}>screen 1</article>
       <div className={styles.planet}></div>
       <div className={styles.stars}>
-        <div className={styles.star1}></div>
-        <div className={styles.star2}></div>
-        <div className={styles.star3}></div>
+        {[1, 2, 3].map((n) => (
+          <div
+            key={n}
+            className={styles[`star${n}`]}
+          />
+        ))}
       </div>
     </div>
   );

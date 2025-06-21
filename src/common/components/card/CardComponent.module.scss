@@ -1,0 +1,95 @@
+$tablet-landscape: 1280px;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+//
+//.manufacturing {
+//  grid-column: 1;
+//  grid-row: 1;
+//}
+//
+//.business {
+//  grid-column: 2;
+//  grid-row: 1;
+//}
+//
+//.resources {
+//  grid-column: 1;
+//  grid-row: 2;
+//
+//  @media (min-width: $tablet-landscape) {
+//    grid-column: 3;
+//    grid-row: 1;
+//  }
+//}
+//
+//.investments {
+//  grid-column: 2;
+//  grid-row: 2;
+//
+//  @media (min-width: $tablet-landscape) {
+//    grid-column: 1;
+//    grid-row: 2;
+//  }
+//}
+//
+//.production {
+//  grid-column: 1;
+//  grid-row: 3;
+//
+//  @media (min-width: $tablet-landscape) {
+//    grid-column: 2;
+//    grid-row: 2;
+//  }
+//}
+//
+//.swarm {
+//  grid-column: 2;
+//  grid-row: 3;
+//
+//  @media (min-width: $tablet-landscape) {
+//    grid-column: 3;
+//    grid-row: 2;
+//  }
+//}
+//
+//.power {
+//  grid-column: 1;
+//  grid-row: 4;
+//
+//  @media (min-width: $tablet-landscape) {
+//    grid-column: 1;
+//    grid-row: 3;
+//  }
+//}
+//
+//.title {
+//  padding-bottom: 0.2rem;
+//  text-transform: uppercase;
+//  font-size: var(--font-size-s);
+//  box-shadow: 0 0.2rem var(--theme-color-2);
+//}
+//
+//.subtitle {
+//  font-size: var(--font-size-s);
+//}
+//
+//.buttons {
+//  display: flex;
+//  gap: var(--spacing-xs);
+//}
+//
+//.button {
+//  width: 3.5rem;
+//  height: 2rem;
+//  font-size: var(--font-size-l);
+//  color: var(--theme-color-1);
+//
+//  &.auto {
+//    width: auto;
+//    font-size: var(--font-size-s);
+//  }
+//}

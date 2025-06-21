@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import type { Button } from '@/src/common/components/button/Button.ts';
-import styles from '@/src/common/components/button/Button.module.scss';
+import styles from '@/src/common/components/button/ButtonComponent.module.scss';
 
 export const ButtonComponent = ({
   children,

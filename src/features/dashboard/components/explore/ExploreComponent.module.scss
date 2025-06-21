@@ -1,9 +1,13 @@
 .explore {
+  position: relative;
   overflow-y: auto;
   scroll-behavior: smooth;
   width: 100vw;
+  display: flex;
 }
 
-.active {
-  background-color: red;
+.article {
+  position: relative;
+  z-index: 2;
+  flex: 1;
 }

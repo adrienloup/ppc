@@ -1,5 +1,5 @@
 import { useGame } from '@/src/features/game/infrastructure/useGame.ts';
-import styles from '@/src/common/components/header/Header.module.scss';
+import styles from '@/src/common/components/header/HeaderComponent.module.scss';
 import type { NameScreen } from '@/src/features/game/domain/NameScreen.ts';
 
 export const HeaderComponent = () => {

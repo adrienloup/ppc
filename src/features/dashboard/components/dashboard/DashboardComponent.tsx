@@ -18,7 +18,7 @@ export function DashboardComponent() {
     screen4: { x: -100, y: -100 },
   };
 
-  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0, config: { tension: 180, friction: 22 } }));
+  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0, config: { tension: 180 } }));
 
   useEffect(() => {
     const { x: targetX, y: targetY } = screen[game.screen];

@@ -1,6 +1,6 @@
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import type { Progressbar } from '@/src/common/components/progressbar/Progressbar.ts';
-import styles from '@/src/common/components/progressbar/progressbar.module.scss';
+import styles from '@/src/common/components/progressbar/ProgressbarComponent.module.scss';
 
 export const ProgressbarComponent = ({
   valueNow,

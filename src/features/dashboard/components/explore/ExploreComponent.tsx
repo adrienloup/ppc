@@ -4,11 +4,11 @@ import styles from '@/src/features/dashboard/components/explore/ExploreComponent
 export const ExploreComponent = ({ isActive }: { isActive: boolean }) => {
   return (
     <div className={classNames([styles.explore, isActive ? styles.active : ''])}>
-      <div>
+      <article className={styles.article}>
         <div>screen 4 top</div>
         <div style={{ height: '3000px' }}></div>
         <div>screen 4 bottom</div>
-      </div>
+      </article>
     </div>
   );
 };

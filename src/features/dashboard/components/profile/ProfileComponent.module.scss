@@ -3,16 +3,18 @@
   overflow-y: auto;
   scroll-behavior: smooth;
   width: 100vw;
+  display: flex;
 }
 
-.inner {
+.article {
   position: relative;
   z-index: 2;
+  flex: 1;
 }
 
 .planet {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 30%;
   z-index: 1;
   width: 10rem;
@@ -21,7 +23,7 @@
   transform: translateY(200%);
   opacity: 0;
   transition-property: transform, opacity;
-  transition-duration: 0.25s;
+  transition-duration: 0.15s;
   transition-timing-function: var(--ease-quad);
   transition-delay: 0.15s;
 
@@ -30,7 +32,7 @@
     opacity: 1;
     transition-duration: 0.15s, 0.5s;
     transition-delay: 0.5s;
-    animation: Slide4 50s infinite alternate;
+    animation: Planet 50s infinite alternate;
   }
 }
 
@@ -40,15 +42,15 @@
   top: 20%;
   left: 10%;
   width: 40rem;
-  transform: translateX(-100%);
+  transform: translateX(-200%);
   opacity: 0;
   transition-property: transform, opacity;
-  transition-duration: 0.25s, 0.75s;
   transition-timing-function: var(--ease-quad);
 
   .active & {
     transform: translateX(0);
     opacity: 1;
+    transition-duration: 0.25s, 0.75s;
     transition-delay: 0.75s;
   }
 }
@@ -60,7 +62,7 @@
   background: grey;
 
   .active & {
-    animation: Slide1 50s infinite alternate;
+    animation: Star1 60s infinite alternate;
   }
 }
 
@@ -71,7 +73,7 @@
   background: grey;
 
   .active & {
-    animation: Slide2 60s infinite alternate;
+    animation: Star2 70s infinite alternate;
   }
 }
 
@@ -82,11 +84,23 @@
   background: grey;
 
   .active & {
-    animation: Slide3 45s infinite alternate;
+    animation: star3 60s infinite alternate;
   }
 }
 
-@keyframes Slide1 {
+@keyframes Planet {
+  0% {
+    top: 35%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 35%;
+  }
+}
+
+@keyframes Star1 {
   0% {
     left: 0;
   }
@@ -98,7 +112,7 @@
   }
 }
 
-@keyframes Slide2 {
+@keyframes Star2 {
   0% {
     left: 50%;
   }
@@ -110,7 +124,7 @@
   }
 }
 
-@keyframes Slide3 {
+@keyframes star3 {
   0% {
     left: 0;
   }
@@ -119,17 +133,5 @@
   }
   100% {
     left: 0;
-  }
-}
-
-@keyframes Slide4 {
-  0% {
-    top: 30%;
-  }
-  50% {
-    top: 35%;
-  }
-  100% {
-    top: 30%;
   }
 }

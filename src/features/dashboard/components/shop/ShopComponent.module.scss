@@ -1,9 +1,12 @@
 .shop {
+  position: relative;
   overflow-y: auto;
   scroll-behavior: smooth;
   width: 100vw;
+  display: flex;
 }
 
-.active {
+.button {
+  padding: var(--spacing-s);
   background-color: red;
 }
