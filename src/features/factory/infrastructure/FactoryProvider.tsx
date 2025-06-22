@@ -1,6 +1,5 @@
 import { createPortal } from 'react-dom';
 import { useCallback, useEffect, useReducer } from 'react';
-import { useAccount } from '@/src/features/account/infrastructure/useAccount.ts';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
 import { useLocalStorage } from '@/src/common/shared/hooks/useLocalStorage.ts';
 import { factoryReducer } from '@/src/features/factory/application/factoryReducer.ts';
@@ -8,13 +7,10 @@ import {
   FactoryContext,
   FactoryDispatchContext,
 } from '@/src/features/factory/infrastructure/FactoryContext.ts';
-import { GameContext } from '@/src/features/factory/infrastructure/gameContext.ts';
-import { PlayComponent } from '@/src/common/shared/components/play/playComponent.tsx';
-import { PLAY_KEY } from '@/src/features/factory/infrastructure/playKey.ts';
 import { FACTORY_STATE } from '@/src/features/factory/states/factoryState.ts';
-import type { Children } from '@/src/common/shared/types/children.ts';
+import type { Children } from '@/src/common/shared/types/Children.ts';
 
-const pcf = document.getElementById('_pcf_3mma_0');
+const ppc = document.getElementById('_ppc_3mma_0');
 
 export function FactoryProvider({ children }: { children: Children }) {
   const { user, setAccount } = useAccount();
@@ -38,10 +34,6 @@ export function FactoryProvider({ children }: { children: Children }) {
     localStorage.setItem(setAccount(), JSON.stringify(factory));
   }, [factory, setAccount()]);
 
-  const setPlay = useCallback(() => {
-    setIsPlay((prev) => !prev);
-  }, []);
-
   const sellUnsoldInventory = useCallback(() => {
     setFactory({ type: 'SELL_UNSOLD_INVENTORY' });
   }, []);
@@ -59,10 +51,8 @@ export function FactoryProvider({ children }: { children: Children }) {
       key={user}
     >
       <FactoryDispatchContext.Provider value={setFactory}>
-        <GameContext.Provider value={{ isPlay, setPlay }}>
-          {!isPlay ? createPortal(<PlayComponent />, pcf!) : null}
-          {children}
-        </GameContext.Provider>
+        {!isPlay ? createPortal(<PlayComponent />, ppc!) : null}
+        {children}
       </FactoryDispatchContext.Provider>
     </FactoryContext.Provider>
   );

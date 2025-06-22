@@ -65,7 +65,7 @@
   height: 12rem;
   background: grey;
   animation:
-    //PlanetSlide 50s infinite alternate,
+    PlanetMove 40s infinite alternate 0.5s,
     PlanetSlide 0.5s var(--ease-quad) backwards,
     FadeIn 0.8s var(--ease-quad) backwards;
 }
@@ -160,6 +160,18 @@
   }
   100% {
     transform: translateX(0) translateZ(0);
+  }
+}
+
+@keyframes PlanetMove {
+  0% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(20%) translateZ(0);
+  }
+  100% {
+    transform: translateY(0) translateZ(0);
   }
 }
 
