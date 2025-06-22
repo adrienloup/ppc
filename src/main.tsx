@@ -14,4 +14,4 @@ createRoot(document.getElementById('_ppc_3mma_0')!).render(
   </StrictMode>
 );
 
-console.log(`%c[ppc] ${version} @jff`, 'font-weight: bold; color: #e3e3e8;');
+console.log(`%c[ppc] ${version} @jff`, 'color: #e3e3e8;');

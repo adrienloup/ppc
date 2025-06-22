@@ -1,20 +1,20 @@
-import { TitleComponent } from '@/src/common/shared/components/title/titleComponent.tsx';
-import { FeaturesComponent } from '@/src/features/factory/components/showcase/features/featuresComponent.tsx';
-import { EmptyComponent } from '@/src/common/shared/components/empty/emptyComponent.tsx';
-import type { Feature } from '@/src/features/factory/domain/feature.ts';
+import { TitleComponent } from '@/src/common/components/title/TitleComponent.tsx';
+import { FeaturesComponent } from '@/src/features/factory/components/shop/features/FeaturesComponent.tsx';
+// import { EmptyComponent } from '@/src/common/components/empty/emptyComponent.tsx';
+import type { Feature } from '@/src/features/factory/domain/Feature.ts';
 import styles from '@/src/features/factory/components/shop/category/CategoryComponent.module.scss';
-import type { Category } from '@/src/features/factory/components/shop/category/Category.ts';
 
-export const CategoryComponent = ({ category, products }: Category) => {
+export const CategoryComponent = ({ category, feature }: { category: string; feature: Feature }) => {
   return (
     <div className={styles.category}>
       <TitleComponent
         className={styles.title}
         tag="h2"
       >
-        {category} {`(${products.length})`}
+        {category} {`(${Object.keys(feature).length})`}
       </TitleComponent>
-      {products.length ? <FeaturesComponent feature={feature} /> : <EmptyComponent />}
+      {Object.keys(feature).length ? <FeaturesComponent feature={feature} /> : 'empty'}
+      {/*{Object.keys(feature).length ? <FeaturesComponent feature={feature} /> : <EmptyComponent />}*/}
     </div>
   );
 };

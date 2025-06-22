@@ -1,0 +1,67 @@
+.pause {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.button {
+  position: sticky;
+  bottom: 1rem;
+  z-index: 2;
+  background-color: var(--color-9);
+  animation: Appear 300ms var(--ease-expo);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.5;
+  background-color: var(--color-1);
+
+  //div {
+  //  background-color: var(--theme-color-1);
+  //  height: calc(100% / 20);
+  //  width: 100%;
+  //  animation: Fade 2000ms infinite;
+  //  animation-direction: alternate;
+  //
+  //  @for $i from 1 through 20 {
+  //    &:nth-child(#{$i}) {
+  //      animation-delay: #{$i * 200ms};
+  //    }
+  //  }
+  //}
+}
+
+@keyframes Appear {
+  0% {
+    transform: translateY(100%) scale(0.9);
+  }
+}
+
+//@keyframes Fade {
+//  from {
+//    background-color: var(--theme-color-1);
+//  }
+//  to {
+//    background-color: var(--theme-color-2);
+//  }
+//}
