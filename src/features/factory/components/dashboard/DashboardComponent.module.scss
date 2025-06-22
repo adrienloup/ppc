@@ -64,7 +64,7 @@
   background: grey;
   animation:
     //PlanetSlide 50s infinite alternate,
-    SlideUp 0.5s var(--ease-quad) backwards,
+    SlideUp 0.45s var(--ease-quad) backwards,
     FadeIn 0.55s var(--ease-quad) backwards;
 }
 

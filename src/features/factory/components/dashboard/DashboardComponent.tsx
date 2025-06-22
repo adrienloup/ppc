@@ -10,13 +10,13 @@ import { InvestmentsComponent } from '@/src/features/factory/components/investme
 import { ProductionComponent } from '@/src/features/factory/components/production/ProductionComponent.tsx';
 import { SwarmComponent } from '@/src/features/factory/components/swarm/SwarmComponent.tsx';
 import { PowerComponent } from '@/src/features/factory/components/power/PowerComponent.tsx';
-import styles from '@/src/features/factory/components/factory/FactoryComponent.module.scss';
+import styles from '@/src/features/factory/components/dashboard/DashboardComponent.module.scss';
 
-export const FactoryComponent = () => {
+export const DashboardComponent = () => {
   return (
     <ArticleComponent>
       <TurbanComponent className={styles.turban}>
-        <TitleComponent className={styles.title}>factory</TitleComponent>
+        <TitleComponent className={styles.title}>dashboard</TitleComponent>
         <ButtonComponent
           className={styles.button}
           to="/ppc/shop"

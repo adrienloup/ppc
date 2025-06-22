@@ -40,7 +40,7 @@ export const MenuComponent = () => {
       </ButtonComponent>
       <div className={styles.inside}>
         <div className={styles.nav}>
-          {(['profile', 'factory', 'shop', 'explore'] as Page[]).map((page: Page) => (
+          {(['profile', 'dashboard', 'shop', 'explore'] as Page[]).map((page: Page) => (
             <ButtonComponent
               key={page}
               to={`/ppc/${page}`}

@@ -1,3 +1,4 @@
+import { AuthentificationProvider } from '@/src/features/authentification/infrastructure/AuthentificationProvider.tsx';
 import { GameProvider } from '@/src/features/game/infrastructure/GameProvider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/common/shared/types/Children.ts';
@@ -15,4 +16,7 @@ const allProviders = (providers: Providers) =>
     ({ children }: { children: Children }) => <>{children}</>
   );
 
-export const Providers: FunctionComponent<{ children: Children }> = allProviders([[GameProvider]]);
+export const Providers: FunctionComponent<{ children: Children }> = allProviders([
+  [AuthentificationProvider],
+  [GameProvider],
+]);

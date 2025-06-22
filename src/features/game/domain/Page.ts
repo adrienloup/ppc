@@ -1,1 +1,1 @@
-export type Page = 'profile' | 'factory' | 'shop' | 'explore';
+export type Page = 'profile' | 'dashboard' | 'shop' | 'explore';

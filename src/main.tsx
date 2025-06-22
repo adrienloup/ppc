@@ -4,7 +4,7 @@ import { version } from '@/package.json';
 import { Providers } from '@/src/providers.tsx';
 import '@/src/main.scss';
 import '@/src/common/i18n';
-import App from '@/src/app/App.tsx';
+import App from '@/src/common/app/App.tsx';
 
 createRoot(document.getElementById('_ppc_3mma_0')!).render(
   <StrictMode>
