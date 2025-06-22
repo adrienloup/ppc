@@ -2,8 +2,17 @@ import type { Profile, ProfileDispatch } from '@/src/features/profile/domain/Pro
 
 export const profileReducer = (state: Profile, action: ProfileDispatch): Profile => {
   switch (action.type) {
-    case 'SET_USER': {
-      return { ...state, user: action.user };
+    case 'INITIALIZE': {
+      return { ...action.state };
+    }
+    case 'SET_LANGUAGE': {
+      return { ...state, language: action.language };
+    }
+    case 'SET_MODE': {
+      return { ...state, mode: action.mode };
+    }
+    case 'SET_THEME': {
+      return { ...state, theme: action.theme };
     }
     case 'SET_PLAY': {
       return { ...state, isPlay: !state.isPlay };

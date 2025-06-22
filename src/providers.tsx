@@ -1,5 +1,6 @@
 import { AuthentificationProvider } from '@/src/features/authentification/infrastructure/AuthentificationProvider.tsx';
 import { GameProvider } from '@/src/features/game/infrastructure/GameProvider.tsx';
+import { ProfileProvider } from '@/src/features/profile/infrastructure/ProfileProvider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/common/shared/types/Children.ts';
 
@@ -19,4 +20,5 @@ const allProviders = (providers: Providers) =>
 export const Providers: FunctionComponent<{ children: Children }> = allProviders([
   [AuthentificationProvider],
   [GameProvider],
+  [ProfileProvider],
 ]);

@@ -3,13 +3,13 @@ import { TurbanComponent } from '@/src/common/components/turban/TurbanComponent.
 import { TitleComponent } from '@/src/common/components/title/TitleComponent.tsx';
 import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.tsx';
 import { CardsComponent } from '@/src/common/components/cards/CardsComponent.tsx';
-import { ManufacturingComponent } from '@/src/features/factory/components/manufacturing/ManufacturingComponent.tsx';
-import { BusinessComponent } from '@/src/features/factory/components/business/BusinessComponent.tsx';
-import { ResourcesComponent } from '@/src/features/factory/components/resources/ResourcesComponent.tsx';
-import { InvestmentsComponent } from '@/src/features/factory/components/investments/InvestmentsComponent.tsx';
-import { ProductionComponent } from '@/src/features/factory/components/production/ProductionComponent.tsx';
-import { SwarmComponent } from '@/src/features/factory/components/swarm/SwarmComponent.tsx';
-import { PowerComponent } from '@/src/features/factory/components/power/PowerComponent.tsx';
+import { ManufacturingComponent } from '@/src/features/factory/components/dashboard/manufacturing/ManufacturingComponent.tsx';
+import { BusinessComponent } from '@/src/features/factory/components/dashboard/business/BusinessComponent.tsx';
+import { ResourcesComponent } from '@/src/features/factory/components/dashboard/resources/ResourcesComponent.tsx';
+import { InvestmentsComponent } from '@/src/features/factory/components/dashboard/investments/InvestmentsComponent.tsx';
+import { ProductionComponent } from '@/src/features/factory/components/dashboard/production/ProductionComponent.tsx';
+import { SwarmComponent } from '@/src/features/factory/components/dashboard/swarm/SwarmComponent.tsx';
+import { PowerComponent } from '@/src/features/factory/components/dashboard/power/PowerComponent.tsx';
 import styles from '@/src/features/factory/components/dashboard/DashboardComponent.module.scss';
 
 export const DashboardComponent = () => {

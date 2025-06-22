@@ -9,10 +9,12 @@ export const authentificationReducer = (
 ): Authentification => {
   switch (action.type) {
     case 'SIGN_OUT': {
-      return { ...state, user: '' };
+      return { ...state, user: null };
     }
     case 'SIGN_IN': {
-      return state.users.find((user) => user.username === action.username && user.password === action.password)
+      return state.users.find(
+        (user) => user.username === action.username && user.password === action.password
+      )
         ? { ...state, user: action.username }
         : state;
     }

@@ -12,14 +12,14 @@ export const ProfileComponent = () => {
   const [authentification, setAuthentification] = useAuthentification();
   // const [profile, setProfile] = useProfile();
 
-  const signUp = async () => {
-    const password = await base64Encode('ccc');
-    setAuthentification({ type: 'SIGN_UP', username: 'ccc', password });
+  const signUp = async (username: string, password: string) => {
+    const hashPassword = await base64Encode(password);
+    setAuthentification({ type: 'SIGN_UP', username, password: hashPassword });
   };
 
-  const signIn = async () => {
-    const password = await base64Encode('ccc');
-    setAuthentification({ type: 'SIGN_IN', username: 'ccc', password });
+  const signIn = async (username: string, password: string) => {
+    const hashPassword = await base64Encode(password);
+    setAuthentification({ type: 'SIGN_IN', username, password: hashPassword });
   };
 
   return (
@@ -28,22 +28,28 @@ export const ProfileComponent = () => {
         <TitleComponent className={styles.title}>profile</TitleComponent>
         <ButtonComponent className={styles.button}>dashboard</ButtonComponent>
       </TurbanComponent>
-      <div>username {authentification.user!}</div>
+      <div>username {authentification.user}</div>
       <div>users {authentification.users.length}</div>
       <div>users {JSON.stringify(authentification.users)}</div>
       <div>
-        <button onClick={() => setAuthentification({ type: 'SIGN_IN', username: 'aaa', password: 'aaa' })}>aaa</button>
-        <button onClick={() => setAuthentification({ type: 'SIGN_IN', username: 'bbb', password: 'bbb' })}>bbb</button>
-        <button onClick={signIn}>ccc</button>
-        <button onClick={() => setAuthentification({ type: 'SIGN_IN', username: 'guest', password: 'guest' })}>
+        <button onClick={() => setAuthentification({ type: 'SIGN_IN', username: 'aaa', password: 'aaa' })}>
+          aaa
+        </button>
+        {/*<button onClick={() => setAuthentification({ type: 'SIGN_IN', username: 'bbb', password: 'bbb' })}>bbb</button>*/}
+        <button onClick={() => signIn('bbb', 'bbb')}>bbb</button>
+        <button onClick={() => signIn('ccc', 'ccc')}>ccc</button>
+        <button
+          onClick={() => setAuthentification({ type: 'SIGN_IN', username: 'guest', password: 'guest' })}
+        >
           guest
         </button>
       </div>
       <div>
-        <button onClick={() => setAuthentification({ type: 'SIGN_OUT' })}>logout</button>
+        <button onClick={() => signUp('ccc', 'ccc')}>sing in ccc</button>
+        <button onClick={() => signUp('bbb', 'bbb')}>sing in bbb</button>
       </div>
       <div>
-        <button onClick={signUp}>sing in ccc</button>
+        <button onClick={() => setAuthentification({ type: 'SIGN_OUT' })}>logout</button>
       </div>
       {[1, 2].map((n) => (
         <div

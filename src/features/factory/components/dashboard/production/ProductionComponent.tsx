@@ -2,16 +2,16 @@ import { CardComponent } from '@/src/common/components/card/CardComponent.tsx';
 import { TitleComponent } from '@/src/common/components/title/TitleComponent.tsx';
 import { DialsComponent } from '@/src/common/components/dials/DialsComponent.tsx';
 import { DialComponent } from '@/src/common/components/dial/DialComponent.tsx';
-import styles from '@/src/features/factory/components/swarm/SwarmComponent.module.scss';
+import styles from '@/src/features/factory/components/dashboard/production/ProductionComponent.module.scss';
 
-export const SwarmComponent = () => {
+export const ProductionComponent = () => {
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
         tag="h2"
         className={styles.title}
       >
-        swarm
+        production
       </TitleComponent>
       <DialsComponent>
         <DialComponent

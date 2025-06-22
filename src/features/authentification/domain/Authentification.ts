@@ -1,7 +1,7 @@
 import type { User } from '@/src/features/authentification/domain/User.ts';
 
 export interface Authentification {
-  user: string;
+  user: string | null;
   users: User[];
 }
 

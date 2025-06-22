@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGame } from '@/src/features/game/infrastructure/useGame.ts';
+import { useProfile } from '@/src/features/profile/infrastructure/useProfile.ts';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.tsx';
 import type { Page } from '@/src/features/game/domain/Page.ts';
@@ -8,7 +8,7 @@ import styles from '@/src/common/components/menu/MenuComponent.module.scss';
 
 export const MenuComponent = () => {
   const { t } = useTranslation();
-  const [game, setGame] = useGame();
+  const [profile, setProfile] = useProfile();
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
@@ -48,8 +48,27 @@ export const MenuComponent = () => {
               {page}
             </ButtonComponent>
           ))}
-          <ButtonComponent onClick={() => setGame({ ...game, isPlay: !game.isPlay })}>
-            {game.isPlay ? 'start' : 'pause'}
+        </div>
+        <div>
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_LANGUAGE', language: 'en' })}>
+            en
+          </ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_LANGUAGE', language: 'fr' })}>
+            fr
+          </ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'dark' })}>
+            dark
+          </ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'light' })}>
+            light
+          </ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'system' })}>
+            system
+          </ButtonComponent>
+        </div>
+        <div>
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_PLAY' })}>
+            {profile.isPlay ? 'start' : 'pause'}
           </ButtonComponent>
         </div>
       </div>
