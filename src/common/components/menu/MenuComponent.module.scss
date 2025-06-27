@@ -1,11 +1,11 @@
-//$mobile-landscape: 768px;
+//$mobile-landscape: 796px; // 768
 //$tablet-portrait: 1024px;
 //$tablet-landscape: 1280px;
 
 .menu {
   position: relative;
   height: 0;
-  background-color: red;
+  background-color: var(--mode-color-2);
   transition-property: height;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
@@ -60,10 +60,10 @@
   display: flex;
   align-items: center;
   padding: var(--spacing-s);
-  background-color: red;
+  background-color: var(--mode-color-2);
   text-transform: uppercase;
   font-size: var(--font-size-s);
-  color: var(--color-2);
+  color: var(--mode-color-1);
   outline-offset: -0.25rem;
 
   //&.active,

@@ -14,7 +14,7 @@ import { FACTORY_STATE } from '@/src/features/factory/states/factoryState.ts';
 import type { Children } from '@/src/common/shared/types/Children.ts';
 import type { Factory } from '@/src/features/factory/domain/Factory.ts';
 
-const ppc = document.getElementById('_ppc_3mma_0');
+const PPC = document.getElementById('_ppc_3mma_0');
 
 export function FactoryProvider({ children }: { children: Children }) {
   const [authentification] = useAuthentification();
@@ -58,7 +58,7 @@ export function FactoryProvider({ children }: { children: Children }) {
       key={authentification.user}
     >
       <FactoryDispatchContext.Provider value={setFactory}>
-        {!profile.isPlay ? createPortal(<PauseComponent />, ppc!) : null}
+        {!profile.isPlay ? createPortal(<PauseComponent />, PPC!) : null}
         {children}
       </FactoryDispatchContext.Provider>
     </FactoryContext.Provider>

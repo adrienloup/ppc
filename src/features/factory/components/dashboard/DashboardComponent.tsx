@@ -14,25 +14,27 @@ import styles from '@/src/features/factory/components/dashboard/DashboardCompone
 
 export const DashboardComponent = () => {
   return (
-    <ArticleComponent>
-      <TurbanComponent className={styles.turban}>
-        <TitleComponent className={styles.title}>dashboard</TitleComponent>
-        <ButtonComponent
-          className={styles.button}
-          to="/ppc/shop"
-        >
-          shop
-        </ButtonComponent>
-      </TurbanComponent>
-      <CardsComponent className={styles.cards}>
-        <ManufacturingComponent />
-        <BusinessComponent />
-        <ResourcesComponent />
-        <InvestmentsComponent />
-        <ProductionComponent />
-        <SwarmComponent />
-        <PowerComponent />
-      </CardsComponent>
+    <>
+      <ArticleComponent>
+        <TurbanComponent className={styles.turban}>
+          <TitleComponent className={styles.title}>dashboard</TitleComponent>
+          <ButtonComponent
+            className={styles.button}
+            to="/ppc/shop"
+          >
+            shop
+          </ButtonComponent>
+        </TurbanComponent>
+        <CardsComponent className={styles.cards}>
+          <ManufacturingComponent />
+          <BusinessComponent />
+          <ResourcesComponent />
+          <InvestmentsComponent />
+          <ProductionComponent />
+          <SwarmComponent />
+          <PowerComponent />
+        </CardsComponent>
+      </ArticleComponent>
       <div className={styles.planet}></div>
       <div className={styles.stars}>
         {[1, 2, 3, 4].map((n) => (
@@ -42,6 +44,6 @@ export const DashboardComponent = () => {
           />
         ))}
       </div>
-    </ArticleComponent>
+    </>
   );
 };

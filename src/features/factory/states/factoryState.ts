@@ -1,4 +1,4 @@
-import type { Factory } from '@/src/features/factory/domain/factory.ts';
+import type { Factory } from '@/src/features/factory/domain/Factory.ts';
 import { FEATURE_STATE } from '@/src/features/factory/states/featureState.ts';
 import { WALLET_STATE } from '@/src/features/factory/states/walletState.ts';
 

@@ -1,4 +1,4 @@
-import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
+import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/Factory.ts';
 
 export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
@@ -21,7 +21,11 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
     case 'BUY_CLIP_FACTORY': {
       if (state.funds < state.clipFactoryCost) return state;
       const clipFactoryBonusCP =
-        state.clipFactory + 1 >= 20 ? 1e3 : state.clipFactory + 1 >= 10 ? 1e2 : state.clipFactoryBonus;
+        state.clipFactory + 1 >= 20
+          ? 1e3
+          : state.clipFactory + 1 >= 10
+            ? 1e2
+            : state.clipFactoryBonus;
       return {
         ...state,
         clipFactory: state.clipFactory + 1,

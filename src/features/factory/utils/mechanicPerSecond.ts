@@ -1,7 +1,16 @@
-import type { Factory } from '@/src/features/factory/domain/factory.ts';
+import type { Factory } from '@/src/features/factory/domain/Factory.ts';
 
 export function mechanicPerSecond(state: Factory): { clip: number; wire: number } {
-  const { wire, feature, clipFactory, clipFactoryBonus, megaClipper, clipper, clipperBonus, megaClipperBonus } = state;
+  const {
+    wire,
+    feature,
+    clipFactory,
+    clipFactoryBonus,
+    megaClipper,
+    clipper,
+    clipperBonus,
+    megaClipperBonus,
+  } = state;
   const clipFactoryPS = Math.min(clipFactory * 1e3 * Math.max(1, clipFactoryBonus), 1e11);
 
   if (feature.clipFactory.enabled) {

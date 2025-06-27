@@ -1,0 +1,30 @@
+$mobile-landscape: 768px;
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+
+  @media (min-width: $mobile-landscape) {
+    gap: var(--spacing-m);
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-m);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-s);
+  background-color: var(--color-3);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  color: var(--color-1);
+
+  &:active {
+    outline: 0.25rem solid var(--color-7);
+  }
+}

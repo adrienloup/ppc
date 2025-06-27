@@ -1,4 +1,4 @@
-import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
+import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/Factory.ts';
 import { mechanicPerSecond } from '@/src/features/factory/utils/mechanicPerSecond.ts';
 
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
@@ -10,7 +10,8 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       const fundsPPS = clipPPS * state.clipPrice;
       const operationPPS = Math.min(state.operationMax, state.operation + 10 * state.processor);
       const creativityPPS = state.creativity + 10 + Math.floor(Math.random() * 10); // 0 1, 0 10, 10 20;
-      const wireDronePPS = state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
+      const wireDronePPS =
+        state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
       const harvesterDronePPS =
         state.harvesterDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
       const availableMatterPPS = Math.max(0, state.availableMatter - harvesterDronePPS);

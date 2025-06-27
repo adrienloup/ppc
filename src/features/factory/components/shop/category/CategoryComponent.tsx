@@ -4,7 +4,13 @@ import { FeaturesComponent } from '@/src/features/factory/components/shop/featur
 import type { Feature } from '@/src/features/factory/domain/Feature.ts';
 import styles from '@/src/features/factory/components/shop/category/CategoryComponent.module.scss';
 
-export const CategoryComponent = ({ category, feature }: { category: string; feature: Feature }) => {
+export const CategoryComponent = ({
+  category,
+  feature,
+}: {
+  category: string;
+  feature: Feature;
+}) => {
   return (
     <div className={styles.category}>
       <TitleComponent

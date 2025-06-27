@@ -1,9 +1,9 @@
-$mobile-landscape: 796px;
+$mobile-landscape: 796px; // 768
 $tablet-landscape: 1280px;
 
 .article {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   flex: 1;
   display: flex;
   flex-direction: column;

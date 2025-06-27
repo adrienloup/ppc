@@ -17,7 +17,10 @@ export function AuthentificationProvider({ children }: { children: Children }) {
 
   const [users, setUsers] = useLocalStorage<User[]>(USERS_KEY, []);
   const [user, setUser] = useLocalStorage<string | null>(USER_KEY, null);
-  const [authentification, setAuthentification] = useReducer(authentificationReducer, { user, users });
+  const [authentification, setAuthentification] = useReducer(authentificationReducer, {
+    user,
+    users,
+  });
 
   // const [authentification, setAuthentification] = usePersistedReducer(
   //   AUTHENTIFICATION_KEY,

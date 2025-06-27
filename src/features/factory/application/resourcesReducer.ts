@@ -1,4 +1,4 @@
-import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
+import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/Factory.ts';
 
 export const resourcesReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {

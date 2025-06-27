@@ -1,5 +1,5 @@
-import type { Factory } from '@/src/features/factory/domain/factory.ts';
-import type { FactoryDispatch } from '@/src/features/factory/domain/factory.ts';
+import type { Factory } from '@/src/features/factory/domain/Factory.ts';
+import type { FactoryDispatch } from '@/src/features/factory/domain/Factory.ts';
 
 export const swarmReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {

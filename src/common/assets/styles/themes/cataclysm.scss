@@ -1,0 +1,17 @@
+// 1st Stage. dusk (crépuscule), 2nd Stage. tumult (tumulte), 3rd Stage. cataclysm (cataclysme)
+
+@mixin if-cataclysm {
+  ._cataclysm_3mma_0 {
+    @content;
+  }
+}
+
+@mixin cataclysm {
+  --theme-color-1: var(--color-11);
+}
+
+:root {
+  @include if-cataclysm {
+    @include cataclysm();
+  }
+}

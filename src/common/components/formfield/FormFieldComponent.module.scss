@@ -1,0 +1,9 @@
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.errorMessage {
+  color: var(--color-7);
+}

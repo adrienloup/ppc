@@ -4,8 +4,8 @@ export const fr: Translation = {
   app: {
     loading: 'chargement',
     menu: {
-      close: 'fermer',
-      open: 'ouvrir',
+      close: 'fermer le menu',
+      open: 'ouvrir le menu',
     },
   },
 };
