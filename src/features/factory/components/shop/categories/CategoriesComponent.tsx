@@ -5,37 +5,34 @@ import type { Categories } from '@/src/features/factory/components/shop/categori
 export const CategoriesComponent = ({ className }: Categories) => {
   const factory = useFactory();
 
-  const filteredFeature = Object.entries(factory.feature).reduce(
+  const featureByCategory = Object.entries(factory.feature).reduce(
     (acc, [key, value]) => {
-      if ('category' in value) {
-        acc[key] = value;
-      }
-      return acc;
-    },
-    {} as typeof factory.feature
-  );
+      if (!('category' in value)) return acc;
 
-  const groupedByCategory = Object.entries(filteredFeature).reduce(
-    (acc, [key, value]) => {
-      const category = value.category;
-      if (!acc[category!]) {
-        acc[category!] = {};
-      }
+      const category = value.category!;
+      acc[category] ??= { enabled: {}, consumed: 0, total: 0 };
+      acc[category].total += 1;
+
       if (value.enabled) {
-        acc[category!][key] = value;
+        acc[category].enabled[key] = value;
+      } else if (value.actived) {
+        acc[category].consumed += 1;
       }
+
       return acc;
     },
-    {} as Record<string, typeof filteredFeature>
+    {} as Record<string, { enabled: typeof factory.feature; consumed: number; total: number }>
   );
 
   return (
     <div className={className ? className : ''}>
-      {Object.entries(groupedByCategory).map(([category, feature]) => (
+      {Object.entries(featureByCategory).map(([category, feature]) => (
         <CategoryComponent
           key={category}
           category={category}
-          feature={feature}
+          feature={feature.enabled}
+          consumed={feature.consumed}
+          total={feature.total}
         />
       ))}
     </div>

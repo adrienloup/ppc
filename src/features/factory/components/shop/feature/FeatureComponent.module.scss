@@ -8,9 +8,9 @@ $desktop: 1440px;
   overflow: hidden;
   width: 100%;
   padding: var(--spacing-xs);
-  background-color: var(--color-2);
+  background-color: var(--mode-color-2);
   text-align: left;
-  color: var(--color-1);
+  color: var(--mode-color-1);
 
   @media (min-width: $tablet-portrait) {
     width: calc((100% / 2) - 1rem);
@@ -27,7 +27,7 @@ $desktop: 1440px;
 }
 
 .text {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-s);
 
   &::first-letter {
     text-transform: uppercase;
