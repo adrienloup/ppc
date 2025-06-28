@@ -13,6 +13,10 @@ import { ProductionComponent } from '@/src/features/factory/components/dashboard
 import { SwarmComponent } from '@/src/features/factory/components/dashboard/SwarmComponent.tsx';
 import { PowerComponent } from '@/src/features/factory/components/dashboard/PowerComponent.tsx';
 import { LoginComponent } from '@/src/features/authentification/components/login/LoginComponent.tsx';
+import { SpaceComponent } from '@/src/common/components/space/SpaceComponent.tsx';
+import { PlanetComponent } from '@/src/common/components/planet/PlanetComponent.tsx';
+import { StarsComponent } from '@/src/common/components/stars/StarsComponent.tsx';
+import { StarComponent } from '@/src/common/components/star/StarComponent.tsx';
 import styles from '@/src/features/factory/components/dashboard/DashboardComponent.module.scss';
 
 export const DashboardComponent = () => {
@@ -47,15 +51,22 @@ export const DashboardComponent = () => {
           <LoginComponent className={styles.login} />
         )}
       </ArticleComponent>
-      <div className={styles.planet}></div>
-      <div className={styles.stars}>
-        {[1, 2, 3, 4].map((n) => (
-          <div
+      <SpaceComponent>
+        {[1, 2].map((n) => (
+          <PlanetComponent
             key={n}
-            className={styles[`star${n}`]}
+            className={styles[`planet${n}`]}
           />
         ))}
-      </div>
+        <StarsComponent className={styles.stars}>
+          {[1, 2, 3, 4, 5].map((n) => (
+            <StarComponent
+              key={n}
+              className={styles[`star${n}`]}
+            />
+          ))}
+        </StarsComponent>
+      </SpaceComponent>
     </>
   );
 };
