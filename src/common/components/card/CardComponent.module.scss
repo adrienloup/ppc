@@ -6,7 +6,7 @@ $mobile-landscape: 768px;
   gap: var(--spacing-xs);
 
   @media (min-width: $mobile-landscape) {
-    gap: var(--spacing-m);
+    gap: var(--spacing-s);
   }
 }
 
@@ -16,4 +16,8 @@ $mobile-landscape: 768px;
   font-size: var(--font-size-s);
   box-shadow: 0 0.2rem var(--mode-color-2);
   color: var(--mode-color-2);
+}
+
+.background {
+  width: 100%;
 }

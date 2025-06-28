@@ -5,7 +5,7 @@ $mobile-landscape: 768px;
   animation-timing-function: var(--ease-quad);
   animation-duration: 0.5s, 0.7s;
   animation-fill-mode: backwards;
-  animation-delay: 0.8s;
+  animation-delay: 0.7s;
 }
 
 .title {
@@ -49,7 +49,7 @@ $mobile-landscape: 768px;
 
     @for $i from 1 through 7 {
       &:nth-child(#{$i}) {
-        animation-delay: #{0.8s + $i * 0.1s};
+        animation-delay: #{0.7s + $i * 0.1s};
       }
     }
   }
@@ -60,6 +60,7 @@ $mobile-landscape: 768px;
   left: 60%;
   width: 18rem;
   height: 18rem;
+  box-shadow: inset -0.75rem -0.75rem 0 #393939;
   animation:
     Planet1Move 70s infinite alternate 0.5s,
     PlanetSlide 0.5s var(--ease-quad) backwards,
@@ -87,6 +88,7 @@ $mobile-landscape: 768px;
   left: 20%;
   width: 8rem;
   height: 8rem;
+  box-shadow: inset -0.35rem -0.35rem 0 #393939;
   animation:
     Planet2Move 60s infinite alternate 0.7s,
     PlanetSlide 0.5s var(--ease-quad) backwards 0.1s,
@@ -111,29 +113,29 @@ $mobile-landscape: 768px;
 }
 
 .star1 {
-  width: 2rem;
-  height: 2rem;
+  width: 1.25rem;
+  height: 1.25rem;
   box-shadow: 0 0 0.6rem 0.5rem rgba(255, 255, 255, 0.25);
   animation: Star1Move 60s infinite alternate;
 }
 
 .star2 {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
   box-shadow: 0 0 0.5rem 0.4rem rgba(255, 255, 255, 0.25);
   animation: Star2Move 70s infinite alternate;
 }
 
 .star3 {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.15rem;
+  height: 1.15rem;
   box-shadow: 0 0 0.5rem 0.4rem rgba(255, 255, 255, 0.25);
   animation: Star3Move 50s infinite alternate;
 }
 
 .star4 {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
   box-shadow: 0 0 0.5rem 0.4rem rgba(255, 255, 255, 0.25);
   animation: Star4Move 60s infinite alternate;
 }

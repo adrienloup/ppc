@@ -13,16 +13,11 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
-  padding: var(--spacing-xs);
+  min-width: 4rem;
+  height: 2rem;
   background-color: var(--theme-color-1);
   font-size: var(--font-size-s);
   color: var(--theme-color-2);
-
-  [aria-hidden='false'] {
-    margin: 0 var(--spacing-s);
-  }
 }
 
 .value {
