@@ -30,9 +30,14 @@ export const ShopComponent = () => {
           <LoginComponent className={styles.login} />
         )}
       </ArticleComponent>
-      <div className={styles.planet}></div>
+      {[1, 2].map((n) => (
+        <div
+          key={n}
+          className={styles[`planet${n}`]}
+        />
+      ))}
       <div className={styles.stars}>
-        {[1, 2, 3].map((n) => (
+        {[1, 2, 3, 4].map((n) => (
           <div
             key={n}
             className={styles[`star${n}`]}

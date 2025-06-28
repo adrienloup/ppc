@@ -3,7 +3,7 @@
   animation-timing-function: var(--ease-quad);
   animation-duration: 0.5s, 0.7s;
   animation-fill-mode: backwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.7s;
 }
 
 .title {
@@ -30,18 +30,32 @@
   }
 }
 
-.planet {
+.planet1 {
   position: absolute;
-  top: 35%;
-  left: 50%;
+  top: 20%;
+  left: 60%;
   z-index: 1;
-  width: 15rem;
-  height: 15rem;
+  width: 16rem;
+  height: 16rem;
   background: grey;
   animation:
-    PlanetMove 60s infinite alternate 0.5s,
+    Planet1Move 60s infinite alternate 0.5s,
     PlanetSlide 0.5s var(--ease-quad) backwards,
     FadeIn 0.8s var(--ease-quad) backwards;
+}
+
+.planet2 {
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  z-index: 1;
+  width: 8rem;
+  height: 8rem;
+  background: grey;
+  animation:
+    Planet2Move 60s infinite alternate 0.7s,
+    PlanetSlide 0.5s var(--ease-quad) backwards 0.2s,
+    FadeIn 0.8s var(--ease-quad) backwards 0.2s;
 }
 
 .stars {
@@ -51,11 +65,11 @@
   left: 10%;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-m);
   width: 40rem;
   animation:
-    StarsSlide 0.5s var(--ease-quad) backwards 0.2s,
-    FadeIn 0.7s var(--ease-quad) backwards 0.2s;
+    StarsSlide 0.5s var(--ease-quad) backwards 0.5s,
+    FadeIn 0.7s var(--ease-quad) backwards 0.5s;
 }
 
 .star1 {
@@ -80,6 +94,14 @@
   height: 1.5rem;
   background: grey;
   animation: Star3Move 50s infinite alternate;
+}
+
+.star4 {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: grey;
+  animation: Star4Move 60s infinite alternate;
 }
 
 @keyframes FadeIn {
@@ -121,7 +143,7 @@
   }
 }
 
-@keyframes PlanetMove {
+@keyframes Planet1Move {
   0% {
     transform: translateY(0) translateZ(0);
   }
@@ -130,6 +152,18 @@
   }
   100% {
     transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes Planet2Move {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-5%, -5%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -166,5 +200,17 @@
   }
   100% {
     left: 5%;
+  }
+}
+
+@keyframes Star4Move {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 0;
   }
 }
