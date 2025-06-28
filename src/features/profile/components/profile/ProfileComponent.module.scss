@@ -15,10 +15,10 @@
 .button {
   display: flex;
   align-items: center;
-  padding: var(--spacing-s);
+  padding: var(--spacing-xs);
   background-color: red;
   text-transform: uppercase;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
   color: var(--color-2);
   outline-offset: -0.25rem;
 }

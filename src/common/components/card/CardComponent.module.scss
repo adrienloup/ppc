@@ -1,96 +1,19 @@
-//$tablet-landscape: 1280px;
+$mobile-landscape: 768px;
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-s);
-  padding: var(--spacing-s);
+  gap: var(--spacing-xs);
+
+  @media (min-width: $mobile-landscape) {
+    gap: var(--spacing-m);
+  }
 }
-//
-//.manufacturing {
-//  grid-column: 1;
-//  grid-row: 1;
-//}
-//
-//.business {
-//  grid-column: 2;
-//  grid-row: 1;
-//}
-//
-//.resources {
-//  grid-column: 1;
-//  grid-row: 2;
-//
-//  @media (min-width: $tablet-landscape) {
-//    grid-column: 3;
-//    grid-row: 1;
-//  }
-//}
-//
-//.investments {
-//  grid-column: 2;
-//  grid-row: 2;
-//
-//  @media (min-width: $tablet-landscape) {
-//    grid-column: 1;
-//    grid-row: 2;
-//  }
-//}
-//
-//.production {
-//  grid-column: 1;
-//  grid-row: 3;
-//
-//  @media (min-width: $tablet-landscape) {
-//    grid-column: 2;
-//    grid-row: 2;
-//  }
-//}
-//
-//.swarm {
-//  grid-column: 2;
-//  grid-row: 3;
-//
-//  @media (min-width: $tablet-landscape) {
-//    grid-column: 3;
-//    grid-row: 2;
-//  }
-//}
-//
-//.power {
-//  grid-column: 1;
-//  grid-row: 4;
-//
-//  @media (min-width: $tablet-landscape) {
-//    grid-column: 1;
-//    grid-row: 3;
-//  }
-//}
-//
-//.title {
-//  padding-bottom: 0.2rem;
-//  text-transform: uppercase;
-//  font-size: var(--font-size-m);
-//  box-shadow: 0 0.2rem white;
-//}
-//
-//.subtitle {
-//  font-size: var(--font-size-s);
-//}
-//
-//.buttons {
-//  display: flex;
-//  gap: var(--spacing-xs);
-//}
-//
-//.button {
-//  width: 3.5rem;
-//  height: 2rem;
-//  font-size: var(--font-size-l);
-//  color: var(--theme-color-1);
-//
-//  &.auto {
-//    width: auto;
-//    font-size: var(--font-size-s);
-//  }
-//}
+
+.title {
+  padding-bottom: 0.2rem;
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  box-shadow: 0 0.2rem var(--mode-color-2);
+  color: var(--mode-color-2);
+}

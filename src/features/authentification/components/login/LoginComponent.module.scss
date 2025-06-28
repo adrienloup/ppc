@@ -3,7 +3,7 @@ $mobile-landscape: 768px;
 .login {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-s);
+  gap: var(--spacing-xs);
 
   @media (min-width: $mobile-landscape) {
     gap: var(--spacing-m);
@@ -18,13 +18,13 @@ $mobile-landscape: 768px;
 .button {
   display: flex;
   align-items: center;
-  padding: var(--spacing-s);
-  background-color: var(--color-3);
+  padding: var(--spacing-xs);
+  background-color: pink;
   text-transform: uppercase;
   font-size: var(--font-size-s);
   color: var(--color-1);
 
   &:active {
-    outline: 0.25rem solid var(--color-7);
+    outline: 0.25rem solid var(--color-6);
   }
 }

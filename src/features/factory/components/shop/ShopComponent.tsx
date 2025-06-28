@@ -7,17 +7,19 @@ import styles from '@/src/features/factory/components/shop/ShopComponent.module.
 
 export const ShopComponent = () => {
   return (
-    <ArticleComponent>
-      <TurbanComponent className={styles.turban}>
-        <TitleComponent className={styles.title}>shop</TitleComponent>
-        <ButtonComponent
-          className={styles.button}
-          to="/ppc/dashboard"
-        >
-          dashboard
-        </ButtonComponent>
-      </TurbanComponent>
-      <CategoriesComponent />
+    <>
+      <ArticleComponent>
+        <TurbanComponent className={styles.turban}>
+          <TitleComponent className={styles.title}>shop</TitleComponent>
+          <ButtonComponent
+            className={styles.button}
+            to="/ppc/dashboard"
+          >
+            dashboard
+          </ButtonComponent>
+        </TurbanComponent>
+        <CategoriesComponent />
+      </ArticleComponent>
       <div className={styles.planet}></div>
       <div className={styles.stars}>
         {[1, 2, 3].map((n) => (
@@ -27,6 +29,6 @@ export const ShopComponent = () => {
           />
         ))}
       </div>
-    </ArticleComponent>
+    </>
   );
 };

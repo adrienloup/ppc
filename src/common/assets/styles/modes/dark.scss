@@ -7,7 +7,7 @@
 }
 
 @mixin dark {
-  --mode-color-1: var(--color-2);
+  --mode-color-1: var(--theme-color-2);
   --mode-color-2: var(--theme-color-1);
 }
 

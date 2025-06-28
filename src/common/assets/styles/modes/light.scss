@@ -8,7 +8,7 @@
 
 @mixin light {
   --mode-color-1: var(--theme-color-1);
-  --mode-color-2: var(--color-2);
+  --mode-color-2: var(--theme-color-2);
 }
 
 :root {

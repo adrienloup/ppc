@@ -14,8 +14,8 @@
   position: sticky;
   bottom: 1rem;
   z-index: 2;
-  background-color: var(--color-9);
-  animation: Appear 300ms var(--ease-expo);
+  background-color: var(--color-8);
+  animation: Appear 0.3s var(--ease-expo);
 }
 
 .label {
@@ -23,7 +23,7 @@
   flex-direction: column;
   padding: var(--spacing-xs);
   text-transform: uppercase;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
 }
 
 .backdrop {

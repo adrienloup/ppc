@@ -1,5 +1,32 @@
 import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/Factory.ts';
-import { mechanicPerSecond } from '@/src/features/factory/utils/mechanicPerSecond.ts';
+
+function mechanicPerSecond(state: Factory): { clip: number; wire: number } {
+  const {
+    wire,
+    feature,
+    clipFactory,
+    clipFactoryBonus,
+    megaClipper,
+    clipper,
+    clipperBonus,
+    megaClipperBonus,
+  } = state;
+  const clipFactoryPS = Math.min(clipFactory * 1e3 * Math.max(1, clipFactoryBonus), 1e11);
+
+  if (feature.clipFactory.enabled) {
+    return wire >= clipFactory ? { clip: clipFactoryPS, wire: clipFactory } : { clip: 0, wire: 0 };
+  }
+
+  const megaClipperPS = megaClipper * 500 * Math.max(1, megaClipperBonus);
+  const clipperPS = clipper * Math.max(1, clipperBonus);
+  const totalClipper = megaClipper + clipper;
+
+  if (wire >= totalClipper) return { clip: megaClipperPS + clipperPS, wire: totalClipper };
+  if (wire >= megaClipper) return { clip: megaClipperPS, wire: megaClipper };
+  if (wire >= clipper) return { clip: clipperPS, wire: clipper };
+
+  return { clip: 0, wire: 0 };
+}
 
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
@@ -9,7 +36,13 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       const clipPPS = mechanicPPS.clip * Math.max(1, state.unsoldInventoryBonus);
       const fundsPPS = clipPPS * state.clipPrice;
       const operationPPS = Math.min(state.operationMax, state.operation + 10 * state.processor);
-      const creativityPPS = state.creativity + 10 + Math.floor(Math.random() * 10); // 0 1, 0 10, 10 20;
+      // const creativityPPS = Math.min(state.creativity + 1 + Math.floor(Math.random() * 10), 1e5); // 0 1, 0 10, 1 11;
+      const creativityPPS = Math.min(
+        operationPPS === state.operationMax
+          ? state.creativity + 100 + Math.floor(Math.random() * 10)
+          : state.creativity,
+        1e5
+      ); // 0 1, 0 10, 100 1e3;
       const wireDronePPS =
         state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
       const harvesterDronePPS =

@@ -22,12 +22,12 @@ export function ProfileProvider({ children }: { children: Children }) {
   const { i18n } = useTranslation();
   const [authentification] = useAuthentification();
 
-  const setUser = `${PROFILE_KEY}::${authentification.user ?? 'guest'}`;
+  const user = `${PROFILE_KEY}::${authentification.user ?? 'guest'}`;
 
   const [profile, setProfile] = useInitializer<Profile, ProfileDispatch>(
     profileReducer,
     STATE,
-    setUser
+    user
   );
 
   const updateClass = useCallback((mode: Mode, theme: Theme) => {

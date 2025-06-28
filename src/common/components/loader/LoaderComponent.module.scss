@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-s);
+  gap: var(--spacing-xs);
   justify-content: center;
   height: 100vh;
 }
 
 .label {
   font-size: calc(var(--font-size-m) + var(--font-size-l));
-  color: var(--color-3);
+  color: var(--mode-color-2);
 }

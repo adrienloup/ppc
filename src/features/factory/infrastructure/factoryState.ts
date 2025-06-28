@@ -1,6 +1,6 @@
 import type { Factory } from '@/src/features/factory/domain/Factory.ts';
-import { FEATURE_STATE } from '@/src/features/factory/states/featureState.ts';
-import { WALLET_STATE } from '@/src/features/factory/states/walletState.ts';
+import { FEATURE_STATE } from '@/src/features/factory/infrastructure/featureState.ts';
+import { WALLET_STATE } from '@/src/features/factory/infrastructure/walletState.ts';
 
 export const FACTORY_STATE: Factory = {
   acquiredMatter: 0,

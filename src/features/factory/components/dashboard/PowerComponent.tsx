@@ -2,16 +2,16 @@ import { CardComponent } from '@/src/common/components/card/CardComponent.tsx';
 import { TitleComponent } from '@/src/common/components/title/TitleComponent.tsx';
 import { DialsComponent } from '@/src/common/components/dials/DialsComponent.tsx';
 import { DialComponent } from '@/src/common/components/dial/DialComponent.tsx';
-import styles from '@/src/features/factory/components/dashboard/production/ProductionComponent.module.scss';
+import styles from '@/src/common/components/card/CardComponent.module.scss';
 
-export const ProductionComponent = () => {
+export const PowerComponent = () => {
   return (
-    <CardComponent className={styles.card}>
+    <CardComponent>
       <TitleComponent
         tag="h2"
         className={styles.title}
       >
-        production
+        power
       </TitleComponent>
       <DialsComponent>
         <DialComponent

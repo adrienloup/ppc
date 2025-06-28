@@ -1,4 +1,4 @@
-import type { Wallet } from '@/src/features/factory/domain/wallet.ts';
+import type { Wallet } from '@/src/features/factory/domain/Wallet.ts';
 
 export const WALLET_STATE: Wallet = {
   BTC: { quantity: 0 },

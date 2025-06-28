@@ -1,5 +1,12 @@
 @use '@/src/common/assets/styles/index' as *;
 
+body {
+  overflow-x: hidden;
+  background-color: var(--color-1);
+  font-family: var(--font-text), sans-serif;
+  color: var(--mode-color-2);
+}
+
 #_ppc_3mma_0 {
   position: relative;
   display: flex;

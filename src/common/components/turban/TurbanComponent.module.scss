@@ -1,34 +1,6 @@
-//$mobile-landscape: 768px;
-//
 .turban {
   display: flex;
-  gap: var(--spacing-m);
+  gap: var(--spacing-s);
   flex-wrap: wrap;
   align-items: center;
-  //padding: 0 var(--spacing-s);
-  //
-  //  @media (min-width: $mobile-landscape) {
-  //    padding: 0 var(--spacing-m);
-  //  }
 }
-//
-//.title {
-//  overflow: hidden;
-//  max-width: calc(100vw - (var(--spacing-s) * 2));
-//  white-space: nowrap;
-//  text-overflow: ellipsis;
-//  text-transform: uppercase;
-//  font-size: var(--font-size-l);
-//
-//  @media (min-width: $mobile-landscape) {
-//    max-width: calc(100vw - (var(--spacing-m) * 2));
-//  }
-//}
-//
-//.button {
-//  padding: var(--spacing-xs);
-//  background-color: var(--theme-color-2);
-//  text-transform: uppercase;
-//  font-size: var(--font-size-s);
-//  color: var(--theme-color-1);
-//}

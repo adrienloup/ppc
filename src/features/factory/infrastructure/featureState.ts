@@ -1,4 +1,4 @@
-import type { Feature } from '@/src/features/factory/domain/feature.ts';
+import type { Feature } from '@/src/features/factory/domain/Feature.ts';
 
 export const FEATURE_STATE: Feature = {
   algorithmicTrading: {

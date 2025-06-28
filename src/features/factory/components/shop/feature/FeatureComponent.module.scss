@@ -4,10 +4,10 @@ $desktop: 1440px;
 .feature {
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--spacing-s);
+  gap: var(--spacing-xs);
   overflow: hidden;
   width: 100%;
-  padding: var(--spacing-s);
+  padding: var(--spacing-xs);
   background-color: var(--color-2);
   text-align: left;
   color: var(--color-1);
@@ -27,7 +27,7 @@ $desktop: 1440px;
 }
 
 .text {
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
 
   &::first-letter {
     text-transform: uppercase;

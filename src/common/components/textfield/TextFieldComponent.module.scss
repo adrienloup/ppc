@@ -2,33 +2,33 @@
   overflow: hidden;
   display: flex;
   background-color: var(--color-1);
-  border: 0.25rem solid var(--color-3);
-  font-size: var(--font-size-s);
+  border: 0.25rem solid pink;
+  font-size: var(--font-size-xs);
   color: var(--color-2);
 
   &.focus {
-    outline: 0.25rem solid var(--color-8);
+    outline: 0.25rem solid var(--color-7);
     outline-offset: -0.25rem;
   }
 
   &.success {
-    border-color: var(--color-4);
+    border-color: var(--color-3);
   }
 
   &.error {
-    border-color: var(--color-7);
+    border-color: var(--color-6);
   }
 
   input {
     width: 100%;
     height: 100%;
-    padding: var(--spacing-s);
+    padding: var(--spacing-xs);
     background-color: transparent;
     border: 0;
     font-family: var(--font-text), sans-serif;
     font-weight: normal;
-    font-size: var(--font-size-s);
-    color: var(--color-3);
+    font-size: var(--font-size-xs);
+    color: pink;
     outline: 0;
 
     &::placeholder {
@@ -36,7 +36,7 @@
     }
 
     & + .icon {
-      margin: 0 var(--spacing-s) 0 0;
+      margin: 0 var(--spacing-xs) 0 0;
     }
   }
 }

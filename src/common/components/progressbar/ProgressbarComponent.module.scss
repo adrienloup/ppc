@@ -1,5 +1,5 @@
 .progressbar {
-  border: 0.35rem solid var(--color-3);
+  border: 0.35rem solid var(--mode-color-2);
 
   &.small {
     width: 6rem;
@@ -20,7 +20,7 @@
 .progress {
   width: 0;
   height: 100%;
-  background-color: var(--color-3);
+  background-color: var(--mode-color-2);
   //background: -webkit-linear-gradient(90deg, var(--color-10) 0%, var(--color-6) 100%);
   //background: -moz-linear-gradient(90deg, var(--color-10) 0%, var(--color-6) 100%);
   //background: linear-gradient(90deg, var(--color-10) 0%, var(--color-6) 100%);

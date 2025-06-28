@@ -21,19 +21,19 @@
   }
 
   &.success {
-    background-color: var(--color-4);
+    background-color: var(--color-3);
   }
 
   &.info {
-    background-color: var(--color-5);
+    background-color: var(--color-4);
   }
 
   &.warning {
-    background-color: var(--color-6);
+    background-color: var(--color-5);
   }
 
   &.error {
-    background-color: var(--color-7);
+    background-color: var(--color-6);
   }
 }
 
@@ -50,8 +50,8 @@
   grid-row: 1;
   display: flex;
   align-items: center;
-  padding: var(--spacing-s);
-  font-size: var(--font-size-s);
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-xs);
   color: var(--color-2);
 
   .out & {
@@ -70,25 +70,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-s);
+  padding: var(--spacing-xs);
   background-color: var(--color-2);
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
   pointer-events: initial;
 
   .success & {
-    color: var(--color-4);
+    color: var(--color-3);
   }
 
   .info & {
-    color: var(--color-5);
+    color: var(--color-4);
   }
 
   .warning & {
-    color: var(--color-6);
+    color: var(--color-5);
   }
 
   .error & {
-    color: var(--color-7);
+    color: var(--color-6);
   }
 }
 
