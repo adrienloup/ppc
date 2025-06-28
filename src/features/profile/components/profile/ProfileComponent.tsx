@@ -27,24 +27,17 @@ export const ProfileComponent = () => {
     <>
       <ArticleComponent>
         {authentification.user ? (
-          <>
-            <TurbanComponent className={styles.turban}>
-              <TitleComponent className={styles.title}>{authentification.user} profile</TitleComponent>
-              <ButtonComponent
-                className={styles.button}
-                onClick={onSignOut}
-              >
-                logout
-              </ButtonComponent>
-            </TurbanComponent>
-          </>
+          <TurbanComponent className={styles.turban}>
+            <TitleComponent className={styles.title}>{authentification.user} profile</TitleComponent>
+            <ButtonComponent
+              className={styles.button}
+              onClick={onSignOut}
+            >
+              logout
+            </ButtonComponent>
+          </TurbanComponent>
         ) : (
-          <>
-            <TurbanComponent className={styles.turban}>
-              <TitleComponent className={styles.title}>profile</TitleComponent>
-            </TurbanComponent>
-            <LoginComponent className={styles.login} />
-          </>
+          <LoginComponent className={styles.login} />
         )}
       </ArticleComponent>
       {[1, 2].map((n) => (

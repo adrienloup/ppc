@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAlertsDispatch } from '@/src/features/notification/infrastructure/useAlerts.ts';
 import { useAuthentification } from '@/src/features/authentification/infrastructure/useAuthentification.ts';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { regexTest } from '@/src/common/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/common/shared/utils/base64Encode.ts';
+import { TitleComponent } from '@/src/common/components/title/TitleComponent.tsx';
 import { TextFieldComponent } from '@/src/common/components/textfield/TextFieldComponent.tsx';
 import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.tsx';
 import styles from '@/src/features/authentification/components/login/LoginComponent.module.scss';
 
 export const LoginComponent = ({ className }: { className: string }) => {
+  const { t } = useTranslation();
   const setAlerts = useAlertsDispatch();
   const [authentification, setAuthentification] = useAuthentification();
   const [username, setUsername] = useState('');
@@ -87,6 +90,7 @@ export const LoginComponent = ({ className }: { className: string }) => {
 
   return (
     <div className={classNames([styles.login, className])}>
+      <TitleComponent className={styles.title}>{t('app.signUpOrLogIn')}</TitleComponent>
       <TextFieldComponent
         placeholder={'username'}
         value={username}

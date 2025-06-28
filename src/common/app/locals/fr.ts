@@ -7,5 +7,6 @@ export const fr: Translation = {
       close: 'fermer le menu',
       open: 'ouvrir le menu',
     },
+    signUpOrLogIn: "se connecter ou d'enregistrer",
   },
 };

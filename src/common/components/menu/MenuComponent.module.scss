@@ -53,6 +53,12 @@
   }
 }
 
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
 .button {
   position: absolute;
   top: 100%;
@@ -66,24 +72,12 @@
   color: var(--mode-color-1);
   outline-offset: -0.25rem;
 
-  //&.active,
-  //&:active {
-  //  outline: 0.25rem solid var(--color-1);
-  //}
-}
+  &:focus-visible {
+    outline: 0.25rem solid var(--color-7);
+  }
 
-//.actions {
-//  display: flex;
-//  flex-direction: column;
-//  gap: var(--spacing-xs);
-//
-//  @media (min-width: $tablet-portrait) {
-//    flex-direction: row;
-//  }
-//}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
+  &.active,
+  &:active {
+    outline: 0.25rem solid var(--color-7);
+  }
 }

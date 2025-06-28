@@ -7,5 +7,6 @@ export const en: Translation = {
       close: 'close menu',
       open: 'open menu',
     },
+    signUpOrLogIn: 'sign in or sign up',
   },
 };

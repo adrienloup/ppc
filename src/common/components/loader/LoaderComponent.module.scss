@@ -8,6 +8,6 @@
 }
 
 .label {
-  font-size: calc(var(--font-size-m) + var(--font-size-l));
+  font-size: var(--font-size-l);
   color: var(--mode-color-2);
 }

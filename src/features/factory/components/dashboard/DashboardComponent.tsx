@@ -44,12 +44,7 @@ export const DashboardComponent = () => {
             </CardsComponent>
           </>
         ) : (
-          <>
-            <TurbanComponent className={styles.turban}>
-              <TitleComponent className={styles.title}>dashboard</TitleComponent>
-            </TurbanComponent>
-            <LoginComponent className={styles.login} />
-          </>
+          <LoginComponent className={styles.login} />
         )}
       </ArticleComponent>
       <div className={styles.planet}></div>
