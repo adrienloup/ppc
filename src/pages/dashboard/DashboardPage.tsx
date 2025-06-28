@@ -5,9 +5,7 @@ import { LoaderComponent } from '@/src/common/components/loader/LoaderComponent.
 import { DashboardComponent } from '@/src/features/factory/components/dashboard/DashboardComponent.tsx';
 import { DebugComponent } from '@/src/features/debug/components/debug/DebugComponent.tsx';
 
-const LayoutComponent = lazy(() =>
-  fallback(import('@/src/common/components/layout/LayoutComponent.tsx'), 15e2)
-);
+const LayoutComponent = lazy(() => fallback(import('@/src/common/components/layout/LayoutComponent.tsx'), 15e2));
 
 function DashboardPage() {
   const { t } = useTranslation();

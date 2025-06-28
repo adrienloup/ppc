@@ -5,12 +5,8 @@ export const businessReducer = (state: Factory, action: FactoryDispatch): Factor
     case 'SELL_UNSOLD_INVENTORY': {
       // console.log('SELL_UNSOLD_INVENTORY');
       if (state.unsoldInventory <= 0) return state;
-      const sellUnsoldInventory = Math.max(
-        0,
-        Math.floor(state.unsoldInventory * (1 - state.publicDemand))
-      );
-      const sellFunds =
-        state.funds + (state.unsoldInventory - sellUnsoldInventory) * state.clipPrice;
+      const sellUnsoldInventory = Math.max(0, Math.floor(state.unsoldInventory * (1 - state.publicDemand)));
+      const sellFunds = state.funds + (state.unsoldInventory - sellUnsoldInventory) * state.clipPrice;
       return {
         ...state,
         unsoldInventory: sellUnsoldInventory,
@@ -50,9 +46,7 @@ export const businessReducer = (state: Factory, action: FactoryDispatch): Factor
           }
         : state;
     case 'DECREASE_CASH':
-      return state.cash >= 100
-        ? { ...state, cash: state.cash - 100, funds: state.funds + 100 }
-        : state;
+      return state.cash >= 100 ? { ...state, cash: state.cash - 100, funds: state.funds + 100 } : state;
     case 'WITHDRAW_CASH':
       return state.cash >= 0 ? { ...state, cash: 0, funds: state.funds + state.cash } : state;
     case 'INCREASE_WALLET':

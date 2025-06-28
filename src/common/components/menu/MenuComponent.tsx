@@ -54,21 +54,11 @@ export const MenuComponent = () => {
           <ButtonComponent onClick={() => setProfile({ type: 'SET_LANGUAGE', language: 'fr' })}>
             {profile.language === 'fr' ? <span style={{ color: 'green ' }}>fr</span> : 'fr'}
           </ButtonComponent>{' '}
-          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'dark' })}>
-            dark
-          </ButtonComponent>{' '}
-          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'light' })}>
-            light
-          </ButtonComponent>{' '}
-          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'system' })}>
-            system
-          </ButtonComponent>{' '}
-          <ButtonComponent onClick={() => setProfile({ type: 'SET_THEME', theme: 'dusk' })}>
-            dusk
-          </ButtonComponent>{' '}
-          <ButtonComponent onClick={() => setProfile({ type: 'SET_THEME', theme: 'tumult' })}>
-            tumult
-          </ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'dark' })}>dark</ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'light' })}>light</ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_MODE', mode: 'system' })}>system</ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_THEME', theme: 'dusk' })}>dusk</ButtonComponent>{' '}
+          <ButtonComponent onClick={() => setProfile({ type: 'SET_THEME', theme: 'tumult' })}>tumult</ButtonComponent>{' '}
           <ButtonComponent onClick={() => setProfile({ type: 'SET_THEME', theme: 'cataclysm' })}>
             cataclysm
           </ButtonComponent>

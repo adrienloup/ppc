@@ -20,6 +20,7 @@
 
   input {
     width: 5rem;
+    padding: 0 var(--spacing-xs);
     font-family: var(--font-text), sans-serif;
     font-weight: normal;
     font-size: inherit;
@@ -31,6 +32,7 @@
   }
 
   button {
+    padding: 0 var(--spacing-xs);
     font-family: var(--font-text), sans-serif;
     font-weight: normal;
     font-size: inherit;
@@ -45,7 +47,7 @@
     margin-left: var(--spacing-xs);
   }
 
-  > div {
+  & > div {
     display: flex;
     flex-flow: row wrap;
     align-items: center;

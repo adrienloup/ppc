@@ -4,10 +4,7 @@ import { useProfile } from '@/src/features/profile/infrastructure/useProfile.ts'
 import { useAuthentification } from '@/src/features/authentification/infrastructure/useAuthentification.ts';
 import { useInitializer } from '@/src/common/shared/hooks/useInitializer.ts';
 import { useInterval } from '@/src/common/shared/hooks/useInterval.ts';
-import {
-  FactoryContext,
-  FactoryDispatchContext,
-} from '@/src/features/factory/infrastructure/FactoryContext.ts';
+import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/infrastructure/FactoryContext.ts';
 import { factoryReducer } from '@/src/features/factory/application/factoryReducer.ts';
 import { PauseComponent } from '@/src/common/components/pause/PauseComponent.tsx';
 import { FACTORY_KEY } from '@/src/features/factory/infrastructure/factoryKey.ts';
@@ -34,11 +31,7 @@ export function FactoryProvider({ children }: { children: Children }) {
 
   // const [factory, setFactory] = useReducer(factoryReducer, null, initializer);
 
-  const [factory, setFactory] = useInitializer<Factory, FactoryDispatch>(
-    factoryReducer,
-    FACTORY_STATE,
-    user
-  );
+  const [factory, setFactory] = useInitializer<Factory, FactoryDispatch>(factoryReducer, FACTORY_STATE, user);
 
   const sellUnsoldInventory = useCallback(() => {
     setFactory({ type: 'SELL_UNSOLD_INVENTORY' });

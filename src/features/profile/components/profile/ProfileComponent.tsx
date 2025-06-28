@@ -29,9 +29,7 @@ export const ProfileComponent = () => {
         {authentification.user ? (
           <>
             <TurbanComponent className={styles.turban}>
-              <TitleComponent className={styles.title}>
-                {authentification.user} profile
-              </TitleComponent>
+              <TitleComponent className={styles.title}>{authentification.user} profile</TitleComponent>
               <ButtonComponent
                 className={styles.button}
                 onClick={onSignOut}

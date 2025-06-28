@@ -1,10 +1,6 @@
 import { type Dispatch, type Reducer, useEffect, useReducer, useRef } from 'react';
 
-export function useInitializer<T, A>(
-  reducer: Reducer<T, A>,
-  initialState: T,
-  key: string
-): [T, Dispatch<A>] {
+export function useInitializer<T, A>(reducer: Reducer<T, A>, initialState: T, key: string): [T, Dispatch<A>] {
   const initializer = (): T => {
     try {
       const stored = localStorage.getItem(key);

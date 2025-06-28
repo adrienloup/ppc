@@ -2,12 +2,7 @@ import { AlertsProvider } from '@/src/features/notification/infrastructure/Alert
 import { AuthentificationProvider } from '@/src/features/authentification/infrastructure/AuthentificationProvider.tsx';
 import { ProfileProvider } from '@/src/features/profile/infrastructure/ProfileProvider.tsx';
 import { FactoryProvider } from '@/src/features/factory/infrastructure/FactoryProvider.tsx';
-import type {
-  ComponentPropsWithoutRef,
-  ComponentType,
-  ElementType,
-  FunctionComponent,
-} from 'react';
+import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/common/shared/types/Children.ts';
 
 type Providers = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?][];

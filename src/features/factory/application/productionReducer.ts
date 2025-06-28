@@ -1,16 +1,7 @@
 import type { Factory, FactoryDispatch } from '@/src/features/factory/domain/Factory.ts';
 
 function mechanicPerSecond(state: Factory): { clip: number; wire: number } {
-  const {
-    wire,
-    feature,
-    clipFactory,
-    clipFactoryBonus,
-    megaClipper,
-    clipper,
-    clipperBonus,
-    megaClipperBonus,
-  } = state;
+  const { wire, feature, clipFactory, clipFactoryBonus, megaClipper, clipper, clipperBonus, megaClipperBonus } = state;
   const clipFactoryPS = Math.min(clipFactory * 1e3 * Math.max(1, clipFactoryBonus), 1e11);
 
   if (feature.clipFactory.enabled) {
@@ -31,20 +22,17 @@ function mechanicPerSecond(state: Factory): { clip: number; wire: number } {
 export const productionReducer = (state: Factory, action: FactoryDispatch): Factory => {
   switch (action.type) {
     case 'PRODUCTION_PER_SECOND': {
-      // console.log('PRODUCTION_PER_SECOND');
       const mechanicPPS = mechanicPerSecond(state);
       const clipPPS = mechanicPPS.clip * Math.max(1, state.unsoldInventoryBonus);
       const fundsPPS = clipPPS * state.clipPrice;
-      const operationPPS = Math.min(state.operationMax, state.operation + 10 * state.processor);
-      // const creativityPPS = Math.min(state.creativity + 1 + Math.floor(Math.random() * 10), 1e5); // 0 1, 0 10, 1 11;
+      const operationPPS = state.feature.resources.enabled
+        ? Math.min(state.operationMax, state.operation + 10 * state.processor)
+        : 0;
       const creativityPPS = Math.min(
-        operationPPS === state.operationMax
-          ? state.creativity + 100 + Math.floor(Math.random() * 10)
-          : state.creativity,
-        1e5
-      ); // 0 1, 0 10, 100 1e3;
-      const wireDronePPS =
-        state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
+        operationPPS === state.operationMax ? state.creativity + 100 : state.creativity,
+        Math.floor(state.operationMax * 1.2)
+      );
+      const wireDronePPS = state.wireDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
       const harvesterDronePPS =
         state.harvesterDrone * (1 - state.swarmStrategy / 100) * (1 - state.disorganization / 100);
       const availableMatterPPS = Math.max(0, state.availableMatter - harvesterDronePPS);
@@ -52,13 +40,12 @@ export const productionReducer = (state: Factory, action: FactoryDispatch): Fact
       //   availableMatterPPS >= harvesterDronePPS ? state.acquiredMatter + harvesterDronePPS : state.acquiredMatter;
       const acquiredMatterPPS =
         state.acquiredMatter + (availableMatterPPS >= harvesterDronePPS ? harvesterDronePPS : 0);
-      // const wirePPS = Math.max(0, state.wire + wireDronePPS - mechanicPPS.wire);
       const wireChange = acquiredMatterPPS >= wireDronePPS ? wireDronePPS : 0;
-      const wirePPS = Math.max(0, state.wire + wireChange - mechanicPPS.wire);
       // const wirePPS =
       //   acquiredMatterPPS >= wireDronePPS
       //     ? Math.max(0, state.wire + wireDronePPS - mechanicPPS.wire)
       //     : Math.max(0, state.wire - mechanicPPS.wire);
+      const wirePPS = Math.max(0, state.wire + wireChange - mechanicPPS.wire);
       return {
         ...state,
         acquiredMatter: acquiredMatterPPS,

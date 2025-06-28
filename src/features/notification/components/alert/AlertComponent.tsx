@@ -4,14 +4,7 @@ import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.
 import type { Alert } from '@/src/features/notification/domain/Alert.ts';
 import styles from '@/src/features/notification/components/alert/AlertComponent.module.scss';
 
-export const AlertComponent = ({
-  id,
-  text,
-  status = 'warning',
-  timeout = 2e3,
-  close = true,
-  remove,
-}: Alert) => {
+export const AlertComponent = ({ id, text, status = 'warning', timeout = 2e3, close = true, remove }: Alert) => {
   const outTimer = useRef(0);
   const removeTimer = useRef(0);
   const [out, setOut] = useState(false);
@@ -33,12 +26,7 @@ export const AlertComponent = ({
 
   return (
     <div
-      className={classNames([
-        styles.alert,
-        styles[status],
-        timeout > 0 ? styles.in : '',
-        out ? styles.out : '',
-      ])}
+      className={classNames([styles.alert, styles[status], timeout > 0 ? styles.in : '', out ? styles.out : ''])}
       id={id}
       role="alert"
       aria-live="assertive"

@@ -24,11 +24,7 @@ export function ProfileProvider({ children }: { children: Children }) {
 
   const user = `${PROFILE_KEY}::${authentification.user ?? 'guest'}`;
 
-  const [profile, setProfile] = useInitializer<Profile, ProfileDispatch>(
-    profileReducer,
-    STATE,
-    user
-  );
+  const [profile, setProfile] = useInitializer<Profile, ProfileDispatch>(profileReducer, STATE, user);
 
   const updateClass = useCallback((mode: Mode, theme: Theme) => {
     const classMap = {

@@ -21,11 +21,7 @@ export const mechanicReducer = (state: Factory, action: FactoryDispatch): Factor
     case 'BUY_CLIP_FACTORY': {
       if (state.funds < state.clipFactoryCost) return state;
       const clipFactoryBonusCP =
-        state.clipFactory + 1 >= 20
-          ? 1e3
-          : state.clipFactory + 1 >= 10
-            ? 1e2
-            : state.clipFactoryBonus;
+        state.clipFactory + 1 >= 20 ? 1e3 : state.clipFactory + 1 >= 10 ? 1e2 : state.clipFactoryBonus;
       return {
         ...state,
         clipFactory: state.clipFactory + 1,

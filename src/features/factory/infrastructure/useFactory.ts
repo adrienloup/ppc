@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-import {
-  FactoryContext,
-  FactoryDispatchContext,
-} from '@/src/features/factory/infrastructure/FactoryContext.ts';
+import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/infrastructure/FactoryContext.ts';
 
 export const useFactory = () => {
   const context = useContext(FactoryContext);
