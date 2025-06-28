@@ -7,6 +7,10 @@ export const en: Translation = {
       close: 'close menu',
       open: 'open menu',
     },
-    signUpOrLogIn: 'sign in or sign up',
+    empty: 'no data at all',
+    stop: 'the game is paused',
+    start: 'the game is launched',
+    press: 'press to resume',
+    signUpOrLogIn: 'an account is required to play',
   },
 };

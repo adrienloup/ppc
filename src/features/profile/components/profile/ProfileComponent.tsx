@@ -21,8 +21,9 @@ export const ProfileComponent = () => {
       type: 'ADD_ALERT',
       alert: {
         id: 'sign-out',
-        status: 'success',
         text: `${authentification.user} disconnects`,
+        status: 'success',
+        timeout: 2e3,
       },
     });
   };

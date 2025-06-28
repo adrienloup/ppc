@@ -5,5 +5,5 @@ export interface Dials {
   children: Children;
   className?: string;
   direction?: 'row' | 'column';
-  styleCss?: CSSProperties;
+  styleProp?: CSSProperties;
 }

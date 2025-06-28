@@ -5,7 +5,7 @@ $mobile-landscape: 768px;
   flex-direction: column;
   gap: var(--spacing-xs);
   margin: auto;
-  width: 35rem;
+  width: 30rem;
 
   & > * {
     animation-name: SlideUp, FadeIn;

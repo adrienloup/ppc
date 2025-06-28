@@ -49,7 +49,7 @@ export const LoginComponent = ({ className }: { className: string }) => {
     setAuthentification({ type: 'SIGN_IN', username, password: hashPassword });
     setAlerts({
       type: 'ADD_ALERT',
-      alert: { id: 'sign-in', status: 'success', text: `${username} is connected` },
+      alert: { id: 'sign-in', text: `${username} is connected`, status: 'success', timeout: 2e3 },
     });
   };
 
@@ -84,7 +84,7 @@ export const LoginComponent = ({ className }: { className: string }) => {
     setAuthentification({ type: 'SIGN_UP', username, password: hashPassword });
     setAlerts({
       type: 'ADD_ALERT',
-      alert: { id: 'sign-up', status: 'success', text: `${username} successfully registered` },
+      alert: { id: 'sign-up', text: `${username} successfully registered`, status: 'success', timeout: 2e3 },
     });
   };
 

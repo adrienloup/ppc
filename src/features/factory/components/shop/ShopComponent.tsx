@@ -28,7 +28,7 @@ export const ShopComponent = () => {
                 dashboard
               </ButtonComponent>
             </TurbanComponent>
-            <CategoriesComponent />
+            <CategoriesComponent className={styles.categories} />
           </>
         ) : (
           <LoginComponent className={styles.login} />

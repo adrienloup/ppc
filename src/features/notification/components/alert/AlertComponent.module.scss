@@ -50,7 +50,7 @@
   grid-row: 1;
   display: flex;
   align-items: center;
-  padding: var(--spacing-xs);
+  padding: var(--spacing-s);
   font-size: var(--font-size-xs);
   color: var(--color-2);
 
@@ -72,7 +72,7 @@
   justify-content: center;
   padding: var(--spacing-xs);
   background-color: var(--color-2);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-s);
   pointer-events: initial;
 
   .success & {

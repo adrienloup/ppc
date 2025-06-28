@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useProfile } from '@/src/features/profile/infrastructure/useProfile.ts';
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.tsx';
-import type { Page } from '@/src/features/game/domain/Page.ts';
 import styles from '@/src/common/components/menu/MenuComponent.module.scss';
+import { IconComponent } from '@/src/common/components/icon/IconComponent.tsx';
 
 export const MenuComponent = () => {
   const { t } = useTranslation();
@@ -38,7 +38,7 @@ export const MenuComponent = () => {
       </ButtonComponent>
       <div className={styles.inside}>
         <div className={styles.nav}>
-          {(['profile', 'dashboard', 'shop', 'explore'] as Page[]).map((page: Page) => (
+          {['profile', 'dashboard', 'shop', 'explore'].map((page) => (
             <ButtonComponent
               key={page}
               to={`/ppc/${page}`}
@@ -64,8 +64,12 @@ export const MenuComponent = () => {
           </ButtonComponent>
         </div>
         <div>
-          <ButtonComponent onClick={() => setProfile({ type: 'SET_PLAY' })}>
+          <ButtonComponent
+            aria-label={profile.isPlay ? 'stop the game' : t('start the game')}
+            onClick={() => setProfile({ type: 'SET_PLAY' })}
+          >
             {profile.isPlay ? 'start' : 'pause'}
+            <IconComponent icon={profile.isPlay ? 'pause_circle' : 'play_circle'} />
           </ButtonComponent>
         </div>
       </div>

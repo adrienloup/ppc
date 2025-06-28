@@ -4,7 +4,7 @@ import { useFactory, useFactoryDispatch } from '@/src/features/factory/infrastru
 import { classNames } from '@/src/common/shared/utils/classNames.ts';
 import { TitleComponent } from '@/src/common//components/title/TitleComponent.tsx';
 import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.tsx';
-// import { NumberComponent } from '@/src/common/shared/components/number/numberComponent.tsx';
+// import { NumberComponent } from '@/src/common/shared/components/number/NumberComponent.tsx';
 import type { FeatureState } from '@/src/features/factory/domain/Feature.ts';
 import styles from '@/src/features/factory/components/shop/feature/FeatureComponent.module.scss';
 

@@ -1,0 +1,49 @@
+.button {
+  position: relative;
+
+  &:disabled {
+    .inner {
+      opacity: 0.5;
+    }
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-xs);
+  background-color: var(--theme-color-1);
+  font-size: var(--font-size-s);
+  color: var(--theme-color-2);
+
+  [aria-hidden='false'] {
+    margin: 0 var(--spacing-s);
+  }
+}
+
+.value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  white-space: nowrap;
+  animation: SlideUp 0.8s var(--ease-out);
+  font-size: var(--font-size-m);
+  color: var(--color-7);
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translate3d(-1rem, -2rem, 0);
+  }
+  50% {
+    transform: translate3d(-1rem, -8rem, 0);
+  }
+  100% {
+    transform: translate3d(-1rem, -14rem, 0);
+  }
+}
