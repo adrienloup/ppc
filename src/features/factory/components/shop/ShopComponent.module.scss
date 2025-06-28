@@ -33,12 +33,28 @@
 .planet1 {
   top: 20%;
   left: 60%;
-  width: 16rem;
-  height: 16rem;
+  width: 18rem;
+  height: 18rem;
   animation:
-    Planet1Move 60s infinite alternate 0.5s,
+    Planet1Move 70s infinite alternate 0.5s,
     PlanetSlide 0.5s var(--ease-quad) backwards,
     FadeIn 0.8s var(--ease-quad) backwards;
+
+  &::before {
+    display: block;
+    right: 20%;
+    bottom: 20%;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  &::after {
+    display: block;
+    top: 20%;
+    left: 20%;
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .planet2 {
@@ -50,6 +66,14 @@
     Planet2Move 60s infinite alternate 0.7s,
     PlanetSlide 0.5s var(--ease-quad) backwards 0.2s,
     FadeIn 0.8s var(--ease-quad) backwards 0.2s;
+
+  &::after {
+    display: block;
+    top: 20%;
+    left: 20%;
+    height: 2rem;
+    width: 2rem;
+  }
 }
 
 .stars {
