@@ -5,10 +5,11 @@ import { TurbanComponent } from '@/src/common/components/turban/TurbanComponent.
 import { TitleComponent } from '@/src/common/components/title/TitleComponent.tsx';
 import { ButtonComponent } from '@/src/common/components/button/ButtonComponent.tsx';
 import { LoginComponent } from '@/src/features/authentification/components/login/LoginComponent.tsx';
-import { SpaceComponent } from '@/src/common/components/space/SpaceComponent.tsx';
-import { PlanetComponent } from '@/src/common/components/planet/PlanetComponent.tsx';
-import { StarsComponent } from '@/src/common/components/stars/StarsComponent.tsx';
-import { StarComponent } from '@/src/common/components/star/StarComponent.tsx';
+// import { SkyComponent } from '@/src/common/components/space/SkyComponent.tsx';
+// import { SunComponent } from '@/src/common/components/planet/SunComponent.tsx';
+// import { CloudsComponent } from '@/src/common/components/stars/StarComponent.tsx';
+// import { StarComponent } from '@/src/common/components/star/StarComponent.tsx';
+import { BackdropComponent } from '@/src/features/factory/components/backdrop/BackdropComponent.tsx';
 import styles from '@/src/features/profile/components/profile/ProfileComponent.module.scss';
 
 export const ProfileComponent = () => {
@@ -45,22 +46,35 @@ export const ProfileComponent = () => {
           <LoginComponent className={styles.login} />
         )}
       </ArticleComponent>
-      <SpaceComponent>
-        {[1, 2].map((n) => (
-          <PlanetComponent
-            key={n}
-            className={styles[`planet${n}`]}
-          />
-        ))}
-        <StarsComponent className={styles.stars}>
-          {[1, 2, 3].map((n) => (
-            <StarComponent
-              key={n}
-              className={styles[`star${n}`]}
-            />
-          ))}
-        </StarsComponent>
-      </SpaceComponent>
+      <BackdropComponent
+        classNames={{
+          sun: styles.sun,
+          clouds: styles.clouds,
+          cloud1: styles.cloud1,
+          cloud2: styles.cloud2,
+          cloud3: styles.cloud3,
+          stars: styles.stars,
+          star1: styles.star1,
+          star2: styles.star2,
+          star3: styles.star3,
+        }}
+      />
+      {/*<SkyComponent>*/}
+      {/*  {[1, 2].map((n) => (*/}
+      {/*    <SunComponent*/}
+      {/*      key={n}*/}
+      {/*      className={styles[`planet${n}`]}*/}
+      {/*    />*/}
+      {/*  ))}*/}
+      {/*  <CloudsComponent className={styles.stars}>*/}
+      {/*    {[1, 2, 3].map((n) => (*/}
+      {/*      <StarComponent*/}
+      {/*        key={n}*/}
+      {/*        className={styles[`star${n}`]}*/}
+      {/*      />*/}
+      {/*    ))}*/}
+      {/*  </CloudsComponent>*/}
+      {/*</SkyComponent>*/}
     </>
   );
 };

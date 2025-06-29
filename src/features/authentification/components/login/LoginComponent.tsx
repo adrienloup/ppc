@@ -42,7 +42,7 @@ export const LoginComponent = ({ className }: { className: string }) => {
     }
 
     if (user.password !== hashPassword) {
-      setPasswordError('your password is incorrect');
+      setPasswordError('incorrect password');
       return;
     }
 
@@ -58,22 +58,19 @@ export const LoginComponent = ({ className }: { className: string }) => {
 
     if (!username || !password) return requiredErrors();
 
+    const usernameTaken = authentification.users.some((u) => u.username === username);
+
+    if (usernameTaken) return setUsernameError('username already taken');
+
     let valid = true;
 
     if (!regexTest(/^[A-Za-z]{3,10}$/, username)) {
-      setUsernameError('your username must be at least 3 alphabetical characters long');
+      setUsernameError('username must be at least 3 alphabetical characters long');
       valid = false;
     }
 
     if (!regexTest(/^[A-Za-z0-9]{5,10}$/, password)) {
-      setPasswordError('your username must be at least 5 alphabetical characters long');
-      valid = false;
-    }
-
-    const usernameTaken = authentification.users.some((u) => u.username === username);
-
-    if (usernameTaken) {
-      setUsernameError('username already taken');
+      setPasswordError('username must be at least 5 alphabetical characters long');
       valid = false;
     }
 

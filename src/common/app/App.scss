@@ -4,7 +4,8 @@ body {
   overflow-x: hidden;
   background-color: var(--color-1);
   font-family: var(--font-text), sans-serif;
-  color: var(--mode-color-2);
+  //color: var(--mode-color-2);
+  color: var(--theme-color-4);
 }
 
 #_ppc_3mma_0 {
@@ -12,5 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--mode-color-1);
+  //background-color: var(--mode-color-1);
+  background-color: var(--theme-color-3);
+  //background: radial-gradient(ellipse at 30% 30%, #90ddecff 0%, var(--theme-color-3) 50%);
 }

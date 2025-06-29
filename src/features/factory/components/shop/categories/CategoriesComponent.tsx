@@ -25,7 +25,7 @@ export const CategoriesComponent = ({ className }: Categories) => {
   );
 
   return (
-    <div className={className ? className : ''}>
+    <div className={className}>
       {Object.entries(featureByCategory).map(([category, feature]) => (
         <CategoryComponent
           key={category}

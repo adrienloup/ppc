@@ -1,12 +1,12 @@
 .textField {
   overflow: hidden;
   display: flex;
-  border: 0.35rem solid var(--theme-color-1);
+  border: 0.35rem solid var(--theme-color-4);
   font-size: var(--font-size-s);
   color: var(--color-2);
 
   &.focus {
-    outline: 0.35rem solid var(--color-7);
+    outline: 0.35rem solid var(--theme-color-6);
     outline-offset: -0.35rem;
   }
 
@@ -28,16 +28,21 @@
   font-family: var(--font-text), sans-serif;
   font-weight: normal;
   font-size: var(--font-size-s);
-  color: var(--theme-color-1);
+  color: var(--theme-color-4);
   outline: 0;
 
-  .error & {
-    color: var(--color-6);
-  }
+  //.error & {
+  //  background-color: #ffc4c4;
+  //  color: var(--color-6);
+  //}
 
   &::placeholder {
     font-style: italic;
-    color: var(--theme-color-1);
+    color: var(--theme-color-4);
+
+    //.error & {
+    //  color: var(--color-6);
+    //}
   }
 
   & + .icon {

@@ -1,5 +1,6 @@
 import type { Children } from '@/src/common/shared/types/Children.ts';
 
-export interface Space {
+export interface Clouds {
+  className?: string;
   children: Children;
 }

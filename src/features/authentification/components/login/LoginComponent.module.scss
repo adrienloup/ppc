@@ -3,10 +3,9 @@ $mobile-landscape: 768px;
 .login {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-s);
   margin: auto;
-  padding: var(--spacing-l) 0;
-  width: 30rem;
+  max-width: 30rem;
 
   @media (min-width: $mobile-landscape) {
     gap: var(--spacing-m);
@@ -20,7 +19,7 @@ $mobile-landscape: 768px;
 
     @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
-        animation-delay: #{0.7s + $i * 0.1s};
+        animation-delay: #{0.6s + $i * 0.1s};
       }
     }
   }
@@ -40,10 +39,11 @@ $mobile-landscape: 768px;
   display: flex;
   align-items: center;
   padding: var(--spacing-s);
-  background-color: var(--theme-color-1);
+  background-color: var(--theme-color-4);
+  //background-color: var(--theme-color-1);
   text-transform: uppercase;
   font-size: var(--font-size-s);
-  color: var(--theme-color-2);
+  color: var(--theme-color-5);
 }
 
 @keyframes FadeIn {

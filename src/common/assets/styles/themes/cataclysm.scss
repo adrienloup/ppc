@@ -9,6 +9,8 @@
 @mixin cataclysm {
   --theme-color-1: var(--color-10);
   --theme-color-2: var(--color-2);
+  //
+  --theme-color-3: var(--color-2);
 }
 
 :root {
