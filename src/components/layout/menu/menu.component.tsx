@@ -5,6 +5,8 @@ import { ButtonComponent } from '@/src/components/button/button.component.tsx';
 import styles from '@/src/components/layout/menu/menu.module.scss';
 
 export const MenuComponent = () => {
+  console.log('MenuComponent');
+
   const setAccount = useAccountDispatch();
   const account = useAccount();
   const [open, setOpen] = useState(false);

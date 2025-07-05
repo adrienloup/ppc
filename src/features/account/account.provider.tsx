@@ -3,15 +3,16 @@ import { createPortal } from 'react-dom';
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
 import { AccountContext, AccountDispatchContext } from '@/src/features/account/account.context.ts';
 import { accountReducer } from '@/src/features/account/account.reducer.ts';
+import { PauseComponent } from '@/src/components/pause/pause.component.tsx';
 import { ACCOUNT_KEY } from '@/src/features/account/account.key.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
-  const { state: auth } = useAuth();
+  const { user } = useAuth();
 
-  const user = useMemo(() => {
-    return auth.user ? `${ACCOUNT_KEY}::${auth.user}` : null;
-  }, [auth.user]);
+  const account = useMemo(() => {
+    return user ? `${ACCOUNT_KEY}::${user}` : null;
+  }, [user]);
 
   const [state, dispatch] = useReducer(
     accountReducer,
@@ -19,11 +20,11 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
       pause: false,
     },
     () => {
-      if (!user)
+      if (!account)
         return {
           pause: false,
         };
-      const stored = localStorage.getItem(user);
+      const stored = localStorage.getItem(account);
       return stored
         ? JSON.parse(stored)
         : {
@@ -33,8 +34,8 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
   );
 
   useEffect(() => {
-    if (!user) return;
-    const stored = localStorage.getItem(user);
+    if (!account) return;
+    const stored = localStorage.getItem(account);
     dispatch({
       type: 'INITIALIZE',
       state: stored
@@ -43,18 +44,18 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
             pause: false,
           },
     });
-  }, [user]);
+  }, [account]);
 
   useEffect(() => {
-    if (!user) return;
-    localStorage.setItem(user, JSON.stringify(state));
-  }, [state, user]);
+    if (!account) return;
+    localStorage.setItem(account, JSON.stringify(state));
+  }, [state, account]);
 
   return (
     <AccountContext.Provider value={state}>
       <AccountDispatchContext.Provider value={dispatch}>
         {children}
-        {state.pause ? createPortal(<>pause</>, document.getElementById('_app_3emma_1')!) : null}
+        {state.pause ? createPortal(<PauseComponent />, document.getElementById('_app_3emma_1')!) : null}
       </AccountDispatchContext.Provider>
     </AccountContext.Provider>
   );

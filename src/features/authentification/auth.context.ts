@@ -1,4 +1,5 @@
-import type { Auth } from '@/src/features/authentification/auth.type.ts';
-import { createContext } from 'react';
+import { createContext, type Dispatch } from 'react';
+import type { AuthAction, AuthState } from '@/src/features/authentification/auth.type.ts';
 
-export const AuthContext = createContext<Auth | undefined>(undefined);
+export const AuthContext = createContext<AuthState | undefined>(undefined);
+export const AuthDispatchContext = createContext<Dispatch<AuthAction>>(() => {});

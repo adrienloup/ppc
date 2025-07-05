@@ -1,4 +1,4 @@
-import type { Dispatch } from 'react';
+// import type { Dispatch } from 'react';
 
 export interface User {
   username: string;
@@ -15,4 +15,4 @@ export type AuthAction =
   | { type: 'LOG_IN'; username: string; password: string }
   | { type: 'SIGN_UP'; username: string; password: string };
 
-export type Auth = { state: AuthState; dispatch: Dispatch<AuthAction> };
+// export type Auth = { state: AuthState; dispatch: Dispatch<AuthAction> };

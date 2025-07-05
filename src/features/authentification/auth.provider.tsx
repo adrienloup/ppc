@@ -1,6 +1,6 @@
 import { type FC, useEffect, useReducer } from 'react';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { AuthContext } from '@/src/features/authentification/auth.context.ts';
+import { AuthContext, AuthDispatchContext } from '@/src/features/authentification/auth.context.ts';
 import { authReducer } from '@/src/features/authentification/auth.reducer.ts';
 import { USER_KEY, USERS_KEY } from '@/src/features/authentification/auth.key.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
@@ -19,5 +19,9 @@ export const AuthProvider: FC<{ children: Children }> = ({ children }) => {
     setUser(state.user);
   }, [state.users, state.user]);
 
-  return <AuthContext.Provider value={{ state, dispatch }}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={state}>
+      <AuthDispatchContext.Provider value={dispatch}>{children}</AuthDispatchContext.Provider>
+    </AuthContext.Provider>
+  );
 };

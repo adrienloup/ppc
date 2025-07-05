@@ -1,5 +1,6 @@
 import { type FC, useCallback, useEffect, useMemo, useReducer } from 'react';
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
+import { useAccount } from '@/src/features/account/useAccount.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/factory.context.ts';
 import { factoryReducer } from '@/src/features/factory/reducers/factory.reducer.ts';
@@ -8,31 +9,31 @@ import { FACTORY_STATE } from '@/src/features/factory/factory.state.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
-  const { state: auth } = useAuth();
+  const { user } = useAuth();
+  const { pause } = useAccount();
 
-  const user = useMemo(() => {
-    return auth.user ? `${FACTORY_KEY}::${auth.user}` : null;
-  }, [auth.user]);
+  const account = useMemo(() => {
+    return user ? `${FACTORY_KEY}::${user}` : null;
+  }, [user]);
 
-  const enabled = !!auth.user;
-  console.log('active', enabled);
+  const enabled = !!user && !pause;
 
   const [state, dispatch] = useReducer(factoryReducer, FACTORY_STATE, () => {
-    if (!user) return FACTORY_STATE;
-    const stored = localStorage.getItem(user);
+    if (!account) return FACTORY_STATE;
+    const stored = localStorage.getItem(account);
     return stored ? JSON.parse(stored) : FACTORY_STATE;
   });
 
   useEffect(() => {
-    if (!user) return;
-    const stored = localStorage.getItem(user);
+    if (!account) return;
+    const stored = localStorage.getItem(account);
     dispatch({ type: 'INITIALIZE', state: stored ? JSON.parse(stored) : FACTORY_STATE });
-  }, [user]);
+  }, [account]);
 
   useEffect(() => {
-    if (!user) return;
-    localStorage.setItem(user, JSON.stringify(state));
-  }, [state, user]);
+    if (!account) return;
+    localStorage.setItem(account, JSON.stringify(state));
+  }, [state, account]);
 
   const productionPerSecond = useCallback(() => {
     dispatch({ type: 'PRODUCTION_PER_SECOND' });

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import { useAlertsDispatch } from '@/src/features/notification/infrastructure/useAlerts.ts';
-import { useAuth } from '@/src/features/authentification/useAuth.ts';
+import { useAuth, useAuthDispatch } from '@/src/features/authentification/useAuth.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
@@ -13,7 +13,8 @@ import styles from '@/src/components/login/login.module.scss';
 
 export const LoginComponent = ({ className }: Login) => {
   // const setAlerts = useAlertsDispatch();
-  const { state: auth, dispatch: setAuth } = useAuth();
+  const { users } = useAuth();
+  const setAuth = useAuthDispatch();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [usernameError, setUsernameError] = useState<string>('');
@@ -34,7 +35,7 @@ export const LoginComponent = ({ className }: Login) => {
     if (!username || !password) return requiredErrors();
 
     const hashPassword = await base64Encode(password);
-    const user = auth.users.find((user: User) => user.username === username);
+    const user = users.find((user: User) => user.username === username);
 
     if (!user) {
       setUsernameError('unknown username');
@@ -58,7 +59,7 @@ export const LoginComponent = ({ className }: Login) => {
 
     if (!username || !password) return requiredErrors();
 
-    const usernameTaken = auth.users.some((user: User) => user.username === username);
+    const usernameTaken = users.some((user: User) => user.username === username);
 
     if (usernameTaken) return setUsernameError('username already taken');
 

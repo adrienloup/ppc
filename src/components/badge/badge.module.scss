@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   margin-left: var(--spacing-xs);
-  padding: 0.1rem 0.2rem;
+  padding: 0.1rem 0.2rem 0.1rem 0.4rem;
   font-size: var(--font-size-s);
+  border: 0.15rem solid var(--color-1);
   color: var(--color-1);
 
   &.info {

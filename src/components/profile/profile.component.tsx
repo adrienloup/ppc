@@ -5,13 +5,13 @@ import { AccountComponent } from '@/src/components/profile/account/account.compo
 import { LoginComponent } from '@/src/components/login/login.component.tsx';
 
 export const ProfileComponent = () => {
-  const { state: auth } = useAuth();
+  const { user } = useAuth();
   const setFactory = useFactoryDispatch();
   const factory = useFactory();
 
   return (
     <>
-      {auth.user ? (
+      {user ? (
         <ArticleComponent>
           <AccountComponent />
           add <button onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}>+1</button>

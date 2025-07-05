@@ -8,14 +8,14 @@ import styles from '@/src/components/dashboard/controls/controls.module.scss';
 
 export const ClipPerSecondComponent = () => {
   const setFactory = useFactoryDispatch();
-  const factory = useFactory();
+  const { clipPerSecond, wire } = useFactory();
 
   return (
     <DialsComponent>
       <DialComponent>
         <ValueComponent
           className={styles.value}
-          value={factory.clipPerSecond}
+          value={clipPerSecond}
         />
         <LabelComponent
           className={styles.label}
@@ -24,7 +24,7 @@ export const ClipPerSecondComponent = () => {
         <ClickerComponent
           value={1}
           prefix={'+'}
-          disabled={factory.wire <= 0}
+          disabled={wire <= 0}
           onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}
         >
           +

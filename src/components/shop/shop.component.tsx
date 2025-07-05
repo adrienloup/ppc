@@ -6,11 +6,11 @@ import { LoggedComponent } from '@/src/components/logged/logged.component.tsx';
 import { LoginComponent } from '@/src/components/login/login.component.tsx';
 
 export const ShopComponent = () => {
-  const { state } = useAuth();
+  const { user } = useAuth();
 
   return (
     <>
-      {state.user ? (
+      {user ? (
         <ArticleComponent>
           <ShowcaseComponent />
           <StockComponent />
