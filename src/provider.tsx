@@ -1,3 +1,4 @@
+import { NotifProvider } from '@/src/features/notification/notif.provider.tsx';
 import { AuthProvider } from '@/src/features/authentification/auth.provider.tsx';
 import { AccountProvider } from '@/src/features/account/account.provider.tsx';
 import { FactoryProvider } from '@/src/features/factory/factory.provider.tsx';
@@ -18,6 +19,7 @@ const Providers = (providers: ProviderType[]) =>
   );
 
 export const Provider: FunctionComponent<{ children: Children }> = Providers([
+  [NotifProvider],
   [AuthProvider],
   [AccountProvider],
   [FactoryProvider],

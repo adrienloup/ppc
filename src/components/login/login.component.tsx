@@ -1,6 +1,6 @@
 import { useState } from 'react';
-// import { useAlertsDispatch } from '@/src/features/notification/infrastructure/useAlerts.ts';
 import { useAuth, useAuthDispatch } from '@/src/features/authentification/useAuth.ts';
+import { useNotif } from '@/src/features/notification/useNotif.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
@@ -12,9 +12,9 @@ import type { User } from '@/src/features/authentification/auth.type.ts';
 import styles from '@/src/components/login/login.module.scss';
 
 export const LoginComponent = ({ className }: Login) => {
-  // const setAlerts = useAlertsDispatch();
-  const { users } = useAuth();
   const setAuth = useAuthDispatch();
+  const { users } = useAuth();
+  const [, setNotif] = useNotif();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [usernameError, setUsernameError] = useState<string>('');
@@ -48,10 +48,10 @@ export const LoginComponent = ({ className }: Login) => {
     }
 
     setAuth({ type: 'LOG_IN', username, password: hashPassword });
-    // setAlerts({
-    //   type: 'ADD_ALERT',
-    //   alert: { id: 'sign-in', text: `${username} is connected`, status: 'success', timeout: 2e3 },
-    // });
+    setNotif({
+      type: 'ADD',
+      notif: { id: 'sign-in', text: `${username} is connected`, status: 'success', timeout: 2e3 },
+    });
   };
 
   const onSignup = async () => {
@@ -80,10 +80,10 @@ export const LoginComponent = ({ className }: Login) => {
     const hashPassword = await base64Encode(password);
 
     setAuth({ type: 'SIGN_UP', username, password: hashPassword });
-    // setAlerts({
-    //   type: 'ADD_ALERT',
-    //   alert: { id: 'sign-up', text: `${username} successfully registered`, status: 'success', timeout: 2e3 },
-    // });
+    setNotif({
+      type: 'ADD',
+      notif: { id: 'sign-up', text: `${username} successfully registered`, status: 'success', timeout: 2e3 },
+    });
   };
 
   return (
