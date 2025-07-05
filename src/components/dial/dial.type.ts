@@ -1,6 +1,6 @@
-import type { ChildrenType } from '../../shared/types/children.type.ts';
+import type { Children } from '../../shared/types/children.type.ts';
 
-export interface DialType {
-  children: ChildrenType;
+export interface Dial {
+  children: Children;
   className?: string;
 }

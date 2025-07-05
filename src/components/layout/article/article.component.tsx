@@ -1,7 +1,7 @@
-import type { ArticleType } from './article.type.ts';
+import type { Article } from './article.type.ts';
 import styles from './article.module.scss';
 
-export const ArticleComponent = ({ children }: ArticleType) => {
+export const ArticleComponent = ({ children }: Article) => {
   return (
     <article
       className={styles.article}

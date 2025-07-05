@@ -1,6 +1,6 @@
 import type { HTMLProps } from 'react';
-import type { ChildrenType } from '@/src/shared/types/children.type.ts';
+import type { Children } from '@/src/shared/types/children.type.ts';
 
-export interface CardsType extends HTMLProps<HTMLDivElement> {
-  children: ChildrenType;
+export interface Cards extends HTMLProps<HTMLDivElement> {
+  children: Children;
 }

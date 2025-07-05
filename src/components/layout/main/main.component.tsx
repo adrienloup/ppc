@@ -1,7 +1,7 @@
-import type { MainType } from '@/src/components/layout/main/main.type.ts';
+import type { Main } from '@/src/components/layout/main/main.type.ts';
 import styles from '@/src/components/layout/main/main.module.scss';
 
-export const MainComponent = ({ children }: MainType) => {
+export const MainComponent = ({ children }: Main) => {
   return (
     <main
       className={styles.main}

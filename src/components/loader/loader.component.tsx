@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ProgressbarComponent } from '@/src/components/progressbar/progressbar.component.tsx';
-import type { LoaderType } from '@/src/components/loader/loader.type.ts';
+import type { Loader } from '@/src/components/loader/loader.type.ts';
 import styles from '@/src/components/loader/loader.module.scss';
 
-export const LoaderComponent = ({ className, duration = 1e3, size = 'medium', ...props }: LoaderType) => {
+export const LoaderComponent = ({ className, duration = 1e3, size = 'medium', ...props }: Loader) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

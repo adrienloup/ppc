@@ -1,4 +1,4 @@
-export interface LabelType {
+export interface Label {
   className?: string;
   label: string;
 }

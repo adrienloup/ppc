@@ -7,11 +7,11 @@ import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
 import { TitleComponent } from '@/src/components/title/title.component.tsx';
 import { TextFieldComponent } from '@/src/components/form/textfield/textField.component.tsx';
 import { ButtonComponent } from '@/src/components/button/button.component.tsx';
-import type { LoginType } from '@/src/components/login/login.type.ts';
-import type { UserType } from '@/src/features/authentification/auth.type.ts';
+import type { Login } from '@/src/components/login/login.type.ts';
+import type { User } from '@/src/features/authentification/auth.type.ts';
 import styles from '@/src/components/login/login.module.scss';
 
-export const LoginComponent = ({ className }: LoginType) => {
+export const LoginComponent = ({ className }: Login) => {
   // const setAlerts = useAlertsDispatch();
   const { state: auth, dispatch: setAuth } = useAuth();
   const [username, setUsername] = useState<string>('');
@@ -34,7 +34,7 @@ export const LoginComponent = ({ className }: LoginType) => {
     if (!username || !password) return requiredErrors();
 
     const hashPassword = await base64Encode(password);
-    const user = auth.users.find((user: UserType) => user.username === username);
+    const user = auth.users.find((user: User) => user.username === username);
 
     if (!user) {
       setUsernameError('unknown username');
@@ -58,7 +58,7 @@ export const LoginComponent = ({ className }: LoginType) => {
 
     if (!username || !password) return requiredErrors();
 
-    const usernameTaken = auth.users.some((user: UserType) => user.username === username);
+    const usernameTaken = auth.users.some((user: User) => user.username === username);
 
     if (usernameTaken) return setUsernameError('username already taken');
 

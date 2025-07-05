@@ -1,3 +1,3 @@
-export interface LoginType {
+export interface Login {
   className?: string;
 }

@@ -1,6 +1,6 @@
-import type { StatusType } from '@/src/shared/types/status.type.ts';
+import type { Status } from '@/src/shared/types/status.type.ts';
 
-export interface TextFieldType {
+export interface TextField {
   className?: string;
   id?: string;
   label?: string;
@@ -10,6 +10,6 @@ export interface TextFieldType {
   value?: string;
   prefix?: string;
   suffix?: string;
-  status?: StatusType;
+  status?: Status;
   onChange: (e: { target: { value: string } }) => void;
 }

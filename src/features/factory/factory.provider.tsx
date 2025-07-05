@@ -4,9 +4,9 @@ import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/f
 import { factoryReducer } from '@/src/features/factory/factory.reducer.ts';
 import { FACTORY_KEY } from '@/src/features/factory/factory.key.ts';
 import { FACTORY_STATE } from '@/src/features/factory/factory.state.ts';
-import type { ChildrenType } from '@/src/shared/types/children.type.ts';
+import type { Children } from '@/src/shared/types/children.type.ts';
 
-export const FactoryProvider: FC<{ children: ChildrenType }> = ({ children }) => {
+export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
   const { state: auth } = useAuth();
 
   const account = useMemo(() => {

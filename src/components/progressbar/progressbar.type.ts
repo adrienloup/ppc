@@ -1,9 +1,9 @@
-import type { SizeType } from '@/src/shared/types/size.type.ts';
+import type { Size } from '@/src/shared/types/size.type.ts';
 
-export interface ProgressbarType {
+export interface Progressbar {
   className?: string;
   valueNow: number;
   valueMin: number;
   valueMax: number;
-  size?: SizeType;
+  size?: Size;
 }

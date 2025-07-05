@@ -1,9 +1,9 @@
 import { AuthProvider } from '@/src/features/authentification/auth.provider.tsx';
 import { FactoryProvider } from '@/src/features/factory/factory.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
-import type { ChildrenType } from '@/src/shared/types/children.type.ts';
+import type { Children } from '@/src/shared/types/children.type.ts';
 
-type ProviderType = [ComponentType<{ children: ChildrenType }>, ComponentPropsWithoutRef<ElementType>?];
+type ProviderType = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?];
 
 const Providers = (providers: ProviderType[]) =>
   providers.reduce(
@@ -13,7 +13,7 @@ const Providers = (providers: ProviderType[]) =>
           <Provider {...props}>{children}</Provider>
         </AccumulatedProviders>
       ),
-    ({ children }: { children: ChildrenType }) => <>{children}</>
+    ({ children }: { children: Children }) => <>{children}</>
   );
 
-export const Provider: FunctionComponent<{ children: ChildrenType }> = Providers([[AuthProvider], [FactoryProvider]]);
+export const Provider: FunctionComponent<{ children: Children }> = Providers([[AuthProvider], [FactoryProvider]]);

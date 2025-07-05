@@ -1,3 +1,3 @@
 import type { ReactNode } from 'react';
 
-export type ChildrenType = ReactNode;
+export type Children = ReactNode;

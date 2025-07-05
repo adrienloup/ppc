@@ -1,5 +1,5 @@
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import type { ProgressbarType } from '@/src/components/progressbar/progressbar.type.ts';
+import type { Progressbar } from '@/src/components/progressbar/progressbar.type.ts';
 import styles from '@/src/components/progressbar/progressbar.module.scss';
 
 export const ProgressbarComponent = ({
@@ -8,7 +8,7 @@ export const ProgressbarComponent = ({
   valueMin = 0,
   valueMax = 100,
   size = 'medium',
-}: ProgressbarType) => {
+}: Progressbar) => {
   const getStyle = (valueNow: number) => ({ width: `${(valueNow * 100) / valueMax}%` });
 
   return (

@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import type { ButtonType } from '@/src/components/button/button.type.ts';
+import type { Button } from '@/src/components/button/button.type.ts';
 import styles from '@/src/components/button/button.module.scss';
 
 export const ButtonComponent = memo(
@@ -14,7 +14,7 @@ export const ButtonComponent = memo(
     innerRef,
     onClick,
     ...props
-  }: ButtonType<HTMLButtonElement & HTMLAnchorElement>) => {
+  }: Button<HTMLButtonElement & HTMLAnchorElement>) => {
     console.log('ButtonComponent');
 
     const [active, setActive] = useState(false);

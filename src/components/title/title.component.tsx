@@ -1,5 +1,5 @@
-import type { TitleType } from '@/src/components/title/title.type.ts';
+import type { Title } from '@/src/components/title/title.type.ts';
 
-export const TitleComponent = ({ className, children, tag: Tag = 'h1' }: TitleType) => {
+export const TitleComponent = ({ className, children, tag: Tag = 'h1' }: Title) => {
   return <Tag className={className}>{children}</Tag>;
 };

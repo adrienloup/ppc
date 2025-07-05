@@ -1,15 +1,15 @@
 import type { Dispatch } from 'react';
 
-export type AccountType = string | null;
+export type Account = string | null;
 
-export interface UserType {
+export interface User {
   username: string;
   password: string;
 }
 
 export interface AuthState {
-  users: UserType[];
-  account: AccountType;
+  users: User[];
+  account: Account;
 }
 
 export type AuthAction =
@@ -17,4 +17,4 @@ export type AuthAction =
   | { type: 'LOG_IN'; username: string; password: string }
   | { type: 'SIGN_UP'; username: string; password: string };
 
-export type AuthType = { state: AuthState; dispatch: Dispatch<AuthAction> };
+export type Auth = { state: AuthState; dispatch: Dispatch<AuthAction> };

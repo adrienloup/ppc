@@ -1,7 +1,7 @@
-import type { ChildrenType } from '@/src/shared/types/children.type.ts';
+import type { Children } from '@/src/shared/types/children.type.ts';
 
-export interface FormFieldType {
-  children: ChildrenType;
+export interface FormField {
+  children: Children;
   className?: string;
   label?: string;
   helperText?: string;

@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, LinkHTMLAttributes, MouseEventHandler, RefOb
 
 type ButtonAttributes<A> = ButtonHTMLAttributes<A> & LinkHTMLAttributes<A>;
 
-export interface ButtonType<T> extends ButtonAttributes<T> {
+export interface Button<T> extends ButtonAttributes<T> {
   href?: string;
   to?: string;
   disabled?: boolean;

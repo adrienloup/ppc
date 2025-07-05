@@ -1,4 +1,4 @@
-export interface ValueType {
+export interface Value {
   className?: string;
   value: number;
 }

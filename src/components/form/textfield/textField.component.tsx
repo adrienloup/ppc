@@ -1,7 +1,7 @@
 import { useId, useState } from 'react';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { FormFieldComponent } from '@/src/components/form/formfield/formField.component.tsx';
-import type { TextFieldType } from '@/src/components/form/textfield/textField.type.ts';
+import type { TextField } from '@/src/components/form/textfield/textField.type.ts';
 import styles from '@/src/components/form/textfield/textField.module.scss';
 
 export const TextFieldComponent = ({
@@ -16,7 +16,7 @@ export const TextFieldComponent = ({
   suffix,
   status,
   onChange,
-}: TextFieldType) => {
+}: TextField) => {
   const uId = useId();
   const [focus, setFocus] = useState(false);
 

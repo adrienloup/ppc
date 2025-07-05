@@ -1,4 +1,4 @@
-import type { AuthType } from '@/src/features/authentification/auth.type.ts';
+import type { Auth } from '@/src/features/authentification/auth.type.ts';
 import { createContext } from 'react';
 
-export const AuthContext = createContext<AuthType | undefined>(undefined);
+export const AuthContext = createContext<Auth | undefined>(undefined);
