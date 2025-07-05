@@ -6,6 +6,7 @@ import styles from '@/src/components/dashboard/clip/clip.module.scss';
 
 export const ClipComponent = () => {
   const state = useFactory();
+
   return (
     <TurbanComponent>
       <TitleComponent className={styles.title}>{`${state.clip} paperclips`}</TitleComponent>

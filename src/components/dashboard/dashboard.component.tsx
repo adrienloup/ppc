@@ -1,8 +1,8 @@
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
 import { ArticleComponent } from '@/src/components/layout/article/article.component.tsx';
 import { ClipComponent } from '@/src/components/dashboard/clip/clip.component.tsx';
-import { CardsComponent } from '@/src/components/cards/cards.component.tsx';
-import { ManufacturingComponent } from '@/src/components/dashboard/manufacturing/manufacturing.component.tsx';
+import { WorkingComponent } from '@/src/components/dashboard/working/working.component.tsx';
+import { LoggedComponent } from '@/src/components/logged/logged.component.tsx';
 import { LoginComponent } from '@/src/components/login/login.component.tsx';
 
 export const DashboardComponent = () => {
@@ -13,13 +13,8 @@ export const DashboardComponent = () => {
       {state.account ? (
         <ArticleComponent>
           <ClipComponent />
-          <CardsComponent>
-            <ManufacturingComponent />
-            <ManufacturingComponent />
-            <ManufacturingComponent />
-            <ManufacturingComponent />
-            <ManufacturingComponent />
-          </CardsComponent>
+          <WorkingComponent />
+          <LoggedComponent />
         </ArticleComponent>
       ) : (
         <LoginComponent />

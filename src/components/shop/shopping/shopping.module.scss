@@ -1,0 +1,21 @@
+$mobile-landscape: 1024px;
+
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  flex-direction: column;
+
+  @media (min-width: $mobile-landscape) {
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+}
+
+.title {
+  flex: 0 0 100%;
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+}

@@ -1,7 +1,7 @@
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
 import { useFactory, useFactoryDispatch } from '@/src/features/factory/useFactory.ts';
 import { ArticleComponent } from '@/src/components/layout/article/article.component.tsx';
-import { AccountComponent } from '@/src/components/account/account.component.tsx';
+import { AccountComponent } from '@/src/components/profile/account/account.component.tsx';
 import { LoginComponent } from '@/src/components/login/login.component.tsx';
 
 export const ProfileComponent = () => {

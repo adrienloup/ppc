@@ -1,0 +1,41 @@
+.button {
+  &:disabled {
+    .inner {
+      opacity: 0.5;
+    }
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 2.5rem;
+  background-color: var(--theme-color-1);
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+}
+
+.value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  white-space: nowrap;
+  animation: SlideUp 0.5s var(--ease-out);
+  font-size: calc(var(--font-size-l) + var(--font-size-xs));
+  color: var(--color-5);
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translate3d(0, -2rem, 0);
+  }
+  50% {
+    transform: translate3d(1rem, -6rem, 0);
+  }
+  100% {
+    transform: translate3d(1rem, -8rem, 0);
+  }
+}

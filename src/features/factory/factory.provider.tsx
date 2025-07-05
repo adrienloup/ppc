@@ -1,7 +1,7 @@
 import { type FC, useEffect, useMemo, useReducer } from 'react';
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
 import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/factory.context.ts';
-import { factoryReducer } from '@/src/features/factory/factory.reducer.ts';
+import { factoryReducer } from '@/src/features/factory/reducers/factory.reducer.ts';
 import { FACTORY_KEY } from '@/src/features/factory/factory.key.ts';
 import { FACTORY_STATE } from '@/src/features/factory/factory.state.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';

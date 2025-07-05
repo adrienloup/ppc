@@ -1,25 +1,14 @@
 $mobile-portrait: 768px;
 $mobile-landscape: 1024px;
-$tablet-landscape: 1440px;
 
 .cards {
-  display: flex;
-  flex-direction: column;
   gap: var(--spacing-xs);
 
   @media (min-width: $mobile-portrait) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-s);
-    align-items: start;
   }
 
   @media (min-width: $mobile-landscape) {
-    grid-template-columns: 1fr 1fr 1fr;
     gap: var(--spacing-m);
-  }
-
-  @media (min-width: $tablet-landscape) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
