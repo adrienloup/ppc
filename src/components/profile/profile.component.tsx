@@ -11,7 +11,7 @@ export const ProfileComponent = () => {
 
   return (
     <>
-      {auth.account ? (
+      {auth.user ? (
         <ArticleComponent>
           <AccountComponent />
           add <button onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}>+1</button>

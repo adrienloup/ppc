@@ -9,7 +9,7 @@ export const AccountComponent = () => {
 
   return (
     <TurbanComponent>
-      <TitleComponent className={styles.title}>{`${state.account} profile`}</TitleComponent>
+      <TitleComponent className={styles.title}>{`${state.user} profile`}</TitleComponent>
       <ButtonComponent
         className={styles.button}
         onClick={() => dispatch({ type: 'LOG_OUT' })}

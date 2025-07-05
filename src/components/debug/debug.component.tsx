@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { MechanicDebugComponent } from '@/src/components/debug/mechanicDebug.component.tsx';
 import styles from '@/src/components/debug/debug.module.scss';
 
-const DEBUG_KEY = 'debug_ppc';
+const DEBUG_KEY = 'debug_ppc_3emma_1';
 
 export const DebugComponent = () => {
   const location = useLocation();

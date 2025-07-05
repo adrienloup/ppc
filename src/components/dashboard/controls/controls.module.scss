@@ -36,6 +36,7 @@ $tablet-landscape: 1440px;
 }
 
 .label {
+  flex: 0 0 100%;
   font-size: var(--font-size-s);
   color: var(--color-1);
 }
@@ -46,7 +47,6 @@ $tablet-landscape: 1440px;
 }
 
 .button {
-  position: relative;
   margin-top: var(--spacing-xs);
   padding: var(--spacing-xs);
   background-color: var(--color-1);

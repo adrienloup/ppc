@@ -1,5 +1,6 @@
-import { type FC, useEffect, useMemo, useReducer } from 'react';
+import { type FC, useCallback, useEffect, useMemo, useReducer } from 'react';
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
+import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { FactoryContext, FactoryDispatchContext } from '@/src/features/factory/factory.context.ts';
 import { factoryReducer } from '@/src/features/factory/reducers/factory.reducer.ts';
 import { FACTORY_KEY } from '@/src/features/factory/factory.key.ts';
@@ -9,26 +10,35 @@ import type { Children } from '@/src/shared/types/children.type.ts';
 export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
   const { state: auth } = useAuth();
 
-  const account = useMemo(() => {
-    return auth.account ? `${FACTORY_KEY}::${auth.account}` : null;
-  }, [auth.account]);
+  const user = useMemo(() => {
+    return auth.user ? `${FACTORY_KEY}::${auth.user}` : null;
+  }, [auth.user]);
+
+  const enabled = !!auth.user;
+  console.log('active', enabled);
 
   const [state, dispatch] = useReducer(factoryReducer, FACTORY_STATE, () => {
-    if (!account) return FACTORY_STATE;
-    const stored = localStorage.getItem(account);
+    if (!user) return FACTORY_STATE;
+    const stored = localStorage.getItem(user);
     return stored ? JSON.parse(stored) : FACTORY_STATE;
   });
 
   useEffect(() => {
-    if (!account) return;
-    const stored = localStorage.getItem(account);
+    if (!user) return;
+    const stored = localStorage.getItem(user);
     dispatch({ type: 'INITIALIZE', state: stored ? JSON.parse(stored) : FACTORY_STATE });
-  }, [account]);
+  }, [user]);
 
   useEffect(() => {
-    if (!account) return;
-    localStorage.setItem(account, JSON.stringify(state));
-  }, [state, account]);
+    if (!user) return;
+    localStorage.setItem(user, JSON.stringify(state));
+  }, [state, user]);
+
+  const productionPerSecond = useCallback(() => {
+    dispatch({ type: 'PRODUCTION_PER_SECOND' });
+  }, []);
+
+  useInterval(productionPerSecond, 8e2, enabled);
 
   return (
     <FactoryContext.Provider value={state}>

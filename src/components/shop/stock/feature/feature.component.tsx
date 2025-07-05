@@ -4,7 +4,7 @@ import { TitleComponent } from '@/src/components/title/title.component';
 import { ButtonComponent } from '@/src/components/button/button.component.tsx';
 import { NumberComponent } from '@/src/components/number/number.component.tsx';
 import type { Feature } from '@/src/features/factory/factory.type.ts';
-import styles from '@/src/components/shop/shopping/feature/feature.module.scss';
+import styles from '@/src/components/shop/stock/feature/feature.module.scss';
 
 export const FeatureComponent = ({ featureName, featureValue }: { featureName: string; featureValue: Feature }) => {
   const state = useFactory();
