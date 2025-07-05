@@ -1,0 +1,27 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  margin: auto;
+  max-width: 30rem;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: var(--font-size-l);
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-s);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-s);
+  background-color: var(--color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  color: var(--color-1);
+}

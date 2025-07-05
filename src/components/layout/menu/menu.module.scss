@@ -1,0 +1,50 @@
+.menu {
+  position: relative;
+  height: 0;
+  background-color: var(--color-2);
+  transition-property: height;
+  transition-duration: 0.25s;
+  transition-timing-function: var(--ease-expo);
+  //will-change: height;
+
+  &.open {
+    height: 10rem;
+    transition-duration: 0.45s;
+  }
+}
+
+.inside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+  transition-property: height;
+  transition-duration: 0.25s;
+  transition-timing-function: var(--ease-expo);
+
+  .open & {
+    height: 10rem;
+    visibility: visible;
+    transition-duration: 0.45s;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.button {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: var(--spacing-xs);
+  background-color: var(--color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  color: var(--color-1);
+  outline-offset: -0.25rem;
+}

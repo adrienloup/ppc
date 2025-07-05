@@ -1,16 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { version } from '@/package.json';
-import { Providers } from '@/src/providers.tsx';
-import '@/src/main.scss';
-import '@/src/common/i18n';
-import App from '@/src/common/app/App.tsx';
+import { Provider } from '@/src/provider.tsx';
+import App from '@/src/app/app.tsx';
 
-createRoot(document.getElementById('_ppc_3mma_0')!).render(
+createRoot(document.getElementById('_app_3emma_1')!).render(
   <StrictMode>
-    <Providers>
+    <Provider>
       <App />
-    </Providers>
+    </Provider>
   </StrictMode>
 );
 

@@ -1,0 +1,16 @@
+@use '@/src/assets/styles/index' as *;
+
+#_app_3emma_1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-1);
+  font-family: var(--font-text), sans-serif;
+  color: var(--color-2);
+  //text-shadow:
+  //  -2px 2px var(--color-1),
+  //  0 1px var(--color-1),
+  //  1px 0 var(--color-1),
+  //  0 -1px var(--color-1);
+}

@@ -1,0 +1,31 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+}
+
+.value {
+  font-size: var(--font-size-l);
+  color: var(--color-1);
+}
+
+.label {
+  font-size: var(--font-size-s);
+  color: var(--color-1);
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.button {
+  position: relative;
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-xs);
+  background-color: var(--color-1);
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+}
