@@ -33,7 +33,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: ['hypnoHarmonics'],
     available: false,
     quantity: 1,
-    requirements: ['combinatoryHarmonics'],
+    // requirements: ['combinatoryHarmonics'],
   },
   fullMonopoly: {
     category: 'marketing',
@@ -101,7 +101,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: [{ asset: 'clipperBonus', value: 10 }],
     available: false,
     quantity: 1,
-    requirements: ['improvedClipper'],
+    // requirements: ['improvedClipper'],
   },
   optimizedClipper: {
     category: 'production',
@@ -109,7 +109,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: [{ asset: 'clipperBonus', value: 100 }],
     available: false,
     quantity: 1,
-    requirements: ['evenBetterClipper'],
+    // requirements: ['evenBetterClipper'],
   },
   hadwigerClipDiagram: {
     category: 'production',
@@ -117,7 +117,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: [{ asset: 'clipperBonus', value: 500 }],
     available: false,
     quantity: 1,
-    requirements: ['hadwigerProblem'],
+    // requirements: ['hadwigerProblem'],
   },
   improvedMegaClipper: {
     category: 'production',
@@ -125,7 +125,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: [{ asset: 'megaClipperBonus', value: 2 }],
     available: false,
     quantity: 1,
-    requirements: ['megaClipper'],
+    // requirements: ['megaClipper'],
   },
   evenBetterMegaClipper: {
     category: 'production',
@@ -133,7 +133,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: [{ asset: 'megaClipperBonus', value: 10 }],
     available: false,
     quantity: 1,
-    requirements: ['improvedMegaClipper'],
+    // requirements: ['improvedMegaClipper'],
   },
   optimizedMegaClippers: {
     category: 'production',
@@ -141,7 +141,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: [{ asset: 'megaClipperBonus', value: 100 }],
     available: false,
     quantity: 1,
-    requirements: ['evenBetterMegaClipper'],
+    // requirements: ['evenBetterMegaClipper'],
   },
   newSlogan: {
     category: 'marketing',

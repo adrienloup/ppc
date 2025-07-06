@@ -30,7 +30,7 @@ export type FactoryAction =
   | { type: 'INCREMENT_CLIP' }
   | { type: 'PRODUCTION_PER_SECOND' }
   | { type: 'ALLOCATE_TRUST' }
-  | { type: 'UPDATE_FEATURE'; feature: string; available: boolean }
+  | { type: 'UPDATE_SHOP'; name: string; model: string; available: boolean }
   | { type: 'BUY_WIRE_AUTOMATICALLY' }
   | { type: 'UPDATE_WIRE_COST'; cost: number }
   | { type: 'BUY_WIRE'; cost: number };

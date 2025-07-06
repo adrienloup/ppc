@@ -1,8 +1,9 @@
 import { resourcesReducer } from '@/src/features/factory/reducers/resources.reducer.ts';
 import { productionReducer } from '@/src/features/factory/reducers/production.reducer.ts';
+import { shopReducer } from '@/src/features/factory/reducers/shop.reducer.ts';
 import type { FactoryAction, FactoryState } from '@/src/features/factory/factory.type.ts';
 
-const reducers = [resourcesReducer, productionReducer];
+const reducers = [resourcesReducer, productionReducer, shopReducer];
 
 export const factoryReducer = (state: FactoryState, action: FactoryAction): FactoryState => {
   return reducers.reduce(

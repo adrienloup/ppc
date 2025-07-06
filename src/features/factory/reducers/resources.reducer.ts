@@ -18,17 +18,6 @@ export const resourcesReducer = (state: FactoryState, action: FactoryAction): Fa
         funds: Math.max(0, state.funds - action.cost),
       };
     }
-    case 'UPDATE_FEATURE':
-      return {
-        ...state,
-        feature: {
-          ...state.feature,
-          [action.feature]: {
-            ...state.feature[action.feature],
-            available: action.available,
-          },
-        },
-      };
     default:
       return state;
   }

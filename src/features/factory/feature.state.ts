@@ -1,7 +1,7 @@
 import type { FeatureState } from '@/src/features/factory/feature.type.ts';
 
 export const FEATURE_STATE: FeatureState = {
-  clipper: { available: false, requirements: [{ asset: 'clip', value: 5 }] },
+  clipper: { available: false, requirements: [{ asset: 'funds', value: 5 }] },
   clipFactory: { available: false },
   swarm: { available: false },
   fundsPerSecond: { available: false },
