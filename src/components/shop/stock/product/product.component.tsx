@@ -3,32 +3,32 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import { TitleComponent } from '@/src/components/title/title.component';
 import { ButtonComponent } from '@/src/components/button/button.component.tsx';
 import { NumberComponent } from '@/src/components/number/number.component.tsx';
-import type { Feature } from '@/src/features/factory/factory.type.ts';
-import styles from '@/src/components/shop/stock/feature/feature.module.scss';
+import type { Product } from '@/src/features/factory/factory.type.ts';
+import styles from '@/src/components/shop/stock/product/product.module.scss';
 
-export const FeatureComponent = ({ featureName, featureValue }: { featureName: string; featureValue: Feature }) => {
+export const ProductComponent = ({ productName, productValue }: { productName: string; productValue: Product }) => {
   const state = useFactory();
 
-  const isPurchasable = featureValue.cost?.every(({ asset, value }) => {
+  const isPurchasable = productValue.cost?.every(({ asset, value }) => {
     const available = state[asset] ?? 0;
     return available >= value;
   });
 
   return (
-    <div className={classNames([styles.feature, !featureValue.active ? styles.disabled : ''])}>
+    <div className={classNames([styles.product, !productValue.active ? styles.disabled : ''])}>
       <TitleComponent
         tag="h3"
         className={styles.title}
       >
-        {featureName}
+        {productName}
       </TitleComponent>
       <div className={styles.text}>text</div>
       <div className={styles.text}>
-        cost: <NumberComponent value={featureValue.cost?.[0]?.value} /> {featureValue.cost?.[0]?.asset}
-        {featureValue.cost?.[1] ? ' / ' : null}
-        <NumberComponent value={featureValue.cost?.[1]?.value} /> {featureValue.cost?.[1]?.asset}
+        cost: <NumberComponent value={productValue.cost?.[0]?.value} /> {productValue.cost?.[0]?.asset}
+        {productValue.cost?.[1] ? ' / ' : null}
+        <NumberComponent value={productValue.cost?.[1]?.value} /> {productValue.cost?.[1]?.asset}
       </div>
-      <div className={styles.text}>quantity {featureValue.quantity}</div>
+      <div className={styles.text}>quantity {productValue.quantity}</div>
       <ButtonComponent
         className={classNames([styles.button, !isPurchasable ? styles.disabled : ''])}
         tabIndex={!isPurchasable ? -1 : 0}

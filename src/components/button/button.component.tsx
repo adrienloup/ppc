@@ -15,8 +15,6 @@ export const ButtonComponent = memo(
     onClick,
     ...props
   }: Button<HTMLButtonElement & HTMLAnchorElement>) => {
-    console.log('ButtonComponent');
-
     const [active, setActive] = useState(false);
 
     useEffect(() => {

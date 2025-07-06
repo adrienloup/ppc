@@ -7,7 +7,6 @@ import { ShopComponent } from '@/src/components/shop/shop.component.tsx';
 const LayoutComponent = lazy(() => fallback(import('@/src/components/layout/layout.component.tsx'), 15e2));
 
 function ShopPage() {
-  console.log('ShopPage');
   return (
     <Suspense fallback={<LoaderComponent />}>
       <LayoutComponent>

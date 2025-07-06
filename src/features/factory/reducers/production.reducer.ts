@@ -5,15 +5,14 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
     case 'INCREMENT_CLIP': {
       if (state.wire <= 0) return state;
 
-      const unsoldInventoryBonusIC = Math.max(1, state.unsoldInventoryBonus);
+      const bonusIC = Math.max(1, state.unsoldInventoryBonus);
 
       return {
         ...state,
         wire: state.wire - 1,
-        clip: state.clip + unsoldInventoryBonusIC,
-        unsoldInventory: state.unsoldInventory + unsoldInventoryBonusIC,
-        clipPerSecond: state.clipPerSecond + unsoldInventoryBonusIC,
-        // fundsPerSecond: state.fundsPerSecond + unsoldInventoryBonusIC * state.clipPrice,
+        clip: state.clip + bonusIC,
+        unsoldInventory: state.unsoldInventory + bonusIC,
+        clipPerSecond: state.clipPerSecond + bonusIC,
       };
     }
     case 'PRODUCTION_PER_SECOND': {
@@ -31,13 +30,6 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
         clip: state.clip + clipPPS,
         unsoldInventory: state.unsoldInventory + clipPPS,
         clipPerSecond: clipPPS,
-        // acquiredMatter: acquiredMatterPPS,
-        // availableMatter: availableMatterPPS,
-        // creativity: creativityPPS,
-        // fundsPerSecond: fundsPPS,
-        // operation: operationPPS,
-        // wirePerSecond: wireDronePPS,
-        // matterPerSecond: harvesterDronePPS,
       };
     }
     default:

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/components/button/button.component.tsx';
-// import { IconComponent } from '@/src/components/icon/IconComponent.tsx';
 import type { Notif } from '@/src/features/notification/notif.type.ts';
 import styles from '@/src/components/notif/notif.module.scss';
 
@@ -10,14 +9,21 @@ export const NotifComponent = ({ id, text, status = 'warning', timeout = 5e3, cl
   const removeTimer = useRef(0);
   const [out, setOut] = useState(false);
 
+  const onRemove = () => {
+    setOut(true);
+    removeTimer.current = setTimeout(() => {
+      remove!();
+    }, timeout + 400) as unknown as number;
+  };
+
   useEffect(() => {
     if (timeout > 0) {
-      // outTimer.current = setTimeout(() => {
-      //   setOut(true);
-      // }, timeout) as unknown as number;
-      // removeTimer.current = setTimeout(() => {
-      //   remove?.(); // removes the component after the exit CSS animation
-      // }, timeout + 400) as unknown as number; // add CSS animation duration
+      outTimer.current = setTimeout(() => {
+        setOut(true);
+      }, timeout) as unknown as number;
+      removeTimer.current = setTimeout(() => {
+        remove!(); // removes the exit CSS animation
+      }, timeout + 400) as unknown as number; // add CSS animation duration
     }
     return () => {
       clearTimeout(outTimer.current);
@@ -37,9 +43,9 @@ export const NotifComponent = ({ id, text, status = 'warning', timeout = 5e3, cl
         {close && (
           <ButtonComponent
             className={styles.button}
-            onClick={remove}
+            onClick={onRemove}
           >
-            x{/*<IconComponent icon="cancel" />*/}
+            x
           </ButtonComponent>
         )}
       </div>

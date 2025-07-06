@@ -7,7 +7,6 @@ import { DashboardComponent } from '@/src/components/dashboard/dashboard.compone
 const LayoutComponent = lazy(() => fallback(import('@/src/components/layout/layout.component.tsx'), 15e2));
 
 function DashboardPage() {
-  console.log('DashboardPage');
   return (
     <Suspense fallback={<LoaderComponent />}>
       <LayoutComponent>

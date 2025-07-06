@@ -1,5 +1,6 @@
 import type { FactoryState } from '@/src/features/factory/factory.type.ts';
 import { FEATURE_STATE } from '@/src/features/factory/feature.state.ts';
+import { PRODUCT_STATE } from '@/src/features/factory/product.state.ts';
 
 export const FACTORY_STATE: FactoryState = {
   clip: 0,
@@ -15,6 +16,7 @@ export const FACTORY_STATE: FactoryState = {
   megaClipperBonus: 0,
   marketingBonus: 0,
   operation: 0,
+  product: PRODUCT_STATE,
   trust: 0,
   unsoldInventory: 0,
   unsoldInventoryBonus: 0,

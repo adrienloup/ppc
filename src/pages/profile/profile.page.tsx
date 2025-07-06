@@ -7,7 +7,6 @@ import { ProfileComponent } from '@/src/components/profile/profile.component.tsx
 const LayoutComponent = lazy(() => fallback(import('@/src/components/layout/layout.component.tsx'), 15e2));
 
 function ProfilePage() {
-  console.log('ProfilePage');
   return (
     <Suspense fallback={<LoaderComponent />}>
       <LayoutComponent>
