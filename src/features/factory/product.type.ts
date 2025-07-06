@@ -7,8 +7,7 @@ export interface Product {
   cost?: AssetValue<FactoryState>[];
   category?: string;
   quantity?: number;
-  enabled: boolean;
-  active: boolean;
+  available: boolean;
 }
 
 export type ProductState = Record<string, Product>;

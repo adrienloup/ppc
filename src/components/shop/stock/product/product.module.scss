@@ -1,4 +1,4 @@
-$mobile-landscape: 1024px;
+$mobile-portrait: 768px;
 $tablet-portrait: 1280px;
 
 .product {
@@ -10,7 +10,7 @@ $tablet-portrait: 1280px;
   background-color: var(--color-2);
   color: var(--color-1);
 
-  @media (min-width: $mobile-landscape) {
+  @media (min-width: $mobile-portrait) {
     width: calc(50% - 0.25rem);
   }
 
@@ -27,11 +27,12 @@ $tablet-portrait: 1280px;
 
 .title {
   text-transform: capitalize;
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
 }
 
 .text {
-  font-size: var(--font-size-s);
+  line-height: 1.1;
+  font-size: var(--font-size-xs);
 
   &::first-letter {
     text-transform: uppercase;

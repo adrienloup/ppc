@@ -8,14 +8,14 @@ $mobile-landscape: 1024px;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-s);
-  padding: calc(var(--spacing-xl) + var(--spacing-xs)) var(--spacing-xs) var(--spacing-xs);
+  padding: calc(var(--spacing-l) + var(--spacing-xs)) var(--spacing-xs) var(--spacing-xs);
 
   @media (min-width: $mobile-portrait) {
     gap: var(--spacing-m);
-    padding: calc(var(--spacing-l) + var(--spacing-m)) var(--spacing-s) var(--spacing-s);
+    padding: calc(var(--spacing-l) + var(--spacing-s)) var(--spacing-s) var(--spacing-s);
   }
 
   @media (min-width: $mobile-landscape) {
-    padding: calc(var(--spacing-l) + var(--spacing-m)) var(--spacing-m) var(--spacing-m);
+    padding: calc(var(--spacing-l) + var(--spacing-s)) var(--spacing-m) var(--spacing-m);
   }
 }

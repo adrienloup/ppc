@@ -3,35 +3,37 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import { TitleComponent } from '@/src/components/title/title.component';
 import { ButtonComponent } from '@/src/components/button/button.component.tsx';
 import { NumberComponent } from '@/src/components/number/number.component.tsx';
-import type { Product } from '@/src/features/factory/factory.type.ts';
+import type { Product } from '@/src/features/factory/product.type.ts';
 import styles from '@/src/components/shop/stock/product/product.module.scss';
 
-export const ProductComponent = ({ productName, productValue }: { productName: string; productValue: Product }) => {
-  const state = useFactory();
+export const ProductComponent = ({ title, product }: { title: string; product: Product }) => {
+  const factory = useFactory();
 
-  const isPurchasable = productValue.cost?.every(({ asset, value }) => {
-    const available = state[asset] ?? 0;
+  const purchasable = product.cost?.every(({ asset, value }) => {
+    const available = factory[asset] ?? 0;
     return available >= value;
   });
 
   return (
-    <div className={classNames([styles.product, !productValue.active ? styles.disabled : ''])}>
+    <div className={classNames([styles.product, !purchasable ? styles.disabled : ''])}>
       <TitleComponent
         tag="h3"
         className={styles.title}
       >
-        {productName}
+        {title}
       </TitleComponent>
-      <div className={styles.text}>text</div>
       <div className={styles.text}>
-        cost: <NumberComponent value={productValue.cost?.[0]?.value} /> {productValue.cost?.[0]?.asset}
-        {productValue.cost?.[1] ? ' / ' : null}
-        <NumberComponent value={productValue.cost?.[1]?.value} /> {productValue.cost?.[1]?.asset}
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
       </div>
-      <div className={styles.text}>quantity {productValue.quantity}</div>
+      <div className={styles.text}>
+        cost: <NumberComponent value={product.cost?.[0]?.value} /> {product.cost?.[0]?.asset}
+        {product.cost?.[1] ? ' / ' : null}
+        <NumberComponent value={product.cost?.[1]?.value} /> {product.cost?.[1]?.asset}
+      </div>
+      <div className={styles.text}>quantity {product.quantity}</div>
       <ButtonComponent
-        className={classNames([styles.button, !isPurchasable ? styles.disabled : ''])}
-        tabIndex={!isPurchasable ? -1 : 0}
+        className={styles.button}
+        tabIndex={!purchasable ? -1 : 0}
         onClick={() => console.log('clicked')}
       >
         purchase
