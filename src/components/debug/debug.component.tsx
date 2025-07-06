@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { MechanicDebugComponent } from '@/src/components/debug/mechanicDebug.component.tsx';
+import { DebugMechanicComponent } from '@/src/components/debug/debugMechanic.component.tsx';
+import { DebugBonusComponent } from '@/src/components/debug/debugBonus.component.tsx';
 import styles from '@/src/components/debug/debug.module.scss';
 
 const DEBUG_KEY = 'debug_ppc_3emma_1';
@@ -23,7 +24,8 @@ export const DebugComponent = () => {
       className={styles.debug}
       role="complementary"
     >
-      <MechanicDebugComponent />
+      <DebugMechanicComponent />
+      <DebugBonusComponent />
     </div>
   ) : null;
 };

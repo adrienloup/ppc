@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useAuth } from '@/src/features/authentification/useAuth.ts';
 import { AccountContext, AccountDispatchContext } from '@/src/features/account/account.context.ts';
 import { accountReducer } from '@/src/features/account/account.reducer.ts';
-import { PauseComponent } from '@/src/components/pause/pause.component.tsx';
+import { PauseComponent } from '@/src/components/profile/pause/pause.component.tsx';
 import { ACCOUNT_KEY } from '@/src/features/account/account.key.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 

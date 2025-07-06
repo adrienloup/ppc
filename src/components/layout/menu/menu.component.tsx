@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useAccount, useAccountDispatch } from '@/src/features/account/useAccount.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import { ButtonComponent } from '@/src/components/button/button.component.tsx';
+import { ButtonComponent } from '@/src/components/common/button/button.component.tsx';
 import styles from '@/src/components/layout/menu/menu.module.scss';
 
 export const MenuComponent = () => {
@@ -48,7 +48,9 @@ export const MenuComponent = () => {
           ))}
         </div>
         <div>
-          <button onClick={() => setAccount({ type: 'TOGGLE_PAUSE' })}>{account.pause ? 'pause' : 'play'}</button>
+          <button onClick={() => setAccount({ type: 'TOGGLE_PAUSE' })}>
+            {account.pause ? 'pause' : 'play'}
+          </button>
         </div>
       </div>
     </div>

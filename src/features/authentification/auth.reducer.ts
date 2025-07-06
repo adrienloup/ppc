@@ -6,7 +6,9 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
       return { ...state, user: null };
     }
     case 'LOG_IN': {
-      return state.users.find((user) => user.username === action.username && user.password === action.password)
+      return state.users.find(
+        (user) => user.username === action.username && user.password === action.password
+      )
         ? { ...state, user: action.username }
         : state;
     }

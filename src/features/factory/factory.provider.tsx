@@ -33,10 +33,15 @@ export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
     localStorage.setItem(account, JSON.stringify(state));
   }, [state, account]);
 
+  const sellUnsoldInventory = useCallback(() => {
+    dispatch({ type: 'SELL_UNSOLD_INVENTORY' });
+  }, []);
+
   const productionPerSecond = useCallback(() => {
     dispatch({ type: 'PRODUCTION_PER_SECOND' });
   }, []);
 
+  useInterval(sellUnsoldInventory, 5e2, !!user && !pause);
   useInterval(productionPerSecond, 8e2, !!user && !pause);
 
   return (

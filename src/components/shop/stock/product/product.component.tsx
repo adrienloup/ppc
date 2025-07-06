@@ -1,8 +1,8 @@
 import { useFactory } from '@/src/features/factory/useFactory.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import { TitleComponent } from '@/src/components/title/title.component';
-import { ButtonComponent } from '@/src/components/button/button.component.tsx';
-import { NumberComponent } from '@/src/components/number/number.component.tsx';
+import { TitleComponent } from '@/src/components/common/title/title.component';
+import { ButtonComponent } from '@/src/components/common/button/button.component.tsx';
+import { NumberComponent } from '@/src/components/common/number/number.component.tsx';
 import type { Product } from '@/src/features/factory/product.type.ts';
 import styles from '@/src/components/shop/stock/product/product.module.scss';
 
@@ -23,7 +23,8 @@ export const ProductComponent = ({ title, product }: { title: string; product: P
         {title}
       </TitleComponent>
       <div className={styles.text}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry's
       </div>
       <div className={styles.text}>
         cost: <NumberComponent value={product.cost?.[0]?.value} /> {product.cost?.[0]?.asset}

@@ -9,8 +9,16 @@ export const useShop = () => {
 
   useEffect(() => {
     const items = [
-      ...Object.entries(factory.product).map(([key, value]) => ({ name: key, data: value, model: 'product' as const })),
-      ...Object.entries(factory.feature).map(([key, value]) => ({ name: key, data: value, model: 'feature' as const })),
+      ...Object.entries(factory.product).map(([key, value]) => ({
+        name: key,
+        data: value,
+        model: 'product' as const,
+      })),
+      ...Object.entries(factory.feature).map(([key, value]) => ({
+        name: key,
+        data: value,
+        model: 'feature' as const,
+      })),
     ];
 
     for (let i = 0; i < items.length; i++) {
@@ -21,7 +29,10 @@ export const useShop = () => {
       const requirements = data.requirements;
       let available: boolean = data.available ?? false;
 
-      if (Array.isArray(requirements) && requirements.every((requirement) => typeof requirement === 'object')) {
+      if (
+        Array.isArray(requirements) &&
+        requirements.every((requirement) => typeof requirement === 'object')
+      ) {
         requirements.forEach((requirement) => {
           const { asset, value } = requirement;
           available = factory[asset] >= value;

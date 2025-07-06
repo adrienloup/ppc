@@ -1,0 +1,25 @@
+.stages {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 20rem;
+  height: 20rem;
+  border: 0.25rem solid red;
+  border-radius: 50%;
+}
+
+.expands {
+  width: 20rem;
+}
+
+.title {
+  padding: var(--spacing-xs);
+  background: red;
+}

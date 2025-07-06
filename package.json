@@ -1,7 +1,7 @@
 {
   "name": "ppc",
   "private": true,
-  "version": "2.0.3",
+  "version": "3.0.1",
   "type": "module",
   "author": "Adrien Loup",
   "scripts": {

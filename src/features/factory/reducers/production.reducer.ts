@@ -5,14 +5,15 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
     case 'INCREMENT_CLIP': {
       if (state.wire <= 0) return state;
 
-      const bonusIC = Math.max(1, state.unsoldInventoryBonus);
+      const unsoldInventoryBonusIC = Math.max(1, state.unsoldInventoryBonus);
 
       return {
         ...state,
         wire: state.wire - 1,
-        clip: state.clip + bonusIC,
-        unsoldInventory: state.unsoldInventory + bonusIC,
-        clipPerSecond: state.clipPerSecond + bonusIC,
+        clip: state.clip + unsoldInventoryBonusIC,
+        unsoldInventory: state.unsoldInventory + unsoldInventoryBonusIC,
+        clipPerSecond: state.clipPerSecond + unsoldInventoryBonusIC,
+        fundsPerSecond: state.fundsPerSecond + unsoldInventoryBonusIC * state.clipPrice,
       };
     }
     case 'PRODUCTION_PER_SECOND': {
@@ -21,8 +22,10 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
       const clipperPPS = state.clipper * Math.max(1, state.clipperBonus);
       const megaClipperPPS = state.megaClipper * 500 * Math.max(1, state.megaClipperBonus);
       const clipFactoryPPS = state.clipFactory * 1e3 * Math.max(1, state.clipFactoryBonus);
-      const clipPPS = (clipperPPS + megaClipperPPS + clipFactoryPPS) * Math.max(1, state.unsoldInventoryBonus);
+      const clipPPS =
+        (clipperPPS + megaClipperPPS + clipFactoryPPS) * Math.max(1, state.unsoldInventoryBonus);
       const wirePPS = Math.max(0, state.wire - (state.clipper + state.megaClipper + state.clipFactory));
+      const fundsPPS = clipPPS * state.clipPrice;
 
       return {
         ...state,
@@ -30,18 +33,38 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
         clip: state.clip + clipPPS,
         unsoldInventory: state.unsoldInventory + clipPPS,
         clipPerSecond: clipPPS,
+        fundsPerSecond: fundsPPS,
       };
     }
-    case 'BUY_CLIPPER': {
-      if (state.funds < state.clipperCost) return state;
-
-      const fundsBC = Math.max(0, state.funds - action.cost);
-
+    case 'UPDATE_CLIPPER_BONUS': {
       return {
         ...state,
-        clipper: state.clipper + 1,
-        clipperCost: action.cost,
-        funds: fundsBC,
+        clipperBonus: action.bonus,
+      };
+    }
+    case 'UPDATE_MEGA_CLIPPER_BONUS': {
+      return {
+        ...state,
+        megaClipperBonus: action.bonus,
+      };
+    }
+    case 'UPDATE_CLIP_FACTORY_BONUS': {
+      return {
+        ...state,
+        clipFactoryBonus: action.bonus,
+      };
+    }
+    case 'UPDATE_UNSOLD_INVENTORY_BONUS': {
+      return {
+        ...state,
+        unsoldInventoryBonus: action.bonus,
+      };
+    }
+    case 'UPDATE_MARKETING_BONUS': {
+      return {
+        ...state,
+        marketingBonus: action.bonus,
+        clipPrice: state.clipPriceRef * Math.max(1, action.bonus),
       };
     }
     default:

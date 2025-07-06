@@ -1,8 +1,8 @@
 import { useAuth, useAuthDispatch } from '@/src/features/authentification/useAuth.ts';
 import { useNotif } from '@/src/features/notification/useNotif.ts';
-import { TurbanComponent } from '@/src/components/turban/turban.component.tsx';
-import { TitleComponent } from '@/src/components/title/title.component.tsx';
-import { ButtonComponent } from '@/src/components/button/button.component.tsx';
+import { TurbanComponent } from '@/src/components/common/turban/turban.component.tsx';
+import { TitleComponent } from '@/src/components/common/title/title.component.tsx';
+import { ButtonComponent } from '@/src/components/common/button/button.component.tsx';
 import styles from '@/src/components/profile/account/account.module.scss';
 
 export const AccountComponent = () => {

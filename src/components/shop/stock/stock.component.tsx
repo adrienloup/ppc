@@ -1,7 +1,7 @@
 import { useFactory } from '@/src/features/factory/useFactory.ts';
-import { CardsComponent } from '@/src/components/cards/cards.component.tsx';
-import { CardComponent } from '@/src/components/card/card.component.tsx';
-import { TitleComponent } from '@/src/components/title/title.component.tsx';
+import { CardsComponent } from '@/src/components/common/cards/cards.component.tsx';
+import { CardComponent } from '@/src/components/common/card/card.component.tsx';
+import { TitleComponent } from '@/src/components/common/title/title.component.tsx';
 import { ProductsComponent } from '@/src/components/shop/stock/products/products.component.tsx';
 import styles from '@/src/components/shop/stock/stock.module.scss';
 
@@ -38,7 +38,11 @@ export const StockComponent = () => {
           >
             {category} {`(${Object.keys(product.enabled).length}/${product.total})`}
           </TitleComponent>
-          {Object.keys(product.enabled).length > 0 ? <ProductsComponent product={product.enabled} /> : 'empty'}
+          {Object.keys(product.enabled).length > 0 ? (
+            <ProductsComponent product={product.enabled} />
+          ) : (
+            'empty'
+          )}
         </CardComponent>
       ))}
     </CardsComponent>

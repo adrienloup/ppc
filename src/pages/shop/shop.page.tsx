@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { fallback } from '@/src/shared/utils/fallback.ts';
-import { LoaderComponent } from '@/src/components/loader/loader.component.tsx';
+import { LoaderComponent } from '@/src/components/common/loader/loader.component.tsx';
 import { DebugComponent } from '@/src/components/debug/debug.component.tsx';
 import { ShopComponent } from '@/src/components/shop/shop.component.tsx';
 

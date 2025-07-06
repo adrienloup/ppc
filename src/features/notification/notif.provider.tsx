@@ -2,8 +2,8 @@ import { type FC, useReducer } from 'react';
 import { createPortal } from 'react-dom';
 import { NotifContext } from '@/src/features/notification/notif.context.ts';
 import { notifReducer } from '@/src/features/notification/notif.reducer.ts';
-import { NotifsComponent } from '@/src/components/notifs/notifs.component.tsx';
-import { NotifComponent } from '@/src/components/notif/notif.component.tsx';
+import { NotifsComponent } from '@/src/components/common/notifs/notifs.component.tsx';
+import { NotifComponent } from '@/src/components/common/notif/notif.component.tsx';
 import type { Children } from '@/src/shared/types/children.type.ts';
 import type { Notif } from '@/src/features/notification/notif.type.ts';
 
