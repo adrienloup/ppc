@@ -7,6 +7,7 @@ export interface FactoryState {
   clipFactoryBonus: number;
   clipper: number;
   clipperBonus: number;
+  clipperCost: number;
   clipPerSecond: number;
   creativity: number;
   feature: FeatureState;
@@ -30,6 +31,7 @@ export type FactoryAction =
   | { type: 'INCREMENT_CLIP' }
   | { type: 'PRODUCTION_PER_SECOND' }
   | { type: 'ALLOCATE_TRUST' }
+  | { type: 'BUY_CLIPPER'; cost: number }
   | { type: 'UPDATE_SHOP'; name: string; model: string; available: boolean }
   | { type: 'BUY_WIRE_AUTOMATICALLY' }
   | { type: 'UPDATE_WIRE_COST'; cost: number }

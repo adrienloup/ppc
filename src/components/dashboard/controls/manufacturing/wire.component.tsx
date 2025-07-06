@@ -17,8 +17,6 @@ export const WireComponent = () => {
   const setFactory = useFactoryDispatch();
   const factory = useFactory();
 
-  const enabled = !!user && !pause && !factory.feature.production.available;
-
   const buyWire = () => {
     const cost = factory.wireCost + (Math.random() * (1.25 - 0.25) + 0.25); // 0.25 et 1.25
     setFactory({ type: 'BUY_WIRE', cost });
@@ -29,7 +27,7 @@ export const WireComponent = () => {
     setFactory({ type: 'UPDATE_WIRE_COST', cost });
   }, [factory.wireCost]);
 
-  useInterval(updateWireCost, 1e4, enabled);
+  useInterval(updateWireCost, 1e4, !!user && !pause && !factory.feature.production.available);
 
   if (factory.feature.production.available) return null;
 

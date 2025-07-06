@@ -32,6 +32,18 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
         clipPerSecond: clipPPS,
       };
     }
+    case 'BUY_CLIPPER': {
+      if (state.funds < state.clipperCost) return state;
+
+      const fundsBC = Math.max(0, state.funds - action.cost);
+
+      return {
+        ...state,
+        clipper: state.clipper + 1,
+        clipperCost: action.cost,
+        funds: fundsBC,
+      };
+    }
     default:
       return state;
   }

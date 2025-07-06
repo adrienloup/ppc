@@ -8,6 +8,7 @@ export const FACTORY_STATE: FactoryState = {
   clipFactoryBonus: 0,
   clipper: 0,
   clipperBonus: 0,
+  clipperCost: 5,
   clipPerSecond: 0,
   creativity: 0,
   feature: FEATURE_STATE,
