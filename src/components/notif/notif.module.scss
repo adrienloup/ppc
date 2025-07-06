@@ -55,7 +55,7 @@
   grid-row: 1;
   display: flex;
   align-items: center;
-  padding: var(--spacing-xs);
+  padding: calc(var(--spacing-xs) - 0.3rem);
   font-size: var(--font-size-s);
   color: var(--color-1);
 

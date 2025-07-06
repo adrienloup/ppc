@@ -11,4 +11,4 @@ export interface Notif {
 
 export type NotifState = Notif[];
 
-export type NotifAction = { type: 'ADD'; notif: Notif } | { type: 'REMOVE'; id: string };
+export type NotifAction = { type: 'ADD_NOTIF'; notif: Notif } | { type: 'REMOVE_NOTIF'; id: string };

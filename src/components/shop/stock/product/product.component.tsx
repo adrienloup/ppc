@@ -30,7 +30,7 @@ export const ProductComponent = ({ title, product }: { title: string; product: P
         {product.cost?.[1] ? ' / ' : null}
         <NumberComponent value={product.cost?.[1]?.value} /> {product.cost?.[1]?.asset}
       </div>
-      <div className={styles.text}>quantity {product.quantity}</div>
+      <div className={styles.text}>quantity: {product.quantity}</div>
       <ButtonComponent
         className={styles.button}
         tabIndex={!purchasable ? -1 : 0}

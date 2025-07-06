@@ -23,7 +23,7 @@ export const NotifProvider: FC<{ children: Children }> = ({ children }) => {
                   text={notif.text}
                   status={notif.status}
                   timeout={notif.timeout}
-                  remove={() => dispatch({ type: 'REMOVE', id: notif.id })}
+                  remove={() => dispatch({ type: 'REMOVE_NOTIF', id: notif.id })}
                 />
               ))}
             </NotifsComponent>,

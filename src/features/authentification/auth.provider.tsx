@@ -7,17 +7,17 @@ import type { Children } from '@/src/shared/types/children.type.ts';
 import type { User } from '@/src/features/authentification/auth.type.ts';
 
 export const AuthProvider: FC<{ children: Children }> = ({ children }) => {
-  const [users, setUsers] = useLocalStorage<User[]>(USERS_KEY, []);
   const [user, setUser] = useLocalStorage<string | null>(USER_KEY, null);
+  const [users, setUsers] = useLocalStorage<User[]>(USERS_KEY, []);
   const [state, dispatch] = useReducer(authReducer, {
-    users,
     user,
+    users,
   });
 
   useEffect(() => {
-    setUsers(state.users);
     setUser(state.user);
-  }, [state.users, state.user]);
+    setUsers(state.users);
+  }, [state.user, state.users]);
 
   return (
     <AuthContext.Provider value={state}>

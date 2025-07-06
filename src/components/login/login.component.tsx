@@ -49,7 +49,7 @@ export const LoginComponent = ({ className }: Login) => {
 
     setAuth({ type: 'LOG_IN', username, password: hashPassword });
     setNotif({
-      type: 'ADD',
+      type: 'ADD_NOTIF',
       notif: { id: 'sign-in', text: `${username} is connected`, status: 'success', timeout: 2e3 },
     });
   };
@@ -81,7 +81,7 @@ export const LoginComponent = ({ className }: Login) => {
 
     setAuth({ type: 'SIGN_UP', username, password: hashPassword });
     setNotif({
-      type: 'ADD',
+      type: 'ADD_NOTIF',
       notif: { id: 'sign-up', text: `${username} successfully registered`, status: 'success', timeout: 2e3 },
     });
   };

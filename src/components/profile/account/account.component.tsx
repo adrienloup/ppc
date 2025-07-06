@@ -13,7 +13,7 @@ export const AccountComponent = () => {
   const logOut = () => {
     setAuth({ type: 'LOG_OUT' });
     setNotif({
-      type: 'ADD',
+      type: 'ADD_NOTIF',
       notif: { id: 'log-out', text: `${user} has logged out`, status: 'success', timeout: 2e3 },
     });
   };

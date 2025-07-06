@@ -27,12 +27,11 @@ $tablet-portrait: 1280px;
 
 .title {
   text-transform: capitalize;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-m);
 }
 
 .text {
-  line-height: 1.1;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-s);
 
   &::first-letter {
     text-transform: uppercase;
@@ -40,6 +39,7 @@ $tablet-portrait: 1280px;
 }
 
 .button {
+  margin-left: auto;
   padding: var(--spacing-xs);
   background-color: var(--color-1);
   text-transform: uppercase;

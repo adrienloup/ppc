@@ -1,8 +1,13 @@
+import type { NumberKeys } from '@/src/shared/types/numberKeys.type.ts';
 import type { FactoryState } from '@/src/features/factory/factory.type.ts';
-import type { AssetValue } from '@/src/shared/types/assetValue.type.ts';
+
+interface AssetValue {
+  asset: NumberKeys<FactoryState>;
+  value: number;
+}
 
 export interface Feature {
-  requirement?: AssetValue<FactoryState>[] | string[];
+  requirements?: AssetValue[] | string[];
   available: boolean;
 }
 
