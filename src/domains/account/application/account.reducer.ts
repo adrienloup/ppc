@@ -5,7 +5,7 @@ export const accountReducer = (state: AccountState, action: AccountAction): Acco
     case 'INITIALIZE': {
       return action.state;
     }
-    case 'TOGGLE_PLAY': {
+    case 'TOGGLE_PLAY_PAUSE': {
       return { ...state, play: !state.play };
     }
     default:

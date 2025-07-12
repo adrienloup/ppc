@@ -1,4 +1,4 @@
-import { type FC, useCallback, useEffect, useReducer } from 'react';
+import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import {
   FactoryContext,
   FactoryDispatchContext,
@@ -14,6 +14,7 @@ import type { FactoryState } from '@/src/domains/factory/domain/factoryState.typ
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
+  const firstRender = useRef(true);
   const factoryStorage = useLocalStorage<FactoryState>(FACTORY_KEY, FACTORY_STATE);
   const [state, dispatch] = useReducer(factoryReducer, factoryStorage.get());
   const { user } = useAuth();
@@ -26,7 +27,10 @@ export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
   }, [user]);
 
   useEffect(() => {
-    if (user === null) return;
+    if (user === null || firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     factoryStorage.set(state);
   }, [state]);
 
@@ -38,7 +42,7 @@ export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
     dispatch({ type: 'PRODUCTION_PER_SECOND' });
   }, []);
 
-  useInterval(sellUnsoldInventory, 5e2, !!user && play);
+  useInterval(sellUnsoldInventory, 5e2, !!user && play); // @TODO
   useInterval(productionPerSecond, 8e2, !!user && play);
 
   return (

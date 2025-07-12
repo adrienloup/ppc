@@ -38,8 +38,7 @@ export const MenuComponent = () => {
         <NavigationComponent items={['profile', 'dashboard', 'shop', 'explore']} />
         <div
           style={{
-            padding: 'var(--spacing-xs) var(--spacing-s) 0',
-            borderTop: '0.25rem solid var(--color-1) ',
+            padding: '0 var(--spacing-s)',
             fontSize: 'var(--font-size-xs)',
             color: 'var(--color-1)',
           }}
@@ -49,8 +48,7 @@ export const MenuComponent = () => {
         </div>
         <div
           style={{
-            padding: 'var(--spacing-xs) var(--spacing-s) 0',
-            borderTop: '0.25rem solid var(--color-1) ',
+            padding: '0 var(--spacing-s)',
             fontSize: 'var(--font-size-xs)',
             color: 'var(--color-1)',
           }}

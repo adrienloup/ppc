@@ -1,20 +1,26 @@
 $mobile-portrait: 768px;
-$mobile-landscape: 1024px;
 
 .footer {
   position: relative;
   z-index: 1;
   display: flex;
-  padding: 0 var(--spacing-xs) var(--spacing-xs);
   align-items: center;
   justify-content: flex-end;
-  font-size: var(--font-size-s);
+  padding: 0 var(--spacing-xs) var(--spacing-xs);
 
   @media (min-width: $mobile-portrait) {
     padding: 0 var(--spacing-s) var(--spacing-s);
   }
+}
 
-  @media (min-width: $mobile-landscape) {
-    padding: 0 var(--spacing-m) var(--spacing-m);
+.button {
+  padding: var(--spacing-xs);
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+  outline-offset: -0.25rem;
+
+  &:hover {
+    background-color: var(--color-2);
+    color: var(--color-1);
   }
 }

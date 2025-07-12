@@ -22,7 +22,7 @@ export const ProfileComponent = () => {
         </div>
         <div>play: {play ? 'true' : 'false'}</div>
         <div>
-          <button onClick={() => setAccount({ type: 'TOGGLE_PLAY' })}>toggle play</button>
+          <button onClick={() => setAccount({ type: 'TOGGLE_PLAY_PAUSE' })}>toggle play</button>
         </div>
         <div>
           <button onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}>+1 clip</button>

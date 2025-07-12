@@ -32,16 +32,18 @@ export const MegaClipperComponent = () => {
         />
       </DialComponent>
       <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={factory.megaClipper}
-        />
-        {factory.megaClipperBonus > 0 ? (
-          <BadgeComponent
-            value={factory.megaClipperBonus}
-            prefix="x"
+        <div className={styles.group}>
+          <NumberComponent
+            className={styles.value}
+            value={factory.megaClipper}
           />
-        ) : null}
+          {factory.megaClipperBonus > 0 ? (
+            <BadgeComponent
+              value={factory.megaClipperBonus}
+              prefix="x"
+            />
+          ) : null}
+        </div>
         <LabelComponent
           className={styles.label}
           label="mega clippers"

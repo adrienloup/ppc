@@ -184,7 +184,8 @@ export const PRODUCT_STATE: ProductState = {
   wireBuyer: {
     category: 'wire',
     cost: [{ asset: 'operation', value: 7e3 }],
-    effects: { type: 'BUY_WIRE_AUTOMATICALLY' }, // @TODO
+    // effects: { type: 'BUY_WIRE_AUTOMATICALLY' }, // @TODO
+    effects: [],
     available: false,
     quantity: 1,
   },

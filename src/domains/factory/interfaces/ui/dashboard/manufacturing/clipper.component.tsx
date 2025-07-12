@@ -32,16 +32,18 @@ export const ClipperComponent = () => {
         />
       </DialComponent>
       <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={factory.clipper}
-        />
-        {factory.clipperBonus > 0 ? (
-          <BadgeComponent
-            value={factory.clipperBonus}
-            prefix="x"
+        <div className={styles.group}>
+          <NumberComponent
+            className={styles.value}
+            value={factory.clipper}
           />
-        ) : null}
+          {factory.clipperBonus > 0 ? (
+            <BadgeComponent
+              value={factory.clipperBonus}
+              prefix="x"
+            />
+          ) : null}
+        </div>
         <LabelComponent
           className={styles.label}
           label="clippers"

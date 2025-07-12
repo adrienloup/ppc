@@ -47,14 +47,16 @@ export const WireComponent = () => {
         />
       </DialComponent>
       <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={factory.wire}
-        />
-        <BadgeComponent
-          value={factory.wireQuantity}
-          status="warning"
-        />
+        <div className={styles.group}>
+          <NumberComponent
+            className={styles.value}
+            value={factory.wire}
+          />
+          <BadgeComponent
+            value={factory.wireQuantity}
+            status="warning"
+          />
+        </div>
         <LabelComponent
           className={styles.label}
           label="wire stock"

@@ -108,6 +108,20 @@ export const productionReducer = (state: FactoryState, action: FactoryAction): F
         trust: Math.min(state.trust + state.memory + state.processor, 100),
       };
     }
+    case 'UPDATE_SHOP': {
+      const key = action.model === 'product' ? 'product' : 'feature';
+
+      return {
+        ...state,
+        [key]: {
+          ...state[key],
+          [action.name]: {
+            ...state[key][action.name],
+            available: action.available,
+          },
+        },
+      };
+    }
     case 'UPDATE_WIRE_COST': {
       return {
         ...state,

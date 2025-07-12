@@ -1,5 +1,6 @@
 import { version } from '@/package.json';
 import styles from '@/src/shared/ui/footer/footer.module.scss';
+import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 
 export const FooterComponent = () => {
   return (
@@ -7,7 +8,12 @@ export const FooterComponent = () => {
       className={styles.footer}
       role="contentinfo"
     >
-      {version}
+      <ButtonComponent
+        className={styles.button}
+        href="https://github.com/adrienloup/ppc"
+      >
+        {version}
+      </ButtonComponent>
     </footer>
   );
 };

@@ -32,22 +32,24 @@ export const ClipFactoryComponent = () => {
         />
       </DialComponent>
       <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={factory.clipFactory}
-        />
-        {factory.clipFactoryBonus > 0 ? (
-          <BadgeComponent
-            value={factory.clipFactoryBonus}
-            prefix="x"
+        <div className={styles.group}>
+          <NumberComponent
+            className={styles.value}
+            value={factory.clipFactory}
           />
-        ) : null}
-        {factory.clipFactory >= 1e8 ? (
-          <BadgeComponent
-            label="no space"
-            status="error"
-          />
-        ) : null}
+          {factory.clipFactoryBonus > 0 ? (
+            <BadgeComponent
+              value={factory.clipFactoryBonus}
+              prefix="x"
+            />
+          ) : null}
+          {factory.clipFactory >= 1e8 ? (
+            <BadgeComponent
+              label="no space"
+              status="error"
+            />
+          ) : null}
+        </div>
         <LabelComponent
           className={styles.label}
           label="clip factories"

@@ -30,6 +30,13 @@ $tablet-landscape: 1440px;
   font-size: var(--font-size-s);
 }
 
+.group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
 .value {
   font-size: var(--font-size-l);
   color: var(--color-1);
