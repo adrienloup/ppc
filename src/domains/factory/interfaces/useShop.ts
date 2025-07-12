@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useFactory, useFactoryDispatch } from '@/src/domains/factory/interfaces/useFactory.ts';
-// import { useNotif } from '@/src/domains/notification/useNotif.ts';
+import { useNotif } from '@/src/domains/notification/interfaces/useNotif.ts';
 
 export const useShop = () => {
   const setFactory = useFactoryDispatch();
   const factory = useFactory();
-  // const [, setNotif] = useNotif();
+  const [, setNotif] = useNotif();
 
   useEffect(() => {
     const items = [
@@ -41,7 +41,7 @@ export const useShop = () => {
 
       if (available) {
         setFactory({ type: 'UPDATE_SHOP', name, model, available });
-        // setNotif({ type: 'ADD_NOTIF', notif: { id: name, text: `${name} ${model} is available` } });
+        setNotif({ type: 'ADD_NOTIF', notif: { id: name, text: `${name} ${model} is available` } });
         console.info(`${name} ${model} is available`);
       }
     }

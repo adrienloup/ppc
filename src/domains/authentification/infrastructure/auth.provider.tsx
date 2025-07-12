@@ -5,6 +5,7 @@ import {
 } from '@/src/domains/authentification/infrastructure/auth.context.ts';
 import { authReducer } from '@/src/domains/authentification/application/auth.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
+import { useNotif } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { ACCOUNT_KEY } from '@/src/domains/account/infrastructure/account.key.ts';
 import { ACCOUNT_STATE } from '@/src/domains/account/interfaces/account.state.ts';
 import { FACTORY_KEY } from '@/src/domains/factory/infrastructure/factory.key.ts';
@@ -21,6 +22,7 @@ export const AuthProvider: FC<{ children: Children }> = ({ children }) => {
   const factoryStorage = useLocalStorage<FactoryState>(FACTORY_KEY, FACTORY_STATE);
   const usersStorage = useLocalStorage<Users>(USERS_KEY, {});
   const userStorage = useLocalStorage<string | null>(USER_KEY, null);
+  const [, setNotif] = useNotif();
 
   const [state, dispatch] = useReducer(authReducer, {
     users: usersStorage.get(),
@@ -45,6 +47,10 @@ export const AuthProvider: FC<{ children: Children }> = ({ children }) => {
     accountStorage.set(ACCOUNT_STATE);
     factoryStorage.set(FACTORY_STATE);
     dispatch({ type: 'SIGN_UP', users: state.users, user: username });
+    setNotif({
+      type: 'ADD_NOTIF',
+      notif: { id: 'sign-up', text: `${username} successfully registered`, status: 'success', timeout: 2e3 },
+    });
     return true;
   };
 
@@ -55,6 +61,10 @@ export const AuthProvider: FC<{ children: Children }> = ({ children }) => {
     accountStorage.set(user.account);
     factoryStorage.set(user.factory);
     dispatch({ type: 'LOG_IN', user: username });
+    setNotif({
+      type: 'ADD_NOTIF',
+      notif: { id: 'log-in', text: `${username} is connected`, status: 'success', timeout: 2e3 },
+    });
     return true;
   };
 
@@ -69,6 +79,15 @@ export const AuthProvider: FC<{ children: Children }> = ({ children }) => {
     accountStorage.remove();
     factoryStorage.remove();
     dispatch({ type: 'LOG_OUT' });
+    setNotif({
+      type: 'ADD_NOTIF',
+      notif: {
+        id: 'log-out',
+        text: `${state.user} is disconnected`,
+        status: 'success',
+        timeout: 2e3,
+      },
+    });
   };
 
   return (

@@ -16,7 +16,7 @@ export const MegaClipperComponent = () => {
     setFactory({ type: 'BUY_MEGA_CLIPPER', cost });
   };
 
-  // if (!factory.feature.megaClipper.available || factory.feature.clipFactory.available) return null;
+  if (!factory.feature.megaClipper.available || factory.feature.clipFactory.available) return null;
 
   return (
     <DialsComponent>

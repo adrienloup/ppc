@@ -1,4 +1,4 @@
-$mobile-portrait: 768px;
+$mobile-portrait: 769px;
 $mobile-landscape: 1024px;
 
 .footer {
@@ -8,7 +8,6 @@ $mobile-landscape: 1024px;
   align-items: center;
   justify-content: flex-end;
   margin: 0 var(--spacing-xs) var(--spacing-xs);
-  background-color: var(--color-2);
 
   @media (min-width: $mobile-portrait) {
     margin: 0 var(--spacing-s) var(--spacing-s);
@@ -20,8 +19,7 @@ $mobile-landscape: 1024px;
 }
 
 .button {
-  padding: var(--spacing-xs);
   font-size: var(--font-size-xs);
-  color: var(--color-1);
+  color: var(--color-2);
   outline-offset: -0.25rem;
 }

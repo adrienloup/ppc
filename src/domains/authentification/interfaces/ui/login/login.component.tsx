@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
-// import { useAccountDispatch } from '@/src/domains/account/interfaces/useAccount.ts';
-// import { useNotif } from '@/src/features/notification/useNotif.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
@@ -13,9 +11,7 @@ import styles from '@/src/domains/authentification/interfaces/ui/login/login.mod
 
 export const LoginComponent = ({ className }: Login) => {
   const { signUp, logIn } = useAuthDispatch();
-  // const setAccount = useAccountDispatch();
   const { users } = useAuth();
-  // const [, setNotif] = useNotif();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [usernameError, setUsernameError] = useState<string>('');
@@ -49,11 +45,6 @@ export const LoginComponent = ({ className }: Login) => {
     }
 
     logIn(username, hashPassword);
-
-    // setNotif({
-    //   type: 'ADD_NOTIF',
-    //   notif: { id: 'sign-in', text: `${username} is connected`, status: 'success', timeout: 2e3 },
-    // });
   };
 
   const onSignUp = async () => {
@@ -80,11 +71,6 @@ export const LoginComponent = ({ className }: Login) => {
     const hashPassword = await base64Encode(password);
 
     signUp(username, hashPassword);
-
-    // setNotif({
-    //   type: 'ADD_NOTIF',
-    //   notif: { id: 'sign-up', text: `${username} successfully registered`, status: 'success', timeout: 2e3 },
-    // });
   };
 
   return (
