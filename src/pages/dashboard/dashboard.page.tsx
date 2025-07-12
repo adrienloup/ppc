@@ -1,17 +1,18 @@
 import { lazy, Suspense } from 'react';
 import { fallback } from '@/src/shared/utils/fallback.ts';
-import { LoaderComponent } from '@/src/components/common/loader/loader.component.tsx';
-import { DebugComponent } from '@/src/components/debug/debug.component.tsx';
-import { DashboardComponent } from '@/src/components/dashboard/dashboard.component.tsx';
+import { LoaderComponent } from '@/src/shared/components/loader/loader.component.tsx';
+import { DebugComponent } from '@/src/domains/debug/interfaces/debug.component.tsx';
 
-const LayoutComponent = lazy(() => fallback(import('@/src/components/layout/layout.component.tsx'), 15e2));
+const LayoutComponent = lazy(() =>
+  fallback(import('@/src/shared/components/layout/layout.component.tsx'), 1e3)
+);
 
 function DashboardPage() {
   return (
     <Suspense fallback={<LoaderComponent />}>
       <LayoutComponent>
         <DebugComponent />
-        <DashboardComponent />
+        <div>dashboard</div>
       </LayoutComponent>
     </Suspense>
   );

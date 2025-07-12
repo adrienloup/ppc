@@ -48,7 +48,6 @@ npm run test:component
 ## Checking E2E Tests
 
 ```bash
-npm run dev
 npm test:e2e:run
 npm test:e2e:open
 ```

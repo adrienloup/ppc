@@ -1,35 +1,45 @@
-// import { useState, useEffect } from 'react';
+// import { useState } from 'react';
 //
-// export function useLocalStorage<T>(key: string, defaultValue: T) {
-//   const [value, setValue] = useState<T>(() => {
-//     const stored = localStorage.getItem(key);
-//     return stored ? JSON.parse(stored) : defaultValue;
-//   });
+// export function useLocalStorage<V>(key: string, initialValue: V): [V, (v: V) => void] {
+//   const localValue = () => {
+//     try {
+//       return JSON.parse(localStorage.getItem(key) ?? '') as V;
+//     } catch {
+//       return initialValue;
+//     }
+//   };
 //
-//   useEffect(() => {
-//     localStorage.setItem(key, JSON.stringify(value));
-//   }, [key, value]);
+//   const [value, setNewValue] = useState(localValue);
 //
-//   return [value, setValue] as const;
+//   const setValue = (newValue: V) => {
+//     localStorage.setItem(key, JSON.stringify(newValue));
+//     setNewValue(newValue);
+//   };
+//
+//   return [value, setValue];
 // }
 
-import { useState } from 'react';
+import { useCallback } from 'react';
 
-export function useLocalStorage<V>(key: string, initialValue: V): [V, (v: V) => void] {
-  const localValue = () => {
+export function useLocalStorage<T>(key: string, value: T) {
+  const get = useCallback((): T => {
     try {
-      return JSON.parse(localStorage.getItem(key) ?? '') as V;
+      return JSON.parse(localStorage.getItem(key) ?? '') as T;
     } catch {
-      return initialValue;
+      return value;
     }
-  };
+  }, [key, value]);
 
-  const [value, setNewValue] = useState(localValue);
+  const set = useCallback(
+    (value: T) => {
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+    [key]
+  );
 
-  const setValue = (newValue: V) => {
-    localStorage.setItem(key, JSON.stringify(newValue));
-    setNewValue(newValue);
-  };
+  const remove = useCallback(() => {
+    localStorage.removeItem(key);
+  }, [key]);
 
-  return [value, setValue];
+  return { get, set, remove };
 }
