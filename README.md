@@ -1,6 +1,6 @@
 # PPC
 
-An addictive Idle/incremental/clicker game built with React.
+An addictive Idle/Incremental/Clicker game inspired by [Universal Paperclips](https://www.decisionproblem.com/paperclips/) built with React.
 
 ## Requirements
 
@@ -60,6 +60,7 @@ npm test:e2e:open
 - [React@19](https://react.dev)
 - [React-dom@19](https://react.dev)
 - [React-i18next](https://react.i18next.com/guides/quick-start)
+- [Testing Library](https://testing-library.com/)
 - [Vite](https://vitejs.dev)
 - [VitePWA](https://www.npmjs.com/package/vite-plugin-pwa)
 - [Vitest](https://vitest.dev/)

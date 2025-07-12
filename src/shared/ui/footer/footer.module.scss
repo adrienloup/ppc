@@ -1,4 +1,5 @@
 $mobile-portrait: 768px;
+$mobile-landscape: 1024px;
 
 .footer {
   position: relative;
@@ -6,21 +7,21 @@ $mobile-portrait: 768px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 var(--spacing-xs) var(--spacing-xs);
+  margin: 0 var(--spacing-xs) var(--spacing-xs);
+  background-color: var(--color-2);
 
   @media (min-width: $mobile-portrait) {
-    padding: 0 var(--spacing-s) var(--spacing-s);
+    margin: 0 var(--spacing-s) var(--spacing-s);
+  }
+
+  @media (min-width: $mobile-landscape) {
+    margin: 0 var(--spacing-m) var(--spacing-m);
   }
 }
 
 .button {
   padding: var(--spacing-xs);
-  font-size: var(--font-size-s);
-  color: var(--color-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-1);
   outline-offset: -0.25rem;
-
-  &:hover {
-    background-color: var(--color-2);
-    color: var(--color-1);
-  }
 }

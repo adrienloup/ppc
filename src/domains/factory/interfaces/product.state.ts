@@ -30,7 +30,7 @@ export const PRODUCT_STATE: ProductState = {
       { asset: 'operation', value: 75e2 },
       { asset: 'creativity', value: 45 },
     ],
-    effects: ['hypnoHarmonics'],
+    effects: ['hypnoHarmonic'],
     available: false,
     quantity: 1,
     // requirements: ['combinatoryHarmonics'],
@@ -68,7 +68,7 @@ export const PRODUCT_STATE: ProductState = {
     quantity: 1,
     requirements: [{ asset: 'funds', value: 1e7 }],
   },
-  hypnoHarmonics: {
+  hypnoHarmonic: {
     category: 'marketing',
     cost: [
       { asset: 'operation', value: 75e2 },
@@ -85,7 +85,7 @@ export const PRODUCT_STATE: ProductState = {
     effects: ['releaseHypnoDrone'],
     available: false,
     quantity: 1,
-    // requirements: ['hypnoHarmonics'],
+    // requirements: ['hypnoHarmonic'],
   },
   improvedClipper: {
     category: 'production',
@@ -135,7 +135,7 @@ export const PRODUCT_STATE: ProductState = {
     quantity: 1,
     // requirements: ['improvedMegaClipper'],
   },
-  optimizedMegaClippers: {
+  optimizedMegaClipper: {
     category: 'production',
     cost: [{ asset: 'operation', value: 195e2 }],
     effects: [{ asset: 'megaClipperBonus', value: 100 }],
@@ -189,21 +189,21 @@ export const PRODUCT_STATE: ProductState = {
     available: false,
     quantity: 1,
   },
-  microlatticeShapecasting: {
+  microlatticeCasting: {
     category: 'wire',
     cost: [{ asset: 'operation', value: 75e2 }],
     effects: [{ asset: 'wireQuantity', value: 1e4 }],
     available: false,
     quantity: 1,
   },
-  spectralFrothAnnealment: {
+  spectralAnnealment: {
     category: 'wire',
     cost: [{ asset: 'operation', value: 12e3 }],
     effects: [{ asset: 'wireQuantity', value: 1e5 }],
     available: false,
     quantity: 1,
   },
-  quantumFoamAnnealment: {
+  quantumAnnealment: {
     category: 'wire',
     cost: [{ asset: 'operation', value: 15e3 }],
     effects: [{ asset: 'wireQuantity', value: 1e6 }],
