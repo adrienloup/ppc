@@ -1,6 +1,6 @@
 import { type ChangeEvent, useState } from 'react';
 import { useFactoryDispatch } from '@/src/domains/factory/interfaces/useFactory.ts';
-import type { FactoryState } from '@/src/domains/factory/domain/factory.type.ts';
+import type { FactoryState } from '@/src/domains/factory/domain/factoryState.type.ts';
 
 export const DebugProductionComponent = ({ factory }: { factory: FactoryState }) => {
   const dispatch = useFactoryDispatch();
@@ -23,6 +23,8 @@ export const DebugProductionComponent = ({ factory }: { factory: FactoryState })
       <span>clip = {factory.clip}</span>
       <div>
         <input
+          type="text"
+          name="factory-clip-input"
           value={clip}
           onChange={clipChange}
         />

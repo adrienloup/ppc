@@ -1,5 +1,6 @@
 import { productionReducer } from '@/src/domains/factory/application/production.reducer.ts';
-import type { FactoryAction, FactoryState } from '@/src/domains/factory/domain/factory.type.ts';
+import type { FactoryState } from '@/src/domains/factory/domain/factoryState.type.ts';
+import type { FactoryAction } from '@/src/domains/factory/domain/factoryAction.type.ts';
 
 const reducers = [productionReducer];
 

@@ -1,0 +1,56 @@
+$mobile-portrait: 768px;
+
+.menu {
+  position: relative;
+  height: 0;
+  background-color: var(--color-2);
+  transition-property: height;
+  transition-duration: 0.25s;
+  transition-timing-function: var(--ease-expo);
+  //will-change: height;
+
+  &.open {
+    height: 15rem;
+    transition-duration: 0.45s;
+
+    @media (min-width: $mobile-portrait) {
+      height: 10rem;
+    }
+  }
+}
+
+.inside {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+  transition-property: height;
+  transition-duration: 0.25s;
+  transition-timing-function: var(--ease-expo);
+
+  .open & {
+    height: 15rem;
+    visibility: visible;
+    transition-duration: 0.45s;
+
+    @media (min-width: $mobile-portrait) {
+      height: 10rem;
+    }
+  }
+}
+
+.button {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: var(--spacing-xs);
+  background-color: var(--color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  color: var(--color-1);
+  outline-offset: -0.25rem;
+}

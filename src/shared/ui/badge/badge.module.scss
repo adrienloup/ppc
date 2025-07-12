@@ -1,0 +1,25 @@
+.badge {
+  display: flex;
+  align-items: center;
+  margin-left: var(--spacing-xs);
+  padding: 0.2rem 0.2rem;
+  font-size: var(--font-size-s);
+  border: 0.1rem solid var(--color-1);
+  color: var(--color-1);
+
+  &.info {
+    background-color: var(--color-3);
+  }
+
+  &.success {
+    background-color: var(--color-5);
+  }
+
+  &.warning {
+    background-color: var(--color-8);
+  }
+
+  &.error {
+    background-color: var(--color-4);
+  }
+}

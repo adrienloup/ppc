@@ -12,7 +12,7 @@ import { FACTORY_STATE } from '@/src/domains/factory/interfaces/factory.state.ts
 import { USERS_KEY } from '@/src/domains/authentification/infrastructure/users.key.ts';
 import { USER_KEY } from '@/src/domains/authentification/infrastructure/user.key.ts';
 import type { AccountState } from '@/src/domains/account/domain/account.type.ts';
-import type { FactoryState } from '@/src/domains/factory/domain/factory.type.ts';
+import type { FactoryState } from '@/src/domains/factory/domain/factoryState.type.ts';
 import type { Users } from '@/src/domains/authentification/domain/users.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 

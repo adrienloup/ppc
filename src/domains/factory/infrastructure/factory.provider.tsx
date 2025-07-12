@@ -1,6 +1,4 @@
 import { type FC, useCallback, useEffect, useReducer } from 'react';
-// import { useAccount } from '@/src/features/account/useAccount.ts';
-// import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import {
   FactoryContext,
   FactoryDispatchContext,
@@ -12,7 +10,7 @@ import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { FACTORY_KEY } from '@/src/domains/factory/infrastructure/factory.key.ts';
 import { FACTORY_STATE } from '@/src/domains/factory/interfaces/factory.state.ts';
-import type { FactoryState } from '@/src/domains/factory/domain/factory.type.ts';
+import type { FactoryState } from '@/src/domains/factory/domain/factoryState.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {

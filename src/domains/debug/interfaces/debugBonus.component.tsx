@@ -1,5 +1,5 @@
 import { useFactoryDispatch } from '@/src/domains/factory/interfaces/useFactory.ts';
-import type { FactoryState } from '@/src/domains/factory/domain/factory.type.ts';
+import type { FactoryState } from '@/src/domains/factory/domain/factoryState.type.ts';
 
 export const DebugBonusComponent = ({ factory }: { factory: FactoryState }) => {
   const dispatch = useFactoryDispatch();
