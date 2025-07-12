@@ -4,7 +4,7 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import type { Product } from '@/src/domains/factory/domain/product.type.ts';
-import styles from '@/src/domains/factory/interfaces/ui/shop/stock/product/product.module.scss';
+import styles from '@/src/domains/factory/interfaces/ui/shop/showcase/product/product.module.scss';
 
 export const ProductComponent = ({ title, product }: { title: string; product: Product }) => {
   const factory = useFactory();

@@ -9,7 +9,7 @@ export const PaperclipComponent = () => {
 
   return (
     <BannerComponent>
-      <TitleComponent className={styles.title}>{`${clip} paperclips`}</TitleComponent>
+      <TitleComponent className={styles.title}>{`paperclips ${clip}`}</TitleComponent>
       <ButtonComponent
         className={styles.button}
         to="/ppc/shop"
