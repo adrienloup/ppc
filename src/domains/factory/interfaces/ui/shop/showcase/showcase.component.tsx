@@ -1,8 +1,6 @@
 import { useFactory } from '@/src/domains/factory/interfaces/useFactory.ts';
-import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
-import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { ProductsComponent } from '@/src/domains/factory/interfaces/ui/shop/showcase/products/products.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/shop/shop.module.scss';
 
@@ -24,36 +22,18 @@ export const ShowcaseComponent = () => {
     return acc;
   }, {} as ProductByCategory);
 
-  return (
-    <>
-      <BannerComponent>
-        <TitleComponent className={styles.title}>shop</TitleComponent>
-        <ButtonComponent
-          className={styles.button}
-          to="/ppc/dashboard"
-        >
-          dashboard
-        </ButtonComponent>
-      </BannerComponent>
-      {Object.entries(productByCategory).map(([category, product]) => (
-        <CardComponent
-          key={category}
-          className={styles.card}
-        >
-          <TitleComponent
-            className={styles.title}
-            tag="h2"
-          >
-            {category} {`(${Object.keys(product.enabled).length}/${product.total})`}
-          </TitleComponent>
-          {Object.keys(product.enabled).length > 0 ? (
-            <ProductsComponent product={product.enabled} />
-          ) : (
-            'empty'
-          )}
-        </CardComponent>
-      ))}
-      ;
-    </>
-  );
+  return Object.entries(productByCategory).map(([category, product]) => (
+    <CardComponent
+      key={category}
+      className={styles.card}
+    >
+      <TitleComponent
+        className={styles.title}
+        tag="h2"
+      >
+        {category} {`(${Object.keys(product.enabled).length}/${product.total})`}
+      </TitleComponent>
+      {Object.keys(product.enabled).length > 0 ? <ProductsComponent product={product.enabled} /> : 'empty'}
+    </CardComponent>
+  ));
 };
