@@ -10,9 +10,8 @@ export const ClipPerSecondComponent = () => {
   const { wire } = useExp();
 
   const update = () => {
-    if (wire <= 0) return;
     expDispatch({ type: 'UPDATE_WIRE', wire: 1 });
-    prodDispatch({ type: 'UPDATE_CLIP' });
+    prodDispatch({ type: 'UPDATE_CLIP', clip: clipPerSecond + 1 });
   };
 
   return (

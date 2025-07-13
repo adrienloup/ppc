@@ -1,5 +1,11 @@
-export interface AccountState {
-  play: boolean;
+import type { Mode } from '@/src/domains/account/domain/mode.type.ts';
+
+export interface AccState {
+  mode: Mode;
+  pause: boolean;
 }
 
-export type AccountAction = { type: 'INITIALIZE'; state: AccountState } | { type: 'TOGGLE_PLAY_PAUSE' };
+export type AccAction =
+  | { type: 'LOAD'; state: AccState }
+  | { type: 'SET_MODE'; mode: Mode }
+  | { type: 'SET_PLAY_PAUSE' };

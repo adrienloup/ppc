@@ -1,4 +1,4 @@
-.play {
+.pause {
   position: absolute;
   top: 0;
   right: 0;
@@ -33,12 +33,12 @@
   bottom: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.5;
+  opacity: 0.25;
   background-color: var(--color-1);
 }
 
 @keyframes Appear {
   0% {
-    transform: translateY(100%) scale(0.9);
+    transform: translateY(100%) scale(0.95);
   }
 }

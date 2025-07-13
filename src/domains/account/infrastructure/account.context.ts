@@ -1,5 +1,5 @@
 import { createContext, type Dispatch } from 'react';
-import type { AccountAction, AccountState } from '@/src/domains/account/domain/account.type.ts';
+import type { AccAction, AccState } from '@/src/domains/account/domain/account.type.ts';
 
-export const AccountContext = createContext<AccountState | undefined>(undefined);
-export const AccountDispatchContext = createContext<Dispatch<AccountAction>>(() => {});
+export const AccContext = createContext<AccState | undefined>(undefined);
+export const AccDisContext = createContext<Dispatch<AccAction> | undefined>(undefined);

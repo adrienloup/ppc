@@ -4,11 +4,6 @@ export const prodReducer = (state: ProdState, action: ProdAction): ProdState => 
   switch (action.type) {
     case 'UPDATE_CLIP':
       return {
-        clip: state.clip + 1,
-        clipPerSecond: state.clipPerSecond + 1,
-      };
-    case 'AUTO_UPDATE_CLIP':
-      return {
         clip: state.clip + action.clip,
         clipPerSecond: action.clip,
       };

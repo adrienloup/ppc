@@ -1,44 +1,57 @@
-import { type FC, useEffect, useReducer, useRef } from 'react';
+import { type FC, useCallback, useEffect, useReducer } from 'react';
 import { createPortal } from 'react-dom';
-import {
-  AccountContext,
-  AccountDispatchContext,
-} from '@/src/domains/account/infrastructure/account.context.ts';
+import { AccContext, AccDisContext } from '@/src/domains/account/infrastructure/account.context.ts';
 import { accountReducer } from '@/src/domains/account/application/account.reducer.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { PlayComponent } from '@/src/domains/account/interfaces/ui/play/play.component.tsx';
-import { ACCOUNT_KEY } from '@/src/domains/account/infrastructure/account.key.ts';
-import { ACCOUNT_STATE } from '@/src/domains/account/interfaces/account.state.ts';
-import type { AccountState } from '@/src/domains/account/domain/account.type.ts';
+import { useFirstRender } from '@/src/shared/hooks/useFirstRender.ts';
+import { PauseComponent } from '@/src/domains/account/interfaces/ui/play/pause.component.tsx';
+import { ACC_KEY, ACC_STATE } from '@/src/domains/account/infrastructure/account.key.ts';
+import type { Mode } from '@/src/domains/account/domain/mode.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
-  const firstRender = useRef(true);
-  const accountStorage = useLocalStorage<AccountState>(ACCOUNT_KEY, ACCOUNT_STATE);
-  const [state, dispatch] = useReducer(accountReducer, accountStorage.get());
+  const stored = useLocalStorage(ACC_KEY, ACC_STATE);
+  const initial = stored.get() ?? ACC_STATE;
+  const [state, dispatch] = useReducer(accountReducer, initial);
   const { user } = useAuth();
+
+  const updateClass = useCallback((mode: Mode) => {
+    const classMap = {
+      _dark_emma0_1: mode === 'dark' || mode === 'system',
+      _light_emma0_1: mode === 'light',
+    };
+    for (const [name, condition] of Object.entries(classMap)) {
+      document.body.classList.toggle(name, condition);
+    }
+  }, []);
 
   useEffect(() => {
     if (user === null) return;
-    const state = accountStorage.get();
-    dispatch({ type: 'INITIALIZE', state });
+    dispatch({ type: 'LOAD', state: stored.get() });
   }, [user]);
 
-  useEffect(() => {
-    if (user === null || firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-    accountStorage.set(state);
+  useFirstRender(() => {
+    stored.set(state);
+    updateClass(state.mode);
+    console.log('mode', state.mode);
   }, [state]);
 
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = (event: MediaQueryListEvent) => {
+      dispatch({ type: 'SET_MODE', mode: event.matches ? 'dark' : 'light' });
+    };
+    media.addEventListener('change', onChange);
+    return () => media.removeEventListener('change', onChange);
+  }, [dispatch]);
+
   return (
-    <AccountContext.Provider value={state}>
-      <AccountDispatchContext.Provider value={dispatch}>
+    <AccContext.Provider value={state}>
+      <AccDisContext.Provider value={dispatch}>
         {children}
-        {user && !state.play && createPortal(<PlayComponent />, document.getElementById('_app_emma0_1')!)}
-      </AccountDispatchContext.Provider>
-    </AccountContext.Provider>
+        {user && state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
+      </AccDisContext.Provider>
+    </AccContext.Provider>
   );
 };

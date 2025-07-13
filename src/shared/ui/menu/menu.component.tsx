@@ -7,9 +7,12 @@ import styles from '@/src/shared/ui/menu/menu.module.scss';
 export const MenuComponent = () => {
   const [open, setOpen] = useState(false);
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape' && open) setOpen(false);
-  }, []);
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && open) setOpen(false);
+    },
+    [open]
+  );
 
   useEffect(() => {
     if (!open) return;

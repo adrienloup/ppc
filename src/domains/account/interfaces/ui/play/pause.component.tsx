@@ -1,16 +1,16 @@
-import { useAccountDispatch } from '@/src/domains/account/interfaces/useAccount.ts';
+import { useAccountDis } from '@/src/domains/account/interfaces/useAccount.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
-import styles from '@/src/domains/account/interfaces/ui/play/play.module.scss';
+import styles from '@/src/domains/account/interfaces/ui/play/pause.module.scss';
 
-export const PlayComponent = () => {
-  const dispatch = useAccountDispatch();
+export const PauseComponent = () => {
+  const dispatch = useAccountDis();
   const label = `factory is stopped<span>press to resume</span>`;
 
   return (
-    <div className={styles.play}>
+    <div className={styles.pause}>
       <ButtonComponent
         className={styles.button}
-        onClick={() => dispatch({ type: 'TOGGLE_PLAY_PAUSE' })}
+        onClick={() => dispatch({ type: 'SET_PLAY_PAUSE' })}
       >
         <span
           className={styles.label}
@@ -19,7 +19,7 @@ export const PlayComponent = () => {
       </ButtonComponent>
       <div
         className={styles.backdrop}
-        onClick={() => dispatch({ type: 'TOGGLE_PLAY_PAUSE' })}
+        onClick={() => dispatch({ type: 'SET_PLAY_PAUSE' })}
       ></div>
     </div>
   );

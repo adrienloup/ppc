@@ -17,7 +17,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const expDispatch = useExpDis();
   const { clipper, megaClipper } = useMeca();
   const { wire } = useExp();
-  const enabled = wire > 0 && clipper > 0;
+  // const enabled = wire > 0 && clipper > 0;
 
   useFirstRender(() => {
     stored.set(state);
@@ -25,11 +25,11 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
 
   const prodPerSecond = useCallback(() => {
     const prod = computeValues(wire, megaClipper, clipper);
-    expDispatch({ type: 'UPDATE_WIRE', wire: prod.M * 500 + prod.C });
-    dispatch({ type: 'AUTO_UPDATE_CLIP', clip: prod.W });
+    expDispatch({ type: 'UPDATE_WIRE', wire: prod.M * 5e2 + prod.C });
+    dispatch({ type: 'UPDATE_CLIP', clip: prod.W });
   }, [wire, megaClipper, clipper]);
 
-  useInterval(prodPerSecond, 1e3, enabled);
+  useInterval(prodPerSecond, 1e3);
 
   return (
     <ProdContext.Provider value={state}>

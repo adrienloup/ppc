@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth, useAuthDis } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
@@ -10,7 +10,7 @@ import type { Login } from '@/src/domains/authentification/interfaces/ui/login/l
 import styles from '@/src/domains/authentification/interfaces/ui/login/login.module.scss';
 
 export const LoginComponent = ({ className }: Login) => {
-  const { signUp, logIn } = useAuthDispatch();
+  const { signUp, logIn } = useAuthDis();
   const { users } = useAuth();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
