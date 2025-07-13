@@ -11,8 +11,8 @@ export const ClipPerSecondComponent = () => {
 
   const update = () => {
     if (wire <= 0) return;
-    prodDispatch({ type: 'UPDATE_CLIP' });
     expDispatch({ type: 'UPDATE_WIRE', wire: 1 });
+    prodDispatch({ type: 'UPDATE_CLIP' });
   };
 
   return (

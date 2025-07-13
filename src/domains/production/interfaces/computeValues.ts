@@ -1,16 +1,17 @@
-// Si A > B + C alors D = B + C
-// Sinon (A <= B + C) alors D = A
-// Si D > B, alors :
-// B = B
-// C = D - B
-// Sinon (D <= B), alors :
-// B = A
+// if W > M + C so W = M + C
+// else (W <= M + C) so W = W
+// if W > M, so :
+// M = M
+// C = W - M
+// else (W <= M), so :
+// M = W
 // C = 0
-export function computeValues(A: number, B: number, C: number) {
-  const D: number = A > B + C ? B + C : A;
-  if (D > B) {
-    return { D, B, C: D - B };
+export function computeValues(W: number, M: number, C: number) {
+  W = W > M + C ? M + C : W;
+
+  if (W > M) {
+    return { W, M, C: W - M };
   } else {
-    return { D, B: A, C: 0 };
+    return { W, M: W, C: 0 };
   }
 }
