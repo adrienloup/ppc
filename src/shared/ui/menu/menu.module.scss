@@ -1,4 +1,4 @@
-$mobile-portrait: 769px;
+$mobile-portrait: 768px;
 
 .menu {
   position: relative;
@@ -7,7 +7,7 @@ $mobile-portrait: 769px;
   transition-property: height;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
-  //will-change: height;
+  will-change: height;
 
   &.open {
     height: 15rem;
@@ -31,6 +31,7 @@ $mobile-portrait: 769px;
   transition-property: height;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
+  will-change: height;
 
   .open & {
     height: 15rem;

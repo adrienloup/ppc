@@ -16,7 +16,7 @@ export const ShowcaseComponent = () => {
     acc[category] ??= { enabled: {}, total: 0 };
     acc[category].total += 1;
 
-    // if (value.available) acc[category].enabled[key] = value;
+    // if (value.available) acc[category].enabled[key] = value; // @TODO
     acc[category].enabled[key] = value;
 
     return acc;

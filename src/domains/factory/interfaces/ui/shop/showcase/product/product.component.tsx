@@ -1,4 +1,4 @@
-import { useFactory } from '@/src/domains/factory/interfaces/useFactory.ts';
+import { useFactory, useFactoryDispatch } from '@/src/domains/factory/interfaces/useFactory.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { TitleComponent } from '@/src/shared/ui/title/title.component';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
@@ -7,12 +7,20 @@ import type { Product } from '@/src/domains/factory/domain/product.type.ts';
 import styles from '@/src/domains/factory/interfaces/ui/shop/showcase/product/product.module.scss';
 
 export const ProductComponent = ({ title, product }: { title: string; product: Product }) => {
+  const setFactory = useFactoryDispatch();
   const factory = useFactory();
 
   const purchasable = product.cost?.every(({ asset, value }) => {
     const available = factory[asset] ?? 0;
     return available >= value;
   });
+
+  const buyProducts = (title: string, product: Product) => {
+    setFactory({ type: 'BUY_PRODUCT', product: title });
+    if (!Array.isArray(product.effects) && typeof product.effects === 'object') {
+      setFactory(product.effects);
+    }
+  };
 
   return (
     <div className={classNames([styles.product, !purchasable ? styles.disabled : ''])}>
@@ -40,7 +48,7 @@ export const ProductComponent = ({ title, product }: { title: string; product: P
       <ButtonComponent
         className={styles.button}
         tabIndex={!purchasable ? -1 : 0}
-        onClick={() => console.log('clicked')}
+        onClick={() => buyProducts(title, product)}
       >
         get it
       </ButtonComponent>

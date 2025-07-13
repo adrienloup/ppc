@@ -18,8 +18,8 @@ export type FactoryAction =
   // | { type: 'BUY_CLIP_FACTORY'; cost: number }
   // | { type: 'BUY_WIRE_AUTOMATICALLY' }
   // | { type: 'BUY_WIRE'; cost: number }
-  // | { type: 'UPDATE_SHOP'; name: string; model: string; available: boolean }
   // | { type: 'UPDATE_WIRE_COST'; cost: number }
+  | { type: 'BUY_PRODUCT'; product: string }
   | { type: 'UPDATE_SHOP'; name: string; model: string; available: boolean }
   | { type: 'UPDATE_WIRE_COST'; cost: number }
   | { type: 'UPDATE_WIRE_QUANTITY'; quantity: number }

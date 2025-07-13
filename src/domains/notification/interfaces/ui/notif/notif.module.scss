@@ -3,10 +3,10 @@
   width: 25rem;
   color: var(--color-1);
   pointer-events: initial;
+  will-change: width, transform, opacity;
 
   &.in {
     animation: Appear 0.5s var(--ease-expo);
-    //will-change: opacity, transform;
   }
 
   &.out {
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   padding: var(--spacing-xs);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-s);
   color: var(--color-1);
 
   .out & {
