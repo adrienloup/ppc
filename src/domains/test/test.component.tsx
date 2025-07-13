@@ -1,13 +1,15 @@
-import { ClipComponent } from '@/src/domains/test/production/ui/clip.component.tsx';
-import { ClipperComponent } from '@/src/domains/test/machinery/ui/clipper.component.tsx';
-import { MegaClipperComponent } from '@/src/domains/test/machinery/ui/megaClipper.component.tsx';
+import { ClipPerSecondComponent } from '@/src/domains/production/interfaces/ui/clipPerSecond.component.tsx';
+import { WireComponent } from '@/src/domains/exploitation/interfaces/ui/wire.component.tsx';
+import { ClipperComponent } from '@/src/domains/mechanical/interfaces/ui/clipper.component.tsx';
+import { MegaClipperComponent } from '@/src/domains/mechanical/interfaces/ui/megaClipper.component.tsx';
 import styles from '@/src/domains/test/test.module.scss';
 
 export const TestComponent = () => {
   console.log('TestComponent');
   return (
     <div className={styles.test}>
-      <ClipComponent />
+      <ClipPerSecondComponent />
+      <WireComponent />
       <ClipperComponent />
       <MegaClipperComponent />
     </div>

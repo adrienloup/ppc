@@ -1,9 +1,6 @@
-import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
-import { AuthProvider } from '@/src/domains/authentification/infrastructure/auth.provider.tsx';
-import { AccountProvider } from '@/src/domains/account/infrastructure/account.provider.tsx';
-import { FactoryProvider } from '@/src/domains/factory/infrastructure/factory.provider.tsx';
-import { MachProvider } from '@/src/domains/test/machinery/mach.provider.tsx';
-import { ProdProvider } from '@/src/domains/test/production/prod.provider.tsx';
+import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
+import { ExpProvider } from '@/src/domains/exploitation/infrastructure/exp.provider.tsx';
+import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -21,10 +18,7 @@ const Providers = (providers: ProviderType[]) =>
   );
 
 export const AppProvider: FunctionComponent<{ children: Children }> = Providers([
-  [NotifProvider],
-  [AuthProvider],
-  [AccountProvider],
-  [FactoryProvider],
-  [MachProvider],
+  [MecaProvider],
+  [ExpProvider],
   [ProdProvider],
 ]);
