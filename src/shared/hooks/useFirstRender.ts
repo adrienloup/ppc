@@ -1,10 +1,10 @@
 import { type DependencyList, useEffect, useRef } from 'react';
 
 export function useFirstRender(callback: () => void, deps: DependencyList) {
-  const first = useRef(true);
+  const firstRender = useRef(true);
   useEffect(() => {
-    if (first.current) {
-      first.current = false;
+    if (firstRender.current) {
+      firstRender.current = false;
       return;
     }
     callback();

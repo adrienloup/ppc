@@ -1,6 +1,6 @@
-import type { AccAction, AccState } from '@/src/domains/account/domain/account.type.ts';
+import type { AccountAction, AccountState } from '@/src/domains/account/domain/account.type.ts';
 
-export const accountReducer = (state: AccState, action: AccAction): AccState => {
+export const accountReducer = (state: AccountState, action: AccountAction): AccountState => {
   switch (action.type) {
     case 'LOAD': {
       return action.state;

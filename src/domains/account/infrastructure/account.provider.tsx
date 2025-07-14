@@ -1,6 +1,6 @@
 import { type FC, useCallback, useEffect, useReducer } from 'react';
 import { createPortal } from 'react-dom';
-import { AccContext, AccDisContext } from '@/src/domains/account/infrastructure/account.context.ts';
+import { AccountContext, AccountDisContext } from '@/src/domains/account/infrastructure/account.context.ts';
 import { accountReducer } from '@/src/domains/account/application/account.reducer.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
@@ -16,14 +16,9 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(accountReducer, initial);
   const { user } = useAuth();
 
-  const updateClass = useCallback((mode: Mode) => {
-    const classMap = {
-      _dark_emma0_1: mode === 'dark' || mode === 'system',
-      _light_emma0_1: mode === 'light',
-    };
-    for (const [name, condition] of Object.entries(classMap)) {
-      document.body.classList.toggle(name, condition);
-    }
+  const update = useCallback((mode: Mode) => {
+    const isDark = mode === 'dark' || mode === 'system';
+    document.body.classList.toggle('_dark_emma0_1', isDark);
   }, []);
 
   useEffect(() => {
@@ -32,9 +27,9 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
   }, [user]);
 
   useFirstRender(() => {
+    if (user === null) return;
     stored.set(state);
-    updateClass(state.mode);
-    console.log('mode', state.mode);
+    update(state.mode);
   }, [state]);
 
   useEffect(() => {
@@ -44,14 +39,14 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
     };
     media.addEventListener('change', onChange);
     return () => media.removeEventListener('change', onChange);
-  }, [dispatch]);
+  }, []);
 
   return (
-    <AccContext.Provider value={state}>
-      <AccDisContext.Provider value={dispatch}>
+    <AccountContext.Provider value={state}>
+      <AccountDisContext.Provider value={dispatch}>
         {children}
-        {user && state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
-      </AccDisContext.Provider>
-    </AccContext.Provider>
+        {!!user && state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
+      </AccountDisContext.Provider>
+    </AccountContext.Provider>
   );
 };

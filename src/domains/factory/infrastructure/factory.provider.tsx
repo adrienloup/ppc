@@ -18,7 +18,7 @@ export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
   const factoryStorage = useLocalStorage<FactoryState>(FACTORY_KEY, FACTORY_STATE);
   const [state, dispatch] = useReducer(factoryReducer, factoryStorage.get());
   const { user } = useAuth();
-  const { play } = useAccount();
+  const { pause } = useAccount();
 
   useEffect(() => {
     if (user === null) return;
@@ -42,8 +42,8 @@ export const FactoryProvider: FC<{ children: Children }> = ({ children }) => {
     dispatch({ type: 'PRODUCTION_PER_SECOND' });
   }, []);
 
-  useInterval(sellUnsoldInventory, 5e2, !!user && play); // @TODO
-  useInterval(productionPerSecond, 8e2, !!user && play);
+  useInterval(sellUnsoldInventory, 5e2, !!user && pause); // @TODO
+  useInterval(productionPerSecond, 8e2, !!user && pause);
 
   return (
     <FactoryContext.Provider value={state}>
