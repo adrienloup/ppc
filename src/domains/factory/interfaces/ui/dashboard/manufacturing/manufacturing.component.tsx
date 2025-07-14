@@ -19,7 +19,6 @@ export const ManufacturingComponent = () => {
       </TitleComponent>
       <ClipPerSecondComponent />
       <WireComponent />
-      {/*<WireComponent />*/}
       {/*<ClipperComponent />*/}
       {/*<MegaClipperComponent />*/}
       {/*<ClipFactoryComponent />*/}

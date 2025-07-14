@@ -12,10 +12,10 @@ $mobile-landscape: 1024px;
 
   @media (min-width: $mobile-portrait) {
     gap: var(--spacing-m);
-    padding: calc(var(--spacing-l) + var(--spacing-s)) var(--spacing-s) var(--spacing-s);
+    padding: calc(var(--spacing-l) + var(--spacing-m)) var(--spacing-s) var(--spacing-s);
   }
 
   @media (min-width: $mobile-landscape) {
-    padding: calc(var(--spacing-l) + var(--spacing-s)) var(--spacing-m) var(--spacing-m);
+    padding: calc(var(--spacing-l) + var(--spacing-m)) var(--spacing-m) var(--spacing-m);
   }
 }
