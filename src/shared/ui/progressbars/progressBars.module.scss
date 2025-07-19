@@ -1,0 +1,23 @@
+.progressBars {
+  display: flex;
+  height: 2.5rem;
+  overflow: hidden;
+  font-size: var(--font-size-s);
+  color: var(--color-1);
+}
+
+.used {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-7);
+}
+
+.unlocked {
+  display: flex;
+  background-color: var(--color-8);
+}
+
+.locked {
+  background-color: var(--color-4);
+}

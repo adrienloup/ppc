@@ -20,7 +20,7 @@
   }
 
   &.success {
-    background-color: var(--color-5);
+    background-color: var(--color-7);
   }
 
   &.info {
@@ -75,7 +75,7 @@
   pointer-events: initial;
 
   .success & {
-    color: var(--color-5);
+    color: var(--color-7);
   }
 
   .info & {

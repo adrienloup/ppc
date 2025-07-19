@@ -3,7 +3,4 @@ export type ProdState = {
   clipPerSecond: number;
 };
 
-export type ProdAction =
-  | { type: 'LOAD'; state: ProdState }
-  | { type: 'UPDATE_CLIP' }
-  | { type: 'UPDATE_AUTO_CLIP'; clip: number };
+export type ProdAction = { type: 'LOAD'; state: ProdState } | { type: 'CLIP' } | { type: 'AUTO_CLIP'; clip: number };

@@ -8,9 +8,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: var(--spacing-xs);
+  width: 3.5rem;
+  height: 2rem;
+  //padding: var(--spacing-xs);
   background-color: var(--color-1);
-  font-size: var(--font-size-s);
+  //font-size: var(--font-size-s);
+  font-size: var(--font-size-m);
   color: var(--color-2);
 
   .disabled & {
@@ -31,16 +34,16 @@
 
 @keyframes SlideUp {
   0% {
-    transform: translate3d(0, -2rem, 0);
+    transform: translate3d(-0.5rem, -2rem, 0);
     opacity: 0;
   }
   20% {
     opacity: 1;
   }
   50% {
-    transform: translate3d(0.5rem, -5rem, 0);
+    transform: translate3d(0, -5rem, 0);
   }
   100% {
-    transform: translate3d(1rem, -6rem, 0);
+    transform: translate3d(0.5rem, -6rem, 0);
   }
 }

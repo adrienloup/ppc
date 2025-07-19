@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-import {
-  AccountContext,
-  AccountDispatchContext,
-} from '@/src/domains/account/infrastructure/account.context.ts';
+import { AccountContext, AccountDispatchContext } from '@/src/domains/account/infrastructure/account.context.ts';
 
 export const useAccount = () => {
   const ctx = useContext(AccountContext);

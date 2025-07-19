@@ -1,8 +1,8 @@
 import { type ChangeEvent, useState } from 'react';
-import { useProd, useProdDis } from '@/src/domains/production/interfaces/useProd.ts';
+import { useProd, useProdDispatch } from '@/src/domains/production/interfaces/useProd.ts';
 
 export const DebugProdComponent = () => {
-  const dispatch = useProdDis();
+  const dispatch = useProdDispatch();
   const state = useProd();
   const [clip, setClip] = useState('0');
 

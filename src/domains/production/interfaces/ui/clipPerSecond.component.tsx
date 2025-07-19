@@ -1,4 +1,5 @@
-import { useProd, useProdDis } from '@/src/domains/production/interfaces/useProd.ts';
+import { useProd, useProdDispatch } from '@/src/domains/production/interfaces/useProd.ts';
+import { useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { useExp, useExpDispatch } from '@/src/domains/exploitation/interfaces/useExp.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -9,14 +10,16 @@ import styles from '@/src/domains/factory/interfaces/ui/dashboard/dashboard.modu
 
 export const ClipPerSecondComponent = () => {
   console.log('ClipPerSecondComponent');
-  const prodDis = useProdDis();
-  const expDis = useExpDispatch();
+  const prodDispatch = useProdDispatch();
+  const saleDispatch = useSaleDispatch();
+  const expDispatch = useExpDispatch();
   const { clipPerSecond } = useProd();
   const { wire } = useExp();
 
-  const update = () => {
-    prodDis({ type: 'UPDATE_CLIP' });
-    expDis({ type: 'UPDATE_WIRE' });
+  const makeClip = () => {
+    prodDispatch({ type: 'CLIP' });
+    saleDispatch({ type: 'UNSOLD_INVENTORY' });
+    expDispatch({ type: 'WIRE' });
   };
 
   return (
@@ -34,9 +37,9 @@ export const ClipPerSecondComponent = () => {
           prefix="+"
           value={1}
           disabled={wire <= 0}
-          onClick={update}
+          onClick={makeClip}
         >
-          +1
+          +
         </ClickerComponent>
       </DialComponent>
     </DialsComponent>

@@ -26,7 +26,6 @@ export const ClipperComponent = () => {
           className={styles.value}
           value={clipperCost}
           asset="currency"
-          decimal
         />
         <LabelComponent
           className={styles.label}
@@ -54,7 +53,7 @@ export const ClipperComponent = () => {
           // disabled={factory.funds < clipperCost || factory.wire <= 0}
           onClick={buyClipper}
         >
-          +1
+          +
         </ClickerComponent>
       </DialComponent>
     </DialsComponent>

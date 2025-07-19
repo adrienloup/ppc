@@ -15,7 +15,7 @@ import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
   const accStorage = useLocalStorage(ACCOUNT_KEY, ACCOUNT_STATE);
-  const userStorage = useLocalStorage<string | null>(USER_KEY, null);
+  const userStorage = useLocalStorage(USER_KEY, null);
   const [state, dispatch] = useReducer(accountReducer, accStorage.get() ?? ACCOUNT_STATE);
 
   const update = useCallback((mode: Mode) => {
