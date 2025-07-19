@@ -1,0 +1,111 @@
+$mobile-portrait: 768px;
+$mobile-landscape: 1024px;
+$tablet-landscape: 1440px;
+
+.banner {
+  animation: FadeIn 0.5s var(--ease-quad) backwards;
+}
+
+//.highlight {
+//  animation-name: SlideUp, FadeIn;
+//  animation-timing-function: var(--ease-quad);
+//  animation-duration: 0.5s;
+//  animation-fill-mode: backwards;
+//  animation-delay: 0.1s;
+//
+//  .value {
+//    overflow: hidden;
+//    max-width: 100%;
+//    white-space: nowrap;
+//    text-overflow: ellipsis;
+//  }
+//}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    animation-name: SlideUp, FadeIn;
+    animation-timing-function: var(--ease-quad);
+    animation-duration: 0.5s;
+    animation-fill-mode: backwards;
+
+    @for $i from 2 through 15 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.1s + $i * 0.1s};
+      }
+    }
+  }
+}
+
+.card {
+  flex-direction: column;
+
+  @media (min-width: $mobile-portrait) {
+    flex-flow: row wrap;
+  }
+}
+
+.title {
+  padding: var(--spacing-xs);
+  background-color: var(--color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  color: var(--color-1);
+}
+
+.group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.value {
+  font-size: var(--font-size-l);
+  color: var(--color-1);
+}
+
+.label {
+  flex: 0 0 100%;
+  font-size: var(--font-size-s);
+  color: var(--color-1);
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.button {
+  margin-top: var(--spacing-xs);
+  padding: var(--spacing-xs);
+  background-color: var(--color-1);
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translateY(120vh) translateZ(0);
+  }
+  20% {
+    transform: translateY(10vh) translateZ(0);
+  }
+  100% {
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
