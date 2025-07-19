@@ -2,23 +2,21 @@ import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
-import { IndicatorComponent } from '@/src/domains/factory/interfaces/ui/shop/indicator.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
-import styles from '@/src/domains/factory/interfaces/ui/shop/shop.module.scss';
+import styles from '@/src/domains/merchandise/interfaces/ui/store/store.module.scss';
 
-export const ShopComponent = () => {
-  console.log('ShopComponent');
+export const StoreComponent = () => {
+  console.log('StoreComponent');
   const { user } = useAuth();
 
   return user ? (
     <ArticleComponent>
       <BannerComponent
         className={styles.banner}
-        title="shop"
-        button="dashboard"
+        title="store"
+        button="factory"
       />
-      <IndicatorComponent />
-      <CardsComponent className={styles.cards}>shop</CardsComponent>
+      <CardsComponent className={styles.cards}>store</CardsComponent>
     </ArticleComponent>
   ) : (
     <LoginComponent />

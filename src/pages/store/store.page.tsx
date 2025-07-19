@@ -2,19 +2,19 @@ import { lazy, Suspense } from 'react';
 import { fallback } from '@/src/shared/utils/fallback.ts';
 import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 import { DebugComponent } from '@/src/domains/debug/interfaces/debug.component.tsx';
-import { ShopComponent } from '@/src/domains/factory/interfaces/ui/shop/shop.component.tsx';
+import { StoreComponent } from '@/src/domains/merchandise/interfaces/ui/store/store.component.tsx';
 
 const LayoutComponent = lazy(() => fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3));
 
-function ShopPage() {
+function StorePage() {
   return (
     <Suspense fallback={<LoaderComponent />}>
       <LayoutComponent>
         <DebugComponent />
-        <ShopComponent />
+        <StoreComponent />
       </LayoutComponent>
     </Suspense>
   );
 }
 
-export default ShopPage;
+export default StorePage;

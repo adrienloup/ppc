@@ -6,7 +6,7 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
-import styles from '@/src/domains/factory/interfaces/ui/dashboard/dashboard.module.scss';
+import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ClipPerSecondComponent = () => {
   console.log('ClipPerSecondComponent');

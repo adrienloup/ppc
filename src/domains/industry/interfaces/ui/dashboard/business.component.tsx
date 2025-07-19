@@ -3,7 +3,7 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { FundsPerSecondComponent } from '@/src/domains/sale/interfaces/ui/fundsPerSecond.component.tsx';
 import { FundsComponent } from '@/src/domains/sale/interfaces/ui/funds.component.tsx';
 import { UnsoldInventoryComponent } from '@/src/domains/sale/interfaces/ui/unsoldInventory.component.tsx';
-import styles from '@/src/domains/factory/interfaces/ui/dashboard/dashboard.module.scss';
+import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const BusinessComponent = () => {
   console.log('BusinessComponent');

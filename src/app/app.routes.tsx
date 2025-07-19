@@ -1,9 +1,9 @@
 import { useRoutes } from 'react-router-dom';
 import { ProfileRoutes } from '@/src/pages/profile/profile.routes.tsx';
-import { DashboardRoutes } from '@/src/pages/dashboard/dashboard.routes.tsx';
-import { ShopRoutes } from '@/src/pages/shop/shop.routes.tsx';
+import { FactoryRoutes } from '@/src/pages/factory/factory.routes.tsx';
+import { StoreRoutes } from '@/src/pages/store/store.routes.tsx';
 import { ExploreRoutes } from '@/src/pages/explore/explore.routes.tsx';
 
 export const AppRoutes = () => {
-  return useRoutes([...ProfileRoutes, ...DashboardRoutes, ...ShopRoutes, ...ExploreRoutes]);
+  return useRoutes([...ProfileRoutes, ...FactoryRoutes, ...StoreRoutes, ...ExploreRoutes]);
 };

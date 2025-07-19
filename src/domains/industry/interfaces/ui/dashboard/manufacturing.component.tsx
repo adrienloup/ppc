@@ -3,7 +3,7 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ClipPerSecondComponent } from '@/src/domains/production/interfaces/ui/clipPerSecond.component.tsx';
 import { WireComponent } from '@/src/domains/exploitation/interfaces/ui/wire.component.tsx';
 import { ClipperComponent } from '@/src/domains/mechanical/interfaces/ui/clipper.component.tsx';
-import styles from '@/src/domains/factory/interfaces/ui/dashboard/dashboard.module.scss';
+import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ManufacturingComponent = () => {
   console.log('ManufacturingComponent');

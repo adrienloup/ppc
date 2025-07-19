@@ -38,7 +38,7 @@ export const MenuComponent = () => {
         menu
       </ButtonComponent>
       <div className={styles.inside}>
-        <NavigationComponent items={['profile', 'dashboard', 'shop', 'explore']} />
+        <NavigationComponent items={['profile', 'factory', 'store', 'explore']} />
         <div
           style={{
             padding: '0 var(--spacing-s)',

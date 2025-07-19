@@ -4,7 +4,7 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
-import styles from '@/src/domains/factory/interfaces/ui/dashboard/dashboard.module.scss';
+import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const UnsoldInventoryComponent = () => {
   console.log('UnsoldInventoryComponent');
