@@ -5,7 +5,7 @@ import { HighlightComponent } from '@/src/shared/ui/highlight/highlight.componen
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
-import styles from '@/src/domains/merchandise/interfaces/ui/store/store.module.scss';
+import styles from '@/src/domains/merchandising/interfaces/ui/store/store.module.scss';
 
 export const StoreComponent = () => {
   console.log('StoreComponent');

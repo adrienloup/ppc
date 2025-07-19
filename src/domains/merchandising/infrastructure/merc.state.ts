@@ -1,6 +1,6 @@
-import type { MerchandiseState } from '@/src/domains/merchandise/domaine/merc.type.ts';
+import type { MerchandisingState } from '@/src/domains/merchandising/domaine/merc.type.ts';
 
-export const MERC_STATE: MerchandiseState = [
+export const MERC_STATE: MerchandisingState = [
   {
     title: 'algorithmic trading',
     category: 'investing',
