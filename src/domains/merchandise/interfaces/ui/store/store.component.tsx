@@ -1,6 +1,8 @@
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
+import { HighlightComponent } from '@/src/shared/ui/highlight/highlight.component.tsx';
+import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 import styles from '@/src/domains/merchandise/interfaces/ui/store/store.module.scss';
@@ -16,6 +18,12 @@ export const StoreComponent = () => {
         title="store"
         button="factory"
       />
+      <HighlightComponent className={styles.highlight}>
+        <LabelComponent
+          className={styles.label}
+          label="features"
+        />
+      </HighlightComponent>
       <CardsComponent className={styles.cards}>store</CardsComponent>
     </ArticleComponent>
   ) : (
