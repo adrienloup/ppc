@@ -1,9 +1,12 @@
 export type MecaState = {
   clipper: number;
+  clipperBonus: number;
   clipperCost: number;
   megaClipper: number;
+  megaClipperBonus: number;
   megaClipperCost: number;
   clipFactory: number;
+  clipFactoryBonus: number;
   clipFactoryCost: number;
 };
 

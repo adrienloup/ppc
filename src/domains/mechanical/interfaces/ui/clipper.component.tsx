@@ -1,26 +1,62 @@
 import { useMeca, useMecaDis } from '@/src/domains/mechanical/interfaces/useMeca.ts';
-import styles from '@/src/domains/test/test.module.scss';
+import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
+import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
+import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
+import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
+import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
+import styles from '@/src/domains/factory/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ClipperComponent = () => {
   console.log('ClipperComponent');
-  const dispatch = useMecaDis();
-  const { clipper, clipperCost } = useMeca();
+  const mecaDis = useMecaDis();
+  const { clipper, clipperBonus, clipperCost } = useMeca();
 
   const buyClipper = () => {
-    const cost = clipperCost + (Math.random() * 10 + 10); // 10 et 20
-    dispatch({ type: 'BUY_CLIPPER', cost });
+    const cost = clipperCost + (Math.random() * 10 + 10); // 0 & 1, 0 & 10, 10 & 20
+    mecaDis({ type: 'BUY_CLIPPER', cost });
   };
 
+  // if (!factory.feature.clipper.available || factory.feature.clipFactory.available) return null;
+
   return (
-    <>
-      <div>clippers {clipper}</div>
-      <div>clipperCost {clipperCost}</div>
-      <button
-        className={styles.button}
-        onClick={buyClipper}
-      >
-        +
-      </button>
-    </>
+    <DialsComponent>
+      <DialComponent>
+        <NumberComponent
+          className={styles.value}
+          value={clipperCost}
+          asset="currency"
+          decimal
+        />
+        <LabelComponent
+          className={styles.label}
+          label="clipper cost"
+        />
+      </DialComponent>
+      <DialComponent>
+        <div className={styles.group}>
+          <NumberComponent
+            className={styles.value}
+            value={clipper}
+          />
+          <BadgeComponent
+            prefix="x"
+            value={clipperBonus}
+          />
+        </div>
+        <LabelComponent
+          className={styles.label}
+          label="clippers"
+        />
+        <ClickerComponent
+          prefix="+"
+          value={1}
+          // disabled={factory.funds < clipperCost || factory.wire <= 0}
+          onClick={buyClipper}
+        >
+          +1
+        </ClickerComponent>
+      </DialComponent>
+    </DialsComponent>
   );
 };

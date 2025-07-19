@@ -1,6 +1,3 @@
-$mobile-portrait: 768px;
-$mobile-landscape: 1024px;
-
 .banner {
   display: flex;
   gap: var(--spacing-s);
@@ -9,20 +6,9 @@ $mobile-landscape: 1024px;
 }
 
 .title {
-  overflow: hidden;
-  max-width: calc(100vw - (var(--spacing-xs) * 2));
-  white-space: nowrap;
-  text-overflow: ellipsis;
   text-transform: uppercase;
   font-size: var(--font-size-l);
-
-  @media (min-width: $mobile-portrait) {
-    max-width: calc(100vw - (var(--spacing-s) * 2));
-  }
-
-  @media (min-width: $mobile-landscape) {
-    max-width: calc(100vw - (var(--spacing-m) * 2));
-  }
+  color: var(--color-2);
 }
 
 .button {

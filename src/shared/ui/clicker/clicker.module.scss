@@ -8,11 +8,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  min-width: 4.25rem;
-  height: 2.25rem;
-  padding: 0 var(--spacing-xs);
+  padding: var(--spacing-xs);
   background-color: var(--color-1);
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-s);
   color: var(--color-2);
 
   .disabled & {
@@ -34,17 +32,15 @@
 @keyframes SlideUp {
   0% {
     transform: translate3d(0, -2rem, 0);
+    opacity: 0;
+  }
+  20% {
     opacity: 1;
   }
   50% {
-    transform: translate3d(0.5rem, -6rem, 0);
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
+    transform: translate3d(0.5rem, -5rem, 0);
   }
   100% {
-    transform: translate3d(1rem, -8rem, 0);
-    opacity: 0;
+    transform: translate3d(1rem, -6rem, 0);
   }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import { ProgressbarComponent } from '@/src/shared/ui/progressbar/progressbar.component.tsx';
+import { ProgressBarComponent } from '@/src/shared/ui/progressbar/progressBar.component.tsx';
 import type { Loader } from '@/src/shared/ui/loader/loader.type.ts';
 import styles from '@/src/shared/ui/loader/loader.module.scss';
 
@@ -19,7 +19,7 @@ export const LoaderComponent = ({ className, duration = 5e2, size = 'medium', ..
       {...props}
     >
       <span className={styles.label}>{progress}%</span>
-      <ProgressbarComponent
+      <ProgressBarComponent
         valueNow={progress}
         valueMin={0}
         valueMax={100}

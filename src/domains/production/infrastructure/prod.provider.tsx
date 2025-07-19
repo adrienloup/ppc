@@ -1,39 +1,45 @@
-import { type FC, useCallback, useReducer } from 'react';
+import { type FC, useCallback, useEffect, useReducer } from 'react';
 import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastructure/prod.context.tsx';
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
-import { useExp, useExpDis } from '@/src/domains/exploitation/interfaces/useExp.ts';
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useExp, useExpDispatch } from '@/src/domains/exploitation/interfaces/useExp.ts';
 import { useAccount } from '@/src/domains/account/interfaces/useAccount.ts';
-import { useFirstRender } from '@/src/shared/hooks/useFirstRender.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
-import { computeValues } from '@/src/shared/utils/computeValues.ts';
-import { PROD_KEY, PROD_STATE } from '@/src/domains/production/infrastructure/prod.key.ts';
+import { compute } from '@/src/domains/production/interfaces/utils/compute.ts';
+import { PROD_KEY } from '@/src/domains/production/infrastructure/prod.key.ts';
+import { PROD_STATE } from '@/src/domains/production/infrastructure/prod.state.ts';
+import { USER_KEY } from '@/src/domains/authentification/infrastructure/user.key.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
-  const stored = useLocalStorage(PROD_KEY, PROD_STATE);
-  const initial = stored.get() ?? PROD_STATE;
-  const [state, dispatch] = useReducer(prodReducer, initial);
-  const expDispatch = useExpDis();
-  const { clipper, megaClipper } = useMeca();
+  const prodStorage = useLocalStorage(PROD_KEY, PROD_STATE);
+  const userStorage = useLocalStorage<string | null>(USER_KEY, null);
+  const [state, dispatch] = useReducer(prodReducer, prodStorage.get() ?? PROD_STATE);
+  const expDispatch = useExpDispatch();
+  const { clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus } = useMeca();
   const { wire } = useExp();
-  const { user } = useAuth();
   const { pause } = useAccount();
-
-  useFirstRender(() => {
-    if (user === null) return;
-    stored.set(state);
-  }, [state]);
+  const user = userStorage.get();
 
   const prodPerSecond = useCallback(() => {
-    const prod = computeValues(wire, megaClipper, clipper);
-    expDispatch({ type: 'UPDATE_WIRE', wire: prod.M * 5e2 + prod.C });
-    dispatch({ type: 'UPDATE_CLIP', clip: prod.W });
-  }, [wire, megaClipper, clipper]);
+    const prod = compute(wire, clipper, megaClipper, clipFactory);
+    dispatch({
+      type: 'UPDATE_AUTO_CLIP',
+      clip:
+        prod.clipper * Math.max(1, clipperBonus) +
+        prod.megaClipper * 5e2 * Math.max(1, megaClipperBonus) +
+        prod.clipFactory * 1e3 * Math.max(1, clipFactoryBonus),
+    });
+    if (wire > 0) expDispatch({ type: 'UPDATE_AUTO_WIRE', wire: prod.wire });
+  }, [wire, clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus]);
 
-  useInterval(prodPerSecond, 8e2, !!user && !pause);
+  useEffect(() => {
+    if (!user) return;
+    prodStorage.set(state);
+  }, [state]);
+
+  useInterval(prodPerSecond, 9e2, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

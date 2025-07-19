@@ -15,7 +15,6 @@ export const SpaceComponent = ({ planets, stars }: Space) => {
             className={classNames([styles.planet, styles[`planet${n}`]])}
           />
         ))}
-
       {stars && (
         <div className={styles.stars}>
           {stars.map((n) => (

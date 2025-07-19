@@ -1,9 +1,9 @@
-import { useAccountDis } from '@/src/domains/account/interfaces/useAccount.ts';
+import { useAccountDispatch } from '@/src/domains/account/interfaces/useAccount.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import styles from '@/src/domains/account/interfaces/ui/play/pause.module.scss';
 
 export const PauseComponent = () => {
-  const dispatch = useAccountDis();
+  const dispatch = useAccountDispatch();
   const label = `factory is stopped<span>press to resume</span>`;
 
   return (

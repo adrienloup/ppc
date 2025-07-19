@@ -1,16 +1,52 @@
 import type { AuthAction, AuthState } from '@/src/domains/authentification/domain/auth.type.ts';
+import { ACCOUNT_STATE } from '@/src/domains/account/infrastructure/account.state.ts';
 
 export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
-    case 'SIGN_UP':
+    case 'LOAD': {
       return {
-        users: action.users,
-        user: action.user,
+        ...state,
+        user: action.username,
+        load: null,
       };
-    case 'LOG_IN':
-      return { ...state, user: action.user };
+    }
+    case 'SIGN_UP': {
+      if (state.users[action.username]) return state;
+
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          [action.username]: {
+            password: action.password,
+            account: ACCOUNT_STATE,
+          },
+        },
+        load: action.username,
+      };
+    }
+    case 'LOG_IN': {
+      if (!state.users[action.username]) return state;
+
+      return {
+        ...state,
+        load: action.username,
+      };
+    }
     case 'LOG_OUT': {
-      return { ...state, user: null };
+      if (!state.user) return state;
+
+      return {
+        ...state,
+        user: null,
+        save: state.user,
+      };
+    }
+    case 'SAVE': {
+      return {
+        ...state,
+        save: null,
+      };
     }
     default:
       return state;

@@ -1,5 +1,8 @@
 import { useContext } from 'react';
-import { AccountContext, AccountDisContext } from '@/src/domains/account/infrastructure/account.context.ts';
+import {
+  AccountContext,
+  AccountDispatchContext,
+} from '@/src/domains/account/infrastructure/account.context.ts';
 
 export const useAccount = () => {
   const ctx = useContext(AccountContext);
@@ -7,8 +10,8 @@ export const useAccount = () => {
   return ctx;
 };
 
-export const useAccountDis = () => {
-  const ctx = useContext(AccountDisContext);
-  if (!ctx) throw new Error('useAccDis must be inside AccountProvider');
+export const useAccountDispatch = () => {
+  const ctx = useContext(AccountDispatchContext);
+  if (!ctx) throw new Error('useAccountDispatch must be inside AccountProvider');
   return ctx;
 };

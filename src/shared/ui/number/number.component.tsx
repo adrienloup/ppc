@@ -38,7 +38,8 @@ const UNITS: string[] = [
 // };
 
 function formatShort(value: number) {
-  if (value < 1000) return { scaled: value, unit: '' };
+  // if (value < 1000) return { scaled: value, unit: '' };
+  if (value < 10000) return { scaled: value, unit: '' };
   let tier = Math.floor(Math.log10(value) / 3);
   if (tier >= UNITS.length) {
     tier = UNITS.length - 1;

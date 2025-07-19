@@ -4,7 +4,7 @@ import type { Badge } from '@/src/shared/ui/badge/badge.type.ts';
 import styles from '@/src/shared/ui/badge/badge.module.scss';
 
 export const BadgeComponent = ({ className, label, value, prefix, asset, status = 'success' }: Badge) => {
-  return (
+  return value ? (
     <span className={classNames([styles.badge, styles[status], className])}>
       {prefix}
       {label}
@@ -15,5 +15,5 @@ export const BadgeComponent = ({ className, label, value, prefix, asset, status 
         />
       )}
     </span>
-  );
+  ) : null;
 };

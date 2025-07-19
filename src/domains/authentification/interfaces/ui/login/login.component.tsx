@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useAuth, useAuthDis } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useNotif } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
@@ -10,8 +11,9 @@ import type { Login } from '@/src/domains/authentification/interfaces/ui/login/l
 import styles from '@/src/domains/authentification/interfaces/ui/login/login.module.scss';
 
 export const LoginComponent = ({ className }: Login) => {
-  const { signUp, logIn } = useAuthDis();
+  const authDispatch = useAuthDispatch();
   const { users } = useAuth();
+  const [, notifDispatch] = useNotif();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [usernameError, setUsernameError] = useState<string>('');
@@ -27,8 +29,9 @@ export const LoginComponent = ({ className }: Login) => {
     if (!password) setPasswordError('required');
   };
 
-  const onLogIn = async () => {
+  const logIn = async () => {
     resetErrors();
+
     if (!username || !password) return requiredErrors();
 
     const hashPassword = await base64Encode(password);
@@ -44,14 +47,25 @@ export const LoginComponent = ({ className }: Login) => {
       return;
     }
 
-    logIn(username, hashPassword);
+    authDispatch({
+      type: 'LOG_IN',
+      username: username,
+    });
+    notifDispatch({
+      type: 'ADD_NOTIF',
+      notif: {
+        id: 'log-in',
+        text: `${username} is connected`,
+        status: 'success',
+        timeout: 2e3,
+      },
+    });
   };
 
-  const onSignUp = async () => {
+  const signUp = async () => {
     resetErrors();
 
     if (!username || !password) return requiredErrors();
-
     if (users[username]) return setUsernameError('username already taken');
 
     let valid = true;
@@ -67,10 +81,22 @@ export const LoginComponent = ({ className }: Login) => {
     }
 
     if (!valid) return;
-
     const hashPassword = await base64Encode(password);
 
-    signUp(username, hashPassword);
+    authDispatch({
+      type: 'SIGN_UP',
+      username: username,
+      password: hashPassword,
+    });
+    notifDispatch({
+      type: 'ADD_NOTIF',
+      notif: {
+        id: 'sign-up',
+        text: `${username} successfully registered`,
+        status: 'success',
+        timeout: 2e3,
+      },
+    });
   };
 
   return (
@@ -91,15 +117,15 @@ export const LoginComponent = ({ className }: Login) => {
       <div className={styles.buttons}>
         <ButtonComponent
           className={styles.button}
-          onClick={onLogIn}
+          onClick={logIn}
         >
-          log in
+          login
         </ButtonComponent>
         <ButtonComponent
           className={styles.button}
-          onClick={onSignUp}
+          onClick={signUp}
         >
-          sign up
+          signup
         </ButtonComponent>
       </div>
     </div>

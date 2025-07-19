@@ -29,17 +29,16 @@ export const ClickerComponent = ({
   }, []);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    const { clientX, clientY, currentTarget } = e;
-    const rect = currentTarget.getBoundingClientRect();
-    const safeX = clientX === 0 ? rect.left : clientX;
-    const safeY = clientY === 0 ? rect.top : clientY;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const safeX = rect.left;
+    const safeY = rect.top - rect.top;
 
     setValues((prev) => [
       ...prev,
       {
         id: Date.now(),
-        x: safeX - rect.left,
-        y: safeY - rect.top,
+        x: safeX,
+        y: safeY,
       },
     ]);
 
