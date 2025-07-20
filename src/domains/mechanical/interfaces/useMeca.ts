@@ -7,7 +7,7 @@ export const useMeca = () => {
   return ctx;
 };
 
-export const useMecaDis = () => {
+export const useMecaDispatch = () => {
   const ctx = useContext(MecaDispatchContext);
   if (!ctx) throw new Error('useMecaDis must be inside ExpProvider');
   return ctx;

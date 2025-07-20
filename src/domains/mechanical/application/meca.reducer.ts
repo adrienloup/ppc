@@ -2,6 +2,8 @@ import type { MecaAction, MecaState } from '@/src/domains/mechanical/domain/meca
 
 export const mecaReducer = (state: MecaState, action: MecaAction): MecaState => {
   switch (action.type) {
+    case 'LOAD':
+      return action.state;
     case 'BUY_CLIPPER':
       return {
         ...state,

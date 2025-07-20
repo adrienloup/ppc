@@ -1,15 +1,13 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useMerc } from '@/src/domains/merchandising/interfaces/useMerc.ts';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
-import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
-import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import styles from '@/src/domains/merchandising/interfaces/ui/store/store.module.scss';
-import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 
 export const MerchandiseComponent = () => {
   console.log('MerchandiseComponent');
@@ -42,9 +40,9 @@ export const MerchandiseComponent = () => {
         {category}
       </TitleComponent>
       {Object.keys(merc).length > 0 ? (
-        Object.entries(merc).map(([mercName, mercValue]) => (
+        Object.entries(merc).map(([key, value]) => (
           <DialsComponent
-            key={mercName}
+            key={key}
             className={styles.dials}
           >
             <DialComponent className={styles.dial}>
@@ -52,34 +50,43 @@ export const MerchandiseComponent = () => {
                 className={styles.subtitle}
                 tag="h3"
               >
-                {t(`store.${mercName}.title`)}
+                {t(`store.${key}.title`)}
               </TitleComponent>
-              <LabelComponent
-                className={styles.label}
-                label="Lorem Ipsum is simply dummy text of the printing and typesetting industry"
-              />
-              <div className={styles.group}>
-                <LabelComponent
-                  className={styles.label}
-                  label="cost:"
-                />
-                <NumberComponent
-                  className={styles.value}
-                  value={mercValue.cost?.value}
-                />
-                <LabelComponent
-                  className={styles.label}
-                  label={mercValue.cost?.asset}
+              <div className={styles.label}>
+                <Trans
+                  i18nKey={`store.${key}.effect`}
+                  components={{
+                    firstEffect: (
+                      <>
+                        {Array.isArray(value.effect) && value.effect.every((r) => typeof r === 'object') ? (
+                          <NumberComponent value={value.effect?.[0]?.value} />
+                        ) : null}
+                      </>
+                    ),
+                    secondEffect: (
+                      <>
+                        {Array.isArray(value.effect) && value.effect.every((r) => typeof r === 'object') ? (
+                          <NumberComponent value={value.effect?.[1]?.value} />
+                        ) : null}
+                      </>
+                    ),
+                  }}
                 />
               </div>
-              <div className={styles.group}>
-                <LabelComponent
-                  className={styles.label}
-                  label="quantity:"
+              <div className={styles.label}>
+                <Trans
+                  i18nKey={`store.${key}.cost`}
+                  components={{
+                    cost: <NumberComponent value={value.cost?.value} />,
+                  }}
                 />
-                <ValueComponent
-                  className={styles.value}
-                  value={mercValue.quantity}
+              </div>
+              <div className={styles.label}>
+                <Trans
+                  i18nKey={`store.${key}.quantity`}
+                  components={{
+                    quantity: <NumberComponent value={value.quantity!} />,
+                  }}
                 />
               </div>
               <ButtonComponent

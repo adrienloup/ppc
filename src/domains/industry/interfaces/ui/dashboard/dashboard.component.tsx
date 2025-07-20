@@ -6,6 +6,7 @@ import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { ManufacturingComponent } from '@/src/domains/industry/interfaces/ui/manufacturing.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 import { BusinessComponent } from '@/src/domains/industry/interfaces/ui/business.component.tsx';
+import { ResourcesComponent } from '@/src/domains/industry/interfaces/ui/resources.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const DashboardComponent = () => {
@@ -23,6 +24,7 @@ export const DashboardComponent = () => {
       <CardsComponent className={styles.cards}>
         <ManufacturingComponent />
         <BusinessComponent />
+        <ResourcesComponent />
       </CardsComponent>
     </ArticleComponent>
   ) : (

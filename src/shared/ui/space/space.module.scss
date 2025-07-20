@@ -10,8 +10,7 @@
 .planet {
   position: absolute;
   z-index: 1;
-  background: grey;
-  //border-radius: 100%;
+  background: var(--color-9);
 
   &::before,
   &::after {
@@ -19,7 +18,6 @@
     content: '';
     position: absolute;
     background: var(--color-1);
-    //border-radius: 100%;
     opacity: 0.5;
   }
 
@@ -40,17 +38,6 @@
   animation:
     SlideUp 0.5s var(--ease-quad) backwards,
     FadeIn 0.7s var(--ease-quad) backwards;
-  //SunMove 40s infinite alternate 0.5s;
-
-  //top: 40%;
-  //left: 60%;
-  //width: 16rem;
-  //height: 16rem;
-  //box-shadow: inset -0.35rem -0.35rem 0 #393939;
-  //animation:
-  //  //Planet1Move 70s infinite alternate 0.5s,
-  //  PlanetSlide 0.5s var(--ease-quad) backwards,
-  //  FadeIn 0.8s var(--ease-quad) backwards;
 
   &::before {
     display: block;
@@ -74,11 +61,6 @@
   left: 20%;
   width: 10rem;
   height: 10rem;
-  //box-shadow: inset -0.35rem -0.35rem 0 #393939;
-  //animation:
-  //  //Planet2Move 60s infinite alternate 0.7s,
-  //  PlanetSlide 0.5s var(--ease-quad) backwards 0.1s,
-  //  FadeIn 0.8s var(--ease-quad) backwards 0.1s;
   animation:
     SlideUp 0.5s var(--ease-quad) backwards,
     FadeIn 0.7s var(--ease-quad) backwards;
@@ -98,25 +80,17 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-m);
-  //top: 70%;
-  //left: 10%;
-  //width: 40rem;
-  //animation:
-  //  StarsSlide 0.5s var(--ease-quad) backwards 0.4s,
-  //  FadeIn 0.7s var(--ease-quad) backwards 0.4s;
-
-  top: 20%;
-  left: 10%;
+  top: 10rem;
+  left: 10rem;
   width: 40rem;
   animation:
-    SlideLeft 0.5s var(--ease-quad) backwards 0.4s,
-    FadeIn 0.7s var(--ease-quad) backwards 0.4s;
+    SlideLeft 0.5s var(--ease-quad) backwards,
+    FadeIn 0.7s var(--ease-quad) backwards;
 }
 
 .star {
   position: relative;
-  background: rgb(255, 255, 255);
-  //border-radius: 100%;
+  background: var(--color-9);
 }
 
 .star1 {
@@ -126,7 +100,8 @@
   //animation: Star1Move 60s infinite alternate;
   width: 4rem;
   height: 2rem;
-  animation: Cloud1Move 60s infinite alternate;
+  animation: Cloud1Move 70s infinite alternate;
+  opacity: 0.2;
 }
 
 .star2 {
@@ -136,7 +111,8 @@
   //animation: Star2Move 70s infinite alternate;
   width: 6rem;
   height: 4rem;
-  animation: Cloud2Move 70s infinite alternate;
+  animation: Cloud2Move 80s infinite alternate;
+  opacity: 0.1;
 }
 
 .star3 {
@@ -146,7 +122,8 @@
   //animation: Star3Move 50s infinite alternate;
   width: 5rem;
   height: 3rem;
-  animation: Cloud3Move 50s infinite alternate;
+  animation: Cloud3Move 90s infinite alternate;
+  opacity: 0.4;
 }
 
 @keyframes FadeIn {
@@ -262,7 +239,7 @@
     left: 0;
   }
   50% {
-    left: 30%;
+    left: 20%;
   }
   100% {
     left: 0;
@@ -271,24 +248,24 @@
 
 @keyframes Cloud2Move {
   0% {
-    left: 50%;
+    left: 40%;
   }
   50% {
     left: 0;
   }
   100% {
-    left: 50%;
+    left: 40%;
   }
 }
 
 @keyframes Cloud3Move {
   0% {
-    left: 5%;
+    left: 10%;
   }
   50% {
-    left: 45%;
+    left: 40%;
   }
   100% {
-    left: 5%;
+    left: 10%;
   }
 }

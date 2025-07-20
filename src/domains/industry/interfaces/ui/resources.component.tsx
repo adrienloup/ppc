@@ -1,0 +1,25 @@
+import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
+import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
+import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
+import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
+
+export const ResourcesComponent = () => {
+  console.log('ResourcesComponent');
+
+  return (
+    <CardComponent className={styles.card}>
+      <TitleComponent
+        tag="h2"
+        className={styles.title}
+      >
+        resources
+      </TitleComponent>
+      {/*{factory.feature.resources.enabled ? (*/}
+      {/*<>*/}
+      {/*</>*/}
+      {/*) : (*/}
+      <EmptyComponent />
+      {/*)}*/}
+    </CardComponent>
+  );
+};

@@ -1,5 +1,5 @@
-import { useMeca, useMecaDis } from '@/src/domains/mechanical/interfaces/useMeca.ts';
-import { useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
+import { useMeca, useMecaDispatch } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useSale, useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
@@ -10,9 +10,10 @@ import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.mod
 
 export const ClipperComponent = () => {
   console.log('ClipperComponent');
-  const mecaDispatch = useMecaDis();
+  const mecaDispatch = useMecaDispatch();
   const saleDispatch = useSaleDispatch();
   const { clipper, clipperBonus, clipperCost } = useMeca();
+  const { funds } = useSale();
 
   const buyClipper = () => {
     const cost = clipperCost + (Math.random() * 10 + 10); // 0 & 1, 0 & 10, 10 & 20
@@ -53,7 +54,7 @@ export const ClipperComponent = () => {
         <ClickerComponent
           prefix="+"
           value={1}
-          // disabled={factory.funds < clipperCost || factory.wire <= 0}
+          disabled={funds < clipperCost}
           onClick={buyClipper}
         >
           +

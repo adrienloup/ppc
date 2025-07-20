@@ -2,6 +2,8 @@ import type { SaleAction, SaleState } from '@/src/domains/sale/domain/sale.type.
 
 export const saleReducer = (state: SaleState, action: SaleAction): SaleState => {
   switch (action.type) {
+    case 'LOAD':
+      return action.state;
     case 'UNSOLD_INVENTORY': {
       const unsoldInventoryBonusUI = Math.max(1, state.unsoldInventoryBonus);
 

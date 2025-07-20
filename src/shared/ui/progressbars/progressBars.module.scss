@@ -3,6 +3,7 @@ $mobile-landscape: 1024px;
 .progressBars {
   display: flex;
   overflow: hidden;
+  width: 100%;
 }
 
 .stick {
@@ -24,15 +25,15 @@ $mobile-landscape: 1024px;
 }
 
 .used {
-  //background-color: var(--color-7);
-  border-right: 0.5rem solid var(--color-1);
+  background-color: var(--color-7);
+  //border-right: 0.5rem solid var(--color-1);
 }
 
 .unlocked {
-  //background-color: var(--color-8);
-  border-right: 0.5rem solid var(--color-1);
+  background-color: var(--color-8);
+  //border-right: 0.5rem solid var(--color-1);
 }
 
 .locked {
-  //background-color: var(--color-9);
+  background-color: var(--color-9);
 }

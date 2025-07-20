@@ -15,6 +15,7 @@ export interface Merchandise {
 export type MercState = Record<string, Merchandise>;
 
 export type MercAction =
+  | { type: 'LOAD'; state: MercState }
   | { type: 'BUY_MERCHANDISE'; merchandise: string }
   | { type: 'BUY_AUTO_WIRE' }
   | { type: 'ALLOCATE_TRUST' };

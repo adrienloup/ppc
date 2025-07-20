@@ -3,7 +3,7 @@ $mobile-landscape: 1024px;
 $tablet-landscape: 1440px;
 
 .banner {
-  animation: FadeIn 0.5s var(--ease-quad) backwards;
+  animation: FadeIn 0.5s var(--ease-quad) backwards 0.2s;
 }
 
 .highlight {
@@ -11,7 +11,7 @@ $tablet-landscape: 1440px;
   animation-timing-function: var(--ease-quad);
   animation-duration: 0.5s;
   animation-fill-mode: backwards;
-  animation-delay: 0.1s;
+  animation-delay: 0.3s;
 }
 
 .cards {
@@ -30,7 +30,7 @@ $tablet-landscape: 1440px;
       & > * {
         @for $i from 1 through 3 {
           &:nth-child(#{$i}) {
-            animation-delay: #{0.1s + $i * 0.1s};
+            animation-delay: #{0.4s + $i * 0.1s};
           }
         }
       }
@@ -38,9 +38,9 @@ $tablet-landscape: 1440px;
 
     &:nth-child(2) {
       & > * {
-        @for $i from 1 through 3 {
+        @for $i from 1 through 2 {
           &:nth-child(#{$i}) {
-            animation-delay: #{0.4s + $i * 0.1s};
+            animation-delay: #{0.7s + $i * 0.1s};
           }
         }
       }
@@ -50,7 +50,7 @@ $tablet-landscape: 1440px;
       & > * {
         @for $i from 1 through 6 {
           &:nth-child(#{$i}) {
-            animation-delay: #{0.6s + $i * 0.1s};
+            animation-delay: #{0.9s + $i * 0.1s};
           }
         }
       }
@@ -58,9 +58,9 @@ $tablet-landscape: 1440px;
 
     &:nth-child(4) {
       & > * {
-        @for $i from 1 through 6 {
+        @for $i from 1 through 5 {
           &:nth-child(#{$i}) {
-            animation-delay: #{1.2s + $i * 0.1s};
+            animation-delay: #{1.5s + $i * 0.1s};
           }
         }
       }
@@ -70,7 +70,7 @@ $tablet-landscape: 1440px;
       & > * {
         @for $i from 1 through 8 {
           &:nth-child(#{$i}) {
-            animation-delay: #{1.7s + $i * 0.1s};
+            animation-delay: #{2s + $i * 0.1s};
           }
         }
       }
@@ -80,7 +80,7 @@ $tablet-landscape: 1440px;
       & > * {
         @for $i from 1 through 8 {
           &:nth-child(#{$i}) {
-            animation-delay: #{2.5s + $i * 0.1s};
+            animation-delay: #{2.8s + $i * 0.1s};
           }
         }
       }
@@ -102,7 +102,7 @@ $tablet-landscape: 1440px;
   padding: var(--spacing-xs);
   background-color: var(--color-2);
   text-transform: uppercase;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-m);
   color: var(--color-1);
 }
 

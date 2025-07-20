@@ -1,6 +1,6 @@
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { Space } from '@/src/shared/ui/space/space.type.ts';
 import styles from '@/src/shared/ui/space/space.module.scss';
-import { classNames } from '@/src/shared/utils/classNames.ts';
 
 export const SpaceComponent = ({ planets, stars }: Space) => {
   return (

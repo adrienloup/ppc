@@ -1,9 +1,9 @@
-import { useMeca, useMecaDis } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useMeca, useMecaDispatch } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import styles from '@/src/domains/test/test.module.scss';
 
 export const MegaClipperComponent = () => {
   console.log('MegaClipperComponent');
-  const dispatch = useMecaDis();
+  const dispatch = useMecaDispatch();
   const { megaClipper, megaClipperCost } = useMeca();
 
   const buyMegaClipper = () => {

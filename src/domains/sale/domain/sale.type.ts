@@ -10,6 +10,7 @@ export type SaleState = {
 };
 
 export type SaleAction =
+  | { type: 'LOAD'; state: SaleState }
   | { type: 'UNSOLD_INVENTORY' }
   | { type: 'AUTO_UNSOLD_INVENTORY'; clip: number }
   | { type: 'SELL_UNSOLD_INVENTORY' }

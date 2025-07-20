@@ -36,7 +36,6 @@ export const MERC_STATE: MercState = {
   fullMonopoly: {
     category: 'marketing',
     cost: { asset: 'funds', value: 1e7 },
-
     effect: [
       { asset: 'marketingBonus', value: 1e2 },
       { asset: 'trust', value: 1 },
@@ -67,7 +66,6 @@ export const MERC_STATE: MercState = {
   hypnoHarmonics: {
     category: 'marketing',
     cost: { asset: 'operation', value: 75e2 },
-
     effect: ['hypnoDrone'],
     available: true,
     quantity: 1,

@@ -23,10 +23,9 @@ export const ClipPriceComponent = () => {
             asset="currency"
             decimal
           />
-
           <BadgeComponent
+            prefix="x"
             value={marketingBonus}
-            status="warning"
           />
         </div>
         <LabelComponent
@@ -39,6 +38,7 @@ export const ClipPriceComponent = () => {
             value={0.01 * Math.max(1, marketingBonus)}
             disabled={clipPriceRef === 0.1}
             onClick={() => saleDispatch({ type: 'DECREASE_CLIP_PRICE' })}
+            decimal
           >
             -
           </ClickerComponent>
@@ -47,6 +47,7 @@ export const ClipPriceComponent = () => {
             value={0.01 * Math.max(1, marketingBonus)}
             disabled={clipPriceRef === 1}
             onClick={() => saleDispatch({ type: 'INCREASE_CLIP_PRICE' })}
+            decimal
           >
             +
           </ClickerComponent>

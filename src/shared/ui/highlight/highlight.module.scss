@@ -1,5 +1,6 @@
 .highlight {
   display: flex;
-  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: center;
   background-color: var(--color-2);
 }

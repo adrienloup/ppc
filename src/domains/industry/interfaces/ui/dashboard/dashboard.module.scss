@@ -3,7 +3,7 @@ $mobile-landscape: 1024px;
 $tablet-landscape: 1440px;
 
 .banner {
-  animation: FadeIn 0.5s var(--ease-quad) backwards;
+  animation: FadeIn 0.5s var(--ease-quad) backwards 0.2s;
 }
 
 .highlight {
@@ -12,7 +12,7 @@ $tablet-landscape: 1440px;
   animation-timing-function: var(--ease-quad);
   animation-duration: 0.5s;
   animation-fill-mode: backwards;
-  animation-delay: 0.1s;
+  animation-delay: 0.3s;
 
   .value {
     overflow: hidden;
@@ -52,7 +52,7 @@ $tablet-landscape: 1440px;
 
     @for $i from 1 through 25 {
       &:nth-child(#{$i}) {
-        animation-delay: #{0.1s + $i * 0.1s};
+        animation-delay: #{0.4s + $i * 0.1s};
       }
     }
   }
@@ -62,7 +62,7 @@ $tablet-landscape: 1440px;
   padding: var(--spacing-xs);
   background-color: var(--color-2);
   text-transform: uppercase;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-m);
   color: var(--color-1);
 }
 
@@ -74,7 +74,7 @@ $tablet-landscape: 1440px;
 }
 
 .value {
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-m);
   color: var(--color-1);
 }
 
