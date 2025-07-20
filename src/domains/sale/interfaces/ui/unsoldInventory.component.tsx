@@ -21,6 +21,7 @@ export const UnsoldInventoryComponent = () => {
           <BadgeComponent
             prefix="x"
             value={unsoldInventoryBonus}
+            status="success"
           />
         </div>
         <LabelComponent

@@ -53,6 +53,11 @@ export const saleReducer = (state: SaleState, action: SaleAction): SaleState => 
         funds: Math.max(0, state.funds - action.cost),
       };
     }
+    case 'UNSOLD_INVENTORY_BONUS':
+      return {
+        ...state,
+        unsoldInventoryBonus: action.bonus,
+      };
     default:
       return state;
   }

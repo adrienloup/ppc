@@ -16,4 +16,5 @@ export type SaleAction =
   | { type: 'SELL_UNSOLD_INVENTORY' }
   | { type: 'INCREASE_CLIP_PRICE' }
   | { type: 'DECREASE_CLIP_PRICE' }
-  | { type: 'DECREASE_FUNDS'; cost: number };
+  | { type: 'DECREASE_FUNDS'; cost: number }
+  | { type: 'UNSOLD_INVENTORY_BONUS'; bonus: number };
