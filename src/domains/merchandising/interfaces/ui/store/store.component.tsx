@@ -8,7 +8,7 @@ import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/log
 import styles from '@/src/domains/merchandising/interfaces/ui/store/store.module.scss';
 
 export const StoreComponent = () => {
-  console.log('StoreComponent');
+  // console.log('StoreComponent');
   const { user } = useAuth();
 
   return user ? (

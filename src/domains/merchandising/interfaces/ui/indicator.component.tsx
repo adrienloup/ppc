@@ -3,7 +3,7 @@ import { ProgressBarsComponent } from '@/src/shared/ui/progressbars/progressBars
 import styles from '@/src/domains/merchandising/interfaces/ui/store/store.module.scss';
 
 export const IndicatorComponent = () => {
-  console.log('IndicatorComponent');
+  // console.log('IndicatorComponent');
 
   return (
     <HighlightComponent className={styles.highlight}>

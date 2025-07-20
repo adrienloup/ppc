@@ -9,7 +9,7 @@ import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx'
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ClipPerSecondComponent = () => {
-  console.log('ClipPerSecondComponent');
+  // console.log('ClipPerSecondComponent');
   const prodDispatch = useProdDispatch();
   const saleDispatch = useSaleDispatch();
   const expDispatch = useExpDispatch();
@@ -34,6 +34,7 @@ export const ClipPerSecondComponent = () => {
           label="clips per second"
         />
         <ClickerComponent
+          className={styles.button}
           prefix="+"
           value={1}
           disabled={wire <= 0}

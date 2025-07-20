@@ -10,7 +10,7 @@ import { ResourcesComponent } from '@/src/domains/industry/interfaces/ui/resourc
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const DashboardComponent = () => {
-  console.log('DashboardComponent');
+  // console.log('DashboardComponent');
   const { user } = useAuth();
 
   return user ? (

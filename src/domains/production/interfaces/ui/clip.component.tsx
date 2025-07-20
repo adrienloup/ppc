@@ -5,7 +5,7 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ClipComponent = () => {
-  console.log('ClipComponent');
+  // console.log('ClipComponent');
   const { clip } = useProd();
 
   return (

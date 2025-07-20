@@ -4,7 +4,7 @@ import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ResourcesComponent = () => {
-  console.log('ResourcesComponent');
+  // console.log('ResourcesComponent');
 
   return (
     <CardComponent className={styles.card}>

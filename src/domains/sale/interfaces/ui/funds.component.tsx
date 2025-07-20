@@ -6,7 +6,7 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const FundsComponent = () => {
-  console.log('FundsComponent');
+  // console.log('FundsComponent');
   const { funds } = useSale();
 
   return (
@@ -16,6 +16,7 @@ export const FundsComponent = () => {
           className={styles.value}
           value={funds}
           asset="currency"
+          decimal
         />
         <LabelComponent
           className={styles.label}

@@ -8,7 +8,7 @@ import { PublicDemandComponent } from '@/src/domains/sale/interfaces/ui/publicDe
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const BusinessComponent = () => {
-  console.log('BusinessComponent');
+  // console.log('BusinessComponent');
 
   return (
     <CardComponent className={styles.card}>

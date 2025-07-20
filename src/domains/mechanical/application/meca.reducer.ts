@@ -22,6 +22,21 @@ export const mecaReducer = (state: MecaState, action: MecaAction): MecaState => 
         clipFactory: state.clipFactory + 1,
         clipFactoryCost: action.cost,
       };
+    case 'CLIPPER_BONUS':
+      return {
+        ...state,
+        clipperBonus: action.bonus,
+      };
+    case 'MEGA_CLIPPER_BONUS':
+      return {
+        ...state,
+        megaClipperBonus: action.bonus,
+      };
+    case 'CLIP_FACTORY_BONUS':
+      return {
+        ...state,
+        clipFactoryBonus: action.bonus,
+      };
     default:
       return state;
   }

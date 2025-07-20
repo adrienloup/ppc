@@ -72,7 +72,7 @@ export const NumberComponent = ({ className, value, valueMax, asset, decimal }: 
     //     ? `${symbol}${scaled.toFixed(digits)}${unit}`
     //     : `${scaled.toFixed(digits)} ${unit} ${symbol}`;
     // _value = `${symbol}${scaled.toFixed(digits)}${unit}`;
-    _value = `${symbol}${scaled.toFixed(2)}${unit}`;
+    _value = `${symbol}${scaled.toFixed(digits)}${unit}`;
   } else if (asset === 'weight') {
     const { scaled, unit } = formatShort(value!);
     // const weightUnit = WEIGHT_UNIT[profile.language];

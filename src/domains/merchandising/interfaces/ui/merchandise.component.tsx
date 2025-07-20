@@ -10,7 +10,7 @@ import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import styles from '@/src/domains/merchandising/interfaces/ui/store/store.module.scss';
 
 export const MerchandiseComponent = () => {
-  console.log('MerchandiseComponent');
+  // console.log('MerchandiseComponent');
   const { t } = useTranslation();
   const merchandise = useMerc();
 

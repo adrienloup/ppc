@@ -14,4 +14,7 @@ export type MecaAction =
   | { type: 'LOAD'; state: MecaState }
   | { type: 'BUY_CLIPPER'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
-  | { type: 'BUY_CLIP_FACTORY'; cost: number };
+  | { type: 'BUY_CLIP_FACTORY'; cost: number }
+  | { type: 'CLIPPER_BONUS'; bonus: number }
+  | { type: 'MEGA_CLIPPER_BONUS'; bonus: number }
+  | { type: 'CLIP_FACTORY_BONUS'; bonus: number };

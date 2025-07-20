@@ -62,7 +62,7 @@ $tablet-landscape: 1440px;
   padding: var(--spacing-xs);
   background-color: var(--color-2);
   text-transform: uppercase;
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
   color: var(--color-1);
 }
 
@@ -74,26 +74,24 @@ $tablet-landscape: 1440px;
 }
 
 .value {
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-l);
   color: var(--color-1);
 }
 
 .label {
   font-size: var(--font-size-s);
   color: var(--color-1);
+
+  & + .button {
+    margin-top: var(--spacing-xs);
+  }
 }
 
 .buttons {
   display: flex;
+  align-items: center;
   gap: var(--spacing-xs);
-}
-
-.button {
   margin-top: var(--spacing-xs);
-  padding: var(--spacing-xs);
-  background-color: var(--color-1);
-  font-size: var(--font-size-s);
-  color: var(--color-2);
 }
 
 @keyframes SlideUp {
