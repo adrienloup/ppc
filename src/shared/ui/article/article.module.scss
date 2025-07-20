@@ -1,5 +1,4 @@
 $mobile-portrait: 768px;
-$mobile-landscape: 1024px;
 
 .article {
   position: relative;
@@ -13,10 +12,5 @@ $mobile-landscape: 1024px;
   @media (min-width: $mobile-portrait) {
     gap: var(--spacing-s);
     padding: var(--spacing-xl) var(--spacing-s) var(--spacing-s);
-  }
-
-  @media (min-width: $mobile-landscape) {
-    gap: var(--spacing-m);
-    padding: 3rem var(--spacing-m) var(--spacing-m);
   }
 }

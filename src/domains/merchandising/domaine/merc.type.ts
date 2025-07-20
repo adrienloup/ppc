@@ -3,18 +3,18 @@ interface AssetValue {
   value: number;
 }
 
-interface Merchandise {
-  title: string;
+export interface Merchandise {
   category: string;
+  cost: AssetValue;
+  effect: MercAction | AssetValue[] | string[];
   available: boolean;
   quantity: number;
-  cost: AssetValue;
-  effect: MerchandisingAction | AssetValue[] | string[];
-  requirement: AssetValue | string;
+  requirement?: AssetValue | string;
 }
 
-export type MerchandisingState = Merchandise[];
+export type MercState = Record<string, Merchandise>;
 
-export type MerchandisingAction =
+export type MercAction =
   | { type: 'BUY_MERCHANDISE'; merchandise: string }
+  | { type: 'BUY_AUTO_WIRE' }
   | { type: 'ALLOCATE_TRUST' };

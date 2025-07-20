@@ -1,42 +1,46 @@
 import type { ProgressBars } from '@/src/shared/ui/progressbars/progressBars.type.ts';
-import styles from '@/src/shared/ui/progressbars/progressBars.module.scss';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import styles from '@/src/shared/ui/progressbars/progressBars.module.scss';
 
-export const ProgressBarsComponent = ({ total, value1 = 0, value2 = 0, className }: ProgressBars) => {
+export const ProgressBarsComponent = ({ total, value1, value2, className }: ProgressBars) => {
   const clampedUsed = Math.min(value2, value1);
   const clampedUnlocked = Math.min(value1, total);
-
   const usedPercent = (clampedUsed / total) * 100;
   const unlockedPercent = ((clampedUnlocked - clampedUsed) / total) * 100;
   const lockedPercent = 100 - usedPercent - unlockedPercent;
 
   return (
-    <div className={`${styles.progressBars} ${className ?? ''}`}>
+    <div className={classNames([styles.progressBars, className])}>
       <div
-        className={styles.used}
+        className={classNames([styles.stick, styles.used])}
         style={{ width: `${usedPercent}%` }}
       >
+        <span className={styles.label}>used</span>
         <NumberComponent
-          className={styles.value}
-          value={usedPercent}
+          value={usedPercent / 100}
           asset="percent"
         />
       </div>
       <div
-        className={styles.unlocked}
+        className={classNames([styles.stick, styles.unlocked])}
         style={{ width: `${unlockedPercent}%` }}
       >
+        <span className={styles.label}>unlocked</span>
         <NumberComponent
-          className={styles.value}
-          value={unlockedPercent}
+          value={unlockedPercent / 100}
           asset="percent"
         />
       </div>
       <div
-        className={styles.locked}
+        className={classNames([styles.stick, styles.locked])}
         style={{ width: `${lockedPercent}%` }}
       >
-        <span>{lockedPercent}</span>
+        <span className={styles.label}>locked</span>
+        <NumberComponent
+          value={lockedPercent / 100}
+          asset="percent"
+        />
       </div>
     </div>
   );

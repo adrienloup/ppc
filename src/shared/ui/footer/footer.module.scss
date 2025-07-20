@@ -12,10 +12,6 @@ $mobile-landscape: 1024px;
   @media (min-width: $mobile-portrait) {
     margin: 0 var(--spacing-s) var(--spacing-s);
   }
-
-  @media (min-width: $mobile-landscape) {
-    margin: 0 var(--spacing-m) var(--spacing-m);
-  }
 }
 
 .button {

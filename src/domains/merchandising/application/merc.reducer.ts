@@ -1,15 +1,9 @@
-import type {
-  MerchandisingAction,
-  MerchandisingState,
-} from '@/src/domains/merchandising/domaine/merc.type.ts';
+import type { MercAction, MercState } from '@/src/domains/merchandising/domaine/merc.type.ts';
 
-export const merchandisingReducer = (
-  state: MerchandisingState,
-  action: MerchandisingAction
-): MerchandisingState => {
+export const mercReducer = (state: MercState, action: MercAction): MercState => {
   switch (action.type) {
     case 'BUY_MERCHANDISE':
-      console.log('merchandise', action.merchandise);
+      console.log('BUY_MERCHANDISE', action.merchandise);
       return state;
     default:
       return state;

@@ -20,8 +20,6 @@ export const saleReducer = (state: SaleState, action: SaleAction): SaleState => 
     }
     case 'SELL_UNSOLD_INVENTORY': {
       const unsoldInventorySUI = Math.max(0, Math.floor(state.unsoldInventory * (1 - state.publicDemand)));
-      console.log('publicDemand', state.publicDemand);
-      console.log('unsoldInventorySUI', unsoldInventorySUI);
 
       return {
         ...state,

@@ -5,12 +5,8 @@ import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provi
 import { ExpProvider } from '@/src/domains/exploitation/infrastructure/exp.provider.tsx';
 import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
-import type {
-  ComponentPropsWithoutRef,
-  ComponentType,
-  ElementType,
-  FunctionComponent,
-} from 'react';
+import { MercProvider } from '@/src/domains/merchandising/infrastructure/merc.provider.tsx';
+import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 type ProviderType = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?];
@@ -34,4 +30,5 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [ExpProvider],
   [SaleProvider],
   [ProdProvider],
+  [MercProvider],
 ]);
