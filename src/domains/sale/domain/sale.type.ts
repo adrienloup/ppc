@@ -14,4 +14,5 @@ export type SaleAction =
   | { type: 'AUTO_UNSOLD_INVENTORY'; clip: number }
   | { type: 'SELL_UNSOLD_INVENTORY' }
   | { type: 'INCREASE_CLIP_PRICE' }
-  | { type: 'DECREASE_CLIP_PRICE' };
+  | { type: 'DECREASE_CLIP_PRICE' }
+  | { type: 'DECREASE_FUNDS'; cost: number };

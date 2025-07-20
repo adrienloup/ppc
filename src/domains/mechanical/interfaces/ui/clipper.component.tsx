@@ -1,4 +1,5 @@
 import { useMeca, useMecaDis } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
@@ -9,12 +10,14 @@ import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.mod
 
 export const ClipperComponent = () => {
   console.log('ClipperComponent');
-  const mecaDis = useMecaDis();
+  const mecaDispatch = useMecaDis();
+  const saleDispatch = useSaleDispatch();
   const { clipper, clipperBonus, clipperCost } = useMeca();
 
   const buyClipper = () => {
     const cost = clipperCost + (Math.random() * 10 + 10); // 0 & 1, 0 & 10, 10 & 20
-    mecaDis({ type: 'BUY_CLIPPER', cost });
+    mecaDispatch({ type: 'BUY_CLIPPER', cost });
+    saleDispatch({ type: 'DECREASE_FUNDS', cost });
   };
 
   // if (!factory.feature.clipper.available || factory.feature.clipFactory.available) return null;

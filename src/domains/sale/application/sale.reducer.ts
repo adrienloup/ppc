@@ -45,6 +45,12 @@ export const saleReducer = (state: SaleState, action: SaleAction): SaleState => 
         publicDemand: 0.1 / decreasePP,
       };
     }
+    case 'DECREASE_FUNDS': {
+      return {
+        ...state,
+        funds: Math.max(0, state.funds - action.cost),
+      };
+    }
     default:
       return state;
   }
