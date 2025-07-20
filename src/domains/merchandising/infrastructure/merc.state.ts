@@ -8,7 +8,7 @@ export const MERC_STATE: MercState = {
     available: true,
     quantity: 1,
   },
-  anotherChance: {
+  offerAnotherChance: {
     category: 'mechanic',
     cost: { asset: 'creativity', value: 7e4 },
     effect: { type: 'ALLOCATE_TRUST' },

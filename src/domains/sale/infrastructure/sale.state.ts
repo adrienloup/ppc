@@ -5,6 +5,7 @@ export const SALE_STATE: SaleState = {
   clipPriceRef: 0.2,
   funds: 0,
   fundsPerSecond: 0,
+  marketingBonus: 0,
   publicDemand: 0.5,
   unsoldInventory: 0,
   unsoldInventoryBonus: 0,

@@ -3,8 +3,7 @@ import type { Number } from '@/src/shared/ui/number/number.type.ts';
 
 const UNITS: string[] = [
   '',
-  '',
-  // 'K',
+  'K',
   'M',
   'B',
   'T',
@@ -38,14 +37,13 @@ const UNITS: string[] = [
 // };
 
 function formatShort(value: number) {
-  // if (value < 1000) return { scaled: value, unit: '' };
-  if (value < 10000) return { scaled: value, unit: '' };
+  if (value < 1000) return { scaled: value, unit: '' };
   let tier = Math.floor(Math.log10(value) / 3);
   if (tier >= UNITS.length) {
     tier = UNITS.length - 1;
   }
-  // const scale = Math.pow(10, tier * 3);
-  const scale = Math.pow(10, tier * 2);
+  const scale = Math.pow(10, tier * 3);
+  // const scale = Math.pow(10, tier * 2);
   return { scaled: value / scale, unit: UNITS[tier] };
 }
 

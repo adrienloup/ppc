@@ -27,6 +27,24 @@ export const saleReducer = (state: SaleState, action: SaleAction): SaleState => 
         funds: state.funds + (state.unsoldInventory - unsoldInventorySUI) * state.clipPrice,
       };
     }
+    case 'INCREASE_CLIP_PRICE': {
+      const increasePP = Math.min(state.clipPriceRef + 0.01, 1);
+      return {
+        ...state,
+        clipPriceRef: increasePP,
+        clipPrice: increasePP * Math.max(1, state.marketingBonus),
+        publicDemand: 0.1 / increasePP,
+      };
+    }
+    case 'DECREASE_CLIP_PRICE': {
+      const decreasePP = Math.max(state.clipPriceRef - 0.01, 0.1);
+      return {
+        ...state,
+        clipPriceRef: decreasePP,
+        clipPrice: decreasePP * Math.max(1, state.marketingBonus),
+        publicDemand: 0.1 / decreasePP,
+      };
+    }
     default:
       return state;
   }

@@ -1,6 +1,5 @@
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
-import { LoggedComponent } from '@/src/domains/authentification/interfaces/ui/logged/logged.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { ClipComponent } from '@/src/domains/production/interfaces/ui/clip.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
@@ -15,7 +14,6 @@ export const DashboardComponent = () => {
 
   return user ? (
     <ArticleComponent>
-      <LoggedComponent />
       <BannerComponent
         className={styles.banner}
         title="factory"

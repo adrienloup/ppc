@@ -4,7 +4,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-width: 1920px;
+  width: 100%;
   min-height: 100vh;
+  margin: 0 auto;
   background: var(--color-1);
   font-family: var(--font-text), sans-serif;
   color: var(--color-2);

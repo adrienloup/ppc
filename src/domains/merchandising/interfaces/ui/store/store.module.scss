@@ -125,6 +125,10 @@ $tablet-landscape: 1440px;
   }
 }
 
+.dial {
+  gap: var(--spacing-xs);
+}
+
 .group {
   display: flex;
   flex-flow: row wrap;
@@ -133,7 +137,7 @@ $tablet-landscape: 1440px;
 }
 
 .value {
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-s);
   color: var(--color-1);
 }
 

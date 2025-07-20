@@ -3,6 +3,8 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { FundsPerSecondComponent } from '@/src/domains/sale/interfaces/ui/fundsPerSecond.component.tsx';
 import { FundsComponent } from '@/src/domains/sale/interfaces/ui/funds.component.tsx';
 import { UnsoldInventoryComponent } from '@/src/domains/sale/interfaces/ui/unsoldInventory.component.tsx';
+import { ClipPriceComponent } from '@/src/domains/sale/interfaces/ui/clipPrice.component.tsx';
+import { PublicDemandComponent } from '@/src/domains/sale/interfaces/ui/publicDemand.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const BusinessComponent = () => {
@@ -19,6 +21,8 @@ export const BusinessComponent = () => {
       <FundsPerSecondComponent />
       <FundsComponent />
       <UnsoldInventoryComponent />
+      <ClipPriceComponent />
+      <PublicDemandComponent />
     </CardComponent>
   );
 };
