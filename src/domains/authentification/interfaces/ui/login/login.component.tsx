@@ -103,12 +103,14 @@ export const LoginComponent = ({ className }: Login) => {
     <div className={classNames([styles.login, className])}>
       <TitleComponent className={styles.title}>an account is required to play</TitleComponent>
       <TextFieldComponent
+        className={styles.username}
         placeholder={'username'}
         value={username}
         errorMessage={usernameError}
         onChange={(e) => setUsername(e.target.value)}
       />
       <TextFieldComponent
+        className={styles.password}
         placeholder={'password'}
         value={password}
         errorMessage={passwordError}

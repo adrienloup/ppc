@@ -100,16 +100,16 @@ $tablet-landscape: 1440px;
   flex: 0 0 100%;
   display: flex;
   padding: var(--spacing-xs);
-  background-color: var(--color-2);
+  background-color: var(--color-3);
   text-transform: uppercase;
   font-size: var(--font-size-s);
-  color: var(--color-1);
+  color: var(--color-2);
 }
 
 .subtitle {
   text-transform: uppercase;
   font-size: var(--font-size-m);
-  color: var(--color-1);
+  color: var(--color-2);
 }
 
 .dials {
@@ -138,12 +138,12 @@ $tablet-landscape: 1440px;
 
 .value {
   font-size: var(--font-size-s);
-  color: var(--color-1);
+  color: var(--color-2);
 }
 
 .label {
   font-size: var(--font-size-s);
-  color: var(--color-1);
+  color: var(--color-2);
 }
 
 .buttons {
@@ -154,10 +154,10 @@ $tablet-landscape: 1440px;
 .button {
   margin-top: var(--spacing-xs);
   padding: var(--spacing-xs);
-  background-color: var(--color-1);
+  background-color: var(--color-2);
   text-transform: uppercase;
   font-size: var(--font-size-s);
-  color: var(--color-2);
+  color: var(--color-3);
 }
 
 @keyframes SlideUp {

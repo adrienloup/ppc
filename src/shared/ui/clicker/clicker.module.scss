@@ -10,10 +10,10 @@
   width: 3.5rem;
   height: 2rem;
   //padding: var(--spacing-xs);
-  background-color: var(--color-1);
+  background-color: var(--color-2);
   //font-size: var(--font-size-s);
   font-size: var(--font-size-m);
-  color: var(--color-2);
+  color: var(--color-3);
 
   .disabled & {
     opacity: 0.5;
@@ -28,7 +28,7 @@
   white-space: nowrap;
   animation: SlideUp 0.5s var(--ease-out);
   font-size: var(--font-size-l);
-  color: var(--color-3);
+  color: var(--color-4);
 }
 
 @keyframes SlideUp {

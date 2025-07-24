@@ -3,7 +3,7 @@ $mobile-portrait: 768px;
 .menu {
   position: relative;
   height: 0;
-  background-color: var(--color-2);
+  background-color: var(--color-3);
   transition-property: height;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
@@ -49,9 +49,9 @@ $mobile-portrait: 768px;
   top: 100%;
   left: 0;
   padding: var(--spacing-xs);
-  background-color: var(--color-2);
+  background-color: var(--color-3);
   text-transform: uppercase;
   font-size: var(--font-size-xs);
-  color: var(--color-1);
+  color: var(--color-2);
   outline-offset: -0.25rem;
 }

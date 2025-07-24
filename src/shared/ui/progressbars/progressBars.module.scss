@@ -13,7 +13,7 @@ $mobile-landscape: 1024px;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs);
   font-size: var(--font-size-s);
-  color: var(--color-1);
+  color: var(--color-2);
 }
 
 .label {
@@ -25,15 +25,15 @@ $mobile-landscape: 1024px;
 }
 
 .used {
-  background-color: var(--color-7);
-  //border-right: 0.5rem solid var(--color-1);
+  background-color: var(--color-8);
+  //border-right: 0.5rem solid var(--color-2);
 }
 
 .unlocked {
-  background-color: var(--color-8);
-  //border-right: 0.5rem solid var(--color-1);
+  background-color: var(--color-9);
+  //border-right: 0.5rem solid var(--color-2);
 }
 
 .locked {
-  background-color: var(--color-9);
+  background-color: var(--color-10);
 }

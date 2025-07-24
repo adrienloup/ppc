@@ -13,17 +13,15 @@ describe('space component', () => {
   });
 
   it('should render right number of planets and stars', () => {
-    const planets = [1];
-    const stars = [1, 2];
     const { container } = render(
       <SpaceComponent
-        planets={planets}
-        stars={stars}
+        planets={[1]}
+        stars={[[1], [1, 2]]}
       />
     );
 
-    expect(container.querySelectorAll(`.${styles.planet}`)).toHaveLength(planets.length);
-    expect(container.querySelector(`.${styles.stars}`)).toBeInTheDocument();
-    expect(container.querySelectorAll(`.${styles.star}`)).toHaveLength(stars.length);
+    expect(container.querySelectorAll(`.${styles.planet}`)).toHaveLength(1);
+    expect(container.querySelectorAll(`.${styles.stars}`)).toHaveLength(2);
+    expect(container.querySelectorAll(`.${styles.star}`)).toHaveLength(3);
   });
 });

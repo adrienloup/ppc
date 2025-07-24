@@ -9,7 +9,12 @@ export const MainComponent = ({ children }: Main) => {
       role="main"
     >
       {children}
-      <SpaceComponent stars={[1, 2, 3]} />
+      <SpaceComponent
+        stars={[
+          [1, 2, 3],
+          [4, 5],
+        ]}
+      />
     </main>
   );
 };

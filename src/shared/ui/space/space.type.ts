@@ -1,4 +1,4 @@
 export interface Space {
   planets?: number[];
-  stars?: number[];
+  stars?: [number[], number[]];
 }

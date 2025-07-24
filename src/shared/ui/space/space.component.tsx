@@ -9,22 +9,26 @@ export const SpaceComponent = ({ planets, stars }: Space) => {
       role="presentation"
     >
       {planets &&
-        planets.map((n) => (
+        planets.map((planet) => (
           <div
-            key={n}
-            className={classNames([styles.planet, styles[`planet${n}`]])}
+            key={planet}
+            className={classNames([styles.planet, styles[`planet${planet}`]])}
           />
         ))}
-      {stars && (
-        <div className={styles.stars}>
-          {stars.map((n) => (
-            <div
-              key={n}
-              className={classNames([styles.star, styles[`star${n}`]])}
-            />
-          ))}
-        </div>
-      )}
+      {stars &&
+        stars.map((stars, index) => (
+          <div
+            key={index}
+            className={classNames([styles.stars, styles[`stars${index + 1}`]])}
+          >
+            {stars.map((star) => (
+              <div
+                key={star}
+                className={classNames([styles.star, styles[`star${star}`]])}
+              />
+            ))}
+          </div>
+        ))}
     </div>
   );
 };

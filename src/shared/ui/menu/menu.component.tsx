@@ -43,7 +43,7 @@ export const MenuComponent = () => {
           style={{
             padding: '0 var(--spacing-s)',
             fontSize: 'var(--font-size-xs)',
-            color: 'var(--color-1)',
+            color: 'var(--color-2)',
           }}
         >
           contrôle
@@ -53,7 +53,7 @@ export const MenuComponent = () => {
           style={{
             padding: '0 var(--spacing-s)',
             fontSize: 'var(--font-size-xs)',
-            color: 'var(--color-1)',
+            color: 'var(--color-2)',
           }}
         >
           settings
