@@ -6,13 +6,17 @@ import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/log
 import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
 
 export const ProfileComponent = () => {
-  const { pause, mode } = useAccount();
-  const auth2Dis = useAuthDispatch();
-  // const dispatch = useAccountDis();
-  const accDis = useAccountDispatch();
-  // const { logOut } = useAuthDis();
   const { user } = useAuth();
-  // const { user } = useAuth();
+  // const { pause, mode } = useAccount();
+  const account = useAccount();
+  const auth2Dispatch = useAuthDispatch();
+  const accDispatch = useAccountDispatch();
+
+  const logOut = () => {
+    console.log('logOut', account);
+    auth2Dispatch({ type: 'UPDATE_USERS', account });
+    auth2Dispatch({ type: 'LOG_OUT' });
+  };
 
   return user ? (
     <ArticleComponent>
@@ -20,20 +24,20 @@ export const ProfileComponent = () => {
         <div>profile</div>
         <div>user: {user}</div>
         <div>
-          <button onClick={() => auth2Dis({ type: 'LOG_OUT' })}>logout</button>
-          {/*<button onClick={() => auth2Dis({ type: 'LOG_OUT' })}>logout</button>*/}
+          <button onClick={logOut}>logout</button>
+          {/*<button onClick={() => auth2Dispatch({ type: 'LOG_OUT' })}>logout</button>*/}
         </div>
-        <div>pause: {pause ? 'true' : 'false'}</div>
-        <div>
-          <button onClick={() => accDis({ type: 'SET_PLAY_PAUSE' })}>toggle play</button>
-        </div>
+        {/*<div>pause: {pause ? 'true' : 'false'}</div>*/}
+        {/*<div>*/}
+        {/*  <button onClick={() => accDispatch({ type: 'SET_PLAY_PAUSE' })}>toggle play</button>*/}
+        {/*</div>*/}
         {/*<div>mode: {mode === 'light' ? 'light' : 'dark'}</div>*/}
-        <div>mode: {mode}</div>
+        <div>mode: {account.mode}</div>
         <div>
-          <button onClick={() => accDis({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
+          <button onClick={() => accDispatch({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
         </div>
         <div>
-          <button onClick={() => accDis({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
+          <button onClick={() => accDispatch({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
         </div>
         {/*<div>*/}
         {/*  <button onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}>+1 clip</button>*/}

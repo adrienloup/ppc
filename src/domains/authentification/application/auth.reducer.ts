@@ -1,20 +1,7 @@
 import type { AuthAction, AuthState } from '@/src/domains/authentification/domain/auth.type.ts';
-import { ACCOUNT_STATE } from '@/src/domains/account/infrastructure/account.state.ts';
-import { EXP_STATE } from '@/src/domains/exploitation/infrastructure/exp.state.ts';
-import { MECA_STATE } from '@/src/domains/mechanical/infrastructure/meca.state.ts';
-import { SALE_STATE } from '@/src/domains/sale/infrastructure/sale.state.ts';
-import { PROD_STATE } from '@/src/domains/production/infrastructure/prod.state.ts';
-import { MERC_STATE } from '@/src/domains/merchandising/infrastructure/merc.state.ts';
 
 export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
-    case 'LOAD': {
-      return {
-        ...state,
-        user: action.username,
-        load: null,
-      };
-    }
     case 'SIGN_UP': {
       if (state.users[action.username]) return state;
 
@@ -23,16 +10,11 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
         users: {
           ...state.users,
           [action.username]: {
+            ...state.users[action.username],
             password: action.password,
-            account: ACCOUNT_STATE,
-            exploitation: EXP_STATE,
-            mechanical: MECA_STATE,
-            sale: SALE_STATE,
-            production: PROD_STATE,
-            merchandising: MERC_STATE,
           },
         },
-        load: action.username,
+        user: action.username,
       };
     }
     case 'LOG_IN': {
@@ -40,22 +22,31 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
 
       return {
         ...state,
-        load: action.username,
+        user: action.username,
       };
     }
     case 'LOG_OUT': {
       if (!state.user) return state;
+      console.log('LOG_OUT');
 
       return {
         ...state,
         user: null,
-        save: state.user,
       };
     }
-    case 'SAVE': {
+    case 'UPDATE_USERS': {
+      if (!state.user) return state;
+      console.log('UPDATE_USERS', state.user, state.users, action.account);
+
       return {
         ...state,
-        save: null,
+        users: {
+          ...state.users,
+          [state.user]: {
+            ...state.users[state.user],
+            account: action.account,
+          },
+        },
       };
     }
     default:
