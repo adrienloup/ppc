@@ -6,7 +6,7 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const PublicDemandComponent = () => {
-  // console.log('PublicDemandComponent');
+  console.log('PublicDemandComponent');
   const { publicDemand } = useSale();
 
   return (

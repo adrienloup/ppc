@@ -57,7 +57,7 @@ export const LoginComponent = ({ className }: Login) => {
         id: 'log-in',
         text: `${username} is connected`,
         status: 'success',
-        timeout: 2e3,
+        timeout: 3e3,
       },
     });
   };
@@ -94,7 +94,7 @@ export const LoginComponent = ({ className }: Login) => {
         id: 'sign-up',
         text: `${username} successfully registered`,
         status: 'success',
-        timeout: 2e3,
+        timeout: 3e3,
       },
     });
   };

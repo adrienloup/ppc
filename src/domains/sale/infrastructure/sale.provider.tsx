@@ -17,16 +17,15 @@ export const SaleProvider: FC<{ children: Children }> = ({ children }) => {
   const user = userStorage.get();
 
   const autoSale = useCallback(() => {
-    if (state.unsoldInventory <= 0) return;
     dispatch({ type: 'SELL_UNSOLD_INVENTORY' });
-  }, [state.unsoldInventory]);
+  }, []);
+
+  useInterval(autoSale, 5e2, !!user && !pause);
 
   useEffect(() => {
     if (!user) return;
     saleStorage.set(state);
   }, [state]);
-
-  useInterval(autoSale, 5e2, !!user && !pause);
 
   return (
     <SaleContext.Provider value={state}>

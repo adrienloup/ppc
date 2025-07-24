@@ -38,12 +38,12 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
     expDispatch({ type: 'AUTO_WIRE', wire: prod.wire });
   }, [wire, clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus]);
 
+  useInterval(autoProd, 9e2, !!user && !pause);
+
   useEffect(() => {
     if (!user) return;
     prodStorage.set(state);
   }, [state]);
-
-  useInterval(autoProd, 8e2, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

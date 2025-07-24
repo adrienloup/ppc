@@ -16,17 +16,19 @@ export const saleReducer = (state: SaleState, action: SaleAction): SaleState => 
     case 'AUTO_UNSOLD_INVENTORY': {
       return {
         ...state,
-        unsoldInventory: (state.unsoldInventory + action.clip) * Math.max(1, state.unsoldInventoryBonus),
+        unsoldInventory: state.unsoldInventory + action.clip * Math.max(1, state.unsoldInventoryBonus),
         fundsPerSecond: action.clip * state.clipPrice,
       };
     }
     case 'SELL_UNSOLD_INVENTORY': {
+      if (state.unsoldInventory <= 0) return state;
       const unsoldInventorySUI = Math.max(0, Math.floor(state.unsoldInventory * (1 - state.publicDemand)));
+      const fundsSUI = state.funds + (state.unsoldInventory - unsoldInventorySUI) * state.clipPrice;
 
       return {
         ...state,
         unsoldInventory: unsoldInventorySUI,
-        funds: state.funds + (state.unsoldInventory - unsoldInventorySUI) * state.clipPrice,
+        funds: fundsSUI,
       };
     }
     case 'INCREASE_CLIP_PRICE': {

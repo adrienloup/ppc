@@ -6,7 +6,7 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const FundsPerSecondComponent = () => {
-  // console.log('FundsPerSecondComponent');
+  console.log('FundsPerSecondComponent');
   const { fundsPerSecond } = useSale();
 
   // if (!factory.feature.fundsPerSecond.available) return null;

@@ -7,7 +7,7 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const UnsoldInventoryComponent = () => {
-  // console.log('UnsoldInventoryComponent');
+  console.log('UnsoldInventoryComponent');
   const { unsoldInventory, unsoldInventoryBonus } = useSale();
 
   return (

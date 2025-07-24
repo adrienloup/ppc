@@ -8,7 +8,7 @@ import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx'
 import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
 
 export const ClipPriceComponent = () => {
-  // console.log('ClipPriceComponent');
+  console.log('ClipPriceComponent');
   const saleDispatch = useSaleDispatch();
   const { clipPrice, clipPriceRef, marketingBonus } = useSale();
 
