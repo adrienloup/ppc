@@ -3,9 +3,13 @@ import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx'
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { ClipComponent } from '@/src/domains/production/interfaces/ui/clip/clip.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
-import { ManufacturingComponent } from '@/src/domains/factory/interfaces/ui/manufacturing/manufacturing.component.tsx';
-// import { BusinessComponent } from '@/src/domains/industry/interfaces/ui/business.component.tsx';
-// import { ResourcesComponent } from '@/src/domains/industry/interfaces/ui/resources.component.tsx';
+import { ManufacturingComponent } from '@/src/domains/factory/interfaces/ui/factory/manufacturing.component.tsx';
+import { BusinessComponent } from '@/src/domains/factory/interfaces/ui/factory/business.component.tsx';
+import { ResourcesComponent } from '@/src/domains/factory/interfaces/ui/factory/resources.component.tsx';
+import { InvestmentsComponent } from '@/src/domains/factory/interfaces/ui/factory/investments.component.tsx';
+import { ProductionComponent } from '@/src/domains/factory/interfaces/ui/factory/production.component.tsx';
+import { SwarmComponent } from '@/src/domains/factory/interfaces/ui/factory/swarm.component.tsx';
+import { PowerComponent } from '@/src/domains/factory/interfaces/ui/factory/power.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
@@ -23,8 +27,12 @@ export const FactoryComponent = () => {
       <ClipComponent />
       <CardsComponent className={styles.cards}>
         <ManufacturingComponent />
-        {/*<BusinessComponent />*/}
-        {/*<ResourcesComponent />*/}
+        <BusinessComponent />
+        <ResourcesComponent />
+        <InvestmentsComponent />
+        <ProductionComponent />
+        <SwarmComponent />
+        <PowerComponent />
       </CardsComponent>
     </ArticleComponent>
   ) : (
