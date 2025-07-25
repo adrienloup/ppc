@@ -1,14 +1,5 @@
-import type { Status } from '@/src/shared/types/status.type.ts';
+import type { Children } from '@/src/shared/types/children.type.ts';
 
-export interface Notif {
-  id: string;
-  text: string;
-  timeout?: number;
-  status?: Status;
-  close?: boolean;
-  remove?: () => void;
+export interface Alerts {
+  children: Children;
 }
-
-export type NotifState = Notif[];
-
-export type NotifDispatch = { type: 'ADD'; notif: Notif } | { type: 'REMOVE'; id: string };

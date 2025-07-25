@@ -1,11 +1,11 @@
-import type { NotifAction, NotifState } from '@/src/domains/notification/domain/notif.type.ts';
+import type { NotifDispatch, Notif } from '@/src/domains/notification/domain/notif.type.ts';
 
-export const notifReducer = (state: NotifState, action: NotifAction): NotifState => {
+export const notifReducer = (state: Notif, action: NotifDispatch): Notif => {
   switch (action.type) {
-    case 'ADD_NOTIF':
-      return !state.find((notif) => notif.id === action.notif.id) ? [action.notif, ...state] : state;
-    case 'REMOVE_NOTIF':
-      return state.filter((notif) => notif.id !== action.id);
+    case 'ADD':
+      return !state.find((alert) => alert.id === action.alert.id) ? [action.alert, ...state] : state;
+    case 'REMOVE':
+      return state.filter((alert) => alert.id !== action.id);
     default:
       return state;
   }

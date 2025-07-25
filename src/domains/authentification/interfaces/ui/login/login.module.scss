@@ -20,15 +20,14 @@
 .title {
   text-transform: uppercase;
   font-size: var(--font-size-l);
-  animation-delay: 0.4s;
 }
 
 .username {
-  animation-delay: 0.5s;
+  animation-delay: 0.1s;
 }
 
 .password {
-  animation-delay: 0.6s;
+  animation-delay: 0.2s;
 }
 
 .buttons {
@@ -47,11 +46,11 @@
   color: var(--color-2);
 
   &:nth-child(1) {
-    animation-delay: 0.7s;
+    animation-delay: 0.3s;
   }
 
   &:nth-child(2) {
-    animation-delay: 0.8s;
+    animation-delay: 0.4s;
   }
 }
 

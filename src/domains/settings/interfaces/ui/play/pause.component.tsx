@@ -13,11 +13,12 @@ export const PauseComponent = () => {
       >
         <span
           className={styles.label}
-          dangerouslySetInnerHTML={{ __html: `factory is stopped<span>press to resume</span>` }}
+          dangerouslySetInnerHTML={{ __html: `<span>stopped</span>press to resume` }}
         />
       </ButtonComponent>
       <div
         className={styles.backdrop}
+        role="presentation"
         onClick={() => dispatch({ type: 'SET_PLAY_PAUSE' })}
       ></div>
     </div>

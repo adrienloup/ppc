@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
-import { useNotif } from '@/src/domains/notification/interfaces/useNotif.ts';
+import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
@@ -12,8 +12,9 @@ import styles from '@/src/domains/authentification/interfaces/ui/login/login.mod
 
 export const LoginComponent = ({ className }: Login) => {
   const authDispatch = useAuthDispatch();
+  const notifDispatch = useNotifDispatch();
   const { users } = useAuth();
-  const [, notifDispatch] = useNotif();
+
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [usernameError, setUsernameError] = useState<string>('');
@@ -52,12 +53,12 @@ export const LoginComponent = ({ className }: Login) => {
       username: username,
     });
     notifDispatch({
-      type: 'ADD_NOTIF',
-      notif: {
+      type: 'ADD',
+      alert: {
         id: 'log-in',
         text: `${username} is connected`,
         status: 'success',
-        timeout: 3e3,
+        timeout: 2e3,
       },
     });
   };
@@ -81,6 +82,7 @@ export const LoginComponent = ({ className }: Login) => {
     }
 
     if (!valid) return;
+
     const hashPassword = await base64Encode(password);
 
     authDispatch({
@@ -89,12 +91,12 @@ export const LoginComponent = ({ className }: Login) => {
       password: hashPassword,
     });
     notifDispatch({
-      type: 'ADD_NOTIF',
-      notif: {
+      type: 'ADD',
+      alert: {
         id: 'sign-up',
         text: `${username} successfully registered`,
         status: 'success',
-        timeout: 3e3,
+        timeout: 2e3,
       },
     });
   };

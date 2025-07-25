@@ -1,9 +1,9 @@
-import type { Children } from '@/src/shared/types/children.type.ts';
-import styles from '@/src/domains/notification/interfaces/ui/alerts/notifs.module.scss';
+import type { Alerts } from '@/src/domains/notification/interfaces/ui/alerts/alers.type.ts';
+import styles from '@/src/domains/notification/interfaces/ui/alerts/alerts.module.scss';
 
-export const NotifsComponent = ({ children }: { children: Children }) => {
+export const AlertsComponent = ({ children }: Alerts) => {
   return (
-    <div className={styles.notifs}>
+    <div className={styles.alerts}>
       <div className={styles.inner}>{children}</div>
     </div>
   );

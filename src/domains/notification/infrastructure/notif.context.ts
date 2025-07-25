@@ -1,4 +1,5 @@
-import { createContext, type Dispatch } from 'react';
-import type { NotifAction, NotifState } from '@/src/domains/notification/domain/notif.type.ts';
+import { type Dispatch, createContext } from 'react';
+import type { NotifDispatch, Notif } from '@/src/domains/notification/domain/notif.type.ts';
 
-export const NotifContext = createContext<[NotifState, Dispatch<NotifAction>] | undefined>(undefined);
+export const NotifContext = createContext<Notif | undefined>(undefined);
+export const NotifDisContext = createContext<Dispatch<NotifDispatch> | undefined>(undefined);

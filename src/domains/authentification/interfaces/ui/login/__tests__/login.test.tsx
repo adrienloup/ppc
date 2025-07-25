@@ -5,6 +5,7 @@ import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/log
 import * as authHook from '@/src/domains/authentification/interfaces/useAuth';
 import * as notifHook from '@/src/domains/notification/interfaces/useNotif';
 import * as utils from '@/src/shared/utils/base64Encode';
+import { SETTINGS_STATE } from '@/src/domains/settings/infrastructure/setti.state.ts';
 
 describe('login component', () => {
   const mockAuthDispatch = vi.fn();
@@ -12,14 +13,12 @@ describe('login component', () => {
 
   beforeEach(() => {
     vi.spyOn(authHook, 'useAuth').mockReturnValue({
-      users: {
-        emma: { password: 'dGVzdA==' },
-      },
+      users: { emma: { password: 'dGVzdA==', settings: SETTINGS_STATE } },
       user: null,
     });
 
     vi.spyOn(authHook, 'useAuthDispatch').mockReturnValue(mockAuthDispatch);
-    vi.spyOn(notifHook, 'useNotif').mockReturnValue([null, mockNotifDispatch]);
+    vi.spyOn(notifHook, 'useNotifDispatch').mockReturnValue(mockNotifDispatch);
     vi.spyOn(utils, 'base64Encode').mockImplementation(async (str: string) => btoa(str));
   });
 
@@ -69,8 +68,8 @@ describe('login component', () => {
       });
 
       expect(mockNotifDispatch).toHaveBeenCalledWith({
-        type: 'ADD_NOTIF',
-        notif: expect.objectContaining({ text: 'emma is connected' }),
+        type: 'ADD',
+        alert: expect.objectContaining({ text: 'emma is connected' }),
       });
     });
   });

@@ -1,35 +1,37 @@
 import { type FC, useReducer } from 'react';
 import { createPortal } from 'react-dom';
-import { NotifContext } from '@/src/domains/notification/infrastructure/notif.context.ts';
+import { NotifContext, NotifDisContext } from '@/src/domains/notification/infrastructure/notif.context.ts';
 import { notifReducer } from '@/src/domains/notification/application/notif.reducer.ts';
-import { NotifsComponent } from '@/src/domains/notification/interfaces/ui/notifs/notifs.component.tsx';
-import { NotifComponent } from '@/src/domains/notification/interfaces/ui/notif/notif.component.tsx';
-import type { Notif } from '@/src/domains/notification/domain/notif.type.ts';
+import { AlertsComponent } from '@/src/domains/notification/interfaces/ui/alerts/alerts.component.tsx';
+import { AlertComponent } from '@/src/domains/notification/interfaces/ui/alert/alert.component.tsx';
+import type { Alert } from '@/src/domains/notification/interfaces/ui/alert/alert.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const NotifProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(notifReducer, []);
 
   return (
-    <NotifContext.Provider value={[state, dispatch]}>
-      {children}
-      {state.length
-        ? createPortal(
-            <NotifsComponent>
-              {state.map((notif: Notif) => (
-                <NotifComponent
-                  key={notif.id}
-                  id={notif.id}
-                  text={notif.text}
-                  status={notif.status}
-                  timeout={notif.timeout}
-                  remove={() => dispatch({ type: 'REMOVE_NOTIF', id: notif.id })}
-                />
-              ))}
-            </NotifsComponent>,
-            document.getElementById('_app_emma0_1')!
-          )
-        : null}
+    <NotifContext.Provider value={state}>
+      <NotifDisContext.Provider value={dispatch}>
+        {children}
+        {state.length
+          ? createPortal(
+              <AlertsComponent>
+                {state.map((alert: Alert) => (
+                  <AlertComponent
+                    key={alert.id}
+                    id={alert.id}
+                    text={alert.text}
+                    status={alert.status}
+                    timeout={alert.timeout}
+                    remove={() => dispatch({ type: 'REMOVE', id: alert.id })}
+                  />
+                ))}
+              </AlertsComponent>,
+              document.getElementById('_app_emma0_1')!
+            )
+          : null}
+      </NotifDisContext.Provider>
     </NotifContext.Provider>
   );
 };
