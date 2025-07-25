@@ -1,5 +1,8 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
-import { BusiContext, BusiDisContext } from '@/src/domains/business/infrastructure/business.context.tsx';
+import {
+  BusiContext,
+  BusiDisContext,
+} from '@/src/domains/business/infrastructure/business.context.tsx';
 import { businessReducer } from '@/src/domains/business/application/business.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';

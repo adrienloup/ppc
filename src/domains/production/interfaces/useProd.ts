@@ -1,5 +1,8 @@
 import { useContext } from 'react';
-import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastructure/prod.context.tsx';
+import {
+  ProdContext,
+  ProdDisContext,
+} from '@/src/domains/production/infrastructure/prod.context.tsx';
 
 export const useProd = () => {
   const ctx = useContext(ProdContext);

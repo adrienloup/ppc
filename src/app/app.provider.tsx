@@ -5,8 +5,13 @@ import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provi
 import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
-import { IntellectProvider } from '@/src/domains/intellect/infrastructure/int.provider.tsx';
-import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
+import { IntelligenceProvider } from '@/src/domains/intelligence/infrastructure/intel.provider.tsx';
+import type {
+  ComponentPropsWithoutRef,
+  ComponentType,
+  ElementType,
+  FunctionComponent,
+} from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 type ProviderType = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?];
@@ -30,5 +35,5 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [SaleProvider],
   [BusinessProvider],
   [TradeProvider],
-  [IntellectProvider],
+  [IntelligenceProvider],
 ]);

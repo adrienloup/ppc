@@ -5,7 +5,9 @@ import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 import { DebugComponent } from '@/src/domains/debug/interfaces/debug.component.tsx';
 import { FactoryComponent } from '@/src/domains/factory/interfaces/ui/factory/factory.component.tsx';
 
-const LayoutComponent = lazy(() => fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3));
+const LayoutComponent = lazy(() =>
+  fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3)
+);
 
 function FactoryPage() {
   const { t } = useTranslation();

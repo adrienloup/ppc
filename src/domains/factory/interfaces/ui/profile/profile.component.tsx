@@ -2,7 +2,7 @@ import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfa
 import { useSetti, useSettiDispatch } from '@/src/domains/settings/interfaces/useSetti.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
-import { useInt } from '@/src/domains/intellect/interfaces/useInt.ts';
+import { useIntel } from '@/src/domains/intelligence/interfaces/useIntel.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { useSale } from '@/src/domains/sale/interfaces/useSale.ts';
 import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
@@ -16,7 +16,7 @@ export const ProfileComponent = () => {
   const { user } = useAuth();
   const settings = useSetti();
   const business = useBusiness();
-  const intellect = useInt();
+  const intelligence = useIntel();
   const production = useProd();
   const sale = useSale();
   const trade = useTrade();
@@ -24,7 +24,7 @@ export const ProfileComponent = () => {
   const logOut = () => {
     const factory = {
       business,
-      intellect,
+      intelligence,
       production,
       sale,
       trade,
@@ -47,7 +47,14 @@ export const ProfileComponent = () => {
 
   return user ? (
     <ArticleComponent>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          gap: '0.5rem',
+        }}
+      >
         <div>profile</div>
         <div>user: {user}</div>
         <div>
@@ -59,10 +66,14 @@ export const ProfileComponent = () => {
         </div>
         <div>mode: {settings.mode}</div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
+          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'light' })}>
+            mode light
+          </button>
         </div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
+          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'dark' })}>
+            mode dark
+          </button>
         </div>
         {/*<div>*/}
         {/*  <button onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}>+1 clip</button>*/}

@@ -31,7 +31,7 @@ $tablet-landscape: 1440px;
       animation-duration: 0.5s, 0.7s;
       animation-fill-mode: backwards;
 
-      @for $i from 1 through 25 {
+      @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
           animation-delay: #{0.1s + $i * 0.1s};
         }

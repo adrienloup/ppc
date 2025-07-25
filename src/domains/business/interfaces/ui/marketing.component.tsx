@@ -43,7 +43,7 @@ export const MarketingComponent = () => {
           />
           <BadgeComponent
             status="warning"
-            label={marketing >= 10 ? 'sold out' : undefined}
+            label={marketing >= 10 ? 'out' : undefined}
           />
         </div>
         <LabelComponent

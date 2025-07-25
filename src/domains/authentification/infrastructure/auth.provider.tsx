@@ -1,5 +1,8 @@
 import { type FC, useEffect, useReducer } from 'react';
-import { AuthContext, AuthDisContext } from '@/src/domains/authentification/infrastructure/auth.context.ts';
+import {
+  AuthContext,
+  AuthDisContext,
+} from '@/src/domains/authentification/infrastructure/auth.context.ts';
 import { authReducer } from '@/src/domains/authentification/application/auth.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { USERS_KEY } from '@/src/domains/authentification/infrastructure/users.key.ts';

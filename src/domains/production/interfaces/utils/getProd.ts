@@ -1,4 +1,4 @@
-export function prodComputed(
+export function getProd(
   wire: number,
   clipper: number,
   megaClipper: number,

@@ -5,7 +5,7 @@ import { ClipComponent } from '@/src/domains/production/interfaces/ui/clip/clip.
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { ManufacturingComponent } from '@/src/domains/factory/interfaces/ui/factory/manufacturing.component.tsx';
 import { BusinessComponent } from '@/src/domains/factory/interfaces/ui/factory/business.component.tsx';
-import { ResourcesComponent } from '@/src/domains/factory/interfaces/ui/factory/resources.component.tsx';
+import { TechnologyComponent } from '@/src/domains/factory/interfaces/ui/factory/technology.component.tsx';
 import { InvestmentsComponent } from '@/src/domains/factory/interfaces/ui/factory/investments.component.tsx';
 import { ProductionComponent } from '@/src/domains/factory/interfaces/ui/factory/production.component.tsx';
 import { SwarmComponent } from '@/src/domains/factory/interfaces/ui/factory/swarm.component.tsx';
@@ -28,7 +28,7 @@ export const FactoryComponent = () => {
       <CardsComponent className={styles.cards}>
         <ManufacturingComponent />
         <BusinessComponent />
-        <ResourcesComponent />
+        <TechnologyComponent />
         <InvestmentsComponent />
         <ProductionComponent />
         <SwarmComponent />

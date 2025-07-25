@@ -58,14 +58,16 @@ export const MerchandiseComponent = () => {
                   components={{
                     firstEffect: (
                       <>
-                        {Array.isArray(value.effect) && value.effect.every((r) => typeof r === 'object') ? (
+                        {Array.isArray(value.effect) &&
+                        value.effect.every((r) => typeof r === 'object') ? (
                           <NumberComponent value={value.effect?.[0]?.value} />
                         ) : null}
                       </>
                     ),
                     secondEffect: (
                       <>
-                        {Array.isArray(value.effect) && value.effect.every((r) => typeof r === 'object') ? (
+                        {Array.isArray(value.effect) &&
+                        value.effect.every((r) => typeof r === 'object') ? (
                           <NumberComponent value={value.effect?.[1]?.value} />
                         ) : null}
                       </>
