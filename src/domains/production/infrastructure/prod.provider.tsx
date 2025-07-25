@@ -42,7 +42,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
     prodStorage.set(state);
   }, [state]);
 
-  useInterval(autoProd, 9e2, !!user && !pause);
+  useInterval(autoProd, 1e3, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

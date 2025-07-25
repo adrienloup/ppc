@@ -2,6 +2,7 @@ import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.p
 import { AuthProvider } from '@/src/domains/authentification/infrastructure/auth.provider.tsx';
 import { SettingsProvider } from '@/src/domains/settings/infrastructure/setti.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
+import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -23,4 +24,5 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [AuthProvider],
   [SettingsProvider],
   [TradeProvider],
+  [ProdProvider],
 ]);

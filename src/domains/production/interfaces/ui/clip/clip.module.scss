@@ -1,13 +1,14 @@
 .clip {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
   padding: var(--spacing-xs);
+  background-color: var(--color-3);
+  font-size: var(--font-size-m);
+  color: var(--color-2);
   animation:
     SlideUp 0.5s var(--ease-quad) backwards 0.1s,
     FadeIn 0.7s var(--ease-quad) backwards 0.1s;
-}
-
-.label {
-  font-size: var(--font-size-s);
-  color: var(--color-2);
 }
 
 .value {

@@ -13,10 +13,7 @@ export const ClipComponent = () => {
         className={styles.value}
         value={clip}
       />
-      <LabelComponent
-        className={styles.label}
-        label="paperclips"
-      />
+      <LabelComponent label="paperclips" />
     </div>
   );
 };
