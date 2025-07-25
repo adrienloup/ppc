@@ -2,23 +2,5 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  //&::before,
-  //&::after {
-  //  content: '';
-  //  position: absolute;
-  //  right: 0;
-  //  left: 0;
-  //  height: 0.25rem;
-  //}
-  //
-  //&::before {
-  //  top: 0;
-  //  background-color: var(--color-8);
-  //}
-  //
-  //&::after {
-  //  bottom: 0;
-  //  background-color: var(--color-4);
-  //}
+  gap: var(--spacing-xs);
 }
