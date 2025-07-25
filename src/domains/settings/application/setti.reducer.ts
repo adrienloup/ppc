@@ -1,4 +1,4 @@
-import type { SettingsDispatch, Settings } from '@/src/domains/settings/domain/sett.type.ts';
+import type { SettingsDispatch, Settings } from '@/src/domains/settings/domain/setti.type.ts';
 
 export const settingsReducer = (state: Settings, action: SettingsDispatch): Settings => {
   switch (action.type) {

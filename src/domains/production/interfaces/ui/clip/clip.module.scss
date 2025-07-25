@@ -1,0 +1,36 @@
+.clip {
+  padding: var(--spacing-xs);
+  animation:
+    SlideUp 0.5s var(--ease-quad) backwards 0.1s,
+    FadeIn 0.7s var(--ease-quad) backwards 0.1s;
+}
+
+.label {
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+}
+
+.value {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translate3d(0, 120vh, 0);
+  }
+  20% {
+    transform: translate3d(0, 10vh, 0);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+}

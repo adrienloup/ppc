@@ -2,6 +2,7 @@ import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfa
 import { useSetti, useSettiDispatch } from '@/src/domains/settings/interfaces/useSetti.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
+import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 
@@ -12,9 +13,10 @@ export const ProfileComponent = () => {
   const { user } = useAuth();
   const settings = useSetti();
   const trade = useTrade();
+  const prod = useProd();
 
   const logOut = () => {
-    const factory = { trade: trade };
+    const factory = { trade: trade, prod: prod };
     console.log('LOG_OUT');
     console.log('settings', settings);
     console.log('factory', factory);

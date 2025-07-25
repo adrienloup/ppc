@@ -1,17 +1,17 @@
 $mobile-portrait: 768px;
 $mobile-landscape: 1024px;
 
-.deals {
+.deal {
   display: flex;
-  overflow: hidden;
-  width: 100%;
+  //overflow: hidden;
+  //width: 100%;
   background-color: var(--color-3);
   animation:
-    SlideUp 0.7s var(--ease-quad) backwards 0.1s,
+    SlideUp 0.5s var(--ease-quad) backwards 0.1s,
     FadeIn 0.7s var(--ease-quad) backwards 0.1s;
 }
 
-.deal {
+.goods {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

@@ -9,7 +9,7 @@
   & > div {
     & > * {
       animation-name: SlideUp, FadeIn;
-      animation-duration: 0.7s;
+      animation-duration: 0.5s, 0.7s;
       animation-timing-function: var(--ease-quad);
       animation-fill-mode: backwards;
     }
