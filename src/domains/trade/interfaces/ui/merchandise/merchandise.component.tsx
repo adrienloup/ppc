@@ -7,14 +7,14 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
-import styles from '@/src/domains/trade/interfaces/ui/goods/goods.module.scss';
+import styles from '@/src/domains/trade/interfaces/ui/merchandise/merchandise.module.scss';
 
-export const GoodsComponent = () => {
-  // console.log('GoodsComponent');
+export const MerchandiseComponent = () => {
+  // console.log('MerchandiseComponent');
   const { t } = useTranslation();
   const trade = useTrade();
 
-  const goodsByCategory = Object.entries(trade).reduce(
+  const byCategory = Object.entries(trade).reduce(
     (acc, [key, value]) => {
       const category = value.category;
       if (!acc[category!]) {
@@ -28,7 +28,7 @@ export const GoodsComponent = () => {
     {} as Record<string, typeof trade>
   );
 
-  return Object.entries(goodsByCategory).map(([category, goods]) => (
+  return Object.entries(byCategory).map(([category, merchandise]) => (
     <CardComponent
       key={category}
       className={styles.card}
@@ -39,8 +39,8 @@ export const GoodsComponent = () => {
       >
         {category}
       </TitleComponent>
-      {Object.keys(goods).length > 0 ? (
-        Object.entries(goods).map(([key, value]) => (
+      {Object.keys(merchandise).length > 0 ? (
+        Object.entries(merchandise).map(([key, value]) => (
           <DialsComponent
             key={key}
             className={styles.dials}

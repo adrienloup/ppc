@@ -11,21 +11,21 @@ export const DealComponent = () => {
 
   return (
     <div className={styles.deal}>
-      <div className={styles.goods}>
+      <div className={styles.merchandise}>
         <span className={styles.label}>purchased</span>
         <NumberComponent
           value={usedPercent / 100}
           asset="percent"
         />
       </div>
-      <div className={styles.goods}>
+      <div className={styles.merchandise}>
         <span className={styles.label}>unlocked</span>
         <NumberComponent
           value={unlockedPercent / 100}
           asset="percent"
         />{' '}
       </div>
-      <div className={styles.goods}>
+      <div className={styles.merchandise}>
         <span className={styles.label}>locked</span>
         <NumberComponent
           value={lockedPercent / 100}
