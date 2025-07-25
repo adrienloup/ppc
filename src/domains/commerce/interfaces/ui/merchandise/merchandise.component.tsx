@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
+import { useCom } from '@/src/domains/commerce/interfaces/useCommerce.ts';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
@@ -7,12 +7,12 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
-import styles from '@/src/domains/trade/interfaces/ui/merchandise/merchandise.module.scss';
+import styles from '@/src/domains/commerce/interfaces/ui/merchandise/merchandise.module.scss';
 
 export const MerchandiseComponent = () => {
   // console.log('MerchandiseComponent');
   const { t } = useTranslation();
-  const trade = useTrade();
+  const trade = useCom();
 
   const byCategory = Object.entries(trade).reduce(
     (acc, [key, value]) => {

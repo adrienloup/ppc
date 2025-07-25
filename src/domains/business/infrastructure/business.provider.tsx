@@ -14,7 +14,8 @@ export const BusinessProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
 
   useEffect(() => {
-    if (!user || user === userRef.current) return;
+    if (!user) return;
+    if (user === userRef.current) return;
     dispatch({ type: 'LOAD', business: users[user].factory?.business ?? BUSINESS_STATE });
     userRef.current = user;
   }, [user]);

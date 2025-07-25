@@ -31,7 +31,8 @@ export const SettingsProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user || user === userRef.current) return;
+    if (!user) return;
+    if (user === userRef.current) return;
     dispatch({ type: 'LOAD', settings: users[user].settings ?? SETTINGS_STATE });
     userRef.current = user;
   }, [user]);

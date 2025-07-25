@@ -1,4 +1,4 @@
-import type { Sale } from '@/src/domains/sale/domaine/sale.type.ts';
+import type { Sale } from '@/src/domains/sale/domain/sale.type.ts';
 
 export const SALE_STATE: Sale = {
   funds: 0,

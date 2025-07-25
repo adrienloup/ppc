@@ -1,5 +1,5 @@
 import { type Dispatch, createContext } from 'react';
-import type { Intel, IntelDispatch } from '@/src/domains/intelligence/domaine/intel.type.ts';
+import type { Intelligence, IntelDispatch } from '@/src/domains/intelligence/domaine/intel.type.ts';
 
-export const IntelContext = createContext<Intel | undefined>(undefined);
+export const IntelContext = createContext<Intelligence | undefined>(undefined);
 export const IntelDisContext = createContext<Dispatch<IntelDispatch> | undefined>(undefined);

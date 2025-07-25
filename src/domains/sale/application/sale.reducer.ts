@@ -1,4 +1,4 @@
-import type { Sale, SaleDispatch } from '@/src/domains/sale/domaine/sale.type.ts';
+import type { Sale, SaleDispatch } from '@/src/domains/sale/domain/sale.type.ts';
 
 export const saleReducer = (state: Sale, action: SaleDispatch): Sale => {
   switch (action.type) {

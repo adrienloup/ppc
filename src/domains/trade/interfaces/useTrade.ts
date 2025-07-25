@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.tsx';
+import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.ts';
 
 export const useTrade = () => {
   const ctx = useContext(TradeContext);

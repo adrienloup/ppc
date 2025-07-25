@@ -3,7 +3,7 @@ import { SettiContext, SettiDisContext } from '@/src/domains/settings/infrastruc
 
 export const useSetti = () => {
   const ctx = useContext(SettiContext);
-  if (!ctx) throw new Error('useSetti must be inside SettingsProvider');
+  if (!ctx) throw new Error('useTrade must be inside SettingsProvider');
   return ctx;
 };
 

@@ -1,5 +1,5 @@
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
-import styles from '@/src/domains/trade/interfaces/ui/deal/deal.module.scss';
+import styles from '@/src/domains/commerce/interfaces/ui/deal/deal.module.scss';
 
 export const DealComponent = () => {
   // console.log('DealComponent');

@@ -1,5 +1,5 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
-import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.tsx';
+import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.ts';
 import { tradeReducer } from '@/src/domains/trade/application/trade.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
@@ -14,7 +14,8 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
 
   useEffect(() => {
-    if (!user || user === userRef.current) return;
+    if (!user) return;
+    if (user === userRef.current) return;
     dispatch({ type: 'LOAD', trade: users[user].factory?.trade ?? TRADE_STATE });
     userRef.current = user;
   }, [user]);
