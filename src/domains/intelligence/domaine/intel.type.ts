@@ -1,4 +1,4 @@
-export interface Intelligence {
+export interface Intel {
   memory: number;
   operation: number;
   operationMax: number;
@@ -6,8 +6,9 @@ export interface Intelligence {
   trust: number;
 }
 
-export type IntelligenceDispatch =
-  | { type: 'LOAD'; intelligence: Intelligence }
+export type IntelDispatch =
+  | { type: 'LOAD'; intelligence: Intel }
   | { type: 'INCREASE_TRUST'; trust: number }
   | { type: 'INCREASE_MEMORY' }
-  | { type: 'INCREASE_PROCESSOR' };
+  | { type: 'INCREASE_PROCESSOR' }
+  | { type: 'INCREASE_OPERATION' };

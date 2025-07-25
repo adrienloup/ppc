@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-import {
-  IntelContext,
-  IntelDisContext,
-} from '@/src/domains/intelligence/infrastructure/intel.context.tsx';
+import { IntelContext, IntelDisContext } from '@/src/domains/intelligence/infrastructure/intel.context.tsx';
 
 export const useIntel = () => {
   const ctx = useContext(IntelContext);

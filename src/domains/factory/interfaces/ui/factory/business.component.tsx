@@ -6,7 +6,7 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 // import { ClipPriceComponent } from '@/src/domains/sale/interfaces/ui/clipPrice.component.tsx';
 // import { PublicDemandComponent } from '@/src/domains/sale/interfaces/ui/publicDemand.component.tsx';
 import { MarketingComponent } from '@/src/domains/business/interfaces/ui/marketing.component.tsx';
-import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
+// import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const BusinessComponent = () => {
@@ -25,7 +25,7 @@ export const BusinessComponent = () => {
       {/*<ClipPriceComponent />*/}
       {/*<PublicDemandComponent />*/}
       <MarketingComponent />
-      <EmptyComponent />
+      {/*<EmptyComponent />*/}
     </CardComponent>
   );
 };

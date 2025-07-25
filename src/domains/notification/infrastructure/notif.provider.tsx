@@ -1,9 +1,6 @@
 import { type FC, useReducer } from 'react';
 import { createPortal } from 'react-dom';
-import {
-  NotifContext,
-  NotifDisContext,
-} from '@/src/domains/notification/infrastructure/notif.context.ts';
+import { NotifContext, NotifDisContext } from '@/src/domains/notification/infrastructure/notif.context.ts';
 import { notifReducer } from '@/src/domains/notification/application/notif.reducer.ts';
 import { AlertsComponent } from '@/src/domains/notification/interfaces/ui/alerts/alerts.component.tsx';
 import { AlertComponent } from '@/src/domains/notification/interfaces/ui/alert/alert.component.tsx';

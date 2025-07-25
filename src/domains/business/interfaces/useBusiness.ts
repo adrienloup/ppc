@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-import {
-  BusiContext,
-  BusiDisContext,
-} from '@/src/domains/business/infrastructure/business.context.tsx';
+import { BusiContext, BusiDisContext } from '@/src/domains/business/infrastructure/business.context.tsx';
 
 export const useBusiness = () => {
   const ctx = useContext(BusiContext);

@@ -9,8 +9,6 @@ export const OperationComponent = () => {
   // console.log('OperationComponent');
   const { operation, operationMax } = useIntel();
 
-  //  const operationPPS = Math.min(state.operationMax, state.operation + 10 * state.processor);
-
   return (
     <DialsComponent>
       <DialComponent>

@@ -4,8 +4,6 @@ import styles from '@/src/shared/ui/dials/dials.module.scss';
 
 export const DialsComponent = ({ className, children, disabled }: Dials) => {
   return (
-    <div className={classNames([styles.dials, disabled ? styles.disabled : '', className])}>
-      {children}
-    </div>
+    <div className={classNames([styles.dials, disabled ? styles.disabled : '', className])}>{children}</div>
   );
 };

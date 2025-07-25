@@ -1,9 +1,6 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import {
-  SettiContext,
-  SettiDisContext,
-} from '@/src/domains/settings/infrastructure/setti.context.ts';
+import { SettiContext, SettiDisContext } from '@/src/domains/settings/infrastructure/setti.context.ts';
 import { settingsReducer } from '@/src/domains/settings/application/setti.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
@@ -34,7 +31,7 @@ export const SettingsProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user || user == userRef.current) return;
+    if (!user || user === userRef.current) return;
     dispatch({ type: 'LOAD', settings: users[user].settings ?? SETTINGS_STATE });
     userRef.current = user;
   }, [user]);

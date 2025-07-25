@@ -5,9 +5,7 @@ import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 // import { DebugComponent } from '@/src/domains/debug/interfaces/debug.component.tsx';
 import { ProfileComponent } from '@/src/domains/factory/interfaces/ui/profile/profile.component.tsx';
 
-const LayoutComponent = lazy(() =>
-  fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3)
-);
+const LayoutComponent = lazy(() => fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3));
 
 function ProfilePage() {
   const { t } = useTranslation();

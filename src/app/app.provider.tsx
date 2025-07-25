@@ -6,12 +6,7 @@ import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.ts
 import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
 import { IntelligenceProvider } from '@/src/domains/intelligence/infrastructure/intel.provider.tsx';
-import type {
-  ComponentPropsWithoutRef,
-  ComponentType,
-  ElementType,
-  FunctionComponent,
-} from 'react';
+import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 type ProviderType = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?];

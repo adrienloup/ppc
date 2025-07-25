@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-import {
-  SettiContext,
-  SettiDisContext,
-} from '@/src/domains/settings/infrastructure/setti.context.ts';
+import { SettiContext, SettiDisContext } from '@/src/domains/settings/infrastructure/setti.context.ts';
 
 export const useSetti = () => {
   const ctx = useContext(SettiContext);

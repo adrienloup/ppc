@@ -9,8 +9,7 @@ export const DebugComponent = () => {
   const location = useLocation();
 
   const isDebug = useMemo(() => {
-    const isDebug =
-      location.search.split('=')[0] == '?debug' ? location.search.split('=').pop() : '';
+    const isDebug = location.search.split('=')[0] == '?debug' ? location.search.split('=').pop() : '';
 
     if (isDebug == '1') {
       localStorage.setItem(DEBUG_KEY, JSON.stringify('debug'));

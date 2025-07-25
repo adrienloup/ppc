@@ -66,14 +66,10 @@ export const ProfileComponent = () => {
         </div>
         <div>mode: {settings.mode}</div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'light' })}>
-            mode light
-          </button>
+          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
         </div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'dark' })}>
-            mode dark
-          </button>
+          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
         </div>
         {/*<div>*/}
         {/*  <button onClick={() => setFactory({ type: 'INCREMENT_CLIP' })}>+1 clip</button>*/}

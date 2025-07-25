@@ -1,8 +1,5 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
-import {
-  ProdContext,
-  ProdDisContext,
-} from '@/src/domains/production/infrastructure/prod.context.tsx';
+import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastructure/prod.context.tsx';
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
@@ -36,7 +33,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user || user == userRef.current) return;
+    if (!user || user === userRef.current) return;
     dispatch({ type: 'LOAD', production: users[user].factory?.production ?? PROD_STATE });
     userRef.current = user;
   }, [user]);
