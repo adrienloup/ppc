@@ -1,13 +1,12 @@
 import type { Users } from '@/src/domains/authentification/domain/users.type.ts';
-import type { AccountState } from '@/src/domains/account/domain/account.type.ts';
+import type { Settings } from '@/src/domains/settings/domain/sett.type.ts';
 
-export interface AuthState {
+export interface Auth {
   users: Users;
   user: string | null;
 }
 
-export type AuthAction =
+export type AuthDispatch =
   | { type: 'SIGN_UP'; username: string; password: string }
   | { type: 'LOG_IN'; username: string }
-  | { type: 'LOG_OUT' }
-  | { type: 'UPDATE_USERS'; account: AccountState };
+  | { type: 'LOG_OUT'; settings: Settings };

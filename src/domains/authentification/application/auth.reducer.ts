@@ -1,10 +1,9 @@
-import type { AuthAction, AuthState } from '@/src/domains/authentification/domain/auth.type.ts';
+import type { AuthDispatch, Auth } from '@/src/domains/authentification/domain/auth.type.ts';
 
-export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
+export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
   switch (action.type) {
     case 'SIGN_UP': {
       if (state.users[action.username]) return state;
-
       return {
         ...state,
         users: {
@@ -19,7 +18,6 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
     }
     case 'LOG_IN': {
       if (!state.users[action.username]) return state;
-
       return {
         ...state,
         user: action.username,
@@ -27,24 +25,14 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
     }
     case 'LOG_OUT': {
       if (!state.user) return state;
-      console.log('LOG_OUT');
-
       return {
         ...state,
         user: null,
-      };
-    }
-    case 'UPDATE_USERS': {
-      if (!state.user) return state;
-      console.log('UPDATE_USERS', state.user, state.users, action.account);
-
-      return {
-        ...state,
         users: {
           ...state.users,
           [state.user]: {
             ...state.users[state.user],
-            account: action.account,
+            settings: action.settings,
           },
         },
       };
