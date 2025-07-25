@@ -1,9 +1,9 @@
-export type Prod = {
+export type Production = {
   clip: number;
   clipPerSecond: number;
 };
 
-export type ProdDispatch =
-  | { type: 'LOAD'; prod: Prod }
+export type ProductionDispatch =
+  | { type: 'LOAD'; production: Production }
   | { type: 'PROD_CLIP' }
   | { type: 'AUTO_PROD_CLIP'; clip: number };

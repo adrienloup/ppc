@@ -1,4 +1,4 @@
-import type { NotifDispatch, Notif } from '@/src/domains/notification/domain/notif.type.ts';
+import type { Notif, NotifDispatch } from '@/src/domains/notification/domain/notif.type.ts';
 
 export const notifReducer = (state: Notif, action: NotifDispatch): Notif => {
   switch (action.type) {

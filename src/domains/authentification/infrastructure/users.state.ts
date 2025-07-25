@@ -7,4 +7,9 @@ export const USERS_STATE = {
     settings: SETTINGS_STATE,
     factory: FACTORY_STATE,
   },
+  guest: {
+    password: 'hJg8YPfarcHLhphiH4AsDZ+aPDwpXIEHSPsEgRXBhuw=',
+    settings: SETTINGS_STATE,
+    factory: FACTORY_STATE,
+  },
 };

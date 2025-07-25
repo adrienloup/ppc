@@ -1,4 +1,4 @@
-import type { AuthDispatch, Auth } from '@/src/domains/authentification/domain/auth.type.ts';
+import type { Auth, AuthDispatch } from '@/src/domains/authentification/domain/auth.type.ts';
 
 export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
   switch (action.type) {

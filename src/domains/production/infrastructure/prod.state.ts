@@ -1,3 +1,3 @@
-import type { Prod } from '@/src/domains/production/domain/prod.type.ts';
+import type { Production } from '@/src/domains/production/domain/prod.type.ts';
 
-export const PROD_STATE: Prod = { clip: 0, clipPerSecond: 0 };
+export const PROD_STATE: Production = { clip: 0, clipPerSecond: 0 };

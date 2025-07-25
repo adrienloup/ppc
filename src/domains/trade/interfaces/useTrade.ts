@@ -3,12 +3,12 @@ import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructur
 
 export const useTrade = () => {
   const ctx = useContext(TradeContext);
-  if (!ctx) throw new Error('useTrade must be inside TradeProvide');
+  if (!ctx) throw new Error('useTrade must be inside TradeProvider');
   return ctx;
 };
 
 export const useTradeDispatch = () => {
   const ctx = useContext(TradeDisContext);
-  if (!ctx) throw new Error('useTradeDispatch must be inside TradeProvide');
+  if (!ctx) throw new Error('useTradeDispatch must be inside TradeProvider');
   return ctx;
 };

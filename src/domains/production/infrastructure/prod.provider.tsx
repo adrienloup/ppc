@@ -34,7 +34,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
 
   useEffect(() => {
     if (!user || user == userRef.current) return;
-    dispatch({ type: 'LOAD', prod: users[user].factory?.prod ?? PROD_STATE });
+    dispatch({ type: 'LOAD', production: users[user].factory?.production ?? PROD_STATE });
     userRef.current = user;
   }, [user]);
 

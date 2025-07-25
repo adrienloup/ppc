@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { type FormEvent, useState } from 'react';
 import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
@@ -30,7 +30,9 @@ export const LoginComponent = ({ className }: Login) => {
     if (!password) setPasswordError('required');
   };
 
-  const logIn = async () => {
+  const logIn = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     resetErrors();
 
     if (!username || !password) return requiredErrors();
@@ -102,7 +104,10 @@ export const LoginComponent = ({ className }: Login) => {
   };
 
   return (
-    <div className={classNames([styles.login, className])}>
+    <form
+      className={classNames([styles.login, className])}
+      onSubmit={logIn}
+    >
       <TitleComponent className={styles.title}>an account is required to play</TitleComponent>
       <TextFieldComponent
         className={styles.username}
@@ -121,7 +126,7 @@ export const LoginComponent = ({ className }: Login) => {
       <div className={styles.buttons}>
         <ButtonComponent
           className={styles.button}
-          onClick={logIn}
+          type="submit"
         >
           login
         </ButtonComponent>
@@ -132,6 +137,6 @@ export const LoginComponent = ({ className }: Login) => {
           signup
         </ButtonComponent>
       </div>
-    </div>
+    </form>
   );
 };

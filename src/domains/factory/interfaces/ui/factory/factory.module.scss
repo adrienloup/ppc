@@ -67,16 +67,16 @@ $tablet-landscape: 1440px;
 .label {
   font-size: var(--font-size-s);
   color: var(--color-2);
-
-  //& + .button {
-  //  margin-top: var(--spacing-xs);
-  //}
 }
 
 .buttons {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.button {
   margin-top: var(--spacing-xs);
 }
 

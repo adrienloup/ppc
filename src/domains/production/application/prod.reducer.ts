@@ -1,9 +1,9 @@
-import type { ProdDispatch, Prod } from '@/src/domains/production/domain/prod.type.ts';
+import type { Production, ProductionDispatch } from '@/src/domains/production/domain/prod.type.ts';
 
-export const prodReducer = (state: Prod, action: ProdDispatch): Prod => {
+export const prodReducer = (state: Production, action: ProductionDispatch): Production => {
   switch (action.type) {
     case 'LOAD':
-      return action.prod;
+      return action.production;
     case 'PROD_CLIP':
       return {
         clip: state.clip + 1,

@@ -1,4 +1,4 @@
-import type { TradeDispatch, Trade } from '@/src/domains/trade/domaine/trade.type.ts';
+import type { Trade, TradeDispatch } from '@/src/domains/trade/domaine/trade.type.ts';
 
 export const tradeReducer = (state: Trade, action: TradeDispatch): Trade => {
   switch (action.type) {
