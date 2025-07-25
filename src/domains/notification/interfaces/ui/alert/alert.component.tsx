@@ -8,7 +8,7 @@ export const NotifComponent = ({
   id,
   text,
   status = 'warning',
-  timeout = 6e3,
+  timeout = 4e3,
   close = true,
   remove,
 }: Notif) => {

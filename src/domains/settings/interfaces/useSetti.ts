@@ -1,14 +1,14 @@
 import { useContext } from 'react';
-import { AccContext, AccDispatchContext } from '@/src/domains/account/infrastructure/account.context.ts';
+import { SettiContext, SettiDispatchContext } from '@/src/domains/settings/infrastructure/setti.context.ts';
 
 export const useAccount = () => {
-  const ctx = useContext(AccContext);
+  const ctx = useContext(SettiContext);
   if (!ctx) throw new Error('useAccount must be inside AccountProvider');
   return ctx;
 };
 
 export const useAccountDispatch = () => {
-  const ctx = useContext(AccDispatchContext);
+  const ctx = useContext(SettiDispatchContext);
   if (!ctx) throw new Error('useAccountDispatch must be inside AccountProvider');
   return ctx;
 };

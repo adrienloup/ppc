@@ -1,12 +1,12 @@
 import { type FC, useEffect, useReducer } from 'react';
 import { createPortal } from 'react-dom';
-import { AccContext, AccDispatchContext } from '@/src/domains/account/infrastructure/account.context.ts';
-import { accountReducer } from '@/src/domains/account/application/account.reducer.ts';
+import { AccContext, AccDispatchContext } from '@/src/domains/settings/infrastructure/account.context.ts';
+import { settReducer } from '@/src/domains/settings/application/sett.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
-import { PauseComponent } from '@/src/domains/account/interfaces/ui/play/pause.component.tsx';
-import { ACCOUNT_KEY } from '@/src/domains/account/infrastructure/account.key.ts';
-import { ACCOUNT_STATE } from '@/src/domains/account/infrastructure/account.state.ts';
+import { PauseComponent } from '@/src/domains/settings/interfaces/ui/play/pause.component.tsx';
+import { ACCOUNT_KEY } from '@/src/domains/settings/infrastructure/account.key.ts';
+import { ACCOUNT_STATE } from '@/src/domains/settings/infrastructure/account.state.ts';
 // import { USER_KEY } from '@/src/domains/authentification/infrastructure/user.key.ts';
 // import type { Mode } from '@/src/domains/account/domain/mode.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
@@ -15,7 +15,7 @@ export const AccountProvider: FC<{ children: Children }> = ({ children }) => {
   const accStorage = useLocalStorage(ACCOUNT_KEY, ACCOUNT_STATE);
   const { user, users } = useAuth();
 
-  const [state, dispatch] = useReducer(accountReducer, accStorage.get());
+  const [state, dispatch] = useReducer(settReducer, accStorage.get());
   console.log('ACC#1 >', 'state', state.mode, 'user', user, 'users', users);
 
   // const update = useCallback((mode: Mode) => {
