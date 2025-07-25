@@ -10,6 +10,7 @@ export const prodReducer = (state: Production, action: ProductionDispatch): Prod
         clipPerSecond: state.clipPerSecond + 1,
       };
     case 'AUTO_MAKE_CLIP':
+      // console.log('AUTO_MAKE_CLIP');
       return {
         clip: state.clip + action.clip,
         clipPerSecond: action.clip,

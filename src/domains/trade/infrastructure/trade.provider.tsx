@@ -1,8 +1,11 @@
-import { type FC, useEffect, useReducer, useRef } from 'react';
+import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.ts';
 import { tradeReducer } from '@/src/domains/trade/application/trade.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useSetti } from '@/src/domains/settings/interfaces/useSetti.ts';
+import { useInterval } from '@/src/shared/hooks/useInterval.ts';
+import { getTokens } from '@/src/domains/trade/interfaces/utils/getTokens.ts';
 import { TRADE_KEY } from '@/src/domains/trade/infrastructure/trade.key.ts';
 import { TRADE_STATE } from '@/src/domains/trade/infrastructure/trade.state.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
@@ -12,6 +15,12 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(tradeReducer, tradeStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
+  const { pause } = useSetti();
+
+  const updateToken = useCallback(() => {
+    const token = getTokens(state.token);
+    dispatch({ type: 'UPDATE_TOKEN', token });
+  }, [state.token]);
 
   useEffect(() => {
     if (!user) return;
@@ -23,6 +32,8 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   useEffect(() => {
     tradeStorage.set(state);
   }, [state]);
+
+  useInterval(updateToken, 5e3, !!user && !pause);
 
   return (
     <TradeContext.Provider value={state}>

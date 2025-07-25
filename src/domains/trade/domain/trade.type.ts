@@ -8,9 +8,9 @@ export interface Trade {
 
 export type TradeDispatch =
   | { type: 'LOAD'; trade: Trade }
-  | { type: 'UPDATE_TOKEN'; token: string }
-  | { type: 'INCREASE_WALLET'; token: string; price: number }
-  | { type: 'DECREASE_WALLET'; token: string; price: number }
+  | { type: 'UPDATE_TOKEN'; token: Token }
   | { type: 'INCREASE_CASH' }
   | { type: 'DECREASE_CASH' }
-  | { type: 'WITHDRAW_CASH' };
+  | { type: 'WITHDRAW_CASH' }
+  | { type: 'INCREASE_WALLET'; token: string; price: number }
+  | { type: 'DECREASE_WALLET'; token: string; price: number };

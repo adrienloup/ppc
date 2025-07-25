@@ -17,14 +17,14 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useSetti();
 
   const autoProd = useCallback(() => {
-    console.log('AUTO_PROD');
+    // console.log('AUTO_PROD');
     //   const prod = prodComputed(wire, clipper, megaClipper, clipFactory);
     //   const clip =
     //     prod.clipper * Math.max(1, clipperBonus) +
     //     prod.megaClipper * 5e2 * Math.max(1, megaClipperBonus) +
     //     prod.clipFactory * 1e3 * Math.max(1, clipFactoryBonus);
     //
-    //   dispatch({ type: 'AUTO_CLIP', clip });
+    dispatch({ type: 'AUTO_MAKE_CLIP', clip: 0 });
     //   saleDispatch({ type: 'AUTO_UNSOLD_INVENTORY', clip });
     //
     //   if (wire <= 0) return;
