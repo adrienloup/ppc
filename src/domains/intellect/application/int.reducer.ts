@@ -5,8 +5,10 @@ export const intReducer = (state: Intellect, action: IntellectDispatch): Intelle
     case 'LOAD':
       return action.intellect;
     case 'INCREASE_TRUST':
-      console.log('INCREASE_TRUST', action.trust);
-      return state;
+      return {
+        ...state,
+        trust: Math.max(0, Math.min(state.trust + action.trust, 100)),
+      };
     default:
       return state;
   }

@@ -4,12 +4,12 @@ export const prodReducer = (state: Production, action: ProductionDispatch): Prod
   switch (action.type) {
     case 'LOAD':
       return action.production;
-    case 'PROD_CLIP':
+    case 'MAKE_CLIP':
       return {
         clip: state.clip + 1,
         clipPerSecond: state.clipPerSecond + 1,
       };
-    case 'AUTO_PROD_CLIP':
+    case 'AUTO_MAKE_CLIP':
       return {
         clip: state.clip + action.clip,
         clipPerSecond: action.clip,

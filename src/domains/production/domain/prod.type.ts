@@ -5,5 +5,5 @@ export type Production = {
 
 export type ProductionDispatch =
   | { type: 'LOAD'; production: Production }
-  | { type: 'PROD_CLIP' }
-  | { type: 'AUTO_PROD_CLIP'; clip: number };
+  | { type: 'MAKE_CLIP' }
+  | { type: 'AUTO_MAKE_CLIP'; clip: number };
