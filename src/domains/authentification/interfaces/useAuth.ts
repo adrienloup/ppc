@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { AuthContext, AuthDispatchContext } from '@/src/domains/authentification/infrastructure/auth.context.ts';
+import { AuthContext, AuthDisContext } from '@/src/domains/authentification/infrastructure/auth.context.ts';
 
 export const useAuth = () => {
   const ctx = useContext(AuthContext);
@@ -8,7 +8,7 @@ export const useAuth = () => {
 };
 
 export const useAuthDispatch = () => {
-  const ctx = useContext(AuthDispatchContext);
+  const ctx = useContext(AuthDisContext);
   if (!ctx) throw new Error('useAuthDispatch must be inside AuthProvider');
   return ctx;
 };

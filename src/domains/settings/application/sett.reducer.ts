@@ -1,9 +1,9 @@
-import type { AccountAction, AccountState } from '@/src/domains/account/domain/account.type.ts';
+import type { SettingsDispatch, Settings } from '@/src/domains/settings/domain/sett.type.ts';
 
-export const accountReducer = (state: AccountState, action: AccountAction): AccountState => {
+export const settingsReducer = (state: Settings, action: SettingsDispatch): Settings => {
   switch (action.type) {
     case 'LOAD':
-      return action.state;
+      return action.settings;
     case 'SET_MODE':
       return { ...state, mode: action.mode };
     case 'SET_PLAY_PAUSE':

@@ -1,1 +1,1 @@
-export const ACCOUNT_KEY = 'account_ppc_emma0_1';
+export const SETTINGS_KEY = 'settings_ppc_emma0_1';

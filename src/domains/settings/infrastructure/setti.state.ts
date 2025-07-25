@@ -1,6 +1,6 @@
-import type { SettState } from '@/src/domains/settings/domain/account.type.ts';
+import type { Settings } from '@/src/domains/settings/domain/sett.type.ts';
 
-export const ACCOUNT_STATE: SettState = {
+export const SETTINGS_STATE: Settings = {
   mode: 'system',
   pause: false,
 };

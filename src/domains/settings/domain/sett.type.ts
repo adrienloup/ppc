@@ -1,11 +1,11 @@
 import type { Mode } from '@/src/domains/settings/domain/mode.type.ts';
 
-export interface SettState {
+export interface Settings {
   mode: Mode;
   pause: boolean;
 }
 
-export type SettAction =
-  | { type: 'LOAD'; state: SettState }
+export type SettingsDispatch =
+  | { type: 'LOAD'; settings: Settings }
   | { type: 'SET_MODE'; mode: Mode }
   | { type: 'SET_PLAY_PAUSE' };

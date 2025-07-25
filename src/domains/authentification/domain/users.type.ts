@@ -1,3 +1,9 @@
-import type { User } from '@/src/domains/authentification/domain/user.type.ts';
+import type { Settings } from '@/src/domains/settings/domain/sett.type.ts';
 
-export type Users = Record<string, User>;
+export type Users = Record<
+  string,
+  {
+    password: string;
+    settings: Settings;
+  }
+>;
