@@ -33,6 +33,7 @@ export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
           [state.user]: {
             ...state.users[state.user],
             settings: action.settings,
+            factory: action.factory,
           },
         },
       };

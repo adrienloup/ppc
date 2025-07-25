@@ -1,6 +1,7 @@
 import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { useSetti, useSettiDispatch } from '@/src/domains/settings/interfaces/useSetti.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
+import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 
@@ -10,12 +11,18 @@ export const ProfileComponent = () => {
   const notifDispatch = useNotifDispatch();
   const { user } = useAuth();
   const settings = useSetti();
-  // const prod = useProd();
-  // const sale = useSale();
+  const trade = useTrade();
 
   const logOut = () => {
-    // console.log('logOut', settings, prod, sale);
-    authDispatch({ type: 'LOG_OUT', settings });
+    const factory = { trade: trade };
+    console.log('LOG_OUT');
+    console.log('settings', settings);
+    console.log('factory', factory);
+    authDispatch({
+      type: 'LOG_OUT',
+      settings,
+      factory,
+    });
     notifDispatch({
       type: 'ADD',
       alert: {
