@@ -1,4 +1,4 @@
-import type { Intelligence } from '@/src/domains/intelligence/domaine/intel.type.ts';
+import type { Intelligence } from '@/src/domains/intelligence/domain/intel.type.ts';
 
 export const INTELLIGENCE_STATE: Intelligence = {
   memory: 0,

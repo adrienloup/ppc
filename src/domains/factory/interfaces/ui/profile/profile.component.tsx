@@ -2,7 +2,7 @@ import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfa
 import { useSetti, useSettiDispatch } from '@/src/domains/settings/interfaces/useSetti.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
-import { useCom } from '@/src/domains/commerce/interfaces/useCommerce.ts';
+import { useMer } from '@/src/domains/merchandise/interfaces/useMer.ts';
 import { useIntel } from '@/src/domains/intelligence/interfaces/useIntel.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { useSale } from '@/src/domains/sale/interfaces/useSale.ts';
@@ -17,7 +17,7 @@ export const ProfileComponent = () => {
   const { user } = useAuth();
   const settings = useSetti();
   const business = useBusiness();
-  const commerce = useCom();
+  const commerce = useMer();
   const intelligence = useIntel();
   const production = useProd();
   const sale = useSale();

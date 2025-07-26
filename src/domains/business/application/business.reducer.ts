@@ -1,4 +1,4 @@
-import type { Business, BusinessDispatch } from '@/src/domains/business/domaine/business.type.ts';
+import type { Business, BusinessDispatch } from '@/src/domains/business/domain/business.type.ts';
 
 export const businessReducer = (state: Business, action: BusinessDispatch): Business => {
   switch (action.type) {

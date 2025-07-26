@@ -1,4 +1,4 @@
-import type { Business } from '@/src/domains/business/domaine/business.type.ts';
+import type { Business } from '@/src/domains/business/domain/business.type.ts';
 
 export const BUSINESS_STATE: Business = {
   clipPrice: 0.2,

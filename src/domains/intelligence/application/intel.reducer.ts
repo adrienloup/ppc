@@ -1,4 +1,4 @@
-import type { Intelligence, IntelDispatch } from '@/src/domains/intelligence/domaine/intel.type.ts';
+import type { Intelligence, IntelDispatch } from '@/src/domains/intelligence/domain/intel.type.ts';
 
 export const intelReducer = (state: Intelligence, action: IntelDispatch): Intelligence => {
   switch (action.type) {

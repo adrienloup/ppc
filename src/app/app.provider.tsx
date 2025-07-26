@@ -4,7 +4,7 @@ import { SettingsProvider } from '@/src/domains/settings/infrastructure/setti.pr
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
-import { CommerceProvider } from '@/src/domains/commerce/infrastructure/com.provider.tsx';
+import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
 import { IntelligenceProvider } from '@/src/domains/intelligence/infrastructure/intel.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
 import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
@@ -31,7 +31,7 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [ProdProvider],
   [SaleProvider],
   [BusinessProvider],
-  [CommerceProvider],
+  [MerProvider],
   [IntelligenceProvider],
   [TradeProvider],
   [MecaProvider],

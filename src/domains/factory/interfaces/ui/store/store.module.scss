@@ -1,79 +1,96 @@
+$mobile-portrait: 768px;
+$mobile-landscape: 1024px;
+$tablet-landscape: 1440px;
+
 .banner {
-  animation: FadeIn 0.7s var(--ease-quad) backwards;
+  animation: FadeIn 0.7s var(--ease-quad) backwards 0.1s;
+}
+
+.deals {
+  display: flex;
+  gap: var(--spacing-s);
+  align-items: center;
+  padding: var(--spacing-xs);
+  background-color: var(--color-3);
+  animation:
+    SlideUp 0.5s var(--ease-quad) backwards 0.2s,
+    FadeIn 0.7s var(--ease-quad) backwards 0.2s;
+}
+
+.deal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: var(--font-size-m);
+  color: var(--color-2);
+
+  @media (min-width: $mobile-landscape) {
+    flex-direction: row;
+    gap: var(--spacing-xs);
+  }
+}
+
+.label {
+  display: none;
+
+  @media (min-width: $mobile-portrait) {
+    display: inherit;
+  }
 }
 
 .cards {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
+  gap: var(--spacing-xs);
 
   & > div {
-    & > * {
-      animation-name: SlideUp, FadeIn;
-      animation-duration: 0.5s, 0.7s;
-      animation-timing-function: var(--ease-quad);
-      animation-fill-mode: backwards;
-    }
+    animation-name: SlideUp, FadeIn;
+    animation-duration: 0.5s, 0.7s;
+    animation-timing-function: var(--ease-quad);
+    animation-fill-mode: backwards;
 
-    &:nth-child(1) {
-      & > * {
-        @for $i from 1 through 3 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{0.1s + $i * 0.1s};
-          }
-        }
-      }
-    }
-
-    &:nth-child(2) {
-      & > * {
-        @for $i from 1 through 2 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{0.4s + $i * 0.1s};
-          }
-        }
-      }
-    }
-
-    &:nth-child(3) {
-      & > * {
-        @for $i from 1 through 6 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{0.6s + $i * 0.1s};
-          }
-        }
-      }
-    }
-
-    &:nth-child(4) {
-      & > * {
-        @for $i from 1 through 5 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{1.2s + $i * 0.1s};
-          }
-        }
-      }
-    }
-
-    &:nth-child(5) {
-      & > * {
-        @for $i from 1 through 8 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{1.7s + $i * 0.1s};
-          }
-        }
-      }
-    }
-
-    &:nth-child(6) {
-      & > * {
-        @for $i from 1 through 8 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{2.5s + $i * 0.1s};
-          }
-        }
+    @for $i from 1 through 25 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.2s + $i * 0.1s};
       }
     }
   }
+}
+
+.card {
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  padding: var(--spacing-xs);
+  background-color: var(--color-3);
+  color: var(--color-2);
+  @media (min-width: $mobile-landscape) {
+    width: calc((100% / 2) - 0.25rem);
+  }
+
+  @media (min-width: $tablet-landscape) {
+    width: calc((100% / 3) - 0.35rem);
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: var(--font-size-m);
+}
+
+.text {
+  line-height: 1.1;
+  font-size: var(--font-size-s);
+}
+
+.button {
+  margin-top: auto;
+  padding: var(--spacing-xs);
+  background-color: var(--color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+  color: var(--color-3);
 }
 
 @keyframes SlideUp {

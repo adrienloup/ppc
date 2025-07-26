@@ -3,7 +3,7 @@ $mobile-landscape: 1024px;
 $tablet-landscape: 1440px;
 
 .banner {
-  animation: FadeIn 0.7s var(--ease-quad) backwards;
+  animation: FadeIn 0.7s var(--ease-quad) backwards 0.1s;
 }
 
 .cards {
@@ -31,9 +31,9 @@ $tablet-landscape: 1440px;
       animation-duration: 0.5s, 0.7s;
       animation-fill-mode: backwards;
 
-      @for $i from 1 through 10 {
+      @for $i from 1 through 8 {
         &:nth-child(#{$i}) {
-          animation-delay: #{0.1s + $i * 0.1s};
+          animation-delay: #{0.2s + $i * 0.1s};
         }
       }
     }

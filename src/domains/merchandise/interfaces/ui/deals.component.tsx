@@ -1,5 +1,5 @@
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
-import styles from '@/src/domains/commerce/interfaces/ui/deal/deal.module.scss';
+import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss';
 
 export const DealComponent = () => {
   // console.log('DealComponent');
@@ -10,22 +10,22 @@ export const DealComponent = () => {
   const lockedPercent = 100 - usedPercent - unlockedPercent;
 
   return (
-    <div className={styles.deal}>
-      <div className={styles.merchandise}>
+    <div className={styles.deals}>
+      <div className={styles.deal}>
         <span className={styles.label}>purchased</span>
         <NumberComponent
           value={usedPercent / 100}
           asset="percent"
         />
       </div>
-      <div className={styles.merchandise}>
+      <div className={styles.deal}>
         <span className={styles.label}>unlocked</span>
         <NumberComponent
           value={unlockedPercent / 100}
           asset="percent"
         />{' '}
       </div>
-      <div className={styles.merchandise}>
+      <div className={styles.deal}>
         <span className={styles.label}>locked</span>
         <NumberComponent
           value={lockedPercent / 100}
