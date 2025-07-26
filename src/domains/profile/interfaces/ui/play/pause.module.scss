@@ -17,21 +17,18 @@
   background-color: var(--color-9);
   border: 0.1rem solid var(--color-2);
   transform-origin: center;
-  backface-visibility: hidden;
+  //backface-visibility: hidden;
+  animation: Appear 0.4s var(--ease-expo);
   will-change: transform;
-  animation: Appear 0.25s var(--ease-expo);
 }
 
 .label {
   display: flex;
   flex-direction: column;
   padding: var(--spacing-xs);
+  line-height: 1.1;
   text-transform: uppercase;
   font-size: var(--font-size-s);
-
-  span {
-    font-size: var(--font-size-m);
-  }
 }
 
 .backdrop {
@@ -47,6 +44,6 @@
 
 @keyframes Appear {
   0% {
-    transform: translate3d(0, 100%, 0) scale(0.9);
+    transform: translate3d(0, 10rem, 0) scale(0.8);
   }
 }

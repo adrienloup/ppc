@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NavigationComponent } from '@/src/shared/ui/navigation/navigation.component.tsx';
+import { SettingsComponent } from '@/src/domains/profile/interfaces/ui/settings/settings.component.tsx';
+import { LogoutComponent } from '@/src/domains/authentification/interfaces/ui/logout/logout.component.tsx';
 import styles from '@/src/shared/ui/menu/menu.module.scss';
 
 export const MenuComponent = () => {
@@ -39,6 +41,7 @@ export const MenuComponent = () => {
       </ButtonComponent>
       <div className={styles.inside}>
         <NavigationComponent items={['profile', 'factory', 'store', 'explore']} />
+        <SettingsComponent />
         <div
           style={{
             padding: '0 var(--spacing-s)',
@@ -46,18 +49,8 @@ export const MenuComponent = () => {
             color: 'var(--color-2)',
           }}
         >
-          contrôle
-          <div>bouton play/pause</div>
-        </div>
-        <div
-          style={{
-            padding: '0 var(--spacing-s)',
-            fontSize: 'var(--font-size-xs)',
-            color: 'var(--color-2)',
-          }}
-        >
-          settings
-          <div>language en/fr mode light/dark</div>
+          contrôle bouton play/pause
+          <LogoutComponent />
         </div>
       </div>
     </div>

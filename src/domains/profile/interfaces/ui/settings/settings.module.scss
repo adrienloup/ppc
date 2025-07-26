@@ -1,0 +1,9 @@
+.settings {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--spacing-s);
+  //padding: var(--spacing-xs);
+  background-color: var(--color-3);
+  font-size: var(--font-size-xs);
+  color: var(--color-2);
+}

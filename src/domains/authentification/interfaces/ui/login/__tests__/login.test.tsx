@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
+import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
+import { FACTORY_STATE } from '@/src/domains/factory/infrastructure/factory.state.ts';
 
 import * as authHook from '@/src/domains/authentification/interfaces/useAuth';
 import * as notifHook from '@/src/domains/notification/interfaces/useNotif';
 import * as utils from '@/src/shared/utils/base64Encode';
-import { SETTINGS_STATE } from '@/src/domains/settings/infrastructure/setti.state.ts';
 
 describe('login component', () => {
   const mockAuthDispatch = vi.fn();
@@ -13,7 +14,7 @@ describe('login component', () => {
 
   beforeEach(() => {
     vi.spyOn(authHook, 'useAuth').mockReturnValue({
-      users: { emma: { password: 'dGVzdA==', settings: SETTINGS_STATE } },
+      users: { emma: { password: 'dGVzdA==', profile: PROFILE_STATE, factory: FACTORY_STATE } },
       user: null,
     });
 

@@ -1,4 +1,4 @@
-export type Mechanical = {
+export interface Mechanical {
   clipper: number;
   clipperBonus: number;
   clipperCost: number;
@@ -8,7 +8,7 @@ export type Mechanical = {
   clipFactory: number;
   clipFactoryBonus: number;
   clipFactoryCost: number;
-};
+}
 
 export type MecaDispatch =
   | { type: 'LOAD'; mechanical: Mechanical }

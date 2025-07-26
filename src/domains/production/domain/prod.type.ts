@@ -1,7 +1,7 @@
-export type Production = {
+export interface Production {
   clip: number;
   clipPerSecond: number;
-};
+}
 
 export type ProductionDispatch =
   | { type: 'LOAD'; production: Production }

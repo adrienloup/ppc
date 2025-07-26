@@ -1,0 +1,25 @@
+$mobile-portrait: 768px;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //position: absolute;
+  //top: 0;
+  //right: 0;
+  //z-index: 2;
+  height: 1.375rem;
+  //padding: var(--spacing-xs);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  color: var(--color-2);
+
+  @media (min-width: $mobile-portrait) {
+    top: 0.25rem;
+    right: 0.25rem;
+    //font-size: var(--font-size-l);
+  }
+}
+
+//.icon {
+//}

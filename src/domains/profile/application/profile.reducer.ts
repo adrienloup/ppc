@@ -1,9 +1,9 @@
-import type { Settings, SettingsDispatch } from '@/src/domains/settings/domain/setti.type.ts';
+import type { Profile, ProfileDispatch } from '@/src/domains/profile/domain/profile.type.ts';
 
-export const settingsReducer = (state: Settings, action: SettingsDispatch): Settings => {
+export const profileReducer = (state: Profile, action: ProfileDispatch): Profile => {
   switch (action.type) {
     case 'LOAD':
-      return action.settings;
+      return action.profile;
     case 'SET_MODE':
       return { ...state, mode: action.mode };
     case 'SET_PLAY_PAUSE':

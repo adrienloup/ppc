@@ -3,7 +3,7 @@ import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastruc
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
-import { useSetti } from '@/src/domains/settings/interfaces/useSetti.ts';
+import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { PRODUCTION_KEY } from '@/src/domains/production/infrastructure/prod.key.ts';
 import { PRODUCTION_STATE } from '@/src/domains/production/infrastructure/prod.state.ts';
@@ -14,7 +14,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(prodReducer, prodStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
-  const { pause } = useSetti();
+  const { pause } = useProfile();
 
   const autoProd = useCallback(() => {
     // console.log('AUTO_PROD');

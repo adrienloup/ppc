@@ -3,7 +3,7 @@ import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructur
 import { tradeReducer } from '@/src/domains/trade/application/trade.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
-import { useSetti } from '@/src/domains/settings/interfaces/useSetti.ts';
+import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { getTokens } from '@/src/domains/trade/interfaces/utils/getTokens.ts';
 import { TRADE_KEY } from '@/src/domains/trade/infrastructure/trade.key.ts';
@@ -15,7 +15,7 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(tradeReducer, tradeStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
-  const { pause } = useSetti();
+  const { pause } = useProfile();
 
   const updateToken = useCallback(() => {
     const token = getTokens(state.token);

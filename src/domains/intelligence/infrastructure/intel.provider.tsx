@@ -3,7 +3,7 @@ import { IntelContext, IntelDisContext } from '@/src/domains/intelligence/infras
 import { intelReducer } from '@/src/domains/intelligence/application/intel.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
-import { useSetti } from '@/src/domains/settings/interfaces/useSetti.ts';
+import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { INTELLIGENCE_KEY } from '@/src/domains/intelligence/infrastructure/intel.key.ts';
 import { INTELLIGENCE_STATE } from '@/src/domains/intelligence/infrastructure/intel.state.ts';
@@ -14,7 +14,7 @@ export const IntelligenceProvider: FC<{ children: Children }> = ({ children }) =
   const [state, dispatch] = useReducer(intelReducer, intelStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
-  const { pause } = useSetti();
+  const { pause } = useProfile();
 
   const autoOperation = useCallback(() => {
     dispatch({ type: 'INCREASE_OPERATION' });

@@ -27,12 +27,14 @@ $tablet-landscape: 1440px;
 
   @media (min-width: $mobile-landscape) {
     flex-direction: row;
+    align-items: center;
     gap: var(--spacing-xs);
   }
 }
 
 .label {
   display: none;
+  font-size: var(--font-size-s);
 
   @media (min-width: $mobile-portrait) {
     display: inherit;

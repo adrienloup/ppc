@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { PauseComponent } from '@/src/domains/settings/interfaces/ui/play/pause.component.tsx';
+import { PauseComponent } from '@/src/domains/profile/interfaces/ui/play/pause.component.tsx';
 
-import * as settingsHook from '@/src/domains/settings/interfaces/useSetti';
+import * as profileHook from '@/src/domains/profile/interfaces/useProfile.ts';
 
 describe('pause component', () => {
   const mockDispatch = vi.fn();
 
   beforeEach(() => {
-    vi.spyOn(settingsHook, 'useSettiDispatch').mockReturnValue(mockDispatch);
+    vi.spyOn(profileHook, 'useProfileDis').mockReturnValue(mockDispatch);
   });
 
   afterEach(() => {

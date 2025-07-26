@@ -1,0 +1,13 @@
+import type { Mode } from '@/src/domains/profile/domain/mode.type.ts';
+
+export interface Profile {
+  date: string;
+  mode: Mode;
+  pause: boolean;
+  time: number;
+}
+
+export type ProfileDispatch =
+  | { type: 'LOAD'; profile: Profile }
+  | { type: 'SET_MODE'; mode: Mode }
+  | { type: 'SET_PLAY_PAUSE' };

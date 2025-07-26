@@ -1,6 +1,6 @@
 import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
 import { AuthProvider } from '@/src/domains/authentification/infrastructure/auth.provider.tsx';
-import { SettingsProvider } from '@/src/domains/settings/infrastructure/setti.provider.tsx';
+import { ProfileProvider } from '@/src/domains/profile/infrastructure/profile.provider.tsx';
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
@@ -27,7 +27,7 @@ const Providers = (providers: ProviderType[]) =>
 export const AppProvider: FunctionComponent<{ children: Children }> = Providers([
   [NotifProvider],
   [AuthProvider],
-  [SettingsProvider],
+  [ProfileProvider],
   [ProdProvider],
   [SaleProvider],
   [BusinessProvider],
