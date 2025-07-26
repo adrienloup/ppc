@@ -4,5 +4,4 @@ export const PROFILE_STATE: Profile = {
   date: '2025-07-26T10:07:29.663Z',
   mode: 'system',
   pause: false,
-  time: 0,
 };

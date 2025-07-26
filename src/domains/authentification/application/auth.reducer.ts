@@ -14,7 +14,6 @@ export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
             password: action.password,
             profile: {
               date: new Date().toISOString(),
-              time: 0,
             } as Profile,
           },
         },

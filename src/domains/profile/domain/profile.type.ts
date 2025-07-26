@@ -4,7 +4,6 @@ export interface Profile {
   date: string;
   mode: Mode;
   pause: boolean;
-  time: number;
 }
 
 export type ProfileDispatch =
