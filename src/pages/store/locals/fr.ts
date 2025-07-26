@@ -22,7 +22,7 @@ export const fr: Translation = {
     },
     revTracker: {
       title: 'rev tracker',
-      effect: 'automatically calculates average funds available per second',
+      effect: 'allows to automatically calculate the average funds available per second',
       cost: 'cost: <cost />\u00a0operations',
       quantity: 'quantity: <quantity />',
     },

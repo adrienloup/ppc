@@ -37,7 +37,6 @@ export const MerchandiseComponent = () => {
         >
           {t(`store.${key}.title`)}
         </TitleComponent>
-        <span className={styles.text}>{value.category} category</span>
         <span className={styles.text}>
           <Trans
             i18nKey={`store.${key}.effect`}
@@ -59,6 +58,7 @@ export const MerchandiseComponent = () => {
             }}
           />
         </span>
+        <span className={styles.text}>category: {value.category}</span>
         <span className={styles.text}>
           <Trans
             i18nKey={`store.${key}.cost`}

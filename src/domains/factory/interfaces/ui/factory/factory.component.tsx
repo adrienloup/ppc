@@ -10,6 +10,7 @@ import { InvestmentsComponent } from '@/src/domains/factory/interfaces/ui/factor
 import { ProductionComponent } from '@/src/domains/factory/interfaces/ui/factory/production.component.tsx';
 import { SwarmComponent } from '@/src/domains/factory/interfaces/ui/factory/swarm.component.tsx';
 import { PowerComponent } from '@/src/domains/factory/interfaces/ui/factory/power.component.tsx';
+import { LoggedComponent } from '@/src/domains/authentification/interfaces/ui/logged/logged.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
@@ -34,6 +35,7 @@ export const FactoryComponent = () => {
         <SwarmComponent />
         <PowerComponent />
       </CardsComponent>
+      <LoggedComponent />
     </ArticleComponent>
   ) : (
     <LoginComponent />
