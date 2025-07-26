@@ -1,4 +1,4 @@
-import { classNames } from '@/src/shared/utils/classNames.ts';
+// import { classNames } from '@/src/shared/utils/classNames.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
@@ -16,7 +16,8 @@ export const CryptoComponent = ({ name, price, change }: Crypto) => {
           value={price}
           asset="currency"
         />
-        <span className={classNames([styles.variation, change >= 0 ? styles.positive : styles.negative])}>
+        <span className={styles.variation}>
+          {/*<span className={classNames([styles.variation, change >= 0 ? styles.positive : styles.negative])}>*/}
           {change > 0 ? '+' : '-'}
           <NumberComponent
             value={Math.abs(change)}

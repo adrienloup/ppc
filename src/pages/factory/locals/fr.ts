@@ -1,4 +1,4 @@
-import type { Translation } from '@/src/common/shared/types/translation.ts';
+import type { Translation } from '@/src/shared/types/translation.ts';
 
 export const fr: Translation = {
   factory: {
@@ -15,7 +15,7 @@ export const fr: Translation = {
     synchronizationCost: 'synchronization cost',
     megaClipper: 'mega clipper',
     megaClipperCost: 'mega clipper cost',
-    megaClippers: 'mega clippers',
+    megaClippers: 'mega clipper',
     memory: 'memory',
     business: 'business',
     price: 'price',

@@ -1,0 +1,32 @@
+import { type FC, useEffect, useReducer, useRef } from 'react';
+import { MecaContext, MecaDispatchContext } from '@/src/domains/mechanical/infrastructure/meca.context.tsx';
+import { mecaReducer } from '@/src/domains/mechanical/application/meca.reducer.ts';
+import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
+import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { MECHANICAL_KEY } from '@/src/domains/mechanical/infrastructure/meca.key.ts';
+import { MECHANICAL_STATE } from '@/src/domains/mechanical/infrastructure/meca.state.ts';
+import type { Children } from '@/src/shared/types/children.type.ts';
+
+export const MecaProvider: FC<{ children: Children }> = ({ children }) => {
+  const mecaStorage = useLocalStorage(MECHANICAL_KEY, MECHANICAL_STATE);
+  const [state, dispatch] = useReducer(mecaReducer, mecaStorage.get());
+  const { user, users } = useAuth();
+  const userRef = useRef<string | null>(user);
+
+  useEffect(() => {
+    if (!user) return;
+    if (user === userRef.current) return;
+    dispatch({ type: 'LOAD', mechanical: users[user].factory?.mechanical ?? MECHANICAL_STATE });
+    userRef.current = user;
+  }, [user]);
+
+  useEffect(() => {
+    mecaStorage.set(state);
+  }, [state]);
+
+  return (
+    <MecaContext.Provider value={state}>
+      <MecaDispatchContext.Provider value={dispatch}>{children}</MecaDispatchContext.Provider>
+    </MecaContext.Provider>
+  );
+};

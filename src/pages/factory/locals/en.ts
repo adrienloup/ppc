@@ -15,7 +15,7 @@ export const en: Translation = {
     synchronizationCost: 'synchronization cost',
     megaClipper: 'mega clipper',
     megaClipperCost: 'mega clipper cost',
-    megaClippers: 'mega clippers',
+    megaClippers: 'mega clipper',
     memory: 'memory',
     business: 'business',
     price: 'price',

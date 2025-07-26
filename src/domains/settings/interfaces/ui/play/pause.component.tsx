@@ -13,7 +13,7 @@ export const PauseComponent = () => {
       >
         <span
           className={styles.label}
-          dangerouslySetInnerHTML={{ __html: `<span>stopped</span>press to resume` }}
+          dangerouslySetInnerHTML={{ __html: `<span>paused</span>press to resume` }}
         />
       </ButtonComponent>
       <div

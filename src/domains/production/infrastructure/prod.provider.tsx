@@ -5,12 +5,12 @@ import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
 import { useSetti } from '@/src/domains/settings/interfaces/useSetti.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
-import { PROD_KEY } from '@/src/domains/production/infrastructure/prod.key.ts';
-import { PROD_STATE } from '@/src/domains/production/infrastructure/prod.state.ts';
+import { PRODUCTION_KEY } from '@/src/domains/production/infrastructure/prod.key.ts';
+import { PRODUCTION_STATE } from '@/src/domains/production/infrastructure/prod.state.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
-  const prodStorage = useLocalStorage(PROD_KEY, PROD_STATE);
+  const prodStorage = useLocalStorage(PRODUCTION_KEY, PRODUCTION_STATE);
   const [state, dispatch] = useReducer(prodReducer, prodStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
@@ -35,7 +35,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   useEffect(() => {
     if (!user) return;
     if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', production: users[user].factory?.production ?? PROD_STATE });
+    dispatch({ type: 'LOAD', production: users[user].factory?.production ?? PRODUCTION_STATE });
     userRef.current = user;
   }, [user]);
 

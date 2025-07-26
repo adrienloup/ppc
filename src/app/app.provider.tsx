@@ -7,6 +7,7 @@ import { BusinessProvider } from '@/src/domains/business/infrastructure/business
 import { CommerceProvider } from '@/src/domains/commerce/infrastructure/com.provider.tsx';
 import { IntelligenceProvider } from '@/src/domains/intelligence/infrastructure/intel.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
+import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -33,4 +34,5 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [CommerceProvider],
   [IntelligenceProvider],
   [TradeProvider],
+  [MecaProvider],
 ]);

@@ -2,10 +2,11 @@ import { useAuth, useAuthDispatch } from '@/src/domains/authentification/interfa
 import { useSetti, useSettiDispatch } from '@/src/domains/settings/interfaces/useSetti.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
+import { useCom } from '@/src/domains/commerce/interfaces/useCommerce.ts';
 import { useIntel } from '@/src/domains/intelligence/interfaces/useIntel.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { useSale } from '@/src/domains/sale/interfaces/useSale.ts';
-import { useCom } from '@/src/domains/commerce/interfaces/useCommerce.ts';
+import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
 
@@ -16,14 +17,16 @@ export const ProfileComponent = () => {
   const { user } = useAuth();
   const settings = useSetti();
   const business = useBusiness();
+  const commerce = useCom();
   const intelligence = useIntel();
   const production = useProd();
   const sale = useSale();
-  const trade = useCom();
+  const trade = useTrade();
 
   const logOut = () => {
     const factory = {
       business,
+      commerce,
       intelligence,
       production,
       sale,
