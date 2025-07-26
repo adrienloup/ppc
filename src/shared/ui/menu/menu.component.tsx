@@ -3,7 +3,7 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NavigationComponent } from '@/src/shared/ui/navigation/navigation.component.tsx';
 import { SettingsComponent } from '@/src/domains/profile/interfaces/ui/settings/settings.component.tsx';
-import { LogoutComponent } from '@/src/domains/authentification/interfaces/ui/logout/logout.component.tsx';
+import { LogoutComponent } from '@/src/domains/auth/interfaces/ui/logout/logout.component.tsx';
 import styles from '@/src/shared/ui/menu/menu.module.scss';
 
 export const MenuComponent = () => {

@@ -1,4 +1,4 @@
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { ClipComponent } from '@/src/domains/production/interfaces/ui/clip/clip.component.tsx';
@@ -10,7 +10,7 @@ import { InvestmentsComponent } from '@/src/domains/factory/interfaces/ui/factor
 import { ProductionComponent } from '@/src/domains/factory/interfaces/ui/factory/production.component.tsx';
 import { SwarmComponent } from '@/src/domains/factory/interfaces/ui/factory/swarm.component.tsx';
 import { PowerComponent } from '@/src/domains/factory/interfaces/ui/factory/power.component.tsx';
-import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
+import { LoginComponent } from '@/src/domains/auth/interfaces/ui/login/login.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const FactoryComponent = () => {

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { DEBUG_KEY } from '@/src/domains/debug/infrastructure/debug.key.ts';
 import { DebugProdComponent } from '@/src/domains/production/interfaces/ui/debug.component.tsx';
-import { DebugIntComponent } from '@/src/domains/intelligence/interfaces/ui/debug.component.tsx';
+import { DebugITComponent } from '@/src/domains/it/interfaces/ui/debug.component.tsx';
 import styles from '@/src/domains/debug/interfaces/debug.module.scss';
 
 export const DebugComponent = () => {
@@ -26,7 +26,7 @@ export const DebugComponent = () => {
       role="complementary"
     >
       <DebugProdComponent />
-      <DebugIntComponent />
+      <DebugITComponent />
     </div>
   ) : null;
 };

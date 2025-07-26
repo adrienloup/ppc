@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
 import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { PauseComponent } from '@/src/domains/profile/interfaces/ui/play/pause.component.tsx';
 import { PROFILE_KEY } from '@/src/domains/profile/infrastructure/profile.key.ts';
 import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';

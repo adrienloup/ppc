@@ -1,11 +1,11 @@
 import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
-import { AuthProvider } from '@/src/domains/authentification/infrastructure/auth.provider.tsx';
+import { AuthProvider } from '@/src/domains/auth/infrastructure/auth.provider.tsx';
 import { ProfileProvider } from '@/src/domains/profile/infrastructure/profile.provider.tsx';
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
 import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
-import { IntelligenceProvider } from '@/src/domains/intelligence/infrastructure/intel.provider.tsx';
+import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
 import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
@@ -32,7 +32,7 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [SaleProvider],
   [BusinessProvider],
   [MerProvider],
-  [IntelligenceProvider],
+  [ITProvider],
   [TradeProvider],
   [MecaProvider],
 ]);

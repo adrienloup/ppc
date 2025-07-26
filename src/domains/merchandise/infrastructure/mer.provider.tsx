@@ -2,7 +2,7 @@ import { type FC, useEffect, useReducer, useRef } from 'react';
 import { MerContext, MerDisContext } from '@/src/domains/merchandise/infrastructure/mer.context.tsx';
 import { merReducer } from '@/src/domains/merchandise/application/mer.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { MERCHANDISE_KEY } from '@/src/domains/merchandise/infrastructure/mer.key.ts';
 import { MERCHANDISE_STATE } from '@/src/domains/merchandise/infrastructure/mer.state.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';

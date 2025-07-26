@@ -2,7 +2,7 @@ import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastructure/prod.context.tsx';
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { PRODUCTION_KEY } from '@/src/domains/production/infrastructure/prod.key.ts';

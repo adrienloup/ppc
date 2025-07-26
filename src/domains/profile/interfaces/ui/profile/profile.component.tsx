@@ -1,8 +1,8 @@
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useProfile, useProfileDis } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { formatDate } from '@/src/shared/utils/formatDate.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
-import { LoginComponent } from '@/src/domains/authentification/interfaces/ui/login/login.component.tsx';
+import { LoginComponent } from '@/src/domains/auth/interfaces/ui/login/login.component.tsx';
 
 export const ProfileComponent = () => {
   const settiDispatch = useProfileDis();

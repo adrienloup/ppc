@@ -2,7 +2,7 @@ import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { SaleContext, SaleDisContext } from '@/src/domains/sale/infrastructure/sale.context.tsx';
 import { saleReducer } from '@/src/domains/sale/application/sale.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { SALE_KEY } from '@/src/domains/sale/infrastructure/sale.key.ts';

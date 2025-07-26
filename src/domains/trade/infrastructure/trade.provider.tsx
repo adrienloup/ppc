@@ -2,7 +2,7 @@ import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.ts';
 import { tradeReducer } from '@/src/domains/trade/application/trade.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { useAuth } from '@/src/domains/authentification/interfaces/useAuth.ts';
+import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { getTokens } from '@/src/domains/trade/interfaces/utils/getTokens.ts';
