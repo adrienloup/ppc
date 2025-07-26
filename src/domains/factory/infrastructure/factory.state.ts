@@ -5,6 +5,7 @@ import { MECHANICAL_STATE } from '@/src/domains/mechanical/infrastructure/meca.s
 import { MERCHANDISE_STATE } from '@/src/domains/merchandise/infrastructure/mer.state.ts';
 import { PRODUCTION_STATE } from '@/src/domains/production/infrastructure/prod.state.ts';
 import { SALE_STATE } from '@/src/domains/sale/infrastructure/sale.state.ts';
+import { SWARM_STATE } from '@/src/domains/swarm/infrastructure/swarm.state.ts';
 import { TRADE_STATE } from '@/src/domains/trade/infrastructure/trade.state.ts';
 
 export const FACTORY_STATE: Factory = {
@@ -14,5 +15,6 @@ export const FACTORY_STATE: Factory = {
   merchandise: MERCHANDISE_STATE,
   production: PRODUCTION_STATE,
   sale: SALE_STATE,
+  swarm: SWARM_STATE,
   trade: TRADE_STATE,
 };

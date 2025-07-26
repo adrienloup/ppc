@@ -8,6 +8,7 @@ import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provid
 import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
 import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
+import { SwarmProvider } from '@/src/domains/swarm/infrastructure/swarm.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -35,4 +36,5 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [ITProvider],
   [TradeProvider],
   [MecaProvider],
+  [SwarmProvider],
 ]);

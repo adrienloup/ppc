@@ -14,9 +14,11 @@ export const MerProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', merchandise: users[user].factory?.merchandise ?? MERCHANDISE_STATE });
+    if (!user || user === userRef.current) return;
+    dispatch({
+      type: 'LOAD',
+      merchandise: users[user].factory?.merchandise ?? MERCHANDISE_STATE,
+    });
     userRef.current = user;
   }, [user]);
 

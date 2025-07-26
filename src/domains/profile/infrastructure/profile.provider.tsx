@@ -1,6 +1,6 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
+import { SwarmContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
 import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
@@ -31,9 +31,11 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', profile: users[user].profile ?? PROFILE_STATE });
+    if (!user || user === userRef.current) return;
+    dispatch({
+      type: 'LOAD',
+      profile: users[user].profile ?? PROFILE_STATE,
+    });
     userRef.current = user;
   }, [user]);
 
@@ -43,11 +45,11 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   }, [state]);
 
   return (
-    <ProfileContext.Provider value={state}>
+    <SwarmContext.Provider value={state}>
       <ProfileDisContext.Provider value={dispatch}>
         {children}
         {state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
       </ProfileDisContext.Provider>
-    </ProfileContext.Provider>
+    </SwarmContext.Provider>
   );
 };

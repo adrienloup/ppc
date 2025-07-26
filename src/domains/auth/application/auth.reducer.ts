@@ -1,5 +1,4 @@
 import type { Auth, AuthDispatch } from '@/src/domains/auth/domain/auth.type.ts';
-import type { Profile } from '@/src/domains/profile/domain/profile.type.ts';
 
 export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
   switch (action.type) {
@@ -12,9 +11,6 @@ export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
           [action.username]: {
             ...state.users[action.username],
             password: action.password,
-            profile: {
-              date: new Date().toISOString(),
-            } as Profile,
           },
         },
         user: action.username,

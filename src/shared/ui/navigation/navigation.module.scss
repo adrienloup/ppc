@@ -9,10 +9,4 @@
   font-size: var(--font-size-s);
   color: var(--color-2);
   outline-offset: -0.25rem;
-
-  &:hover,
-  &:active {
-    background-color: var(--color-2);
-    color: var(--color-3);
-  }
 }

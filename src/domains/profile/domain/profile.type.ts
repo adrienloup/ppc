@@ -1,7 +1,6 @@
 import type { Mode } from '@/src/domains/profile/domain/mode.type.ts';
 
 export interface Profile {
-  date: string;
   mode: Mode;
   pause: boolean;
 }

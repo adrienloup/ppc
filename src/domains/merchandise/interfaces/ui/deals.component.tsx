@@ -12,25 +12,25 @@ export const DealComponent = () => {
   return (
     <div className={styles.deals}>
       <div className={styles.deal}>
-        <span className={styles.label}>purchased</span>
         <NumberComponent
           value={usedPercent / 100}
           asset="percent"
         />
+        <span className={styles.label}>purchased</span>
       </div>
       <div className={styles.deal}>
-        <span className={styles.label}>unlocked</span>
         <NumberComponent
           value={unlockedPercent / 100}
           asset="percent"
-        />{' '}
+        />
+        <span className={styles.label}>unlocked</span>
       </div>
       <div className={styles.deal}>
-        <span className={styles.label}>locked</span>
         <NumberComponent
           value={lockedPercent / 100}
           asset="percent"
         />
+        <span className={styles.label}>locked</span>
       </div>
     </div>
   );

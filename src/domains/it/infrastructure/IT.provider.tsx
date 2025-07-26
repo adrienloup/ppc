@@ -21,8 +21,7 @@ export const ITProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
+    if (!user || user === userRef.current) return;
     dispatch({
       type: 'LOAD',
       it: users[user].factory?.it ?? IT_STATE,

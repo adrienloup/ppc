@@ -23,9 +23,11 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   }, [state.token]);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', trade: users[user].factory?.trade ?? TRADE_STATE });
+    if (!user || user === userRef.current) return;
+    dispatch({
+      type: 'LOAD',
+      trade: users[user].factory?.trade ?? TRADE_STATE,
+    });
     userRef.current = user;
   }, [user]);
 

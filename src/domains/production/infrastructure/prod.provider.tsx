@@ -16,8 +16,8 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();
 
-  const autoProd = useCallback(() => {
-    // console.log('AUTO_PROD');
+  const auto = useCallback(() => {
+    console.log('AUTO_PROD');
     //   const prod = prodComputed(wire, clipper, megaClipper, clipFactory);
     //   const clip =
     //     prod.clipper * Math.max(1, clipperBonus) +
@@ -33,9 +33,11 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', production: users[user].factory?.production ?? PRODUCTION_STATE });
+    if (!user || user === userRef.current) return;
+    dispatch({
+      type: 'LOAD',
+      production: users[user].factory?.production ?? PRODUCTION_STATE,
+    });
     userRef.current = user;
   }, [user]);
 
@@ -43,7 +45,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
     prodStorage.set(state);
   }, [state]);
 
-  useInterval(autoProd, 1e3, !!user && !pause);
+  useInterval(auto, 1e3, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

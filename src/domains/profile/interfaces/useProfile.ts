@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
+import { SwarmContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
 
 export const useProfile = () => {
-  const ctx = useContext(ProfileContext);
+  const ctx = useContext(SwarmContext);
   if (!ctx) throw new Error('useProfile must be inside ProfileProvider');
   return ctx;
 };

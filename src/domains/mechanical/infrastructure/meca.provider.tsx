@@ -14,9 +14,11 @@ export const MecaProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', mechanical: users[user].factory?.mechanical ?? MECHANICAL_STATE });
+    if (!user || user === userRef.current) return;
+    dispatch({
+      type: 'LOAD',
+      mechanical: users[user].factory?.mechanical ?? MECHANICAL_STATE,
+    });
     userRef.current = user;
   }, [user]);
 

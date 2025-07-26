@@ -21,9 +21,11 @@ export const SaleProvider: FC<{ children: Children }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
-    if (user === userRef.current) return;
-    dispatch({ type: 'LOAD', sale: users[user].factory?.sale ?? SALE_STATE });
+    if (!user || user === userRef.current) return;
+    dispatch({
+      type: 'LOAD',
+      sale: users[user].factory?.sale ?? SALE_STATE,
+    });
     userRef.current = user;
   }, [user]);
 
