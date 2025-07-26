@@ -1,0 +1,33 @@
+.crypto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-s);
+  color: var(--color-2);
+}
+
+.name {
+  text-transform: uppercase;
+  //font-size: var(--font-size-s);
+  //color: var(--color-2);
+}
+
+.price {
+  font-size: var(--font-size-m);
+  //color: var(--color-2);
+}
+
+.variation {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-m);
+}
+
+.positive {
+  color: var(--color-8);
+}
+
+.negative {
+  color: var(--color-10);
+}
