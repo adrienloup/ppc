@@ -13,8 +13,13 @@
 
 .button {
   padding: var(--spacing-xs);
-  background-color: var(--color-3);
+  background-color: var(--color-6);
   text-transform: uppercase;
   font-size: var(--font-size-s);
   color: var(--color-2);
+
+  &:focus-visible,
+  &:active {
+    outline-color: var(--color-7);
+  }
 }
