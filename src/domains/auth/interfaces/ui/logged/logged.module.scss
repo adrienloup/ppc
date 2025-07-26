@@ -5,13 +5,15 @@ $mobile-portrait: 768px;
   top: 0;
   right: 0;
   z-index: 2;
+  display: flex;
   padding: var(--spacing-xs);
   text-transform: uppercase;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-m);
+  color: var(--color-3);
 
   @media (min-width: $mobile-portrait) {
     top: 0.25rem;
     right: 0.25rem;
-    font-size: var(--font-size-s);
+    font-size: var(--font-size-l);
   }
 }
