@@ -10,7 +10,14 @@ export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
           ...state.users,
           [action.username]: {
             ...state.users[action.username],
-            password: action.password,
+            account: {
+              password: action.password,
+            },
+            profile: {
+              date: new Date().toISOString(),
+              mode: 'system',
+              pause: false,
+            },
           },
         },
         user: action.username,

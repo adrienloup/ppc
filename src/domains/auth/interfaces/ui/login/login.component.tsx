@@ -44,8 +44,7 @@ export const LoginComponent = ({ className }: Login) => {
       setUsernameError('unknown username');
       return;
     }
-
-    if (user.password !== hashPassword) {
+    if (user.account.password !== hashPassword) {
       setPasswordError('incorrect password');
       return;
     }
@@ -60,7 +59,6 @@ export const LoginComponent = ({ className }: Login) => {
         id: 'log-in',
         text: `${username} is connected`,
         status: 'success',
-        timeout: 2e3,
       },
     });
   };
@@ -98,7 +96,6 @@ export const LoginComponent = ({ className }: Login) => {
         id: 'sign-up',
         text: `${username} successfully registered`,
         status: 'success',
-        timeout: 2e3,
       },
     });
   };

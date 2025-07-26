@@ -1,4 +1,4 @@
-import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interfaces/useBusiness.ts';
+import { useBusi, useBusiDis } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { useSale, useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -10,9 +10,9 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const MarketingComponent = () => {
   // console.log('MarketingComponent');
-  const businessDispatch = useBusinessDispatch();
+  const businessDispatch = useBusiDis();
   const fundsDispatch = useSaleDispatch();
-  const { marketing, marketingCost } = useBusiness();
+  const { marketing, marketingCost } = useBusi();
   const { funds } = useSale();
 
   const buyMarketing = () => {

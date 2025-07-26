@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTitle } from '@/src/shared/hooks/useTitle.ts';
 import { fallback } from '@/src/shared/utils/fallback.ts';
 import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 
@@ -7,6 +8,7 @@ const LayoutComponent = lazy(() => fallback(import('@/src/shared/ui/layout/layou
 
 function ExplorePage() {
   const { t } = useTranslation();
+  useTitle(t('explore.titlePage'));
 
   return (
     <Suspense fallback={<LoaderComponent arial-label={t('app.loading')} />}>
