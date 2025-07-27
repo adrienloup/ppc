@@ -3,22 +3,22 @@ import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import type { Navigation } from '@/src/shared/ui/navigation/navigation.type.ts';
 import styles from '@/src/shared/ui/navigation/navigation.module.scss';
 
-export const NavigationComponent = ({ className, id = 'main-navigation', items }: Navigation) => {
-  return items.length > 0 ? (
+export const NavigationComponent = ({ className, id = 'main-navigation', links }: Navigation) => {
+  return (
     <nav
       className={classNames([styles.nav, className])}
       id={id}
       role="navigation"
     >
-      {items.map((item) => (
+      {links.map((link) => (
         <ButtonComponent
-          key={item}
-          className={styles.item}
-          to={`/ppc/${item}`}
+          key={link}
+          className={styles.link}
+          to={`/ppc/${link}`}
         >
-          {item}
+          {link}
         </ButtonComponent>
       ))}
     </nav>
-  ) : null;
+  );
 };

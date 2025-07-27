@@ -30,10 +30,29 @@ $tablet-landscape: 1440px;
       animation-timing-function: var(--ease-quad);
       animation-duration: 0.5s, 0.7s;
       animation-fill-mode: backwards;
+    }
 
-      @for $i from 1 through 8 {
-        &:nth-child(#{$i}) {
-          animation-delay: #{0.2s + $i * 0.1s};
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      & > * {
+        @for $i from 1 through 6 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{0.2s + $i * 0.1s};
+          }
+        }
+      }
+    }
+
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      & > * {
+        @for $i from 1 through 6 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{0.6s + $i * 0.1s};
+          }
         }
       }
     }

@@ -5,7 +5,7 @@ import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx'
 import { LoginComponent } from '@/src/domains/auth/interfaces/ui/login/login.component.tsx';
 
 export const ProfileComponent = () => {
-  const settiDispatch = useProfileDis();
+  const proDispatch = useProfileDis();
   const { user } = useAuth();
   const { date, mode } = useProfile();
 
@@ -23,14 +23,14 @@ export const ProfileComponent = () => {
         <div>user: {user}</div>
         <div>date: {formatDate(date)}</div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_PLAY_PAUSE' })}>toggle play</button>
+          <button onClick={() => proDispatch({ type: 'SET_PLAY_PAUSE' })}>toggle play</button>
         </div>
         <div>mode: {mode}</div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
+          <button onClick={() => proDispatch({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
         </div>
         <div>
-          <button onClick={() => settiDispatch({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
+          <button onClick={() => proDispatch({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
         </div>
       </div>
     </ArticleComponent>

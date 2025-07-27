@@ -14,7 +14,7 @@ describe('login component', () => {
 
   beforeEach(() => {
     vi.spyOn(authHook, 'useAuth').mockReturnValue({
-      users: { emma: { password: 'dGVzdA==', profile: PROFILE_STATE, factory: FACTORY_STATE } },
+      users: { emma: { account: { password: 'dGVzdA==' }, profile: PROFILE_STATE, factory: FACTORY_STATE } },
       user: null,
     });
 
@@ -70,7 +70,7 @@ describe('login component', () => {
 
       expect(mockNotifDispatch).toHaveBeenCalledWith({
         type: 'ADD',
-        alert: expect.objectContaining({ text: 'emma is connected' }),
+        notif: expect.objectContaining({ text: 'emma is connected' }),
       });
     });
   });

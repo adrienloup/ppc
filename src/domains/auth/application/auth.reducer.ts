@@ -15,6 +15,7 @@ export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
             },
             profile: {
               date: new Date().toISOString(),
+              lang: 'en',
               mode: 'system',
               pause: false,
             },

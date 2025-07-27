@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { PauseComponent } from '@/src/domains/profile/interfaces/ui/play/pause.component.tsx';
+import { PauseComponent } from '@/src/domains/profile/interfaces/ui/pause/pause.component.tsx';
 
 import * as profileHook from '@/src/domains/profile/interfaces/useProfile.ts';
 

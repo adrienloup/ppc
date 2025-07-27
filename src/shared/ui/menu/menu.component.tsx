@@ -3,7 +3,7 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NavigationComponent } from '@/src/shared/ui/navigation/navigation.component.tsx';
 import { SettingsComponent } from '@/src/domains/profile/interfaces/ui/settings/settings.component.tsx';
-import { LogoutComponent } from '@/src/domains/auth/interfaces/ui/logout/logout.component.tsx';
+import { ControlsComponent } from '@/src/domains/profile/interfaces/ui/controls/controls.component.tsx';
 import styles from '@/src/shared/ui/menu/menu.module.scss';
 
 export const MenuComponent = () => {
@@ -40,17 +40,10 @@ export const MenuComponent = () => {
         menu
       </ButtonComponent>
       <div className={styles.inside}>
-        <NavigationComponent items={['profile', 'factory', 'store', 'explore']} />
-        <SettingsComponent />
-        <div
-          style={{
-            padding: '0 var(--spacing-s)',
-            fontSize: 'var(--font-size-xs)',
-            color: 'var(--color-2)',
-          }}
-        >
-          contrôle bouton play/pause
-          <LogoutComponent />
+        <NavigationComponent links={['profile', 'factory', 'store', 'explore']} />
+        <div className={styles.group}>
+          <SettingsComponent />
+          <ControlsComponent />
         </div>
       </div>
     </div>

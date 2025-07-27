@@ -1,10 +1,18 @@
+$mobile-portrait: 768px;
+
 .nav {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: 0 var(--spacing-xs);
+
+  @media (min-width: $mobile-portrait) {
+    flex-flow: row wrap;
+    gap: var(--spacing-s);
+  }
 }
 
-.item {
-  padding: var(--spacing-xs);
+.link {
   text-transform: uppercase;
   font-size: var(--font-size-s);
   color: var(--color-2);

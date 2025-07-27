@@ -1,5 +1,5 @@
-import type { Alert } from '@/src/domains/notification/interfaces/ui/alert/alert.type.ts';
+import type { Notif } from '@/src/domains/notification/interfaces/ui/notif/notif.type.ts';
 
-export type Notif = Alert[];
+export type NotifState = Notif[];
 
-export type NotifDispatch = { type: 'ADD'; alert: Alert } | { type: 'REMOVE'; id: string };
+export type NotifDispatch = { type: 'ADD'; notif: Notif } | { type: 'REMOVE'; id: string };

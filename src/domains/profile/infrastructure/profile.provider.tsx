@@ -1,12 +1,14 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { SwarmContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
 import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
-import { PauseComponent } from '@/src/domains/profile/interfaces/ui/play/pause.component.tsx';
+import { PauseComponent } from '@/src/domains/profile/interfaces/ui/pause/pause.component.tsx';
 import { PROFILE_KEY } from '@/src/domains/profile/infrastructure/profile.key.ts';
 import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
+import type { Lang } from '@/src/domains/profile/domain/lang.type.ts';
 import type { Mode } from '@/src/domains/profile/domain/mode.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -15,6 +17,12 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(profileReducer, profileStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
+  const { i18n } = useTranslation();
+
+  const updateLang = useCallback((language: Lang) => {
+    i18n.changeLanguage(language).then(() => undefined);
+    document.documentElement.lang = language;
+  }, []);
 
   const updateMode = useCallback((mode: Mode) => {
     const isDark = mode === 'dark' || mode === 'system';
@@ -40,6 +48,7 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   }, [user]);
 
   useEffect(() => {
+    updateLang(state.lang);
     updateMode(state.mode);
     profileStorage.set(state);
   }, [state]);

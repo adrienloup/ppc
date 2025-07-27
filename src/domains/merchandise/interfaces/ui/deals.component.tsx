@@ -3,8 +3,8 @@ import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss'
 
 export const DealComponent = () => {
   // console.log('DealComponent');
-  const clampedUsed = Math.min(24, 46);
-  const clampedUnlocked = Math.min(46, 100);
+  const clampedUsed = Math.min(9, 12);
+  const clampedUnlocked = Math.min(12, 100);
   const usedPercent = (clampedUsed / 100) * 100;
   const unlockedPercent = ((clampedUnlocked - clampedUsed) / 100) * 100;
   const lockedPercent = 100 - usedPercent - unlockedPercent;

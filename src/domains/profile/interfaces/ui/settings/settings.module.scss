@@ -1,9 +1,26 @@
 .settings {
   display: flex;
   flex-flow: row wrap;
-  gap: var(--spacing-s);
-  //padding: var(--spacing-xs);
-  background-color: var(--color-3);
+  gap: var(--spacing-xs);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
   font-size: var(--font-size-xs);
   color: var(--color-2);
+}
+
+.buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.button {
+  padding: var(--spacing-xs);
+  background-color: var(--color-2);
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  color: var(--color-3);
 }

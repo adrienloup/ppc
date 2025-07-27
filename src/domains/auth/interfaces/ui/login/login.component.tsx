@@ -55,7 +55,7 @@ export const LoginComponent = ({ className }: Login) => {
     });
     notifDispatch({
       type: 'ADD',
-      alert: {
+      notif: {
         id: 'log-in',
         text: `${username} is connected`,
         status: 'success',
@@ -92,7 +92,7 @@ export const LoginComponent = ({ className }: Login) => {
     });
     notifDispatch({
       type: 'ADD',
-      alert: {
+      notif: {
         id: 'sign-up',
         text: `${username} successfully registered`,
         status: 'success',

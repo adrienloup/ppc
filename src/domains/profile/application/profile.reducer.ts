@@ -4,6 +4,8 @@ export const profileReducer = (state: Profile, action: ProfileDispatch): Profile
   switch (action.type) {
     case 'LOAD':
       return action.profile;
+    case 'SET_LANG':
+      return { ...state, lang: action.lang };
     case 'SET_MODE':
       return { ...state, mode: action.mode };
     case 'SET_PLAY_PAUSE':

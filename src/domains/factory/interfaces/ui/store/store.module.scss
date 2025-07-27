@@ -62,11 +62,13 @@ $tablet-landscape: 1440px;
 
 .card {
   flex-direction: column;
+  align-items: flex-start;
   overflow: hidden;
   width: 100%;
   padding: var(--spacing-xs);
   background-color: var(--color-3);
   color: var(--color-2);
+
   @media (min-width: $mobile-landscape) {
     width: calc((100% / 2) - 0.25rem);
   }

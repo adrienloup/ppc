@@ -48,7 +48,7 @@ export const LogoutComponent = memo(() => {
     });
     notifDispatch({
       type: 'ADD',
-      alert: {
+      notif: {
         id: 'log-out',
         text: `${user} is connected`,
         status: 'success',
@@ -58,7 +58,7 @@ export const LogoutComponent = memo(() => {
 
   return (
     <ButtonComponent
-      className={styles.button}
+      className={styles.logout}
       onClick={logOut}
     >
       logout

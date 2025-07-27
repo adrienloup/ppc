@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
-import type { Alert } from '@/src/domains/notification/interfaces/ui/alert/alert.type.ts';
-import styles from '@/src/domains/notification/interfaces/ui/alert/alert.module.scss';
+import type { Notif } from '@/src/domains/notification/interfaces/ui/notif/notif.type.ts';
+import styles from '@/src/domains/notification/interfaces/ui/notif/notif.module.scss';
 
-export const AlertComponent = ({
+export const NotifComponent = ({
   id,
   text,
   status = 'warning',
   timeout = 4e3,
   close = true,
   remove,
-}: Alert) => {
+}: Notif) => {
   const outTimer = useRef(0);
   const removeTimer = useRef(0);
   const [out, setOut] = useState(false);
@@ -41,7 +41,7 @@ export const AlertComponent = ({
   return (
     <div
       className={classNames([
-        styles.alert,
+        styles.notif,
         styles[status],
         timeout > 0 ? styles.in : '',
         out ? styles.out : '',
