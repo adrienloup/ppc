@@ -7,7 +7,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
-import styles from '@/src/domains/industry/interfaces/ui/dashboard/dashboard.module.scss';
+import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipFactoryComponent = () => {
   // console.log('ClipFactoryComponent');
@@ -22,8 +22,6 @@ export const ClipFactoryComponent = () => {
     mecaDispatch({ type: 'BUY_CLIP_FACTORY', cost });
     saleDispatch({ type: 'DECREASE_FUNDS', cost });
   };
-
-  // if (!factory.feature.clipFactory.enabled) return null;
 
   return (
     <DialsComponent>

@@ -1,10 +1,10 @@
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
-// import { FundsPerSecondComponent } from '@/src/domains/sale/interfaces/ui/fundsPerSecond.component.tsx';
-// import { FundsComponent } from '@/src/domains/sale/interfaces/ui/funds.component.tsx';
-// import { UnsoldInventoryComponent } from '@/src/domains/sale/interfaces/ui/unsoldInventory.component.tsx';
-// import { ClipPriceComponent } from '@/src/domains/sale/interfaces/ui/clipPrice.component.tsx';
-// import { PublicDemandComponent } from '@/src/domains/sale/interfaces/ui/publicDemand.component.tsx';
+import { FundsPerSecondComponent } from '@/src/domains/sale/interfaces/ui/fundsPerSecond.component.tsx';
+import { FundsComponent } from '@/src/domains/sale/interfaces/ui/funds.component.tsx';
+import { UnsoldInventoryComponent } from '@/src/domains/sale/interfaces/ui/unsoldInventory.component.tsx';
+import { ClipPriceComponent } from '@/src/domains/sale/interfaces/ui/clipPrice.component.tsx';
+import { PublicDemandComponent } from '@/src/domains/sale/interfaces/ui/publicDemand.component.tsx';
 import { MarketingComponent } from '@/src/domains/business/interfaces/ui/marketing.component.tsx';
 // import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
@@ -19,11 +19,11 @@ export const BusinessComponent = () => {
       >
         business
       </TitleComponent>
-      {/*<FundsPerSecondComponent />*/}
-      {/*<FundsComponent />*/}
-      {/*<UnsoldInventoryComponent />*/}
-      {/*<ClipPriceComponent />*/}
-      {/*<PublicDemandComponent />*/}
+      <FundsPerSecondComponent />
+      <FundsComponent />
+      <UnsoldInventoryComponent />
+      <ClipPriceComponent />
+      <PublicDemandComponent />
       <MarketingComponent />
       {/*<EmptyComponent />*/}
     </CardComponent>

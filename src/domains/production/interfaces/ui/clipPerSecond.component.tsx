@@ -12,7 +12,7 @@ export const ClipPerSecondComponent = () => {
   const { clipPerSecond } = useProd();
 
   const makeClip = () => {
-    prodDispatch({ type: 'MAKE_CLIP' });
+    prodDispatch({ type: 'INCREASE_CLIP' });
   };
 
   return (
