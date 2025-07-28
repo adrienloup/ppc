@@ -3,7 +3,7 @@ import type { Resources, ResourcesDispatch } from '@/src/domains/resources/domai
 export const resourcesReducer = (state: Resources, action: ResourcesDispatch): Resources => {
   switch (action.type) {
     case 'LOAD':
-      return action.state;
+      return action.resources;
     case 'DECREASE_WIRE':
       return {
         ...state,
@@ -17,7 +17,7 @@ export const resourcesReducer = (state: Resources, action: ResourcesDispatch): R
     case 'WIRE_COST':
       return {
         ...state,
-        wireCost: action.cost,
+        wireCost: state.wireCost > 8 ? state.wireCost - 0.26 : Math.random() * 8 + 12,
       };
     case 'WIRE_QUANTITY':
       return {

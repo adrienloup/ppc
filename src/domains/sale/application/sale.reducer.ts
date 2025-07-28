@@ -13,7 +13,15 @@ export const saleReducer = (state: Sale, action: SaleDispatch): Sale => {
         fundsPerSecond: (state.fundsPerSecond + 1) * unsoldInventoryBonusUI * state.clipPrice,
       };
     }
+    case 'AUTO_INCREASE_INVENTORY': {
+      return {
+        ...state,
+        unsoldInventory: state.unsoldInventory + action.clip * Math.max(1, state.unsoldInventoryBonus),
+        fundsPerSecond: action.clip * state.clipPrice,
+      };
+    }
     case 'DECREASE_INVENTORY': {
+      console.log('DECREASE_INVENTORY', state.unsoldInventory);
       if (state.unsoldInventory <= 0) return state;
       const unsoldInventoryDI = Math.max(0, Math.floor(state.unsoldInventory * (1 - state.publicDemand)));
       const fundsDI = state.funds + (state.unsoldInventory - unsoldInventoryDI) * state.clipPrice;

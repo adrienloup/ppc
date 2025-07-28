@@ -20,9 +20,8 @@ export const ResourcesProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useProfile();
 
   const update = useCallback(() => {
-    const cost = state.wireCost > 8 ? state.wireCost - 0.26 : Math.random() * 8 + 12;
-    dispatch({ type: 'WIRE_COST', cost });
-  }, [state.wireCost]);
+    dispatch({ type: 'WIRE_COST' });
+  }, []);
 
   useEffect(() => {
     if (!user || user === userRef.current) return;

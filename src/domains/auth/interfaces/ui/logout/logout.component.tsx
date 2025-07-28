@@ -13,6 +13,7 @@ import { useSwarm } from '@/src/domains/swarm/interfaces/useSwarm.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 // import { IconComponent } from '@/src/shared/ui/icon/icon.component.tsx';
 import styles from '@/src/domains/auth/interfaces/ui/logout/logout.module.scss';
+import { useRes } from '@/src/domains/resources/interfaces/useResouces.ts';
 
 export const LogoutComponent = memo(() => {
   const authDispatch = useAuthDispatch();
@@ -28,6 +29,7 @@ export const LogoutComponent = memo(() => {
   const mechanical = useMeca();
   const merchandise = useMer();
   const swarm = useSwarm();
+  const resources = useRes();
 
   const logOut = () => {
     const factory = {
@@ -40,6 +42,7 @@ export const LogoutComponent = memo(() => {
       sale,
       trade,
       swarm,
+      resources,
     };
     authDispatch({
       type: 'LOG_OUT',

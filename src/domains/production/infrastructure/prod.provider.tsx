@@ -32,7 +32,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
       prod.clipFactory * 1e3 * Math.max(1, clipFactoryBonus);
 
     dispatch({ type: 'AUTO_INCREASE_CLIP', clip });
-    saleDispatch({ type: 'INCREASE_INVENTORY', clip });
+    saleDispatch({ type: 'AUTO_INCREASE_INVENTORY', clip });
     if (wire <= 0) return;
     resourcesDispatch({ type: 'AUTO_DECREASE_WIRE', wire: prod.wire });
   }, [wire, clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus]);
