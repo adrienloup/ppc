@@ -10,10 +10,10 @@
   width: 3.5rem;
   height: 2rem;
   //padding: var(--spacing-xs);
-  background-color: var(--color-2);
+  background-color: var(--mode-color-1);
   //font-size: var(--font-size-s);
   font-size: var(--font-size-m);
-  color: var(--color-3);
+  color: var(--mode-color-2);
 
   .disabled & {
     opacity: 0.5;

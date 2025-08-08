@@ -11,7 +11,7 @@ $tablet-landscape: 1440px;
   gap: var(--spacing-s);
   align-items: center;
   padding: var(--spacing-xs);
-  background-color: var(--color-3);
+  background-color: var(--mode-color-2);
   animation:
     SlideUp 0.5s var(--ease-quad) backwards 0.2s,
     FadeIn 0.7s var(--ease-quad) backwards 0.2s;
@@ -23,7 +23,7 @@ $tablet-landscape: 1440px;
   align-items: flex-start;
   justify-content: center;
   font-size: var(--font-size-m);
-  color: var(--color-2);
+  color: var(--mode-color-1);
 
   @media (min-width: $mobile-landscape) {
     flex-direction: row;
@@ -66,8 +66,8 @@ $tablet-landscape: 1440px;
   overflow: hidden;
   width: 100%;
   padding: var(--spacing-xs);
-  background-color: var(--color-3);
-  color: var(--color-2);
+  background-color: var(--mode-color-2);
+  color: var(--mode-color-1);
 
   @media (min-width: $mobile-landscape) {
     width: calc((100% / 2) - 0.25rem);
@@ -90,10 +90,10 @@ $tablet-landscape: 1440px;
 .button {
   margin-top: auto;
   padding: var(--spacing-xs);
-  background-color: var(--color-2);
+  background-color: var(--mode-color-1);
   text-transform: uppercase;
   font-size: var(--font-size-s);
-  color: var(--color-3);
+  color: var(--mode-color-2);
 }
 
 @keyframes SlideUp {

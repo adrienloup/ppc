@@ -65,10 +65,10 @@ $tablet-landscape: 1440px;
 
 .title {
   padding: var(--spacing-xs);
-  background-color: var(--color-3);
+  background-color: var(--mode-color-2);
   text-transform: uppercase;
   font-size: var(--font-size-s);
-  color: var(--color-2);
+  color: var(--mode-color-1);
 }
 
 .group {
@@ -80,12 +80,12 @@ $tablet-landscape: 1440px;
 
 .value {
   font-size: var(--font-size-l);
-  color: var(--color-2);
+  color: var(--mode-color-1);
 }
 
 .label {
   font-size: var(--font-size-s);
-  color: var(--color-2);
+  color: var(--mode-color-1);
 }
 
 .buttons {

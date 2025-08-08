@@ -1,9 +1,9 @@
 .textField {
   overflow: hidden;
   display: flex;
-  border: 0.25rem solid var(--color-3);
+  border: 0.25rem solid var(--mode-color-2);
   font-size: var(--font-size-m);
-  color: var(--color-3);
+  color: var(--mode-color-2);
 
   &.focus {
     outline: 0.25rem solid var(--color-5);
@@ -28,11 +28,11 @@
   font-family: var(--font-text), sans-serif;
   font-weight: normal;
   font-size: var(--font-size-s);
-  color: var(--color-3);
+  color: var(--mode-color-2);
   outline: 0;
 
   &::placeholder {
     font-style: italic;
-    color: var(--color-3);
+    color: var(--mode-color-2);
   }
 }

@@ -10,10 +10,10 @@ import { useSale } from '@/src/domains/sale/interfaces/useSale.ts';
 import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
 import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { useSwarm } from '@/src/domains/swarm/interfaces/useSwarm.ts';
+import { useRes } from '@/src/domains/resources/interfaces/useResouces.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 // import { IconComponent } from '@/src/shared/ui/icon/icon.component.tsx';
 import styles from '@/src/domains/auth/interfaces/ui/logout/logout.module.scss';
-import { useRes } from '@/src/domains/resources/interfaces/useResouces.ts';
 
 export const LogoutComponent = memo(() => {
   const authDispatch = useAuthDispatch();

@@ -4,7 +4,7 @@ $mobile-landscape: 1024px;
 .menu {
   position: relative;
   height: 0;
-  background-color: var(--color-3);
+  background-color: var(--mode-color-2);
   transition-property: height;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
@@ -58,9 +58,9 @@ $mobile-landscape: 1024px;
   top: 100%;
   left: 0;
   padding: var(--spacing-xs);
-  background-color: var(--color-3);
+  background-color: var(--mode-color-2);
   text-transform: uppercase;
   font-size: var(--font-size-xs);
-  color: var(--color-2);
+  color: var(--mode-color-1);
   outline-offset: -0.25rem;
 }

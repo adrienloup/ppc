@@ -3,9 +3,9 @@
   gap: var(--spacing-xs);
   align-items: center;
   padding: var(--spacing-xs);
-  background-color: var(--color-3);
+  background-color: var(--mode-color-2);
   font-size: var(--font-size-s);
-  color: var(--color-2);
+  color: var(--mode-color-1);
   animation:
     SlideUp 0.5s var(--ease-quad) backwards 0.2s,
     FadeIn 0.7s var(--ease-quad) backwards 0.2s;
