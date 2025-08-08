@@ -5,16 +5,21 @@ export const inventoryReducer = (state: Inventory, action: InventoryDispatch): I
     case 'LOAD':
       return action.inventory;
     case 'INCREASE_INVENTORY': {
-      const unsoldInventoryII = (state.unsoldInventory + 1) * Math.max(1, state.unsoldInventoryBonus);
       return {
         ...state,
-        unsoldInventory: unsoldInventoryII,
+        unsoldInventory: (state.unsoldInventory + 1) * Math.max(1, state.unsoldInventoryBonus),
+      };
+    }
+    case 'AUTO_INCREASE_INVENTORY': {
+      return {
+        ...state,
+        unsoldInventory: state.unsoldInventory + action.unsoldInventory * Math.max(1, state.unsoldInventoryBonus),
       };
     }
     case 'DECREASE_INVENTORY': {
       return {
         ...state,
-        unsoldInventory: action.unsoldInventory,
+        unsoldInventory: Math.max(0, action.unsoldInventory),
       };
     }
     case 'INVENTORY_BONUS':

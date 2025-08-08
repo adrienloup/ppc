@@ -1,13 +1,13 @@
 import { type FormEvent, useState } from 'react';
+import type { Login } from '@/src/domains/auth/interfaces/ui/login/login.type.ts';
 import { useAuth, useAuthDispatch } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
+import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import { TextFieldComponent } from '@/src/shared/ui/textfield/textField.component.tsx';
+import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
+import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import { regexTest } from '@/src/shared/utils/regexTest.ts';
-import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
-import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
-import { TextFieldComponent } from '@/src/shared/ui/textfield/textField.component.tsx';
-import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
-import type { Login } from '@/src/domains/auth/interfaces/ui/login/login.type.ts';
 import styles from '@/src/domains/auth/interfaces/ui/login/login.module.scss';
 
 export const LoginComponent = ({ className }: Login) => {

@@ -1,5 +1,5 @@
-import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { Rangebar } from '@/src/shared/ui/rangebar/rangebar.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/rangebar/rangebar.module.scss';
 
 export const RangebarComponent = ({ className, min, max, step, value, disabled, onChange }: Rangebar) => {

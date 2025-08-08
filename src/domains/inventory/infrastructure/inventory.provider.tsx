@@ -1,13 +1,14 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
-import { InventoryContext, InventoryDisContext } from '@/src/domains/inventory/infrastructure/inventory.context.tsx';
-import { inventoryReducer } from '@/src/domains/inventory/application/inventory.reducer.ts';
-import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
-import { useBusiDispatch, useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
-import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
-import { useInterval } from '@/src/shared/hooks/useInterval.ts';
+import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
+import { useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { inventoryReducer } from '@/src/domains/inventory/application/inventory.reducer.ts';
+import { InventoryContext, InventoryDisContext } from '@/src/domains/inventory/infrastructure/inventory.context.tsx';
 import { INVENTORY_KEY } from '@/src/domains/inventory/infrastructure/inventory.key.ts';
 import { INVENTORY_STATE } from '@/src/domains/inventory/infrastructure/inventory.state.ts';
+import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
+import { useInterval } from '@/src/shared/hooks/useInterval.ts';
+import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
@@ -16,18 +17,18 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();
-  const businessDispatch = useBusiDispatch();
-  const { publicDemand } = useBusiness();
+  const fundsDispatch = useFundsDispatch();
+  const { clipPrice, publicDemand } = useBusiness();
 
   const update = useCallback(() => {
     if (state.unsoldInventory < 1) return;
 
-    const unsoldInventory = Math.max(0, Math.floor(state.unsoldInventory * (1 - publicDemand)));
-    const funds = state.unsoldInventory - unsoldInventory;
+    const unsoldInventory = Math.floor(state.unsoldInventory * (1 - publicDemand));
+    const price = (state.unsoldInventory - unsoldInventory) * clipPrice;
 
     dispatch({ type: 'DECREASE_INVENTORY', unsoldInventory });
-    businessDispatch({ type: 'INCREASE_FUNDS', funds });
-  }, [state, publicDemand]);
+    fundsDispatch({ type: 'INCREASE_FUNDS', price });
+  }, [state, clipPrice, publicDemand]);
 
   useEffect(() => {
     if (!user || user === userRef.current) return;

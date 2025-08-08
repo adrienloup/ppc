@@ -1,9 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useMer } from '@/src/domains/merchandise/interfaces/useMer.ts';
-import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
-import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss';
 
 export const MerchandiseComponent = () => {

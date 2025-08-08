@@ -1,16 +1,18 @@
-import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
-import { AuthProvider } from '@/src/domains/auth/infrastructure/auth.provider.tsx';
-import { ProfileProvider } from '@/src/domains/profile/infrastructure/profile.provider.tsx';
-import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
-import { ResourcesProvider } from '@/src/domains/resources/infrastructure/resources.provider.tsx';
-import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
-import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
-import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
-import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
-import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
-import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
-import { SwarmProvider } from '@/src/domains/swarm/infrastructure/swarm.provider.tsx';
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
+import { AuthProvider } from '@/src/domains/auth/infrastructure/auth.provider.tsx';
+import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
+import { FundsProvider } from '@/src/domains/funds/infrastructure/funds.provider.tsx';
+import { InventoryProvider } from '@/src/domains/inventory/infrastructure/inventory.provider.tsx';
+import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
+import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
+import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
+import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
+import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
+import { ProfileProvider } from '@/src/domains/profile/infrastructure/profile.provider.tsx';
+import { ResourcesProvider } from '@/src/domains/resources/infrastructure/resources.provider.tsx';
+// import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
+import { SwarmProvider } from '@/src/domains/swarm/infrastructure/swarm.provider.tsx';
+import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 type ProviderType = [ComponentType<{ children: Children }>, ComponentPropsWithoutRef<ElementType>?];
@@ -31,7 +33,9 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [AuthProvider],
   [ProfileProvider],
   [BusinessProvider],
-  [SaleProvider],
+  [FundsProvider],
+  [InventoryProvider],
+  // [SaleProvider],
   [ResourcesProvider],
   [MecaProvider],
   [ProdProvider],

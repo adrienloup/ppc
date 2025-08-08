@@ -1,16 +1,16 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
-import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
-import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
-import { PauseComponent } from '@/src/domains/profile/interfaces/ui/pause/pause.component.tsx';
-import { PROFILE_KEY } from '@/src/domains/profile/infrastructure/profile.key.ts';
-import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
+import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
 import type { Lang } from '@/src/domains/profile/domain/lang.type.ts';
 import type { Mode } from '@/src/domains/profile/domain/mode.type.ts';
 import type { Theme } from '@/src/domains/profile/domain/theme.type.ts';
+import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
+import { PROFILE_KEY } from '@/src/domains/profile/infrastructure/profile.key.ts';
+import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
+import { PauseComponent } from '@/src/domains/profile/interfaces/ui/pause/pause.component.tsx';
+import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {

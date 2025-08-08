@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { Button } from '@/src/shared/ui/button/button.type.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/button/button.module.scss';
 
 export const ButtonComponent = memo(

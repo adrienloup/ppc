@@ -1,6 +1,6 @@
-import { classNames } from '@/src/shared/utils/classNames.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import type { Navigation } from '@/src/shared/ui/navigation/navigation.type.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/navigation/navigation.module.scss';
 
 export const NavigationComponent = ({ className, id = 'main-navigation', links }: Navigation) => {

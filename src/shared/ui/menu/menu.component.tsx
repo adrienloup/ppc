@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
-import { classNames } from '@/src/shared/utils/classNames.ts';
+import { ControlsComponent } from '@/src/domains/profile/interfaces/ui/controls/controls.component.tsx';
+import { SettingsComponent } from '@/src/domains/profile/interfaces/ui/settings/settings.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { NavigationComponent } from '@/src/shared/ui/navigation/navigation.component.tsx';
-import { SettingsComponent } from '@/src/domains/profile/interfaces/ui/settings/settings.component.tsx';
-import { ControlsComponent } from '@/src/domains/profile/interfaces/ui/controls/controls.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/menu/menu.module.scss';
 
 export const MenuComponent = () => {

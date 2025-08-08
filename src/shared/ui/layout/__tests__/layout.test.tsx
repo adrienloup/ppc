@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { describe, it, expect } from 'vitest';
 import LayoutComponent from '@/src/shared/ui/layout/layout.component.tsx';
 
 describe('layout component', () => {

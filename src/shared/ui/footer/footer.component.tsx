@@ -1,6 +1,6 @@
 import { version } from '@/package.json';
-import styles from '@/src/shared/ui/footer/footer.module.scss';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import styles from '@/src/shared/ui/footer/footer.module.scss';
 
 export const FooterComponent = () => {
   return (

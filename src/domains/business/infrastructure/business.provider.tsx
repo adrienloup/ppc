@@ -1,10 +1,10 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
-import { BusiContext, BusiDisContext } from '@/src/domains/business/infrastructure/business.context.tsx';
-import { businessReducer } from '@/src/domains/business/application/business.reducer.ts';
-import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
+import { businessReducer } from '@/src/domains/business/application/business.reducer.ts';
+import { BusiContext, BusiDisContext } from '@/src/domains/business/infrastructure/business.context.tsx';
 import { BUSINESS_KEY } from '@/src/domains/business/infrastructure/business.key.ts';
 import { BUSINESS_STATE } from '@/src/domains/business/infrastructure/business.state.ts';
+import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const BusinessProvider: FC<{ children: Children }> = ({ children }) => {

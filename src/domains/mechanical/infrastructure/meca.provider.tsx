@@ -1,10 +1,10 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
-import { MecaContext, MecaDispatchContext } from '@/src/domains/mechanical/infrastructure/meca.context.tsx';
-import { mecaReducer } from '@/src/domains/mechanical/application/meca.reducer.ts';
-import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
+import { mecaReducer } from '@/src/domains/mechanical/application/meca.reducer.ts';
+import { MecaContext, MecaDispatchContext } from '@/src/domains/mechanical/infrastructure/meca.context.tsx';
 import { MECHANICAL_KEY } from '@/src/domains/mechanical/infrastructure/meca.key.ts';
 import { MECHANICAL_STATE } from '@/src/domains/mechanical/infrastructure/meca.state.ts';
+import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const MecaProvider: FC<{ children: Children }> = ({ children }) => {

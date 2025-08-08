@@ -1,5 +1,5 @@
-import type { Factory } from '@/src/domains/factory/domain/factory.type.ts';
 import { BUSINESS_STATE } from '@/src/domains/business/infrastructure/business.state.ts';
+import type { Factory } from '@/src/domains/factory/domain/factory.type.ts';
 import { IT_STATE } from '@/src/domains/it/infrastructure/IT.state.ts';
 import { MECHANICAL_STATE } from '@/src/domains/mechanical/infrastructure/meca.state.ts';
 import { MERCHANDISE_STATE } from '@/src/domains/merchandise/infrastructure/mer.state.ts';

@@ -1,6 +1,6 @@
 import type { Users } from '@/src/domains/auth/domain/users.type.ts';
-import type { Profile } from '@/src/domains/profile/domain/profile.type.ts';
 import type { Factory } from '@/src/domains/factory/domain/factory.type.ts';
+import type { Profile } from '@/src/domains/profile/domain/profile.type.ts';
 
 export interface Auth {
   users: Users;

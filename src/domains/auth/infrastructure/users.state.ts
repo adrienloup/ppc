@@ -1,5 +1,5 @@
-import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
 import { FACTORY_STATE } from '@/src/domains/factory/infrastructure/factory.state.ts';
+import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
 
 export const USERS_STATE = {
   guest: {

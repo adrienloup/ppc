@@ -4,13 +4,13 @@ export const businessReducer = (state: Business, action: BusinessDispatch): Busi
   switch (action.type) {
     case 'LOAD':
       return action.business;
-    case 'INCREASE_FUNDS': {
-      const fundsIF = Math.max(0, state.funds + action.funds * state.clipPrice);
-      return {
-        ...state,
-        funds: fundsIF,
-      };
-    }
+    // case 'INCREASE_FUNDS': {
+    //   const fundsIF = Math.max(0, state.funds + action.funds * state.clipPrice);
+    //   return {
+    //     ...state,
+    //     funds: fundsIF,
+    //   };
+    // }
     case 'INCREASE_MARKETING':
       if (state.marketing >= 10) return state;
       return {

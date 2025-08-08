@@ -1,11 +1,10 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import { LoginComponent } from '@/src/domains/auth/interfaces/ui/login/login.component.tsx';
-import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
-import { FACTORY_STATE } from '@/src/domains/factory/infrastructure/factory.state.ts';
-
 import * as authHook from '@/src/domains/auth/interfaces/useAuth';
+import { FACTORY_STATE } from '@/src/domains/factory/infrastructure/factory.state.ts';
 import * as notifHook from '@/src/domains/notification/interfaces/useNotif';
+import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
 import * as utils from '@/src/shared/utils/base64Encode';
 
 describe('login component', () => {

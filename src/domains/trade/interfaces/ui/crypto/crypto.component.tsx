@@ -1,9 +1,9 @@
 // import { classNames } from '@/src/shared/utils/classNames.ts';
-import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
-import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
-import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
-import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import type { Crypto } from '@/src/domains/trade/domain/crypto.type.ts';
+import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
+import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
+import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
+import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/trade/interfaces/ui/crypto/crypto.module.scss';
 
 export const CryptoComponent = ({ name, price, change }: Crypto) => {

@@ -1,7 +1,7 @@
 import { useId, useState } from 'react';
-import { classNames } from '@/src/shared/utils/classNames.ts';
 import { FormFieldComponent } from '@/src/shared/ui/formfield/formField.component.tsx';
 import type { TextField } from '@/src/shared/ui/textfield/textField.type.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/textfield/textField.module.scss';
 
 export const TextFieldComponent = ({

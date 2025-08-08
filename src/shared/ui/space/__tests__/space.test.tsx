@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import { SpaceComponent } from '@/src/shared/ui/space/space.component.tsx';
 import styles from '@/src/shared/ui/space/space.module.scss';
 

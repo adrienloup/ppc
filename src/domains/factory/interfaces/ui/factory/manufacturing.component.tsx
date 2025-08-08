@@ -1,10 +1,10 @@
-import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
-import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
+// import { ClipFactoryComponent } from '@/src/domains/mechanical/interfaces/ui/clipFactory.component.tsx';
+import { ClipperComponent } from '@/src/domains/mechanical/interfaces/ui/clipper.component.tsx';
+// import { MegaClipperComponent } from '@/src/domains/mechanical/interfaces/ui/megaClipper.component.tsx';
 import { ClipPerSecondComponent } from '@/src/domains/production/interfaces/ui/clipPerSecond.component.tsx';
 import { WireComponent } from '@/src/domains/resources/interfaces/ui/wire.component.tsx';
-import { ClipperComponent } from '@/src/domains/mechanical/interfaces/ui/clipper.component.tsx';
-import { MegaClipperComponent } from '@/src/domains/mechanical/interfaces/ui/megaClipper.component.tsx';
-import { ClipFactoryComponent } from '@/src/domains/mechanical/interfaces/ui/clipFactory.component.tsx';
+import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
+import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ManufacturingComponent = () => {
@@ -20,8 +20,8 @@ export const ManufacturingComponent = () => {
       <ClipPerSecondComponent />
       <WireComponent />
       <ClipperComponent />
-      <MegaClipperComponent />
-      <ClipFactoryComponent />
+      {/*<MegaClipperComponent />*/}
+      {/*<ClipFactoryComponent />*/}
     </CardComponent>
   );
 };

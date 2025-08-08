@@ -1,5 +1,5 @@
-import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { ProgressBar } from '@/src/shared/ui/progressbar/progressBar.type.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/progressbar/progressBar.module.scss';
 
 export const ProgressBarComponent = ({

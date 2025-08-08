@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 
 describe('cards component', () => {

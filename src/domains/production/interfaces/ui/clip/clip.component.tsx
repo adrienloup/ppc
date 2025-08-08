@@ -1,6 +1,6 @@
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
-import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
+import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
 import styles from '@/src/domains/production/interfaces/ui/clip/clip.module.scss';
 
 export const ClipComponent = () => {
