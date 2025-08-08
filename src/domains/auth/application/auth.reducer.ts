@@ -18,6 +18,7 @@ export const authReducer = (state: Auth, action: AuthDispatch): Auth => {
               lang: 'en',
               mode: 'system',
               pause: false,
+              theme: 'dusk',
             },
           },
         },
