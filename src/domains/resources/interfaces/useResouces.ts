@@ -1,12 +1,9 @@
 import { useContext } from 'react';
-import {
-  ResourcesContext,
-  ResourcesDisContext,
-} from '@/src/domains/resources/infrastructure/resources.context.tsx';
+import { ResourcesContext, ResourcesDisContext } from '@/src/domains/resources/infrastructure/resources.context.tsx';
 
-export const useRes = () => {
+export const useResources = () => {
   const ctx = useContext(ResourcesContext);
-  if (!ctx) throw new Error('useRes must be inside ResourcesProvider');
+  if (!ctx) throw new Error('useResources must be inside ResourcesProvider');
   return ctx;
 };
 

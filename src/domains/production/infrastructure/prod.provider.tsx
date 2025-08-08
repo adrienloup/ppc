@@ -3,7 +3,7 @@ import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastruc
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
-import { useRes, useResDispatch } from '@/src/domains/resources/interfaces/useResouces.ts';
+import { useResources, useResDispatch } from '@/src/domains/resources/interfaces/useResouces.ts';
 import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
@@ -19,12 +19,14 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const saleDispatch = useSaleDispatch();
   const resourcesDispatch = useResDispatch();
   const { clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus } = useMeca();
-  const { wire } = useRes();
+  const { wire } = useResources();
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();
 
-  const update = useCallback(() => {
+  const autoProduction = useCallback(() => {
+    if (wire < 1) return;
+
     const prod = getProd(wire, clipper, megaClipper, clipFactory);
     const clip =
       prod.clipper * Math.max(1, clipperBonus) +
@@ -32,8 +34,6 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
       prod.clipFactory * 1e3 * Math.max(1, clipFactoryBonus);
 
     dispatch({ type: 'AUTO_INCREASE_CLIP', clip });
-    saleDispatch({ type: 'AUTO_INCREASE_INVENTORY', clip });
-    if (wire <= 0) return;
     resourcesDispatch({ type: 'AUTO_DECREASE_WIRE', wire: prod.wire });
   }, [wire, clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus]);
 
@@ -50,7 +50,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
     prodStorage.set(state);
   }, [state]);
 
-  useInterval(update, 1e3, !!user && !pause);
+  // useInterval(autoProduction, 1e3, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

@@ -1,4 +1,5 @@
 import type { Business } from '@/src/domains/business/domain/business.type.ts';
+import type { Inventory } from '@/src/domains/inventory/domain/inventory.type.ts';
 import type { IT } from '@/src/domains/it/domain/it.type.ts';
 import type { Mechanical } from '@/src/domains/mechanical/domain/meca.type.ts';
 import type { Merchandise } from '@/src/domains/merchandise/domain/mer.type.ts';
@@ -10,6 +11,7 @@ import type { Trade } from '@/src/domains/trade/domain/trade.type.ts';
 
 export interface Factory {
   business: Business;
+  inventory: Inventory;
   it: IT;
   mechanical: Mechanical;
   merchandise: Merchandise;

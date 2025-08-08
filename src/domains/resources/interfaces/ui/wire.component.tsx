@@ -1,4 +1,4 @@
-import { useMeca, useMecaDispatch } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useResources, useResDispatch } from '@/src/domains/resources/interfaces/useResouces.ts';
 import { useSale, useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -8,56 +8,53 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const ClipperComponent = () => {
-  // console.log('ClipperComponent');
-  const mecaDispatch = useMecaDispatch();
-  const saleDispatch = useSaleDispatch();
-  const { clipper, clipperBonus, clipperCost } = useMeca();
-  const { funds } = useSale();
-
-  const buyClipper = () => {
-    if (funds < clipperCost) return;
-    const cost = clipperCost + (Math.random() * 10 + 10); // 0 1, 0 10, 10 20
-    mecaDispatch({ type: 'BUY_CLIPPER', cost });
-    saleDispatch({ type: 'DECREASE_FUNDS', cost });
-  };
+export const WireComponent = () => {
+  console.log('WireComponent');
+  // const expDispatch = useResDispatch();
+  // const saleDispatch = useSaleDispatch();
+  const { wire, wireCost, wireQuantity } = useResources();
+  // const { funds } = useSale();
+  //
+  // const buyWire = () => {
+  //   if (funds < wireCost) return;
+  //   const cost = wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
+  //   expDispatch({ type: 'BUY_WIRE', cost });
+  //   saleDispatch({ type: 'DECREASE_FUNDS', cost });
+  // };
 
   return (
     <DialsComponent>
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          value={clipperCost}
+          value={wireCost}
           asset="currency"
           decimal
         />
         <LabelComponent
           className={styles.label}
-          label="clipper cost"
+          label="wire cost"
         />
       </DialComponent>
+
       <DialComponent>
         <div className={styles.group}>
           <NumberComponent
             className={styles.value}
-            value={clipper}
+            value={wire}
           />
-          <BadgeComponent
-            prefix="x"
-            value={clipperBonus}
-            status="success"
-          />
+          <BadgeComponent value={wireQuantity} />
         </div>
         <LabelComponent
           className={styles.label}
-          label="clipper"
+          label="wire stock"
         />
         <ClickerComponent
           className={styles.button}
           prefix="+"
-          value={1}
-          disabled={funds < clipperCost}
-          onClick={buyClipper}
+          value={wireQuantity}
+          // disabled={funds < wireCost}
+          // onClick={buyWire}
         >
           +
         </ClickerComponent>

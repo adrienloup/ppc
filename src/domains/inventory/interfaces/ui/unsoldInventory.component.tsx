@@ -1,27 +1,32 @@
 import { useSale } from '@/src/domains/sale/interfaces/useSale.ts';
-import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const PublicDemandComponent = () => {
-  console.log('PublicDemandComponent');
-  // const { publicDemand } = useSale();
-  const { publicDemand } = useBusiness();
+export const UnsoldInventoryComponent = () => {
+  console.log('UnsoldInventoryComponent');
+  const { unsoldInventory, unsoldInventoryBonus } = useSale();
 
   return (
     <DialsComponent>
       <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={publicDemand}
-          asset="percent"
-        />
+        <div className={styles.group}>
+          <NumberComponent
+            className={styles.value}
+            value={unsoldInventory}
+          />
+          <BadgeComponent
+            prefix="x"
+            value={unsoldInventoryBonus}
+            status="success"
+          />
+        </div>
         <LabelComponent
           className={styles.label}
-          label="public demand"
+          label="unsold inventory"
         />
       </DialComponent>
     </DialsComponent>

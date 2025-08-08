@@ -4,14 +4,7 @@ import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import type { Notif } from '@/src/domains/notification/interfaces/ui/notif/notif.type.ts';
 import styles from '@/src/domains/notification/interfaces/ui/notif/notif.module.scss';
 
-export const NotifComponent = ({
-  id,
-  text,
-  status = 'warning',
-  timeout = 4e3,
-  close = true,
-  remove,
-}: Notif) => {
+export const NotifComponent = ({ id, text, status = 'warning', timeout = 4e3, close = true, remove }: Notif) => {
   const outTimer = useRef(0);
   const removeTimer = useRef(0);
   const [out, setOut] = useState(false);
@@ -40,12 +33,7 @@ export const NotifComponent = ({
 
   return (
     <div
-      className={classNames(
-        styles.notif,
-        styles[status],
-        timeout > 0 ? styles.in : '',
-        out ? styles.out : ''
-      )}
+      className={classNames(styles.notif, styles[status], timeout > 0 ? styles.in : '', out ? styles.out : '')}
       id={id}
       role="alert"
       aria-live="assertive"

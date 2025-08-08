@@ -19,10 +19,10 @@ export const BusinessComponent = () => {
       >
         business
       </TitleComponent>
-      <FundsPerSecondComponent />
+      {/*<FundsPerSecondComponent />*/}
       <FundsComponent />
       <UnsoldInventoryComponent />
-      <ClipPriceComponent />
+      {/*<ClipPriceComponent />*/}
       <PublicDemandComponent />
       <MarketingComponent />
       {/*<EmptyComponent />*/}

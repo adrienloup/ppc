@@ -1,8 +1,5 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
-import {
-  ResourcesContext,
-  ResourcesDisContext,
-} from '@/src/domains/resources/infrastructure/resources.context.tsx';
+import { ResourcesContext, ResourcesDisContext } from '@/src/domains/resources/infrastructure/resources.context.tsx';
 import { resourcesReducer } from '@/src/domains/resources/application/resources.reducer.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
@@ -19,9 +16,9 @@ export const ResourcesProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();
 
-  const update = useCallback(() => {
-    dispatch({ type: 'WIRE_COST' });
-  }, []);
+  // const update = useCallback(() => {
+  //   dispatch({ type: 'WIRE_COST' });
+  // }, []);
 
   useEffect(() => {
     if (!user || user === userRef.current) return;
@@ -36,7 +33,7 @@ export const ResourcesProvider: FC<{ children: Children }> = ({ children }) => {
     resourceStorage.set(state);
   }, [state]);
 
-  useInterval(update, 1e4, !!user && !pause);
+  // useInterval(update, 1e4, !!user && !pause);
 
   return (
     <ResourcesContext.Provider value={state}>
