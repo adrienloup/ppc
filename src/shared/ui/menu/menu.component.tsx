@@ -25,7 +25,7 @@ export const MenuComponent = () => {
   return (
     <div
       id="menu"
-      className={classNames([styles.menu, open ? styles.open : ''])}
+      className={classNames(styles.menu, open ? styles.open : '')}
       role="menu"
       aria-labelledby="menubutton"
     >

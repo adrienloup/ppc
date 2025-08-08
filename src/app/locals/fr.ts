@@ -4,5 +4,7 @@ export const fr: Translation = {
   app: {
     loading: 'chargement...',
     empty: 'aucune donnée du tout',
+    pause: 'le jeu est en pause',
+    press: 'cliquer pour reprendre',
   },
 };

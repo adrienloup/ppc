@@ -56,7 +56,7 @@ export const ClickerComponent = ({
 
   return (
     <ButtonComponent
-      className={classNames([styles.button, disabled ? styles.disabled : '', className])}
+      className={classNames(styles.button, className, disabled ? styles.disabled : '')}
       disabled={disabled}
       onClick={handleClick}
       {...props}

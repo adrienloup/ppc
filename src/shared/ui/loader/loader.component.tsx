@@ -15,7 +15,7 @@ export const LoaderComponent = ({ className, duration = 5e2, size = 'medium', ..
 
   return (
     <div
-      className={classNames([styles.loader, className])}
+      className={classNames(styles.loader, className)}
       {...props}
     >
       <span className={styles.label}>{progress}%</span>

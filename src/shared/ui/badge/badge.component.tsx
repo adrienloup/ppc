@@ -5,7 +5,7 @@ import styles from '@/src/shared/ui/badge/badge.module.scss';
 
 export const BadgeComponent = ({ className, label, value, prefix, asset, status = 'info' }: Badge) => {
   return value || label ? (
-    <span className={classNames([styles.badge, styles[status], className])}>
+    <span className={classNames(styles.badge, styles[status], className)}>
       {prefix}
       {label}
       {value && (

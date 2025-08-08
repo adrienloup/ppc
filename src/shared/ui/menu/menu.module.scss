@@ -26,6 +26,7 @@ $mobile-landscape: 1024px;
   align-items: flex-start;
   justify-content: center;
   gap: var(--spacing-s);
+  //border-bottom: 0.1rem solid var(--color-2);
   overflow: hidden;
   height: 0;
   visibility: hidden;

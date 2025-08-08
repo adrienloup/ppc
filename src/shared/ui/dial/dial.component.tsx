@@ -6,7 +6,7 @@ import styles from '@/src/shared/ui/dial/dial.module.scss';
 export const DialComponent = memo(({ className, children, ...props }: Dial) => {
   return (
     <div
-      className={classNames([styles.dial, className])}
+      className={classNames(styles.dial, className)}
       {...props}
     >
       {children}

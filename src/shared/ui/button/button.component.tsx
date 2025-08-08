@@ -38,7 +38,7 @@ export const ButtonComponent = memo(
     const link = (
       <Link
         to={to!}
-        className={classNames([styles.button, className])}
+        className={classNames(styles.button, className)}
         {...props}
       >
         {children}
@@ -50,7 +50,7 @@ export const ButtonComponent = memo(
         href={href}
         target="_blank"
         rel="noopener"
-        className={classNames([styles.button, className])}
+        className={classNames(styles.button, className)}
         {...props}
       >
         {children}
@@ -66,7 +66,7 @@ export const ButtonComponent = memo(
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
         onClick={onClick}
-        className={classNames([styles.button, active ? styles.active : '', className])}
+        className={classNames(styles.button, className, active ? styles.active : '')}
         {...props}
       >
         {children}

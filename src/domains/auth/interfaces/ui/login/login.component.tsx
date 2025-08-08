@@ -102,7 +102,7 @@ export const LoginComponent = ({ className }: Login) => {
 
   return (
     <form
-      className={classNames([styles.login, className])}
+      className={classNames(styles.login, className)}
       onSubmit={logIn}
     >
       <TitleComponent className={styles.title}>an account is required to play</TitleComponent>

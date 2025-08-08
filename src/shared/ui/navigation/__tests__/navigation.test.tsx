@@ -6,8 +6,8 @@ import styles from '@/src/shared/ui/navigation/navigation.module.scss';
 
 describe('navigation component', () => {
   it('should render nothing if items array is empty', () => {
-    render(<NavigationComponent items={[]} />);
-    const { container } = render(<NavigationComponent items={[]} />);
+    render(<NavigationComponent links={[]} />);
+    const { container } = render(<NavigationComponent links={[]} />);
 
     expect(container.firstChild).toBeNull();
   });
@@ -16,7 +16,7 @@ describe('navigation component', () => {
     render(
       <MemoryRouter>
         <NavigationComponent
-          items={['home']}
+          links={['home']}
           id="custom-id"
           className="custom-class"
         />
@@ -33,7 +33,7 @@ describe('navigation component', () => {
     const items = ['home', 'about', 'contact'];
     render(
       <MemoryRouter>
-        <NavigationComponent items={items} />
+        <NavigationComponent links={items} />
       </MemoryRouter>
     );
 

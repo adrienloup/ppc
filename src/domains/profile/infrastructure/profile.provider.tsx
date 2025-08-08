@@ -1,7 +1,7 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import { SwarmContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
+import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
 import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
@@ -10,6 +10,7 @@ import { PROFILE_KEY } from '@/src/domains/profile/infrastructure/profile.key.ts
 import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
 import type { Lang } from '@/src/domains/profile/domain/lang.type.ts';
 import type { Mode } from '@/src/domains/profile/domain/mode.type.ts';
+import type { Theme } from '@/src/domains/profile/domain/theme.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
@@ -27,6 +28,17 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   const updateMode = useCallback((mode: Mode) => {
     const isDark = mode === 'dark' || mode === 'system';
     document.body.classList.toggle('_dark_emma0_1', isDark);
+  }, []);
+
+  const updateTheme = useCallback((theme: Theme) => {
+    const classMap = {
+      _dusk_emma0_1: theme === 'dusk',
+      _tumult_emma0_1: theme === 'tumult',
+      _cataclysm_emma0_1: theme === 'cataclysm',
+    };
+    for (const [name, condition] of Object.entries(classMap)) {
+      document.body.classList.toggle(name, condition);
+    }
   }, []);
 
   useEffect(() => {
@@ -50,15 +62,16 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   useEffect(() => {
     updateLang(state.lang);
     updateMode(state.mode);
+    updateTheme(state.theme);
     profileStorage.set(state);
   }, [state]);
 
   return (
-    <SwarmContext.Provider value={state}>
+    <ProfileContext.Provider value={state}>
       <ProfileDisContext.Provider value={dispatch}>
         {children}
-        {state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
+        {user && state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
       </ProfileDisContext.Provider>
-    </SwarmContext.Provider>
+    </ProfileContext.Provider>
   );
 };

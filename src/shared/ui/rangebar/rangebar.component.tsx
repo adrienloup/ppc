@@ -5,7 +5,7 @@ import styles from '@/src/shared/ui/rangebar/rangebar.module.scss';
 export const RangebarComponent = ({ className, min, max, step, value, disabled, onChange }: Rangebar) => {
   return (
     <input
-      className={classNames([styles.rangebar, className])}
+      className={classNames(styles.rangebar, className)}
       type="range"
       min={min}
       max={max}

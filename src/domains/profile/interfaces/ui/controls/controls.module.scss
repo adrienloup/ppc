@@ -10,3 +10,9 @@
   display: flex;
   gap: var(--spacing-xs);
 }
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}

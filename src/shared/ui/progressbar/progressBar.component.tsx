@@ -13,7 +13,7 @@ export const ProgressBarComponent = ({
 
   return (
     <div
-      className={classNames([styles.progressBar, styles[size], className])}
+      className={classNames(styles.progressBar, styles[size], className)}
       role="progressbar"
       aria-valuenow={valueNow}
       aria-valuemin={valueMin}

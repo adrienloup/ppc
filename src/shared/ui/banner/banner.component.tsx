@@ -9,7 +9,7 @@ export const BannerComponent = ({ className, title, button, ...props }: Banner) 
 
   return (
     <div
-      className={classNames([styles.banner, className])}
+      className={classNames(styles.banner, className)}
       {...props}
     >
       <TitleComponent className={styles.title}>{title}</TitleComponent>

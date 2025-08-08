@@ -20,19 +20,19 @@
   }
 
   &.success {
-    background-color: var(--color-8);
+    background-color: var(--color-7);
   }
 
   &.info {
-    background-color: var(--color-4);
+    background-color: var(--color-5);
   }
 
   &.warning {
-    background-color: var(--color-9);
+    background-color: var(--color-8);
   }
 
   &.error {
-    background-color: var(--color-5);
+    background-color: var(--color-10);
   }
 }
 
@@ -75,19 +75,19 @@
   pointer-events: initial;
 
   .success & {
-    color: var(--color-8);
+    color: var(--color-7);
   }
 
   .info & {
-    color: var(--color-4);
+    color: var(--color-5);
   }
 
   .warning & {
-    color: var(--color-9);
+    color: var(--color-8);
   }
 
   .error & {
-    color: var(--color-5);
+    color: var(--color-10);
   }
 }
 

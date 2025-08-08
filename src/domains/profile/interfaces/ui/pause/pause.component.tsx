@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useProfileDis } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import styles from '@/src/domains/profile/interfaces/ui/pause/pause.module.scss';
 
 export const PauseComponent = () => {
+  const { t } = useTranslation();
   const proDispatch = useProfileDis();
 
   return (
@@ -13,7 +15,7 @@ export const PauseComponent = () => {
       >
         <span
           className={styles.label}
-          dangerouslySetInnerHTML={{ __html: `<span>factory is stopped</span>press to resume` }}
+          dangerouslySetInnerHTML={{ __html: `<span>${t('app.pause')}</span> ${t('app.press')}` }}
         />
       </ButtonComponent>
       <div

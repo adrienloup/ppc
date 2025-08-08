@@ -3,5 +3,5 @@ import type { Card } from '@/src/shared/ui/card/card.type.ts';
 import styles from '@/src/shared/ui/card/card.module.scss';
 
 export const CardComponent = ({ className, children }: Card) => {
-  return <div className={classNames([styles.card, className])}>{children}</div>;
+  return <div className={classNames(styles.card, className)}>{children}</div>;
 };

@@ -1,2 +1,2 @@
-export const classNames = (list: (string | null | undefined)[]) =>
-  list.filter((className) => !!className).join(' ');
+export const classNames = (...args: (string | boolean | null | undefined)[]) =>
+  args.filter((className) => !!className).join(' ');

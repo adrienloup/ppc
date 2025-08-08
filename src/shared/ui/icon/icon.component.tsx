@@ -5,7 +5,7 @@ import styles from '@/src/shared/ui/icon/icon.module.scss';
 export const IconComponent = ({ className, icon, ...props }: Icon) => {
   return (
     <span
-      className={classNames([styles.icon, className])}
+      className={classNames(styles.icon, className)}
       aria-hidden={false}
       {...props}
     >

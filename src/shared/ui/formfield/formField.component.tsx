@@ -4,7 +4,7 @@ import styles from '@/src/shared/ui/formfield/formField.module.scss';
 
 export const FormFieldComponent = ({ children, className, label, helperText, errorMessage }: FormField) => {
   return (
-    <div className={classNames([styles.formField, className])}>
+    <div className={classNames(styles.formField, className)}>
       {label && <div className={styles.label}>{label}</div>}
       {children}
       {errorMessage ? (

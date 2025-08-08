@@ -11,9 +11,9 @@ export const ProgressBarsComponent = ({ total, value1, value2, className }: Prog
   const lockedPercent = 100 - usedPercent - unlockedPercent;
 
   return (
-    <div className={classNames([styles.progressBars, className])}>
+    <div className={classNames(styles.progressBars, className)}>
       <div
-        className={classNames([styles.stick, styles.used])}
+        className={classNames(styles.stick, styles.used)}
         style={{ width: `${usedPercent}%` }}
       >
         <span className={styles.label}>used</span>
@@ -23,7 +23,7 @@ export const ProgressBarsComponent = ({ total, value1, value2, className }: Prog
         />
       </div>
       <div
-        className={classNames([styles.stick, styles.unlocked])}
+        className={classNames(styles.stick, styles.unlocked)}
         style={{ width: `${unlockedPercent}%` }}
       >
         <span className={styles.label}>unlocked</span>
@@ -33,7 +33,7 @@ export const ProgressBarsComponent = ({ total, value1, value2, className }: Prog
         />
       </div>
       <div
-        className={classNames([styles.stick, styles.locked])}
+        className={classNames(styles.stick, styles.locked)}
         style={{ width: `${lockedPercent}%` }}
       >
         <span className={styles.label}>locked</span>

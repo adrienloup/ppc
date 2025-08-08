@@ -40,12 +40,12 @@ export const NotifComponent = ({
 
   return (
     <div
-      className={classNames([
+      className={classNames(
         styles.notif,
         styles[status],
         timeout > 0 ? styles.in : '',
-        out ? styles.out : '',
-      ])}
+        out ? styles.out : ''
+      )}
       id={id}
       role="alert"
       aria-live="assertive"

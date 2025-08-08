@@ -12,19 +12,19 @@ export const SpaceComponent = ({ planets, stars }: Space) => {
         planets.map((planet) => (
           <div
             key={planet}
-            className={classNames([styles.planet, styles[`planet${planet}`]])}
+            className={classNames(styles.planet, styles[`planet${planet}`])}
           />
         ))}
       {stars &&
         stars.map((stars, index) => (
           <div
             key={index}
-            className={classNames([styles.stars, styles[`stars${index + 1}`]])}
+            className={classNames(styles.stars, styles[`stars${index + 1}`])}
           >
             {stars.map((star) => (
               <div
                 key={star}
-                className={classNames([styles.star, styles[`star${star}`]])}
+                className={classNames(styles.star, styles[`star${star}`])}
               />
             ))}
           </div>

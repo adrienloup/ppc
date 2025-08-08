@@ -27,12 +27,12 @@ export const TextFieldComponent = ({
       errorMessage={errorMessage}
     >
       <div
-        className={classNames([
+        className={classNames(
           styles.textField,
           focus ? styles.focus : '',
           status ? styles[status] : errorMessage ? styles.error : '',
-          className,
-        ])}
+          className
+        )}
       >
         {prefix &&
           // <IconComponent
