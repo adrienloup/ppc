@@ -1,0 +1,18 @@
+// 1st Theme. dusk (crépuscule), 2nd Theme. tumult (tumulte), 3rd Theme. cataclysm (cataclysme)
+
+@mixin if-tumult {
+  ._tumult_emma0_1 {
+    @content;
+  }
+}
+
+@mixin tumult {
+  --theme-color-1: var(--color-4);
+  --theme-color-2: var(--color-2);
+}
+
+:root {
+  @include if-tumult {
+    @include tumult();
+  }
+}

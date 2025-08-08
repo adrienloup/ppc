@@ -25,16 +25,21 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
     document.documentElement.lang = language;
   }, []);
 
-  const updateMode = useCallback((mode: Mode) => {
-    const isDark = mode === 'dark' || mode === 'system';
-    document.body.classList.toggle('_dark_emma0_1', isDark);
-  }, []);
-
   const updateTheme = useCallback((theme: Theme) => {
     const classMap = {
       _dusk_emma0_1: theme === 'dusk',
       _tumult_emma0_1: theme === 'tumult',
       _cataclysm_emma0_1: theme === 'cataclysm',
+    };
+    for (const [name, condition] of Object.entries(classMap)) {
+      document.body.classList.toggle(name, condition);
+    }
+  }, []);
+
+  const updateMode = useCallback((mode: Mode) => {
+    const classMap = {
+      _dark_emma0_1: mode === 'dark' || mode === 'system',
+      _light_emma0_1: mode === 'light',
     };
     for (const [name, condition] of Object.entries(classMap)) {
       document.body.classList.toggle(name, condition);
@@ -61,8 +66,8 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
 
   useEffect(() => {
     updateLang(state.lang);
-    updateMode(state.mode);
     updateTheme(state.theme);
+    updateMode(state.mode);
     profileStorage.set(state);
   }, [state]);
 
