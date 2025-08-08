@@ -1,0 +1,18 @@
+// Mode 1. light (clair), Mode 2. dark (sombre)
+
+@mixin if-light {
+  ._light_emma0_1 {
+    @content;
+  }
+}
+
+@mixin light {
+  --mode-color-1: var(--theme-color-1);
+  --mode-color-2: var(--theme-color-2);
+}
+
+:root {
+  @include if-light {
+    @include light();
+  }
+}
