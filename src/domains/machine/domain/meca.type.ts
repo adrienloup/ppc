@@ -1,4 +1,4 @@
-export interface Mechanical {
+export interface Machine {
   clipper: number;
   clipperBonus: number;
   clipperCost: number;
@@ -10,8 +10,8 @@ export interface Mechanical {
   clipFactoryCost: number;
 }
 
-export type MecaDispatch =
-  | { type: 'LOAD'; mechanical: Mechanical }
+export type MachineDispatch =
+  | { type: 'LOAD'; machine: Machine }
   | { type: 'BUY_CLIPPER'; cost: number }
   | { type: 'BUY_MEGA_CLIPPER'; cost: number }
   | { type: 'BUY_CLIP_FACTORY'; cost: number }

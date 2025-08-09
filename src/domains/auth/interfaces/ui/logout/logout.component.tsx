@@ -4,7 +4,7 @@ import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useInventory } from '@/src/domains/inventory/interfaces/useInventory.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
-import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
 import { useMer } from '@/src/domains/merchandise/interfaces/useMer.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
@@ -24,7 +24,7 @@ export const LogoutComponent = memo(() => {
   const funds = useFunds();
   const inventory = useInventory();
   const it = useIT();
-  const mechanical = useMeca();
+  const machine = useMeca();
   const merchandise = useMer();
   const production = useProd();
   const resources = useResources();
@@ -37,7 +37,7 @@ export const LogoutComponent = memo(() => {
       funds,
       inventory,
       it,
-      mechanical,
+      machine,
       merchandise,
       production,
       resources,

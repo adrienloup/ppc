@@ -2,7 +2,7 @@ import type { Business } from '@/src/domains/business/domain/business.type.ts';
 import type { Funds } from '@/src/domains/funds/domain/funds.type.ts';
 import type { Inventory } from '@/src/domains/inventory/domain/inventory.type.ts';
 import type { IT } from '@/src/domains/it/domain/it.type.ts';
-import type { Mechanical } from '@/src/domains/mechanical/domain/meca.type.ts';
+import type { Machine } from '@/src/domains/machine/domain/meca.type.ts';
 import type { Merchandise } from '@/src/domains/merchandise/domain/mer.type.ts';
 import type { Production } from '@/src/domains/production/domain/prod.type.ts';
 import type { Resources } from '@/src/domains/resources/domain/resources.type.ts';
@@ -14,7 +14,7 @@ export interface Factory {
   funds: Funds;
   inventory: Inventory;
   it: IT;
-  mechanical: Mechanical;
+  machine: Machine;
   merchandise: Merchandise;
   production: Production;
   resources: Resources;

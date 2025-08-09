@@ -1,6 +1,6 @@
-import type { Mechanical } from '@/src/domains/mechanical/domain/meca.type.ts';
+import type { Machine } from '@/src/domains/machine/domain/meca.type.ts';
 
-export const MECHANICAL_STATE: Mechanical = {
+export const MECA_STATE: Machine = {
   clipper: 0,
   clipperBonus: 0,
   clipperCost: 5,

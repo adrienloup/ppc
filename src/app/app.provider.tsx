@@ -4,7 +4,7 @@ import { BusinessProvider } from '@/src/domains/business/infrastructure/business
 import { FundsProvider } from '@/src/domains/funds/infrastructure/funds.provider.tsx';
 import { InventoryProvider } from '@/src/domains/inventory/infrastructure/inventory.provider.tsx';
 import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
-import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
+import { MecaProvider } from '@/src/domains/machine/infrastructure/meca.provider.tsx';
 import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
 import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';

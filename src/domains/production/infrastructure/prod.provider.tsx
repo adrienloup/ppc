@@ -1,7 +1,7 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useInventoryDispatch } from '@/src/domains/inventory/interfaces/useInventory.ts';
-import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
 import { ProdContext, ProdDisContext } from '@/src/domains/production/infrastructure/prod.context.tsx';
 import { PRODUCTION_KEY } from '@/src/domains/production/infrastructure/prod.key.ts';
