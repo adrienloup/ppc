@@ -5,5 +5,4 @@ export interface Production {
 
 export type ProductionDispatch =
   | { type: 'LOAD'; production: Production }
-  | { type: 'INCREASE_CLIP' }
-  | { type: 'AUTO_INCREASE_CLIP'; clip: number };
+  | { type: 'INCREASE_CLIP'; clip: number; clipPerSecond: number };

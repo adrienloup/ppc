@@ -17,9 +17,9 @@ export const ClipPerSecondComponent = () => {
   const { wire } = useResources();
 
   const increaseClip = () => {
-    productionDispatch({ type: 'INCREASE_CLIP' });
-    inventoryDispatch({ type: 'INCREASE_INVENTORY' });
-    resourcesDispatch({ type: 'DECREASE_WIRE' });
+    productionDispatch({ type: 'INCREASE_CLIP', clip: 1, clipPerSecond: clipPerSecond + 1 });
+    inventoryDispatch({ type: 'INCREASE_INVENTORY', unsoldInventory: 1 });
+    resourcesDispatch({ type: 'DECREASE_WIRE', wire: 1 });
   };
 
   return (

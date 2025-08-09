@@ -4,31 +4,32 @@ export const resourcesReducer = (state: Resources, action: ResourcesDispatch): R
   switch (action.type) {
     case 'LOAD':
       return action.resources;
-    case 'DECREASE_WIRE':
+    case 'BUY_WIRE': {
+      const wireBW = state.wire + state.wireQuantity;
       return {
         ...state,
-        wire: Math.max(0, state.wire - 1),
+        wire: wireBW,
+        wireCost: action.cost,
       };
-    case 'AUTO_DECREASE_WIRE':
+    }
+    case 'DECREASE_WIRE': {
+      const wireDW = Math.max(0, state.wire - action.wire);
       return {
         ...state,
-        wire: Math.max(0, state.wire - action.wire),
+        wire: wireDW,
       };
-    case 'WIRE_COST':
+    }
+    case 'WIRE_COST': {
+      const wireCostWC = state.wireCost > 8 ? state.wireCost - 0.26 : Math.random() * 8 + 12;
       return {
         ...state,
-        wireCost: state.wireCost > 8 ? state.wireCost - 0.26 : Math.random() * 8 + 12,
+        wireCost: wireCostWC,
       };
+    }
     case 'WIRE_QUANTITY':
       return {
         ...state,
         wireQuantity: action.quantity,
-      };
-    case 'BUY_WIRE':
-      return {
-        ...state,
-        wire: state.wire + state.wireQuantity,
-        wireCost: action.cost,
       };
     default:
       return state;

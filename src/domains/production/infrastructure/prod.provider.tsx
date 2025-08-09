@@ -25,17 +25,15 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useProfile();
 
   const autoProduction = useCallback(() => {
-    if (wire < 1 || clipper < 1 || megaClipper < 1 || clipFactory < 1) return;
-
     const prod = getProd(wire, clipper, megaClipper, clipFactory);
     const prodClip =
       prod.clipper * Math.max(1, clipperBonus) +
       prod.megaClipper * 5e2 * Math.max(1, megaClipperBonus) +
       prod.clipFactory * 1e3 * Math.max(1, clipFactoryBonus);
 
-    dispatch({ type: 'AUTO_INCREASE_CLIP', clip: prodClip });
-    inventoryDispatch({ type: 'AUTO_INCREASE_INVENTORY', unsoldInventory: prodClip });
-    resourcesDispatch({ type: 'AUTO_DECREASE_WIRE', wire: prod.wire });
+    dispatch({ type: 'INCREASE_CLIP', clip: prodClip, clipPerSecond: prodClip });
+    inventoryDispatch({ type: 'INCREASE_INVENTORY', unsoldInventory: prodClip });
+    resourcesDispatch({ type: 'DECREASE_WIRE', wire: prod.wire });
   }, [wire, clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus]);
 
   useEffect(() => {
@@ -51,7 +49,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
     prodStorage.set(state);
   }, [state]);
 
-  useInterval(autoProduction, 1e3, !!user && !pause);
+  useInterval(autoProduction, 9e2, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

@@ -23,7 +23,7 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
   const update = useCallback(() => {
     if (state.unsoldInventory < 1) return;
 
-    const unsoldInventory = Math.floor(state.unsoldInventory * (1 - publicDemand));
+    const unsoldInventory = Math.max(0, Math.floor(state.unsoldInventory * (1 - publicDemand)));
     const price = (state.unsoldInventory - unsoldInventory) * clipPrice;
 
     dispatch({ type: 'DECREASE_INVENTORY', unsoldInventory });

@@ -14,7 +14,7 @@ export const saleReducer = (state: Sale, action: SaleDispatch): Sale => {
         // fundsPerSecond: (state.fundsPerSecond + 1) * unsoldInventoryBonusUI * state.clipPrice,
       };
     }
-    // case 'AUTO_INCREASE_INVENTORY': {
+    // case 'INCREASE_INVENTORY': {
     //   return {
     //     ...state,
     //     unsoldInventory: state.unsoldInventory + action.clip * Math.max(1, state.unsoldInventoryBonus),

@@ -5,13 +5,15 @@ export const fundsReducer = (state: Funds, action: FundsDispatch): Funds => {
     case 'LOAD':
       return action.funds;
     case 'INCREASE_FUNDS': {
+      const fundsIF = state.funds + action.price;
       return {
-        funds: Math.max(0, state.funds + action.price),
+        funds: fundsIF,
       };
     }
     case 'DECREASE_FUNDS': {
+      const fundsDF = Math.max(0, state.funds - action.price);
       return {
-        funds: Math.max(0, state.funds - action.price),
+        funds: fundsDF,
       };
     }
     default:

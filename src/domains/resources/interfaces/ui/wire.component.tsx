@@ -1,3 +1,4 @@
+import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
 // import { useSale, useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -13,7 +14,7 @@ export const WireComponent = () => {
   // const expDispatch = useResDispatch();
   // const saleDispatch = useSaleDispatch();
   const { wire, wireCost, wireQuantity } = useResources();
-  // const { funds } = useSale();
+  const { funds } = useFunds();
   //
   // const buyWire = () => {
   //   if (funds < wireCost) return;
@@ -53,7 +54,7 @@ export const WireComponent = () => {
           className={styles.button}
           prefix="+"
           value={wireQuantity}
-          // disabled={funds < wireCost}
+          disabled={funds < wireCost}
           // onClick={buyWire}
           onClick={() => console.log('onClick')}
         >

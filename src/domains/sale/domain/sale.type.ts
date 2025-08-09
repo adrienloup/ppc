@@ -6,6 +6,6 @@ export interface Sale {
 export type SaleDispatch =
   | { type: 'LOAD'; sale: Sale }
   | { type: 'INCREASE_INVENTORY' }
-  // | { type: 'AUTO_INCREASE_INVENTORY'; clip: number }
+  // | { type: 'INCREASE_INVENTORY'; clip: number }
   | { type: 'DECREASE_INVENTORY'; unsoldInventory: number }
   | { type: 'INVENTORY_BONUS'; bonus: number };
