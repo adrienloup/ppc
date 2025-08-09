@@ -13,6 +13,7 @@ export const resourcesReducer = (state: Resources, action: ResourcesDispatch): R
       };
     }
     case 'DECREASE_WIRE': {
+      if (state.wire < 1) return state;
       const wireDW = Math.max(0, state.wire - action.wire);
       return {
         ...state,

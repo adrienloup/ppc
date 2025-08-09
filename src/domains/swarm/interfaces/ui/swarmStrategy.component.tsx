@@ -56,7 +56,7 @@ export const SwarmStrategyComponent = () => {
         step={1}
         value={swarmStrategy}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          swarmDispatch({ type: 'SET_SWARM_STRATEGY', strategy: Number(e.target.value) })
+          swarmDispatch({ type: 'SWARM_STRATEGY', swarmStrategy: Number(e.target.value) })
         }
       />
     </DialsComponent>

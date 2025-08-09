@@ -26,10 +26,19 @@ export const itReducer = (state: IT, action: ITDispatch): IT => {
       };
     }
     case 'INCREASE_OPERATION': {
-      if (state.processor <= 0 || state.operation === state.operationMax) return state;
+      if (state.processor < 1 || state.operation === state.operationMax) return state;
+      const operationIO = Math.min(state.operation + 10 * state.processor, state.operationMax);
       return {
         ...state,
-        operation: Math.min(state.operation + 10 * state.processor, state.operationMax),
+        operation: operationIO,
+      };
+    }
+    case 'INCREASE_CREATIVITY': {
+      if (state.operation < state.operationMax) return state;
+      const creativityIC = state.creativity + 10 + Math.floor(Math.random() * 10); // 0 1, 0 10, 10 20;
+      return {
+        ...state,
+        creativity: creativityIC,
       };
     }
     default:

@@ -1,6 +1,5 @@
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
-// import { useSale, useSaleDispatch } from '@/src/domains/sale/interfaces/useSale.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -11,8 +10,6 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const WireComponent = () => {
   // console.log('WireComponent');
-  // const expDispatch = useResDispatch();
-  // const saleDispatch = useSaleDispatch();
   const { wire, wireCost, wireQuantity } = useResources();
   const { funds } = useFunds();
   //

@@ -10,7 +10,6 @@ import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.p
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import { ProfileProvider } from '@/src/domains/profile/infrastructure/profile.provider.tsx';
 import { ResourcesProvider } from '@/src/domains/resources/infrastructure/resources.provider.tsx';
-// import { SaleProvider } from '@/src/domains/sale/infrastructure/sale.provider.tsx';
 import { SwarmProvider } from '@/src/domains/swarm/infrastructure/swarm.provider.tsx';
 import { TradeProvider } from '@/src/domains/trade/infrastructure/trade.provider.tsx';
 import type { Children } from '@/src/shared/types/children.type.ts';
@@ -35,7 +34,6 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [BusinessProvider],
   [FundsProvider],
   [InventoryProvider],
-  // [SaleProvider],
   [ResourcesProvider],
   [MecaProvider],
   [ProdProvider],

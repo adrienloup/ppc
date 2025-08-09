@@ -71,6 +71,10 @@ $tablet-landscape: 1440px;
   color: var(--mode-color-1);
 }
 
+.warning {
+  margin-bottom: var(--spacing-xs);
+}
+
 .group {
   display: flex;
   flex-flow: row wrap;

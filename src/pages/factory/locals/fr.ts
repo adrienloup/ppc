@@ -41,7 +41,7 @@ export const fr: Translation = {
     decreaseClipPrice: 'decrease clip price',
     increaseProcessor: 'increase processor',
     synchronize: 'synchronize',
-    noSpace: "pas d'espace",
+    noSpace: "plus d'espace",
     noResource: 'pas de ressource',
   },
 };

@@ -27,6 +27,18 @@ export const ClipFactoryComponent = () => {
   return (
     <DialsComponent>
       <DialComponent>
+        {clipFactory >= 1e8 && (
+          <BadgeComponent
+            className={styles.warning}
+            status="warning"
+            label={t('factory.noSpace')}
+          />
+        )}
+        <BadgeComponent
+          className={styles.warning}
+          status="warning"
+          label="overconsumption"
+        />
         <NumberComponent
           className={styles.value}
           value={clipFactoryCost}
@@ -37,7 +49,6 @@ export const ClipFactoryComponent = () => {
           label={t('factory.clipFactoryCost')}
         />
       </DialComponent>
-
       <DialComponent>
         <div className={styles.group}>
           <NumberComponent
@@ -49,12 +60,6 @@ export const ClipFactoryComponent = () => {
             value={clipFactoryBonus}
             status="success"
           />
-          {clipFactory >= 1e8 && (
-            <BadgeComponent
-              status="warning"
-              label={t('factory.noSpace')}
-            />
-          )}
         </div>
         <LabelComponent
           className={styles.label}

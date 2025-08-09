@@ -1,3 +1,4 @@
+import { CreativityComponent } from '@/src/domains/it/interfaces/ui/creativity.component.tsx';
 import { MemoryComponent } from '@/src/domains/it/interfaces/ui/memory.component.tsx';
 import { OperationComponent } from '@/src/domains/it/interfaces/ui/operation.component.tsx';
 import { ProcessorComponent } from '@/src/domains/it/interfaces/ui/processor.component.tsx';
@@ -21,6 +22,7 @@ export const TechnologyComponent = () => {
       <MemoryComponent />
       <ProcessorComponent />
       <OperationComponent />
+      <CreativityComponent />
       <EmptyComponent />
     </CardComponent>
   );
