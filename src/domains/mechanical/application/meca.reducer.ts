@@ -14,13 +14,13 @@ export const mecaReducer = (state: Mechanical, action: MecaDispatch): Mechanical
       return {
         ...state,
         megaClipper: state.megaClipper + 1,
-        megaClipperCost: action.cost,
+        megaClipperCost: action.price,
       };
     case 'BUY_CLIP_FACTORY':
       return {
         ...state,
         clipFactory: state.clipFactory + 1,
-        clipFactoryCost: action.cost,
+        clipFactoryCost: action.price,
       };
     case 'CLIPPER_BONUS':
       return {

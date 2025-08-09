@@ -9,7 +9,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipPerSecondComponent = () => {
-  console.log('ClipPerSecondComponent');
+  // console.log('ClipPerSecondComponent');
   const productionDispatch = useProdDispatch();
   const resourcesDispatch = useResDispatch();
   const inventoryDispatch = useInventoryDispatch();

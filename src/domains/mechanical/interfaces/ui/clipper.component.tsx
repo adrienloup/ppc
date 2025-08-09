@@ -9,7 +9,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipperComponent = () => {
-  console.log('ClipperComponent');
+  // console.log('ClipperComponent');
   const mecaDispatch = useMecaDispatch();
   const fundsDispatch = useFundsDispatch();
   const { clipper, clipperBonus, clipperCost } = useMeca();

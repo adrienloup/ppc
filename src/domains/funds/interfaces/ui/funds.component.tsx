@@ -6,7 +6,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const FundsComponent = () => {
-  console.log('FundsComponent');
+  // console.log('FundsComponent');
   const { funds } = useFunds();
 
   return (

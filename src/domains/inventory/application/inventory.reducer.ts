@@ -21,7 +21,7 @@ export const inventoryReducer = (state: Inventory, action: InventoryDispatch): I
     case 'INVENTORY_BONUS':
       return {
         ...state,
-        unsoldInventoryBonus: action.unsoldInventoryBonus,
+        unsoldInventoryBonus: action.bonus,
       };
     default:
       return state;

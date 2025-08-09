@@ -3,7 +3,7 @@ import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import styles from '@/src/domains/profile/interfaces/ui/settings/settings.module.scss';
 
 export const SettingsComponent = () => {
-  console.log('SettingsComponent');
+  // console.log('SettingsComponent');
   const proDispatch = useProfileDis();
 
   return (

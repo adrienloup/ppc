@@ -10,7 +10,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const WireComponent = () => {
-  console.log('WireComponent');
+  // console.log('WireComponent');
   // const expDispatch = useResDispatch();
   // const saleDispatch = useSaleDispatch();
   const { wire, wireCost, wireQuantity } = useResources();

@@ -7,7 +7,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const UnsoldInventoryComponent = () => {
-  console.log('UnsoldInventoryComponent');
+  // console.log('UnsoldInventoryComponent');
   const { unsoldInventory, unsoldInventoryBonus } = useInventory();
 
   return (
