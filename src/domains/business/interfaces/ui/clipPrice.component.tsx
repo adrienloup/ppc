@@ -25,7 +25,9 @@ export const ClipPriceComponent = () => {
           />
           <BadgeComponent
             prefix="x"
-            value={marketingBonus}
+            value={10}
+            // value={marketingBonus}
+            status="success"
           />
         </div>
         <LabelComponent

@@ -2,12 +2,16 @@ export interface Machine {
   clipper: number;
   clipperBonus: number;
   clipperCost: number;
+  harvesterDrone: number;
+  harvesterDroneCost: number;
   megaClipper: number;
   megaClipperBonus: number;
   megaClipperCost: number;
   clipFactory: number;
   clipFactoryBonus: number;
   clipFactoryCost: number;
+  wireDrone: number;
+  wireDroneCost: number;
 }
 
 export type MachineDispatch =

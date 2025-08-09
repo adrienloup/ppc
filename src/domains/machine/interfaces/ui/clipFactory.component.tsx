@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useMeca, useMecaDispatch } from '@/src/domains/machine/interfaces/useMeca.ts';
+import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -14,7 +15,8 @@ export const ClipFactoryComponent = () => {
   const { t } = useTranslation();
   const mecaDispatch = useMecaDispatch();
   const fundsDispatch = useFundsDispatch();
-  const { clipFactory, clipFactoryBonus, clipFactoryCost } = useMeca();
+  // const { clipFactory, clipFactoryBonus, clipFactoryCost } = useMeca();
+  const { clipFactory, clipFactoryCost } = useMeca();
   const { funds } = useFunds();
 
   const buyClipFactory = () => {
@@ -27,18 +29,6 @@ export const ClipFactoryComponent = () => {
   return (
     <DialsComponent>
       <DialComponent>
-        {clipFactory >= 1e8 && (
-          <BadgeComponent
-            className={styles.warning}
-            status="warning"
-            label={t('factory.noSpace')}
-          />
-        )}
-        <BadgeComponent
-          className={styles.warning}
-          status="warning"
-          label="overconsumption"
-        />
         <NumberComponent
           className={styles.value}
           value={clipFactoryCost}
@@ -57,7 +47,8 @@ export const ClipFactoryComponent = () => {
           />
           <BadgeComponent
             prefix="x"
-            value={clipFactoryBonus}
+            value={500}
+            // value={clipFactoryBonus}
             status="success"
           />
         </div>
@@ -74,6 +65,14 @@ export const ClipFactoryComponent = () => {
         >
           +
         </ClickerComponent>
+        {/*{clipFactory >= 1e8 && (*/}
+        <BadgeComponent
+          className={styles.warning}
+          status="warning"
+          label={t('factory.noSpace')}
+        />
+        {/*)}*/}
+        <OverConsumptionComponent />
       </DialComponent>
     </DialsComponent>
   );

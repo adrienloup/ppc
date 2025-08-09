@@ -72,7 +72,7 @@ $tablet-landscape: 1440px;
 }
 
 .warning {
-  margin-bottom: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
 }
 
 .group {
@@ -96,7 +96,6 @@ $tablet-landscape: 1440px;
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
-  margin-top: var(--spacing-xs);
 }
 
 .button {

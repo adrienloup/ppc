@@ -1,3 +1,4 @@
+import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
@@ -29,6 +30,11 @@ export const PowerConsumptionComponent = () => {
           className={styles.label}
           label="clip factory consumption"
         />
+        <BadgeComponent
+          className={styles.warning}
+          status="warning"
+          label="consumption"
+        />
       </DialComponent>
       <DialComponent>
         <NumberComponent
@@ -39,6 +45,11 @@ export const PowerConsumptionComponent = () => {
         <LabelComponent
           className={styles.label}
           label="drone consumption"
+        />
+        <BadgeComponent
+          className={styles.warning}
+          status="warning"
+          label="consumption"
         />
       </DialComponent>
     </DialsComponent>

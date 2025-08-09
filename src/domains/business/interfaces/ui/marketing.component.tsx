@@ -36,17 +36,11 @@ export const MarketingComponent = () => {
         />
       </DialComponent>
       <DialComponent>
-        <div className={styles.group}>
-          <NumberComponent
-            className={styles.value}
-            value={marketing}
-            valueMax={10}
-          />
-          <BadgeComponent
-            status="warning"
-            label={marketing >= 10 ? 'out' : undefined}
-          />
-        </div>
+        <NumberComponent
+          className={styles.value}
+          value={marketing}
+          valueMax={10}
+        />
         <LabelComponent
           className={styles.label}
           label="marketing level"
@@ -60,6 +54,13 @@ export const MarketingComponent = () => {
         >
           +
         </ClickerComponent>
+        {/*{marketing >= 10 && (*/}
+        <BadgeComponent
+          className={styles.warning}
+          status="warning"
+          label="latest"
+        />
+        {/*)}*/}
       </DialComponent>
     </DialsComponent>
   );

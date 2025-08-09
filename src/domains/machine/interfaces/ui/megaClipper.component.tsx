@@ -14,7 +14,8 @@ export const MegaClipperComponent = () => {
   const { t } = useTranslation();
   const mecaDispatch = useMecaDispatch();
   const fundsDispatch = useFundsDispatch();
-  const { megaClipper, megaClipperBonus, megaClipperCost } = useMeca();
+  // const { megaClipper, megaClipperBonus, megaClipperCost } = useMeca();
+  const { megaClipper, megaClipperCost } = useMeca();
   const { funds } = useFunds();
 
   const buyMegaClipper = () => {
@@ -45,7 +46,8 @@ export const MegaClipperComponent = () => {
           />
           <BadgeComponent
             prefix="x"
-            value={megaClipperBonus}
+            value={500}
+            // value={megaClipperBonus}
             status="success"
           />
         </div>

@@ -7,6 +7,7 @@ import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
 import { MecaProvider } from '@/src/domains/machine/infrastructure/meca.provider.tsx';
 import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
 import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
+import { PowerProvider } from '@/src/domains/power/infrastructure/power.provider.tsx';
 import { ProdProvider } from '@/src/domains/production/infrastructure/prod.provider.tsx';
 import { ProfileProvider } from '@/src/domains/profile/infrastructure/profile.provider.tsx';
 import { ResourcesProvider } from '@/src/domains/resources/infrastructure/resources.provider.tsx';
@@ -41,4 +42,5 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [ITProvider],
   [TradeProvider],
   [SwarmProvider],
+  [PowerProvider],
 ]);

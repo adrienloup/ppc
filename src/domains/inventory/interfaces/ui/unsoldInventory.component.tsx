@@ -8,7 +8,8 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const UnsoldInventoryComponent = () => {
   // console.log('UnsoldInventoryComponent');
-  const { unsoldInventory, unsoldInventoryBonus } = useInventory();
+  const { unsoldInventory } = useInventory();
+  // const { unsoldInventory, unsoldInventoryBonus } = useInventory();
 
   return (
     <DialsComponent>
@@ -20,7 +21,8 @@ export const UnsoldInventoryComponent = () => {
           />
           <BadgeComponent
             prefix="x"
-            value={unsoldInventoryBonus}
+            value={10}
+            // value={unsoldInventoryBonus}
             status="success"
           />
         </div>

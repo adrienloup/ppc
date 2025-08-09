@@ -1,3 +1,5 @@
+import { HarvesterDroneComponent } from '@/src/domains/machine/interfaces/ui/harvesterDrone.component.tsx';
+import { WireDroneComponent } from '@/src/domains/machine/interfaces/ui/wireDrone.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
@@ -13,6 +15,8 @@ export const ProductionComponent = () => {
       >
         production
       </TitleComponent>
+      <HarvesterDroneComponent />
+      <WireDroneComponent />
       <EmptyComponent />
     </CardComponent>
   );

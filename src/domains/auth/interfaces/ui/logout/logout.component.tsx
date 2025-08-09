@@ -7,6 +7,7 @@ import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
 import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
 import { useMer } from '@/src/domains/merchandise/interfaces/useMer.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
+import { usePower } from '@/src/domains/power/interfaces/usePower.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
@@ -26,6 +27,7 @@ export const LogoutComponent = memo(() => {
   const it = useIT();
   const machine = useMeca();
   const merchandise = useMer();
+  const power = usePower();
   const production = useProd();
   const resources = useResources();
   const swarm = useSwarm();
@@ -39,6 +41,7 @@ export const LogoutComponent = memo(() => {
       it,
       machine,
       merchandise,
+      power,
       production,
       resources,
       swarm,

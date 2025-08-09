@@ -9,3 +9,5 @@ export interface Power {
   solarFarm: number;
   solarFarmCost: number;
 }
+
+export type PowerDispatch = { type: 'LOAD'; power: Power };
