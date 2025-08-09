@@ -1,5 +1,4 @@
 import { BUSINESS_STATE } from '@/src/domains/business/infrastructure/business.state.ts';
-import type { Factory } from '@/src/domains/factory/domain/factory.type.ts';
 import { FUNDS_STATE } from '@/src/domains/funds/infrastructure/funds.state.ts';
 import { INVENTORY_STATE } from '@/src/domains/inventory/infrastructure/inventory.state.ts';
 import { IT_STATE } from '@/src/domains/it/infrastructure/IT.state.ts';
@@ -9,6 +8,7 @@ import { PRODUCTION_STATE } from '@/src/domains/production/infrastructure/prod.s
 import { RESOURCES_STATE } from '@/src/domains/resources/infrastructure/resources.state.ts';
 import { SWARM_STATE } from '@/src/domains/swarm/infrastructure/swarm.state.ts';
 import { TRADE_STATE } from '@/src/domains/trade/infrastructure/trade.state.ts';
+import type { Factory } from '@/src/domains/factory/domain/factory.type.ts';
 
 export const FACTORY_STATE: Factory = {
   business: BUSINESS_STATE,

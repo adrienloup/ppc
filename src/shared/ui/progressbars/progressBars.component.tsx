@@ -1,6 +1,6 @@
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
-import type { ProgressBars } from '@/src/shared/ui/progressbars/progressBars.type.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { ProgressBars } from '@/src/shared/ui/progressbars/progressBars.type.ts';
 import styles from '@/src/shared/ui/progressbars/progressBars.module.scss';
 
 export const ProgressBarsComponent = ({ total, value1, value2, className }: ProgressBars) => {

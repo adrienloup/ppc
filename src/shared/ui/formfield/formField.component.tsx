@@ -1,5 +1,5 @@
-import type { FormField } from '@/src/shared/ui/formfield/formField.type.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { FormField } from '@/src/shared/ui/formfield/formField.type.ts';
 import styles from '@/src/shared/ui/formfield/formField.module.scss';
 
 export const FormFieldComponent = ({ children, className, label, helperText, errorMessage }: FormField) => {

@@ -1,5 +1,5 @@
-import type { Highlight } from '@/src/shared/ui/highlight/highlight.type.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { Highlight } from '@/src/shared/ui/highlight/highlight.type.ts';
 import styles from '@/src/shared/ui/highlight/highlight.module.scss';
 
 export const HighlightComponent = ({ className, children }: Highlight) => {

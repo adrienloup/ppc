@@ -1,7 +1,7 @@
-import type { Banner } from '@/src/shared/ui/banner/banner.type.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { Banner } from '@/src/shared/ui/banner/banner.type.ts';
 import styles from '@/src/shared/ui/banner/banner.module.scss';
 
 export const BannerComponent = ({ className, title, button, ...props }: Banner) => {

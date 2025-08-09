@@ -3,6 +3,7 @@ import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { BusinessComponent } from '@/src/domains/factory/interfaces/ui/factory/business.component.tsx';
 import { InvestmentsComponent } from '@/src/domains/factory/interfaces/ui/factory/investments.component.tsx';
 import { ManufacturingComponent } from '@/src/domains/factory/interfaces/ui/factory/manufacturing.component.tsx';
+import { ModelingComponent } from '@/src/domains/factory/interfaces/ui/factory/modeling.component.tsx';
 import { PowerComponent } from '@/src/domains/factory/interfaces/ui/factory/power.component.tsx';
 import { ProductionComponent } from '@/src/domains/factory/interfaces/ui/factory/production.component.tsx';
 import { SwarmComponent } from '@/src/domains/factory/interfaces/ui/factory/swarm.component.tsx';
@@ -33,6 +34,7 @@ export const FactoryComponent = () => {
         <ProductionComponent />
         <SwarmComponent />
         <PowerComponent />
+        <ModelingComponent />
       </CardsComponent>
     </ArticleComponent>
   ) : (

@@ -1,8 +1,8 @@
 import { type CSSProperties, type MouseEvent, useEffect, useRef, useState } from 'react';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
-import type { Clicker } from '@/src/shared/ui/clicker/clicker.type.ts';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { Clicker } from '@/src/shared/ui/clicker/clicker.type.ts';
 import styles from '@/src/shared/ui/clicker/clicker.module.scss';
 
 export interface Value {

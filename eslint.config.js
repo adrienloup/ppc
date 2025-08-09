@@ -34,6 +34,11 @@ export default tseslint.config(
               position: 'before',
             },
             {
+              pattern: '@/**/*.type.ts',
+              group: 'internal',
+              position: 'after',
+            },
+            {
               pattern: '@/**/*.scss',
               group: 'internal',
               position: 'after',

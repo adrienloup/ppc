@@ -1,8 +1,8 @@
 import { ExchangeComponent } from '@/src/domains/trade/interfaces/ui/exchange.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
+import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
-// import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 
 export const InvestmentsComponent = () => {
   // console.log('InvestmentsComponent');
@@ -15,7 +15,7 @@ export const InvestmentsComponent = () => {
         investments
       </TitleComponent>
       <ExchangeComponent />
-      {/*<EmptyComponent />*/}
+      <EmptyComponent />
     </CardComponent>
   );
 };

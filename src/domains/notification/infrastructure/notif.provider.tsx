@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 import { notifReducer } from '@/src/domains/notification/application/notif.reducer.ts';
 import { NotifContext, NotifDisContext } from '@/src/domains/notification/infrastructure/notif.context.ts';
 import { NotifComponent } from '@/src/domains/notification/interfaces/ui/notif/notif.component.tsx';
-import type { Notif } from '@/src/domains/notification/interfaces/ui/notif/notif.type.ts';
 import { NotifsComponent } from '@/src/domains/notification/interfaces/ui/notifs/notifs.component.tsx';
+import type { Notif } from '@/src/domains/notification/interfaces/ui/notif/notif.type.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const NotifProvider: FC<{ children: Children }> = ({ children }) => {
