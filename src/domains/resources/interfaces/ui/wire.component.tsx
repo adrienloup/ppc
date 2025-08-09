@@ -57,6 +57,11 @@ export const WireComponent = () => {
         >
           +
         </ClickerComponent>
+        <BadgeComponent
+          className={styles.badge}
+          status="warning"
+          label="unused"
+        />
       </DialComponent>
     </DialsComponent>
   );

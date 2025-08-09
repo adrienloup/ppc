@@ -1,5 +1,6 @@
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
+import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -52,13 +53,7 @@ export const HarvesterDroneComponent = () => {
         >
           +
         </ClickerComponent>
-        {/*{droneConsumption > powerProduction && (*/}
-        <BadgeComponent
-          className={styles.warning}
-          status="warning"
-          label="consumption"
-        />
-        {/*)}*/}
+        <OverConsumptionComponent />
       </DialComponent>
     </DialsComponent>
   );

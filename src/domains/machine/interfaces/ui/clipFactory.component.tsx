@@ -67,8 +67,8 @@ export const ClipFactoryComponent = () => {
         </ClickerComponent>
         {/*{clipFactory >= 1e8 && (*/}
         <BadgeComponent
-          className={styles.warning}
-          status="warning"
+          className={styles.badge}
+          status="error"
           label={t('factory.noSpace')}
         />
         {/*)}*/}

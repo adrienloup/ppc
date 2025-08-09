@@ -12,8 +12,8 @@ export const OverConsumptionComponent = () => {
   // return overConsumption ? (
   return !overConsumption ? (
     <BadgeComponent
-      className={styles.warning}
-      status="warning"
+      className={styles.badge}
+      status="error"
       label="overconsumption"
     />
   ) : null;

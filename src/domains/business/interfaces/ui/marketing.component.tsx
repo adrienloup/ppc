@@ -56,7 +56,7 @@ export const MarketingComponent = () => {
         </ClickerComponent>
         {/*{marketing >= 10 && (*/}
         <BadgeComponent
-          className={styles.warning}
+          className={styles.badge}
           status="warning"
           label="latest"
         />

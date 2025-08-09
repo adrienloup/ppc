@@ -63,6 +63,11 @@ export const ClipperComponent = () => {
         >
           +
         </ClickerComponent>
+        <BadgeComponent
+          className={styles.badge}
+          status="warning"
+          label="closed"
+        />
       </DialComponent>
     </DialsComponent>
   );

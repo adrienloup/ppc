@@ -64,6 +64,11 @@ export const MegaClipperComponent = () => {
         >
           +
         </ClickerComponent>
+        <BadgeComponent
+          className={styles.badge}
+          status="warning"
+          label="closed"
+        />
       </DialComponent>
     </DialsComponent>
   );
