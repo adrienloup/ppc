@@ -8,19 +8,19 @@ export const mecaReducer = (state: Mechanical, action: MecaDispatch): Mechanical
       return {
         ...state,
         clipper: state.clipper + 1,
-        clipperCost: action.price,
+        clipperCost: action.cost,
       };
     case 'BUY_MEGA_CLIPPER':
       return {
         ...state,
         megaClipper: state.megaClipper + 1,
-        megaClipperCost: action.price,
+        megaClipperCost: action.cost,
       };
     case 'BUY_CLIP_FACTORY':
       return {
         ...state,
         clipFactory: state.clipFactory + 1,
-        clipFactoryCost: action.price,
+        clipFactoryCost: action.cost,
       };
     case 'CLIPPER_BONUS':
       return {

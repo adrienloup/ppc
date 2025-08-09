@@ -21,13 +21,13 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
   const { clipPrice, publicDemand } = useBusiness();
 
   const update = useCallback(() => {
-    if (state.unsoldInventory < 1) return;
-
+    // if (state.unsoldInventory < 1) return;
     const unsoldInventory = Math.max(0, Math.floor(state.unsoldInventory * (1 - publicDemand)));
-    const price = (state.unsoldInventory - unsoldInventory) * clipPrice;
+    const funds = (state.unsoldInventory - unsoldInventory) * clipPrice;
+    const fundsPerSecond = state.unsoldInventory * clipPrice;
 
     dispatch({ type: 'DECREASE_INVENTORY', unsoldInventory });
-    fundsDispatch({ type: 'INCREASE_FUNDS', price });
+    fundsDispatch({ type: 'INCREASE_FUNDS', funds, fundsPerSecond });
   }, [state, clipPrice, publicDemand]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
     inventoryStorage.set(state);
   }, [state]);
 
-  useInterval(update, 5e2, !!user && !pause);
+  useInterval(update, 4e2, !!user && !pause);
 
   return (
     <InventoryContext.Provider value={state}>
