@@ -10,12 +10,10 @@ import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
-// import { useSale } from '@/src/domains/sale/interfaces/useSale.ts';
 import { useSwarm } from '@/src/domains/swarm/interfaces/useSwarm.ts';
 import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import styles from '@/src/domains/auth/interfaces/ui/logout/logout.module.scss';
-// import { IconComponent } from '@/src/shared/ui/icon/icon.component.tsx';
 
 export const LogoutComponent = memo(() => {
   const authDispatch = useAuthDispatch();
@@ -30,7 +28,6 @@ export const LogoutComponent = memo(() => {
   const merchandise = useMer();
   const production = useProd();
   const resources = useResources();
-  // const sale = useSale();
   const swarm = useSwarm();
   const trade = useTrade();
 
@@ -44,7 +41,6 @@ export const LogoutComponent = memo(() => {
       merchandise,
       production,
       resources,
-      // sale,
       swarm,
       trade,
     };

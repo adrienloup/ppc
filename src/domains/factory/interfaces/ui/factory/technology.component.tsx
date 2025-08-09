@@ -3,9 +3,9 @@ import { OperationComponent } from '@/src/domains/it/interfaces/ui/operation.com
 import { ProcessorComponent } from '@/src/domains/it/interfaces/ui/processor.component.tsx';
 import { TrustComponent } from '@/src/domains/it/interfaces/ui/trust.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
+import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
-// import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 
 export const TechnologyComponent = () => {
   // console.log('TechnologyComponent');
@@ -21,7 +21,7 @@ export const TechnologyComponent = () => {
       <MemoryComponent />
       <ProcessorComponent />
       <OperationComponent />
-      {/*<EmptyComponent />*/}
+      <EmptyComponent />
     </CardComponent>
   );
 };
