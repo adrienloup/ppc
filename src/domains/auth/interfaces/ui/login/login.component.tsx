@@ -59,6 +59,7 @@ export const LoginComponent = ({ className }: Login) => {
         id: 'log-in',
         text: `${username} is connected`,
         status: 'success',
+        timeout: 25e2,
       },
     });
   };
@@ -96,6 +97,7 @@ export const LoginComponent = ({ className }: Login) => {
         id: 'sign-up',
         text: `${username} successfully registered`,
         status: 'success',
+        timeout: 25e2,
       },
     });
   };

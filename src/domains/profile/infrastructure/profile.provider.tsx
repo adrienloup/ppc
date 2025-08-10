@@ -49,7 +49,7 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = (event: MediaQueryListEvent) => {
-      dispatch({ type: 'SET_MODE', mode: event.matches ? 'dark' : 'light' });
+      dispatch({ type: 'MODE', mode: event.matches ? 'dark' : 'light' });
     };
     media.addEventListener('change', onChange);
     return () => media.removeEventListener('change', onChange);

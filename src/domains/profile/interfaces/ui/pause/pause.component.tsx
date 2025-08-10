@@ -1,27 +1,44 @@
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useProfileDis } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/profile/interfaces/ui/pause/pause.module.scss';
 
 export const PauseComponent = () => {
   const { t } = useTranslation();
-  const proDispatch = useProfileDis();
+  const profileDispatch = useProfileDis();
+  const timerRef = useRef<number | null>(null);
+  const [out, setOut] = useState(false);
+
+  const clearTimer = () => {
+    if (timerRef.current === null) return;
+    clearTimeout(timerRef.current);
+    timerRef.current = null;
+  };
+
+  const onClick = () => {
+    setOut(true);
+    clearTimer();
+    timerRef.current = window.setTimeout(() => {
+      profileDispatch({ type: 'PLAY_PAUSE' });
+    }, 400); // CSS animation duration
+  };
+
+  useEffect(() => clearTimer, []);
 
   return (
     <div className={styles.pause}>
       <ButtonComponent
-        className={styles.button}
-        onClick={() => proDispatch({ type: 'SET_PLAY_PAUSE' })}
+        className={classNames(styles.button, out ? styles.out : '')}
+        onClick={onClick}
       >
-        <span
-          className={styles.label}
-          dangerouslySetInnerHTML={{ __html: `<span>${t('app.pause')}</span> ${t('app.press')}` }}
-        />
+        <span className={styles.label}>{t('app.play')}</span>
       </ButtonComponent>
       <div
         className={styles.backdrop}
         role="presentation"
-        onClick={() => proDispatch({ type: 'SET_PLAY_PAUSE' })}
+        onClick={onClick}
       ></div>
     </div>
   );

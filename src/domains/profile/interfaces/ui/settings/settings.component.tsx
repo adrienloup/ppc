@@ -13,19 +13,19 @@ export const SettingsComponent = () => {
         <div className={styles.buttons}>
           <ButtonComponent
             className={styles.button}
-            onClick={() => proDispatch({ type: 'SET_MODE', mode: 'light' })}
+            onClick={() => proDispatch({ type: 'MODE', mode: 'light' })}
           >
             light
           </ButtonComponent>
           <ButtonComponent
             className={styles.button}
-            onClick={() => proDispatch({ type: 'SET_MODE', mode: 'dark' })}
+            onClick={() => proDispatch({ type: 'MODE', mode: 'dark' })}
           >
             dark
           </ButtonComponent>
           <ButtonComponent
             className={styles.button}
-            onClick={() => proDispatch({ type: 'SET_MODE', mode: 'system' })}
+            onClick={() => proDispatch({ type: 'MODE', mode: 'system' })}
           >
             system
           </ButtonComponent>
@@ -36,13 +36,13 @@ export const SettingsComponent = () => {
         <div className={styles.buttons}>
           <ButtonComponent
             className={styles.button}
-            onClick={() => proDispatch({ type: 'SET_LANG', lang: 'en' })}
+            onClick={() => proDispatch({ type: 'LANG', lang: 'en' })}
           >
             en
           </ButtonComponent>
           <ButtonComponent
             className={styles.button}
-            onClick={() => proDispatch({ type: 'SET_LANG', lang: 'fr' })}
+            onClick={() => proDispatch({ type: 'LANG', lang: 'fr' })}
           >
             fr
           </ButtonComponent>

@@ -14,20 +14,38 @@
   position: sticky;
   bottom: 1rem;
   z-index: 2;
-  background-color: var(--color-8);
+  height: 3.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: var(--mode-color-2);
   transform-origin: center;
+  animation: Appear 0.25s var(--ease-expo);
+  //will-change: height, opacity, transform;
   //backface-visibility: hidden;
-  animation: Appear 0.35s var(--ease-expo);
-  will-change: transform;
+
+  &.out {
+    height: 1rem;
+    opacity: 0;
+    bottom: 4rem;
+    transition-property: height, opacity, bottom;
+    transition-duration: 0.5s, 0.3s, 0.5s;
+    transition-delay: 0s, 0.1s, 0s;
+    transition-timing-function: var(--ease-expo);
+  }
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-xs);
-  line-height: 1.1;
+  padding: 0 var(--spacing-s);
   text-transform: uppercase;
   font-size: var(--font-size-s);
+
+  .out & {
+    transition: transform 0.5s var(--ease-expo);
+    transform: translateY(-0.5rem);
+  }
 }
 
 .backdrop {
@@ -43,6 +61,6 @@
 
 @keyframes Appear {
   0% {
-    transform: translate3d(0, 10rem, 0) scale(0.9);
+    transform: translate3d(0, 100%, 0);
   }
 }

@@ -23,14 +23,14 @@ export const ProfileComponent = () => {
         <div>user: {user}</div>
         <div>date: {formatDate(date)}</div>
         <div>
-          <button onClick={() => proDispatch({ type: 'SET_PLAY_PAUSE' })}>toggle play</button>
+          <button onClick={() => proDispatch({ type: 'PLAY_PAUSE' })}>toggle play</button>
         </div>
         <div>mode: {mode}</div>
         <div>
-          <button onClick={() => proDispatch({ type: 'SET_MODE', mode: 'light' })}>mode light</button>
+          <button onClick={() => proDispatch({ type: 'MODE', mode: 'light' })}>mode light</button>
         </div>
         <div>
-          <button onClick={() => proDispatch({ type: 'SET_MODE', mode: 'dark' })}>mode dark</button>
+          <button onClick={() => proDispatch({ type: 'MODE', mode: 'dark' })}>mode dark</button>
         </div>
       </div>
     </ArticleComponent>

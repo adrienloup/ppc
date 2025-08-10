@@ -12,7 +12,7 @@ export interface Profile {
 
 export type ProfileDispatch =
   | { type: 'LOAD'; profile: Profile }
-  | { type: 'SET_LANG'; lang: Lang }
-  | { type: 'SET_MODE'; mode: Mode }
-  | { type: 'SET_THEME'; theme: Theme }
-  | { type: 'SET_PLAY_PAUSE' };
+  | { type: 'LANG'; lang: Lang }
+  | { type: 'MODE'; mode: Mode }
+  | { type: 'THEME'; theme: Theme }
+  | { type: 'PLAY_PAUSE' };

@@ -14,21 +14,21 @@ describe('pause component', () => {
     vi.resetAllMocks();
   });
 
-  it('should use "SET_PLAY_PAUSE" and render "stopped" when the button in clicked', () => {
+  it('should use "PLAY_PAUSE" and render "stopped" when the button in clicked', () => {
     render(<PauseComponent />);
 
     fireEvent.click(screen.getByRole('button'));
 
-    expect(mockDispatch).toHaveBeenCalledWith({ type: 'SET_PLAY_PAUSE' });
+    expect(mockDispatch).toHaveBeenCalledWith({ type: 'PLAY_PAUSE' });
     expect(screen.getByText('stopped')).toBeInTheDocument();
   });
 
-  it('should use "SET_PLAY_PAUSE" and render "stopped" when the backdrop in clicked', () => {
+  it('should use "PLAY_PAUSE" and render "stopped" when the backdrop in clicked', () => {
     render(<PauseComponent />);
 
     fireEvent.click(screen.getByRole('presentation', { hidden: true }));
 
-    expect(mockDispatch).toHaveBeenCalledWith({ type: 'SET_PLAY_PAUSE' });
+    expect(mockDispatch).toHaveBeenCalledWith({ type: 'PLAY_PAUSE' });
     expect(screen.getByText('stopped')).toBeInTheDocument();
   });
 });

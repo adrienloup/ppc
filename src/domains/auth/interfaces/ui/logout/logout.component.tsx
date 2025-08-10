@@ -58,6 +58,7 @@ export const LogoutComponent = memo(() => {
         id: 'log-out',
         text: `${user} is connected`,
         status: 'success',
+        timeout: 25e2,
       },
     });
   };

@@ -3,7 +3,7 @@
   width: 25rem;
   color: var(--color-2);
   pointer-events: initial;
-  will-change: width, transform, opacity;
+  will-change: width, opacity, transform;
 
   &.in {
     animation: Appear 0.5s var(--ease-expo);
@@ -13,9 +13,9 @@
     width: 8rem;
     transform: translateX(-4rem);
     opacity: 0;
-    transition-property: width, transform, opacity;
-    transition-duration: 0.5s, 0.5s, 0.3s;
-    transition-delay: 0s, 0s, 0.1s;
+    transition-property: width, opacity, transform;
+    transition-duration: 0.5s, 0.3s, 0.5s;
+    transition-delay: 0s, 0.1s, 0s;
     transition-timing-function: var(--ease-expo);
   }
 
@@ -73,6 +73,7 @@
   background-color: var(--color-2);
   font-size: var(--font-size-s);
   pointer-events: initial;
+  outline-offset: -0.25rem;
 
   .success & {
     color: var(--color-7);

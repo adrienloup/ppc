@@ -1,39 +1,39 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { Notif } from '@/src/domains/notification/interfaces/ui/notif/notif.type.ts';
 import styles from '@/src/domains/notification/interfaces/ui/notif/notif.module.scss';
 
-export const NotifComponent = ({ id, text, status = 'warning', timeout = 4e3, close = true, remove }: Notif) => {
-  const outTimer = useRef(0);
-  const removeTimer = useRef(0);
+export const NotifComponent = ({
+  id,
+  text,
+  status = 'warning',
+  timeout = 5e3,
+  close = true,
+  remove = () => {},
+}: Notif) => {
+  const timerRef = useRef<number | null>(null);
   const [out, setOut] = useState(false);
 
-  const onRemove = () => {
+  const startRemoveSequence = useCallback(() => {
     setOut(true);
-    removeTimer.current = setTimeout(() => {
-      remove!();
-    }, timeout + 400) as unknown as number;
-  };
+    timerRef.current = window.setTimeout(() => {
+      remove();
+    }, timeout + 400); // add CSS animation duration
+  }, [remove]);
 
   useEffect(() => {
-    if (timeout > 0) {
-      outTimer.current = setTimeout(() => {
-        setOut(true);
-      }, timeout) as unknown as number;
-      removeTimer.current = setTimeout(() => {
-        remove!(); // removes the exit CSS animation
-      }, timeout + 400) as unknown as number; // add CSS animation duration
-    }
+    timerRef.current = window.setTimeout(() => {
+      startRemoveSequence();
+    }, timeout);
     return () => {
-      clearTimeout(outTimer.current);
-      clearTimeout(removeTimer.current);
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [timeout]);
+  }, [timeout, startRemoveSequence]);
 
   return (
     <div
-      className={classNames(styles.notif, styles[status], timeout > 0 ? styles.in : '', out ? styles.out : '')}
+      className={classNames(styles.notif, styles[status], styles.in, out ? styles.out : '')}
       id={id}
       role="alert"
       aria-live="assertive"
@@ -43,7 +43,7 @@ export const NotifComponent = ({ id, text, status = 'warning', timeout = 4e3, cl
         {close && (
           <ButtonComponent
             className={styles.button}
-            onClick={onRemove}
+            onClick={startRemoveSequence}
           >
             x
           </ButtonComponent>
