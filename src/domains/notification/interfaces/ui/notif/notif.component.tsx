@@ -10,7 +10,7 @@ export const NotifComponent = ({
   status = 'warning',
   timeout = 5e3,
   close = true,
-  remove = () => {},
+  onRemove = () => {},
 }: Notif) => {
   const timerRef = useRef<number | null>(null);
   const [out, setOut] = useState(false);
@@ -18,9 +18,9 @@ export const NotifComponent = ({
   const startRemoveSequence = useCallback(() => {
     setOut(true);
     timerRef.current = window.setTimeout(() => {
-      remove();
+      onRemove();
     }, timeout + 400); // add CSS animation duration
-  }, [remove]);
+  }, [onRemove]);
 
   useEffect(() => {
     timerRef.current = window.setTimeout(() => {

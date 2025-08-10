@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useProfileDis } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
-import styles from '@/src/domains/profile/interfaces/ui/play/play.module.scss';
+import styles from '@/src/domains/profile/interfaces/ui/playPause/playPause.module.scss';
 
 export const PlayPauseComponent = () => {
   const { t } = useTranslation();
@@ -9,7 +9,7 @@ export const PlayPauseComponent = () => {
 
   return (
     <ButtonComponent
-      className={styles.play}
+      className={styles.playPause}
       onClick={() => profileDispatch({ type: 'PLAY_PAUSE' })}
     >
       {t('app.pause')}

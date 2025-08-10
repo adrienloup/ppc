@@ -6,5 +6,5 @@ export interface Notif {
   timeout?: number;
   status?: Status;
   close?: boolean;
-  remove?: () => void;
+  onRemove?: () => void;
 }

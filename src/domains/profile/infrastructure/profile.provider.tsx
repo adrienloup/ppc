@@ -6,7 +6,7 @@ import { profileReducer } from '@/src/domains/profile/application/profile.reduce
 import { ProfileContext, ProfileDisContext } from '@/src/domains/profile/infrastructure/profile.context.ts';
 import { PROFILE_KEY } from '@/src/domains/profile/infrastructure/profile.key.ts';
 import { PROFILE_STATE } from '@/src/domains/profile/infrastructure/profile.state.ts';
-import { PauseComponent } from '@/src/domains/profile/interfaces/ui/pause/pause.component.tsx';
+import { PausePopinComponent } from '@/src/domains/profile/interfaces/ui/popin/pausePopin.component.tsx';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Lang } from '@/src/domains/profile/domain/lang.type.ts';
 import type { Mode } from '@/src/domains/profile/domain/mode.type.ts';
@@ -75,7 +75,7 @@ export const ProfileProvider: FC<{ children: Children }> = ({ children }) => {
     <ProfileContext.Provider value={state}>
       <ProfileDisContext.Provider value={dispatch}>
         {children}
-        {user && state.pause && createPortal(<PauseComponent />, document.getElementById('_app_emma0_1')!)}
+        {user && state.pause && createPortal(<PausePopinComponent />, document.getElementById('_app_emma0_1')!)}
       </ProfileDisContext.Provider>
     </ProfileContext.Provider>
   );
