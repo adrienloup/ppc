@@ -1,10 +1,10 @@
 import { type FC, useEffect, useRef, useState } from 'react';
-import { PopinContext, PopinActionContext } from '@/src/domains/popin/infrastructure/popin.context.ts';
+import { PopinContext, PopinDisContext } from '@/src/domains/popin/infrastructure/popin.context.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
 export const PopinProvider: FC<{ children: Children }> = ({ children }) => {
   const timerRef = useRef<number | null>(null);
-  const actionRef = useRef<() => void>(() => {});
+  const dispatchRef = useRef<() => void>(() => {});
   const [remove, setRemove] = useState(false);
 
   const clearTimer = () => {
@@ -13,15 +13,15 @@ export const PopinProvider: FC<{ children: Children }> = ({ children }) => {
     timerRef.current = null;
   };
 
-  const onPopin = (fn: () => void) => {
-    actionRef.current = fn;
+  const dispatch = (fn: () => void) => {
+    dispatchRef.current = fn;
   };
 
   const onRemove = () => {
     setRemove(true);
     clearTimer();
     timerRef.current = window.setTimeout(() => {
-      actionRef.current();
+      dispatchRef.current();
       setRemove(false);
     }, 400); // CSS animation duration
   };
@@ -30,7 +30,7 @@ export const PopinProvider: FC<{ children: Children }> = ({ children }) => {
 
   return (
     <PopinContext.Provider value={[remove, onRemove]}>
-      <PopinActionContext.Provider value={onPopin}>{children}</PopinActionContext.Provider>
+      <PopinDisContext.Provider value={dispatch}>{children}</PopinDisContext.Provider>
     </PopinContext.Provider>
   );
 };

@@ -3,7 +3,8 @@
   width: 25rem;
   color: var(--color-2);
   pointer-events: initial;
-  will-change: width, opacity, transform;
+  //will-change: width, opacity, transform;
+  //backface-visibility: hidden;
 
   &.in {
     animation: Appear 0.5s var(--ease-expo);
@@ -11,8 +12,8 @@
 
   &.out {
     width: 8rem;
-    transform: translateX(-4rem);
     opacity: 0;
+    transform: translateX(-4rem);
     transition-property: width, opacity, transform;
     transition-duration: 0.5s, 0.3s, 0.5s;
     transition-delay: 0s, 0.1s, 0s;
@@ -94,6 +95,6 @@
 
 @keyframes Appear {
   0% {
-    transform: translateX(100%) translateZ(0);
+    transform: translate3d(100%, 0, 0);
   }
 }

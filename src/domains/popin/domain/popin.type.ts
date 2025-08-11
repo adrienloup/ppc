@@ -1,2 +1,6 @@
-export type Popin = boolean;
-export type PopinAction = () => void;
+export interface Popin {
+  text: string;
+  button: string;
+  onPopin: () => void;
+}
+export type PopinDispatch = () => void;

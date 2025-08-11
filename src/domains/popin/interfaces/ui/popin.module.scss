@@ -14,17 +14,19 @@
   position: sticky;
   bottom: 1rem;
   z-index: 2;
-  max-height: 10rem;
   overflow: hidden;
-  animation: Appear 0.25s var(--ease-expo);
-  //will-change: max-height, opacity, bottom;
+  width: 25.5rem;
+  animation: Appear 0.5s var(--ease-expo);
+  //will-change: width, opacity, transform;
   //backface-visibility: hidden;
 
   &.remove {
-    max-height: 1rem;
+    width: 8rem;
     opacity: 0;
-    bottom: 3rem;
-    transition-property: max-height, opacity, bottom;
+    //transform: translateX(-4rem);
+    margin-right: 4rem;
+    //transition-property: width, opacity, transform;
+    transition-property: width, opacity, margin-right;
     transition-duration: 0.5s, 0.3s, 0.5s;
     transition-delay: 0s, 0.1s, 0s;
     transition-timing-function: var(--ease-expo);
@@ -32,23 +34,40 @@
 }
 
 .inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+  width: 25.5rem;
+  white-space: collapse;
+  background-color: var(--color-7);
 
   .remove & {
     transition: transform 0.5s var(--ease-expo);
-    transform: translateY(-0.5rem);
+    transform: translateX(-10rem);
   }
 }
 
 .text {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
   padding: var(--spacing-xs);
-  background-color: var(--color-7);
   font-size: var(--font-size-s);
   color: var(--color-2);
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .button {
-  padding: var(--spacing-xs);
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing-xs);
   background-color: var(--color-2);
   font-size: var(--font-size-s);
   color: var(--color-7);

@@ -1,30 +1,19 @@
 import { useEffect } from 'react';
-// import { usePopin, usePopinDispatch, usePopinAction } from '@/src/domains/popin/interfaces/usePopin.ts';
-import { usePopin, usePopinAction } from '@/src/domains/popin/interfaces/usePopin.ts';
+import { usePopin, usePopinDispatch } from '@/src/domains/popin/interfaces/usePopin.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { Popin } from '@/src/domains/popin/domain/popin.type.ts';
 import styles from '@/src/domains/popin/interfaces/ui/popin.module.scss';
 
-export const PopinComponent = ({
-  text,
-  button,
-  utututututut,
-}: {
-  text: string;
-  button: string;
-  utututututut: () => void;
-}) => {
-  // const onRemove = usePopinDispatch();
-  // const onPopin = usePopinAction();
-  // const remove = usePopin();
+export const PopinComponent = ({ text, button, onPopin }: Popin) => {
+  const dispatch = usePopinDispatch();
   const [remove, onRemove] = usePopin();
-  const onPopin = usePopinAction();
 
   useEffect(() => {
-    onPopin(() => {
-      utututututut();
+    dispatch(() => {
+      onPopin();
     });
-  }, [onPopin]);
+  }, [dispatch]);
 
   return (
     <div className={styles.popin}>

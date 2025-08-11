@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { PopinContext, PopinActionContext } from '@/src/domains/popin/infrastructure/popin.context.ts';
+import { PopinContext, PopinDisContext } from '@/src/domains/popin/infrastructure/popin.context.ts';
 
 export const usePopin = () => {
   const ctx = useContext(PopinContext);
@@ -7,8 +7,8 @@ export const usePopin = () => {
   return ctx;
 };
 
-export const usePopinAction = () => {
-  const ctx = useContext(PopinActionContext);
-  if (!ctx) throw new Error('usePopinAction must be inside PopinProvider');
+export const usePopinDispatch = () => {
+  const ctx = useContext(PopinDisContext);
+  if (!ctx) throw new Error('usePopinDispatch must be inside PopinProvider');
   return ctx;
 };
