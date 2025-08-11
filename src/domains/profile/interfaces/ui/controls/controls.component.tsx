@@ -11,8 +11,8 @@ export const ControlsComponent = () => {
     <div className={classNames(styles.controls, !user ? styles.disabled : '')}>
       controls
       <div className={styles.control}>
-        <PlayPauseComponent />
         <LogoutComponent />
+        <PlayPauseComponent />
       </div>
     </div>
   );
