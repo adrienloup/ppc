@@ -3,10 +3,7 @@ import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { inventoryReducer } from '@/src/domains/inventory/application/inventory.reducer.ts';
-import {
-  InventoryContext,
-  InventoryDisContext,
-} from '@/src/domains/inventory/infrastructure/inventory.context.tsx';
+import { InventoryContext, InventoryDisContext } from '@/src/domains/inventory/infrastructure/inventory.context.tsx';
 import { INVENTORY_KEY } from '@/src/domains/inventory/infrastructure/inventory.key.ts';
 import { INVENTORY_STATE } from '@/src/domains/inventory/infrastructure/inventory.state.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';

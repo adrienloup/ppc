@@ -3,10 +3,7 @@ import { type FC, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 // import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { resourcesReducer } from '@/src/domains/resources/application/resources.reducer.ts';
-import {
-  ResourcesContext,
-  ResourcesDisContext,
-} from '@/src/domains/resources/infrastructure/resources.context.tsx';
+import { ResourcesContext, ResourcesDisContext } from '@/src/domains/resources/infrastructure/resources.context.tsx';
 import { RESOURCES_KEY } from '@/src/domains/resources/infrastructure/resources.key.ts';
 import { RESOURCES_STATE } from '@/src/domains/resources/infrastructure/resources.state.ts';
 // import { useInterval } from '@/src/shared/hooks/useInterval.ts';

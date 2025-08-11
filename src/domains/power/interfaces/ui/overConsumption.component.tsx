@@ -12,14 +12,8 @@ export const OverConsumptionComponent = ({
   batteryTower?: boolean;
   drone?: boolean;
 }) => {
-  const {
-    batteryTowerConsumption,
-    clipFactoryConsumption,
-    consumption,
-    droneConsumption,
-    production,
-    storage,
-  } = usePower();
+  const { batteryTowerConsumption, clipFactoryConsumption, consumption, droneConsumption, production, storage } =
+    usePower();
 
   const { clipFactoryOver, batteryTowerOver, droneOver } = useMemo(() => {
     const power = production + storage;

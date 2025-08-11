@@ -10,10 +10,18 @@ export const MainComponent = ({ children }: Main) => {
     >
       {children}
       <SpaceComponent
-        stars={[
-          [1, 2, 3],
-          [4, 5],
-        ]}
+        stars={
+          // readonly [
+          // readonly [1, 2, 3],
+          // readonly [4, 5],
+          // readonly [6, 7, 8]
+          // ]
+          [
+            [1, 2, 3],
+            [4, 5],
+            [6, 7, 8],
+          ] as const
+        }
       />
     </main>
   );
