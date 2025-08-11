@@ -1,6 +1,5 @@
-import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
-import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
+import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { usePower, usePowerDispatch } from '@/src/domains/power/interfaces/usePower.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -9,51 +8,60 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const HarvesterDroneComponent = () => {
-  // console.log('HarvesterDroneComponent');
-  const { harvesterDrone, harvesterDroneCost } = useMeca();
+export const SolarFarmComponent = () => {
+  // console.log('SolarFarmComponent');
+  const powerDispatch = usePowerDispatch();
+  const fundsDispatch = useFundsDispatch();
+  // const { batteryTower, solarFarmBonus, batteryTowerCost } = usePower();
+  const { solarFarm, solarFarmCost } = usePower();
   const { funds } = useFunds();
+
+  const buySolarFarmCost = () => {
+    if (funds < solarFarmCost) return;
+    const newSolarFarmCost = solarFarmCost + (Math.random() * 4e4 + 2e4); // 0 1, 0 4e4, 4e4 6e4
+    powerDispatch({ type: 'SOLAR_FARM', cost: newSolarFarmCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', cost: solarFarmCost });
+  };
 
   return (
     <DialsComponent>
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          value={harvesterDroneCost}
+          value={solarFarmCost}
           asset="currency"
         />
         <LabelComponent
           className={styles.label}
-          label="harvester drone cost"
+          label="solar farm cost"
         />
       </DialComponent>
       <DialComponent>
         <div className={styles.group}>
           <NumberComponent
             className={styles.value}
-            value={harvesterDrone}
+            value={solarFarm}
           />
           <BadgeComponent
             prefix="x"
-            value={10}
-            // value={harvesterDroneBonus}
+            // value={solarFarmBonus}
+            value={500}
             status="success"
           />
         </div>
         <LabelComponent
           className={styles.label}
-          label="harvester drone"
+          label="solar farm"
         />
         <ClickerComponent
           className={styles.button}
           prefix="+"
           value={1}
-          disabled={funds < harvesterDroneCost}
-          onClick={() => console.log('buyHarvesterDrone')}
+          disabled={funds < solarFarmCost}
+          onClick={buySolarFarmCost}
         >
           +
         </ClickerComponent>
-        <OverConsumptionComponent drone />
       </DialComponent>
     </DialsComponent>
   );

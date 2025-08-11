@@ -1,5 +1,8 @@
 import { useContext } from 'react';
-import { ResourcesContext, ResourcesDisContext } from '@/src/domains/resources/infrastructure/resources.context.tsx';
+import {
+  ResourcesContext,
+  ResourcesDisContext,
+} from '@/src/domains/resources/infrastructure/resources.context.tsx';
 
 export const useResources = () => {
   const ctx = useContext(ResourcesContext);

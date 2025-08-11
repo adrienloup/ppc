@@ -15,17 +15,15 @@
   bottom: 1rem;
   z-index: 2;
   overflow: hidden;
-  width: 25.5rem;
+  width: 28rem;
   animation: Appear 0.5s var(--ease-expo);
-  //will-change: width, opacity, transform;
+  //will-change: width, opacity, margin-right, transform;
   //backface-visibility: hidden;
 
   &.remove {
     width: 8rem;
     opacity: 0;
-    //transform: translateX(-4rem);
     margin-right: 4rem;
-    //transition-property: width, opacity, transform;
     transition-property: width, opacity, margin-right;
     transition-duration: 0.5s, 0.3s, 0.5s;
     transition-delay: 0s, 0.1s, 0s;
@@ -37,7 +35,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
-  width: 25.5rem;
+  width: 28rem;
   white-space: collapse;
   background-color: var(--color-7);
 
@@ -63,7 +61,7 @@
 
 .button {
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   display: flex;
   align-items: center;
   justify-content: center;

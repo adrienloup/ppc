@@ -53,7 +53,7 @@ export const WireDroneComponent = () => {
         >
           +
         </ClickerComponent>
-        <OverConsumptionComponent />
+        <OverConsumptionComponent drone />
       </DialComponent>
     </DialsComponent>
   );

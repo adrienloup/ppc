@@ -1,20 +1,49 @@
-import { getPower } from '@/src/domains/power/interfaces/getPower.ts';
+import { useMemo } from 'react';
 import { usePower } from '@/src/domains/power/interfaces/usePower.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const OverConsumptionComponent = () => {
-  // console.log('OverConsumptionComponent');
-  const { clipFactoryConsumption, droneConsumption, powerProduction, powerStorage } = usePower();
+export const OverConsumptionComponent = ({
+  clipFactory,
+  batteryTower,
+  drone,
+}: {
+  clipFactory?: boolean;
+  batteryTower?: boolean;
+  drone?: boolean;
+}) => {
+  const {
+    batteryTowerConsumption,
+    clipFactoryConsumption,
+    consumption,
+    droneConsumption,
+    production,
+    storage,
+  } = usePower();
 
-  const overConsumption = getPower(droneConsumption, clipFactoryConsumption, powerProduction, powerStorage);
+  const { clipFactoryOver, batteryTowerOver, droneOver } = useMemo(() => {
+    const power = production + storage;
+    const over = consumption > power;
+    return {
+      clipFactoryOver: over || clipFactoryConsumption > power,
+      batteryTowerOver: over || batteryTowerConsumption > power,
+      droneOver: over || droneConsumption > power,
+    };
+  }, [clipFactoryConsumption, consumption, batteryTowerConsumption, droneConsumption, production, storage]);
 
-  // return overConsumption ? (
-  return !overConsumption ? (
+  const overConsumption =
+    (clipFactory !== undefined && clipFactory === clipFactoryOver) ||
+    (batteryTower !== undefined && batteryTower === batteryTowerOver) ||
+    (drone !== undefined && drone === droneOver);
+
+  if (overConsumption) return null;
+  // if (!overConsumption) return null;
+
+  return (
     <BadgeComponent
       className={styles.badge}
       status="error"
       label="overconsumption"
     />
-  ) : null;
+  );
 };

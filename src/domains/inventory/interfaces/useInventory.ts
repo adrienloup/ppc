@@ -1,5 +1,8 @@
 import { useContext } from 'react';
-import { InventoryContext, InventoryDisContext } from '@/src/domains/inventory/infrastructure/inventory.context.tsx';
+import {
+  InventoryContext,
+  InventoryDisContext,
+} from '@/src/domains/inventory/infrastructure/inventory.context.tsx';
 
 export const useInventory = () => {
   const ctx = useContext(InventoryContext);

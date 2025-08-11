@@ -30,7 +30,7 @@ export const TextFieldComponent = ({
         className={classNames(
           styles.textField,
           focus ? styles.focus : '',
-          status ? styles[status] : errorMessage ? styles.badge : '',
+          status ? styles[status] : errorMessage ? styles.error : '',
           className
         )}
       >

@@ -4,19 +4,19 @@ export const mecaReducer = (state: Machine, action: MachineDispatch): Machine =>
   switch (action.type) {
     case 'LOAD':
       return action.machine;
-    case 'BUY_CLIPPER':
+    case 'CLIPPER':
       return {
         ...state,
         clipper: state.clipper + 1,
         clipperCost: action.cost,
       };
-    case 'BUY_MEGA_CLIPPER':
+    case 'MEGA_CLIPPER':
       return {
         ...state,
         megaClipper: state.megaClipper + 1,
         megaClipperCost: action.cost,
       };
-    case 'BUY_CLIP_FACTORY':
+    case 'CLIP_FACTORY':
       return {
         ...state,
         clipFactory: state.clipFactory + 1,

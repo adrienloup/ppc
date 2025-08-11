@@ -8,7 +8,7 @@ export const FormFieldComponent = ({ children, className, label, helperText, err
       {label && <div className={styles.label}>{label}</div>}
       {children}
       {errorMessage ? (
-        <div className={styles.badgeMessage}>{errorMessage}</div>
+        <div className={styles.errorMessage}>{errorMessage}</div>
       ) : helperText ? (
         <div className={styles.helperText}>{helperText}</div>
       ) : null}

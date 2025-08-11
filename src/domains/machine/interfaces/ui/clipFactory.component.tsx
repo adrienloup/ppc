@@ -22,7 +22,7 @@ export const ClipFactoryComponent = () => {
   const buyClipFactory = () => {
     if (funds < clipFactoryCost) return;
     const newClipFactoryCost = clipFactoryCost + (Math.random() * 5e5 + 5e5); // 0 1, 0 5e5, 5e5 1e6
-    mecaDispatch({ type: 'BUY_CLIP_FACTORY', cost: newClipFactoryCost });
+    mecaDispatch({ type: 'CLIP_FACTORY', cost: newClipFactoryCost });
     fundsDispatch({ type: 'DECREASE_FUNDS', cost: clipFactoryCost });
   };
 
@@ -72,7 +72,7 @@ export const ClipFactoryComponent = () => {
           label={t('factory.noSpace')}
         />
         {/*)}*/}
-        <OverConsumptionComponent />
+        <OverConsumptionComponent clipFactory />
       </DialComponent>
     </DialsComponent>
   );

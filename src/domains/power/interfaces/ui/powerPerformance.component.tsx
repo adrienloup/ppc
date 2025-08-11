@@ -6,8 +6,8 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const PowerConsumptionComponent = () => {
-  // console.log('PowerConsumptionComponent');
+export const PowerPerformanceComponent = () => {
+  // console.log('PowerPerformanceComponent');
   const { clipFactoryConsumption, consumption, droneConsumption } = usePower();
 
   return (
@@ -15,34 +15,13 @@ export const PowerConsumptionComponent = () => {
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          value={consumption}
+          value={1}
+          asset="percent"
         />
         <LabelComponent
           className={styles.label}
-          label="consumption (mw)"
+          label="clipfactory/drone performance"
         />
-      </DialComponent>
-      <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={clipFactoryConsumption}
-        />
-        <LabelComponent
-          className={styles.label}
-          label="clip factory (mw)"
-        />
-        <OverConsumptionComponent clipFactory />
-      </DialComponent>
-      <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={droneConsumption}
-        />
-        <LabelComponent
-          className={styles.label}
-          label="drone (mw)"
-        />
-        <OverConsumptionComponent drone />
       </DialComponent>
     </DialsComponent>
   );

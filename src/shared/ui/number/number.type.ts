@@ -3,5 +3,5 @@ export interface Number {
   value?: number;
   valueMax?: number;
   decimal?: boolean;
-  asset?: 'weight' | 'currency' | 'percent';
+  asset?: 'currency' | 'energy' | 'percent' | 'weight';
 }

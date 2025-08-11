@@ -16,9 +16,9 @@ export interface Machine {
 
 export type MachineDispatch =
   | { type: 'LOAD'; machine: Machine }
-  | { type: 'BUY_CLIPPER'; cost: number }
-  | { type: 'BUY_MEGA_CLIPPER'; cost: number }
-  | { type: 'BUY_CLIP_FACTORY'; cost: number }
+  | { type: 'CLIPPER'; cost: number }
+  | { type: 'MEGA_CLIPPER'; cost: number }
+  | { type: 'CLIP_FACTORY'; cost: number }
   | { type: 'CLIPPER_BONUS'; bonus: number }
   | { type: 'MEGA_CLIPPER_BONUS'; bonus: number }
   | { type: 'CLIP_FACTORY_BONUS'; bonus: number };
