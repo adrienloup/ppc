@@ -14,8 +14,8 @@ export const InvestmentsComponent = () => {
       >
         investments
       </TitleComponent>
-      <ExchangeComponent />
       <EmptyComponent />
+      <ExchangeComponent />
     </CardComponent>
   );
 };

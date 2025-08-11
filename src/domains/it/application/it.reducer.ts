@@ -10,6 +10,14 @@ export const itReducer = (state: IT, action: ITDispatch): IT => {
         trust: Math.max(0, Math.min(state.trust + action.trust, 100)),
       };
     }
+    case 'INCREASE_GIFTS': {
+      if (state.gifts > 100) return state;
+      const gifts = Math.min(100, state.gifts + action.gifts);
+      return {
+        ...state,
+        gifts,
+      };
+    }
     case 'INCREASE_MEMORY': {
       return {
         ...state,

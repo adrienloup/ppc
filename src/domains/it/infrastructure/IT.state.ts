@@ -2,6 +2,7 @@ import type { IT } from '@/src/domains/it/domain/it.type.ts';
 
 export const IT_STATE: IT = {
   creativity: 0,
+  gifts: 0,
   memory: 0,
   operation: 0,
   operationMax: 7e2,

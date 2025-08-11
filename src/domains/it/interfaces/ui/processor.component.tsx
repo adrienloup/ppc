@@ -21,7 +21,7 @@ export const ProcessorComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="processor"
+          label="processor level"
         />
         <ClickerComponent
           className={styles.button}

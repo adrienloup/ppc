@@ -36,7 +36,7 @@ export const SwarmStrategyComponent = () => {
       </DialComponent>
       <DialComponent
         style={{
-          textAlign: 'right',
+          alignItems: 'flex-end',
           justifyContent: 'flex-end',
         }}
       >

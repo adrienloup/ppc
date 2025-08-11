@@ -18,7 +18,7 @@ export const SwarmDeliveryComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label={`swarm gift in 0 seconds`}
+          label={`swarm gifts in 0 seconds`}
           // label={`swarm gift in ${(swarmGiftsInterval / 1000).toFixed()} seconds`}
         />
       </DialComponent>

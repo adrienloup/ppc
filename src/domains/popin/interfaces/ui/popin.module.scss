@@ -15,7 +15,7 @@
   bottom: 1rem;
   z-index: 2;
   overflow: hidden;
-  width: 28rem;
+  width: 25rem;
   animation: Appear 0.5s var(--ease-expo);
   //will-change: width, opacity, margin-right, transform;
   //backface-visibility: hidden;
@@ -35,7 +35,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
-  width: 28rem;
+  width: 25rem;
   white-space: collapse;
   background-color: var(--color-7);
 

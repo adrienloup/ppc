@@ -19,7 +19,7 @@ export const OperationComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="operation"
+          label="operation level"
         />
       </DialComponent>
     </DialsComponent>

@@ -34,7 +34,7 @@ export const ITProvider: FC<{ children: Children }> = ({ children }) => {
     itStorage.set(state);
   }, [state]);
 
-  useInterval(auto, 8e2, !!user && !pause);
+  useInterval(auto, 7e2, !!user && !pause);
 
   return (
     <ITContext.Provider value={state}>

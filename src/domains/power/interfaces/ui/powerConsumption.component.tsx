@@ -8,20 +8,10 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const PowerConsumptionComponent = () => {
   // console.log('PowerConsumptionComponent');
-  const { clipFactoryConsumption, consumption, droneConsumption } = usePower();
+  const { clipFactoryConsumption, droneConsumption } = usePower();
 
   return (
     <DialsComponent>
-      <DialComponent>
-        <NumberComponent
-          className={styles.value}
-          value={consumption}
-        />
-        <LabelComponent
-          className={styles.label}
-          label="consumption (mw)"
-        />
-      </DialComponent>
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -29,7 +19,7 @@ export const PowerConsumptionComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="clip factory (mw)"
+          label="clip factory consumption (mw)"
         />
         <OverConsumptionComponent clipFactory />
       </DialComponent>
@@ -40,7 +30,7 @@ export const PowerConsumptionComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="drone (mw)"
+          label="drone consumption (mw)"
         />
         <OverConsumptionComponent drone />
       </DialComponent>

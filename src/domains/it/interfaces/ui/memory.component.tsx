@@ -21,7 +21,7 @@ export const MemoryComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="memory"
+          label="memory level"
         />
         <ClickerComponent
           className={styles.button}

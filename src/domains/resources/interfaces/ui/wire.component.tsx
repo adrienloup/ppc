@@ -60,7 +60,7 @@ export const WireComponent = () => {
         <BadgeComponent
           className={styles.badge}
           status="warning"
-          label="unused"
+          label="shutdown"
         />
       </DialComponent>
     </DialsComponent>

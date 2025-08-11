@@ -1,5 +1,6 @@
 export interface IT {
   creativity: number;
+  gifts: number;
   memory: number;
   operation: number;
   operationMax: number;
@@ -10,6 +11,7 @@ export interface IT {
 export type ITDispatch =
   | { type: 'LOAD'; it: IT }
   | { type: 'INCREASE_TRUST'; trust: number }
+  | { type: 'INCREASE_GIFTS'; gifts: number }
   | { type: 'INCREASE_MEMORY' }
   | { type: 'INCREASE_PROCESSOR' }
   | { type: 'INCREASE_OPERATION' }

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useIT, useITDispatch } from '@/src/domains/it/interfaces/useIT.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
+import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
@@ -31,6 +32,11 @@ export const TrustComponent = () => {
         <LabelComponent
           className={styles.label}
           label="trust level"
+        />
+        <BadgeComponent
+          className={styles.badge}
+          status="warning"
+          label="shutdown"
         />
       </DialComponent>
     </DialsComponent>

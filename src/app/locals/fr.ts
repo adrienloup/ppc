@@ -6,6 +6,6 @@ export const fr: Translation = {
     empty: 'aucune donnée',
     play: 'play',
     pause: 'pause',
-    factory: 'usine est fermée',
+    factory: 'jeu est en pause',
   },
 };

@@ -19,7 +19,7 @@ export const SwarmGiftsComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="swarmGifts"
+          label="swarm gifts"
         />
       </DialComponent>
     </DialsComponent>

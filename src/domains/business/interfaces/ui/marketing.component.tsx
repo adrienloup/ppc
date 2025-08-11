@@ -23,7 +23,8 @@ export const MarketingComponent = () => {
   };
 
   return (
-    <DialsComponent disabled={marketing >= 10}>
+    <DialsComponent disabled={true}>
+      {/*<DialsComponent disabled={marketing >= 10}>*/}
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -58,7 +59,7 @@ export const MarketingComponent = () => {
         <BadgeComponent
           className={styles.badge}
           status="warning"
-          label="latest"
+          label="shutdown"
         />
         {/*)}*/}
       </DialComponent>
