@@ -15,11 +15,13 @@ export const MainComponent = ({ children }: Main) => {
           // readonly [1, 2, 3],
           // readonly [4, 5],
           // readonly [6, 7, 8]
+          // readonly [9, 10]
           // ]
           [
             [1, 2, 3],
             [4, 5],
             [6, 7, 8],
+            [9, 10],
           ] as const
         }
       />

@@ -12,34 +12,46 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
 }
 
 .stars1 {
   top: 2.5vh;
   left: 10vw;
   width: 25rem;
+  gap: var(--spacing-m);
   animation:
     SlideLeft 0.5s var(--ease-quad) backwards,
     FadeIn 0.7s var(--ease-quad) backwards;
 }
 
 .stars2 {
-  top: 75vh;
+  top: 65vh;
   right: 5vw;
   width: 15rem;
+  gap: var(--spacing-m);
   animation:
     SlideRight 0.5s var(--ease-quad) backwards 0.1s,
     FadeIn 0.7s var(--ease-quad) backwards 0.1s;
 }
 
 .stars3 {
-  top: 130vh;
+  top: 135vh;
   right: 10vw;
-  width: 25rem;
+  width: 30rem;
+  gap: var(--spacing-l);
   animation:
     SlideRight 0.5s var(--ease-quad) backwards 0.2s,
     FadeIn 0.7s var(--ease-quad) backwards 0.2s;
+}
+
+.stars4 {
+  top: 260vh;
+  left: 5vw;
+  width: 25rem;
+  gap: var(--spacing-m);
+  animation:
+    SlideLeft 0.5s var(--ease-quad) backwards 0.3s,
+    FadeIn 0.7s var(--ease-quad) backwards 0.3s;
 }
 
 .star {
@@ -100,7 +112,21 @@
   width: 5rem;
   height: 3rem;
   animation: Star8 100s infinite alternate;
-  opacity: 0.25;
+  opacity: 0.2;
+}
+
+.star9 {
+  width: 4rem;
+  height: 2rem;
+  animation: Star9 100s infinite alternate;
+  opacity: 0.15;
+}
+
+.star10 {
+  width: 6rem;
+  height: 4rem;
+  animation: Star10 120s infinite alternate;
+  opacity: 0.1;
 }
 
 @keyframes FadeIn {
@@ -217,5 +243,29 @@
   }
   100% {
     left: 1rem;
+  }
+}
+
+@keyframes Star9 {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 16rem;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes Star10 {
+  0% {
+    left: 19rem;
+  }
+  50% {
+    left: 5rem;
+  }
+  100% {
+    left: 19rem;
   }
 }
