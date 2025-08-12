@@ -94,8 +94,10 @@ $tablet-landscape: 1440px;
 
 .buttons {
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
 }
 
 .button {

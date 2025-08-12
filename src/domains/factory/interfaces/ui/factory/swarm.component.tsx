@@ -16,6 +16,7 @@ export const SwarmComponent = () => {
       >
         swarm
       </TitleComponent>
+      <EmptyComponent />
       <SwarmGiftsComponent />
       <SwarmDeliveryComponent />
       {/*<SwarmDroneComponent />*/}
@@ -23,7 +24,6 @@ export const SwarmComponent = () => {
       {/*<SwarmEntertainmentComponent />*/}
       {/*<SwarmStatusComponent />*/}
       <SwarmStrategyComponent />
-      <EmptyComponent />
     </CardComponent>
   );
 };

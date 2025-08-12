@@ -35,7 +35,7 @@ export const HarvesterDroneComponent = () => {
           />
           <BadgeComponent
             prefix="x"
-            value={10}
+            value={100}
             // value={harvesterDroneBonus}
             status="success"
           />
@@ -44,15 +44,17 @@ export const HarvesterDroneComponent = () => {
           className={styles.label}
           label="harvester drone"
         />
-        <ClickerComponent
-          className={styles.button}
-          prefix="+"
-          value={1}
-          disabled={funds < harvesterDroneCost}
-          onClick={() => console.log('buyHarvesterDrone')}
-        >
-          +
-        </ClickerComponent>
+        <div className={styles.buttons}>
+          <ClickerComponent
+            prefix="+"
+            value={1}
+            disabled={funds < harvesterDroneCost}
+            onClick={() => console.log('buyHarvesterDrone')}
+          >
+            +
+          </ClickerComponent>
+          <BadgeComponent value={10} />
+        </div>
         <OverConsumptionComponent drone />
       </DialComponent>
     </DialsComponent>

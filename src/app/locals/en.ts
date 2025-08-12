@@ -6,6 +6,6 @@ export const en: Translation = {
     empty: 'no data',
     play: 'play',
     pause: 'pause',
-    factory: 'game is paused',
+    factory: 'game paused',
   },
 };

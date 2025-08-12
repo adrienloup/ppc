@@ -1,7 +1,7 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { merReducer } from '@/src/domains/merchandise/application/mer.reducer.ts';
-import { MerContext, MerDisContext } from '@/src/domains/merchandise/infrastructure/mer.context.tsx';
+import { MerchContext, MerchDisContext } from '@/src/domains/merchandise/infrastructure/mer.context.tsx';
 import { MERCHANDISE_KEY } from '@/src/domains/merchandise/infrastructure/mer.key.ts';
 import { MERCHANDISE_STATE } from '@/src/domains/merchandise/infrastructure/mer.state.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
@@ -27,8 +27,8 @@ export const MerProvider: FC<{ children: Children }> = ({ children }) => {
   }, [state]);
 
   return (
-    <MerContext.Provider value={state}>
-      <MerDisContext.Provider value={dispatch}>{children}</MerDisContext.Provider>
-    </MerContext.Provider>
+    <MerchContext.Provider value={state}>
+      <MerchDisContext.Provider value={dispatch}>{children}</MerchDisContext.Provider>
+    </MerchContext.Provider>
   );
 };

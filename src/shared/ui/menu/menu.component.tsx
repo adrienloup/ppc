@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ControlsComponent } from '@/src/domains/profile/interfaces/ui/controls/controls.component.tsx';
 import { SettingsComponent } from '@/src/domains/profile/interfaces/ui/settings/settings.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
@@ -9,18 +9,14 @@ import styles from '@/src/shared/ui/menu/menu.module.scss';
 export const MenuComponent = () => {
   const [open, setOpen] = useState(false);
 
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && open) setOpen(false);
-    },
-    [open]
-  );
-
   useEffect(() => {
     if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [open, onKeyDown]);
+  }, [open]);
 
   return (
     <div

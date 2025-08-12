@@ -35,9 +35,9 @@
 }
 
 .stars3 {
-  top: 135vh;
+  top: 140vh;
   right: 10vw;
-  width: 30rem;
+  width: 35rem;
   gap: var(--spacing-l);
   animation:
     SlideRight 0.5s var(--ease-quad) backwards 0.2s,
@@ -45,10 +45,10 @@
 }
 
 .stars4 {
-  top: 260vh;
+  top: 265vh;
   left: 5vw;
   width: 25rem;
-  gap: var(--spacing-m);
+  gap: var(--spacing-l);
   animation:
     SlideLeft 0.5s var(--ease-quad) backwards 0.3s,
     FadeIn 0.7s var(--ease-quad) backwards 0.3s;
@@ -116,15 +116,15 @@
 }
 
 .star9 {
-  width: 4rem;
-  height: 2rem;
+  width: 6rem;
+  height: 4rem;
   animation: Star9 100s infinite alternate;
   opacity: 0.15;
 }
 
 .star10 {
-  width: 6rem;
-  height: 4rem;
+  width: 4rem;
+  height: 2rem;
   animation: Star10 120s infinite alternate;
   opacity: 0.1;
 }

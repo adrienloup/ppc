@@ -6,16 +6,16 @@
   color: var(--mode-color-2);
 
   &.focus {
-    outline: 0.25rem solid var(--color-5);
+    outline: 0.25rem solid var(--color-6);
     outline-offset: -0.25rem;
   }
 
   &.success {
-    border-color: var(--color-7);
+    border-color: var(--color-8);
   }
 
   &.error {
-    border-color: var(--color-10);
+    border-color: var(--color-11);
   }
 }
 

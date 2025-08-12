@@ -5,7 +5,7 @@ import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useInventory } from '@/src/domains/inventory/interfaces/useInventory.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
 import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
-import { useMer } from '@/src/domains/merchandise/interfaces/useMer.ts';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMer.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
 import { usePower } from '@/src/domains/power/interfaces/usePower.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
@@ -26,7 +26,7 @@ export const LogoutComponent = memo(() => {
   const inventory = useInventory();
   const it = useIT();
   const machine = useMeca();
-  const merchandise = useMer();
+  const merchandise = useMerch();
   const power = usePower();
   const production = useProd();
   const resources = useResources();

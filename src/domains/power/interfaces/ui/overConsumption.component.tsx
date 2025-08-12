@@ -30,7 +30,8 @@ export const OverConsumptionComponent = ({
     (batteryTower !== undefined && batteryTower === batteryTowerOver) ||
     (drone !== undefined && drone === droneOver);
 
-  if (!overConsumption) return null;
+  // if (!overConsumption) return null;
+  if (overConsumption) return null;
 
   return (
     <BadgeComponent

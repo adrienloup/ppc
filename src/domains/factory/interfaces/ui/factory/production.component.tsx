@@ -15,9 +15,9 @@ export const ProductionComponent = () => {
       >
         production
       </TitleComponent>
+      <EmptyComponent />
       <HarvesterDroneComponent />
       <WireDroneComponent />
-      <EmptyComponent />
     </CardComponent>
   );
 };

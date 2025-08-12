@@ -25,6 +25,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useProfile();
 
   const autoProduction = useCallback(() => {
+    console.log('ProdProvider');
     const prod = getProd(wire, clipper, megaClipper, clipFactory);
     const prodClip =
       prod.clipper * Math.max(1, clipperBonus) +
@@ -49,7 +50,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
     prodStorage.set(state);
   }, [state]);
 
-  useInterval(autoProduction, 7e2, !!user && !pause);
+  useInterval(autoProduction, 9e2, !!user && !pause);
 
   return (
     <ProdContext.Provider value={state}>

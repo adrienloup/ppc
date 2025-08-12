@@ -7,18 +7,18 @@
   color: var(--color-2);
 
   &.info {
-    background-color: var(--color-8);
-  }
-
-  &.success {
-    background-color: var(--color-7);
-  }
-
-  &.warning {
     background-color: var(--color-9);
   }
 
+  &.success {
+    background-color: var(--color-8);
+  }
+
+  &.warning {
+    background-color: var(--color-10);
+  }
+
   &.error {
-    background-color: var(--color-11);
+    background-color: var(--color-12);
   }
 }

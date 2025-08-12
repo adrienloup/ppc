@@ -6,22 +6,21 @@ $tablet-landscape: 1440px;
   animation: FadeIn 0.7s var(--ease-quad) backwards 0.1s;
 }
 
-.deals {
+.shopping {
   display: flex;
-  gap: var(--spacing-s);
   align-items: center;
-  padding: var(--spacing-xs);
-  background-color: var(--mode-color-2);
+  background-color: var(--color-10);
   animation:
     SlideUp 0.5s var(--ease-quad) backwards 0.2s,
     FadeIn 0.7s var(--ease-quad) backwards 0.2s;
 }
 
-.deal {
+.inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding: var(--spacing-xs);
   font-size: var(--font-size-m);
   color: var(--mode-color-1);
 
@@ -29,6 +28,14 @@ $tablet-landscape: 1440px;
     flex-direction: row;
     align-items: center;
     gap: var(--spacing-xs);
+  }
+
+  &.purchased {
+    background-color: var(--color-8);
+  }
+
+  &.unlocked {
+    background-color: var(--color-9);
   }
 }
 
@@ -78,6 +85,10 @@ $tablet-landscape: 1440px;
   }
 }
 
+.purchased {
+  background-color: var(--color-3);
+}
+
 .title {
   text-transform: uppercase;
   font-size: var(--font-size-m);
@@ -94,6 +105,17 @@ $tablet-landscape: 1440px;
   text-transform: uppercase;
   font-size: var(--font-size-s);
   color: var(--mode-color-2);
+
+  .purchased & {
+    pointer-events: none;
+    color: var(--color-3);
+  }
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
 
 @keyframes SlideUp {

@@ -4,8 +4,8 @@ export const merReducer = (state: Merchandise, action: MerchandiseDispatch): Mer
   switch (action.type) {
     case 'LOAD':
       return action.merchandise;
-    case 'BUY_MERCHANDISE':
-      console.log('BUY_MERCHANDISE', action.merchandise);
+    case 'MERCHANDISE':
+      console.log('MERCHANDISE', action.merchandise);
       return state;
     default:
       return state;

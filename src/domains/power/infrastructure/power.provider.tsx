@@ -38,7 +38,7 @@ export const PowerProvider: FC<{ children: Children }> = ({ children }) => {
     powerStorage.set(state);
   }, [state]);
 
-  useInterval(autoPower, 7e2, !!user && !pause);
+  useInterval(autoPower, 9e2, !!user && !pause);
 
   return (
     <PowerContext.Provider value={state}>

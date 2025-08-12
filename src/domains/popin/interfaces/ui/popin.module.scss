@@ -37,7 +37,7 @@
   grid-template-rows: 1fr;
   width: 25rem;
   white-space: collapse;
-  background-color: var(--color-7);
+  background-color: var(--color-8);
 
   .remove & {
     transition: transform 0.5s var(--ease-expo);
@@ -50,6 +50,7 @@
   grid-row: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: var(--spacing-xs);
   font-size: var(--font-size-s);
   color: var(--color-2);
@@ -65,10 +66,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 var(--spacing-xs);
+  padding: 0 var(--spacing-s);
   background-color: var(--color-2);
   font-size: var(--font-size-s);
-  color: var(--color-7);
+  color: var(--color-8);
   outline-offset: -0.25rem;
 }
 

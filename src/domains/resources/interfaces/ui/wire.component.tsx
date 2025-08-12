@@ -1,5 +1,5 @@
-import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
+import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { useResDispatch, useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -9,23 +9,25 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const WireComponent = () => {
-  // console.log('WireComponent');
+  console.log('WireComponent');
+  const resourcesDispatch = useResDispatch();
+  const fundsDispatch = useFundsDispatch();
   const { wire, wireCost, wireQuantity } = useResources();
   const { funds } = useFunds();
-  //
-  // const buyWire = () => {
-  //   if (funds < wireCost) return;
-  //   const cost = wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
-  //   expDispatch({ type: 'BUY_WIRE', cost });
-  //   saleDispatch({ type: 'DECREASE_FUNDS', cost });
-  // };
+
+  const buyWire = () => {
+    if (funds < wireCost) return;
+    const newWireCost = wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
+    resourcesDispatch({ type: 'WIRE', cost: newWireCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', cost: wireCost });
+  };
 
   return (
     <DialsComponent>
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          value={wireCost}
+          // value={wireCost}
           asset="currency"
           decimal
         />
@@ -34,29 +36,26 @@ export const WireComponent = () => {
           label="wire cost"
         />
       </DialComponent>
-
       <DialComponent>
-        <div className={styles.group}>
-          <NumberComponent
-            className={styles.value}
-            value={wire}
-          />
-          <BadgeComponent value={wireQuantity} />
-        </div>
+        <NumberComponent
+          className={styles.value}
+          value={wire}
+        />
         <LabelComponent
           className={styles.label}
           label="wire stock"
         />
-        <ClickerComponent
-          className={styles.button}
-          prefix="+"
-          value={wireQuantity}
-          disabled={funds < wireCost}
-          // onClick={buyWire}
-          onClick={() => console.log('onClick')}
-        >
-          +
-        </ClickerComponent>
+        <div className={styles.buttons}>
+          <ClickerComponent
+            prefix="+"
+            value={wireQuantity}
+            disabled={funds < wireCost}
+            onClick={buyWire}
+          >
+            +
+          </ClickerComponent>
+          <BadgeComponent value={wireQuantity} />
+        </div>
         <BadgeComponent
           className={styles.badge}
           status="warning"

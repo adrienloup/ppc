@@ -44,15 +44,17 @@ export const WireDroneComponent = () => {
           className={styles.label}
           label="wire drone"
         />
-        <ClickerComponent
-          className={styles.button}
-          prefix="+"
-          value={1}
-          disabled={funds < wireDroneCost}
-          onClick={() => console.log('buyWireDrone')}
-        >
-          +
-        </ClickerComponent>
+        <div className={styles.buttons}>
+          <ClickerComponent
+            prefix="+"
+            value={1}
+            disabled={funds < wireDroneCost}
+            onClick={() => console.log('buyWireDrone')}
+          >
+            +
+          </ClickerComponent>
+          <BadgeComponent value={10} />
+        </div>
         <OverConsumptionComponent drone />
       </DialComponent>
     </DialsComponent>

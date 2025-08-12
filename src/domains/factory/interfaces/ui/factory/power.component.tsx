@@ -19,13 +19,13 @@ export const PowerComponent = () => {
       >
         power
       </TitleComponent>
+      <EmptyComponent />
       <PowerPerformanceComponent />
       <PowerConsumptionComponent />
       <PowerProductionComponent />
       <SolarFarmComponent />
       <PowerStorageComponent />
       <BatteryTowerComponent />
-      <EmptyComponent />
     </CardComponent>
   );
 };

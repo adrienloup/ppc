@@ -16,7 +16,7 @@ export const ITProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();
 
-  const auto = useCallback(() => {
+  const autoIT = useCallback(() => {
     dispatch({ type: 'INCREASE_OPERATION' });
     dispatch({ type: 'INCREASE_CREATIVITY' });
   }, []);
@@ -34,7 +34,7 @@ export const ITProvider: FC<{ children: Children }> = ({ children }) => {
     itStorage.set(state);
   }, [state]);
 
-  useInterval(auto, 7e2, !!user && !pause);
+  useInterval(autoIT, 9e2, !!user && !pause);
 
   return (
     <ITContext.Provider value={state}>
