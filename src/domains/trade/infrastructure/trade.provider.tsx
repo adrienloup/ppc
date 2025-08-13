@@ -17,7 +17,7 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();
 
-  const updateToken = useCallback(() => {
+  const autoTrade = useCallback(() => {
     const token = getTokens(state.token);
     dispatch({ type: 'UPDATE_TOKEN', token });
   }, [state.token]);
@@ -35,7 +35,7 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
     tradeStorage.set(state);
   }, [state]);
 
-  useInterval(updateToken, 5e3, !!user && !pause);
+  useInterval(autoTrade, 5e3, !!user && !pause);
 
   return (
     <TradeContext.Provider value={state}>

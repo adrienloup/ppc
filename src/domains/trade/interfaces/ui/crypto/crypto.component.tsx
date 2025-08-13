@@ -5,8 +5,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import type { Crypto } from '@/src/domains/trade/domain/crypto.type.ts';
 import styles from '@/src/domains/trade/interfaces/ui/crypto/crypto.module.scss';
 
-export const CryptoComponent = ({ name, price, change }: Crypto) => {
-  // console.log('CryptoComponent');
+export const CryptoComponent = ({ name, price, volume, change }: Crypto) => {
   return (
     <DialsComponent>
       <DialComponent className={styles.dial}>
@@ -16,7 +15,6 @@ export const CryptoComponent = ({ name, price, change }: Crypto) => {
           asset="currency"
         />
         <span className={styles.variation}>
-          {/*<span className={classNames([styles.variation, change >= 0 ? styles.positive : styles.negative])}>*/}
           {change > 0 ? '+' : '-'}
           <NumberComponent
             value={Math.abs(change)}
@@ -25,7 +23,17 @@ export const CryptoComponent = ({ name, price, change }: Crypto) => {
         </span>
         <LabelComponent
           className={styles.label}
-          label={name}
+          label={`${name} price`}
+        />
+      </DialComponent>
+      <DialComponent className={styles.dial}>
+        <NumberComponent
+          className={styles.value}
+          value={volume}
+        />
+        <LabelComponent
+          className={styles.label}
+          label={`${name} volume`}
         />
       </DialComponent>
     </DialsComponent>

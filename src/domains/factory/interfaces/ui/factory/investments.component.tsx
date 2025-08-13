@@ -1,11 +1,11 @@
-import { ExchangeComponent } from '@/src/domains/trade/interfaces/ui/exchange.component.tsx';
+import { ExchangeComponent } from '@/src/domains/trade/interfaces/ui/exchange/exchange.component.tsx';
+import { WalletComponent } from '@/src/domains/trade/interfaces/ui/wallet/wallet.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const InvestmentsComponent = () => {
-  // console.log('InvestmentsComponent');
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
@@ -16,6 +16,7 @@ export const InvestmentsComponent = () => {
       </TitleComponent>
       <EmptyComponent />
       <ExchangeComponent />
+      <WalletComponent />
     </CardComponent>
   );
 };
