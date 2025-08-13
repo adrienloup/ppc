@@ -83,10 +83,10 @@ $tablet-landscape: 1440px;
   @media (min-width: $tablet-landscape) {
     width: calc((100% / 3) - 0.35rem);
   }
-}
 
-.purchased {
-  background-color: var(--color-3);
+  &.purchased {
+    background-color: var(--color-4);
+  }
 }
 
 .title {
@@ -98,6 +98,12 @@ $tablet-landscape: 1440px;
   font-size: var(--font-size-s);
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
 .button {
   margin-top: auto;
   padding: var(--spacing-xs);
@@ -106,16 +112,13 @@ $tablet-landscape: 1440px;
   font-size: var(--font-size-s);
   color: var(--mode-color-2);
 
-  .purchased & {
-    pointer-events: none;
-    color: var(--color-3);
+  &:disabled {
+    opacity: 0.5;
   }
-}
 
-.group {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
+  .purchased & {
+    color: var(--color-4);
+  }
 }
 
 @keyframes SlideUp {

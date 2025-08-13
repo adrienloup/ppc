@@ -4,11 +4,12 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss';
 
 export const ShoppingComponent = () => {
+  const TOTAL = 28; // 26
   const merchandise = useMerch();
   const purchasedGroup = Object.values(merchandise).filter((item) => item.purchased).length;
   const unlockedGroup = Object.values(merchandise).filter((item) => item.unlocked).length;
   const clampedPurchased = Math.min(purchasedGroup, unlockedGroup);
-  const clampedUnlocked = Math.min(unlockedGroup, 100);
+  const clampedUnlocked = Math.min(unlockedGroup, TOTAL);
   const purchasedPercent = (clampedPurchased / 100) * 100;
   const unlockedPercent = ((clampedUnlocked - clampedPurchased) / 100) * 100;
   const lockedPercent = 100 - purchasedPercent - unlockedPercent;

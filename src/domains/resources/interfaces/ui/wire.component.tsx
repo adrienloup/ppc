@@ -27,7 +27,7 @@ export const WireComponent = () => {
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          // value={wireCost}
+          value={wireCost}
           asset="currency"
           decimal
         />

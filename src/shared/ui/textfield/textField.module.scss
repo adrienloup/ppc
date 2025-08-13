@@ -1,13 +1,13 @@
 .textField {
   overflow: hidden;
   display: flex;
-  border: 0.25rem solid var(--mode-color-2);
+  border: 0.35rem solid var(--mode-color-2);
   font-size: var(--font-size-m);
   color: var(--mode-color-2);
 
   &.focus {
-    outline: 0.25rem solid var(--color-6);
-    outline-offset: -0.25rem;
+    outline: 0.35rem solid var(--color-6);
+    outline-offset: -0.35rem;
   }
 
   &.success {
