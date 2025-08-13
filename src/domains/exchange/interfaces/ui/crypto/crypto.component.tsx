@@ -8,7 +8,7 @@ import styles from '@/src/domains/exchange/interfaces/ui/crypto/crypto.module.sc
 export const CryptoComponent = ({ name, price, volume, change }: Crypto) => {
   return (
     <DialsComponent>
-      <DialComponent className={styles.dial}>
+      <DialComponent>
         <NumberComponent
           className={styles.value}
           value={price}
@@ -27,7 +27,7 @@ export const CryptoComponent = ({ name, price, volume, change }: Crypto) => {
           label={`${name} price`}
         />
       </DialComponent>
-      <DialComponent className={styles.dial}>
+      <DialComponent>
         <NumberComponent
           className={styles.value}
           value={volume}

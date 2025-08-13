@@ -1,22 +1,16 @@
-.dial {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  font-size: var(--font-size-s);
+.value {
+  font-size: var(--font-size-l);
   color: var(--color-2);
 }
 
-.value {
-  font-size: var(--font-size-l);
-}
-
 .label {
-  flex: 0 0 100%;
+  font-size: var(--font-size-s);
+  color: var(--color-2);
 }
 
 .variation {
   display: flex;
   align-items: center;
-  padding-left: var(--spacing-xs);
   font-size: var(--font-size-m);
+  color: var(--color-2);
 }
