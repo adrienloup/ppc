@@ -1,1 +1,1 @@
-export type Wallet = Record<string, { quantity: number }>;
+export type Wallet = Record<string, { name: string; quantity: number }>;
