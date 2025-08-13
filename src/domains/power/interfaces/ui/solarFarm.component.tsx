@@ -20,7 +20,7 @@ export const SolarFarmComponent = () => {
     if (funds < solarFarmCost) return;
     const newSolarFarmCost = solarFarmCost + (Math.random() * 4e4 + 2e4); // 0 1, 0 4e4, 4e4 6e4
     powerDispatch({ type: 'SOLAR_FARM', cost: newSolarFarmCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', cost: solarFarmCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: solarFarmCost });
   };
 
   return (

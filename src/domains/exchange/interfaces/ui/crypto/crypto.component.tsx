@@ -2,8 +2,8 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
-import type { Crypto } from '@/src/domains/trade/domain/crypto.type.ts';
-import styles from '@/src/domains/trade/interfaces/ui/crypto/crypto.module.scss';
+import type { Crypto } from '@/src/domains/exchange/domain/crypto.type.ts';
+import styles from '@/src/domains/exchange/interfaces/ui/crypto/crypto.module.scss';
 
 export const CryptoComponent = ({ name, price, volume, change }: Crypto) => {
   return (
@@ -13,6 +13,7 @@ export const CryptoComponent = ({ name, price, volume, change }: Crypto) => {
           className={styles.value}
           value={price}
           asset="currency"
+          decimal
         />
         <span className={styles.variation}>
           {change > 0 ? '+' : '-'}

@@ -11,7 +11,6 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const MarketingComponent = () => {
-  // console.log('MarketingComponent');
   const { t } = useTranslation();
   const businessDispatch = useBusiDispatch();
   const fundsDispatch = useFundsDispatch();
@@ -25,7 +24,7 @@ export const MarketingComponent = () => {
     if (marketing >= 10) return;
     const newMarketingCost = Math.max(100, Math.min(marketingCost * 2.5, 256e2));
     businessDispatch({ type: 'INCREASE_MARKETING', cost: newMarketingCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', cost: marketingCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: marketingCost });
   };
 
   return (

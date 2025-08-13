@@ -24,7 +24,7 @@ export const WireComponent = () => {
     if (funds < wireCost) return;
     const newWireCost = wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
     resourcesDispatch({ type: 'WIRE', cost: newWireCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', cost: wireCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: wireCost });
   };
 
   return (

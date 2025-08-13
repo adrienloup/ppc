@@ -1,5 +1,6 @@
-import { ExchangeComponent } from '@/src/domains/trade/interfaces/ui/exchange/exchange.component.tsx';
-import { WalletComponent } from '@/src/domains/trade/interfaces/ui/wallet/wallet.component.tsx';
+import { ExchangeComponent } from '@/src/domains/exchange/interfaces/ui/exchange/exchange.component.tsx';
+import { CashComponent } from '@/src/domains/trade/interfaces/ui/cash.component.tsx';
+import { WalletComponent } from '@/src/domains/trade/interfaces/ui/wallet.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
@@ -17,6 +18,7 @@ export const InvestmentsComponent = () => {
       <EmptyComponent />
       <ExchangeComponent />
       <WalletComponent />
+      <CashComponent />
     </CardComponent>
   );
 };

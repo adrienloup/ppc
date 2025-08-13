@@ -5,9 +5,9 @@ export const prodReducer = (state: Production, action: ProductionDispatch): Prod
     case 'LOAD':
       return action.production;
     case 'INCREASE_CLIP': {
-      const clipAIC = state.clip + action.clip;
+      const clip = state.clip + action.clip;
       return {
-        clip: clipAIC,
+        clip,
         clipPerSecond: action.clipPerSecond,
       };
     }

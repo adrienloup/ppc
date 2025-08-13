@@ -5,5 +5,6 @@ export interface Funds {
 
 export type FundsDispatch =
   | { type: 'LOAD'; funds: Funds }
-  | { type: 'INCREASE_FUNDS'; funds: number; fundsPerSecond: number }
-  | { type: 'DECREASE_FUNDS'; cost: number };
+  | { type: 'FUNDS_PER_SECOND'; fundsPerSecond: number }
+  | { type: 'INCREASE_FUNDS'; funds: number }
+  | { type: 'DECREASE_FUNDS'; funds: number };

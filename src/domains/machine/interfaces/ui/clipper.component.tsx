@@ -25,7 +25,7 @@ export const ClipperComponent = () => {
     if (funds < clipperCost) return;
     const newClipperCost = clipperCost + (Math.random() * 10 + 10); // 0 1, 0 10, 10 20
     mecaDispatch({ type: 'CLIPPER', cost: newClipperCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', cost: clipperCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipperCost });
   };
 
   // if (!feature.clipper.unlocked) return null;

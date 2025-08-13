@@ -28,7 +28,8 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
     const fundsPerSecond = state.unsoldInventory * clipPrice;
 
     dispatch({ type: 'DECREASE_INVENTORY', unsoldInventory });
-    fundsDispatch({ type: 'INCREASE_FUNDS', funds, fundsPerSecond });
+    fundsDispatch({ type: 'FUNDS_PER_SECOND', fundsPerSecond });
+    fundsDispatch({ type: 'INCREASE_FUNDS', funds });
   }, [state, clipPrice, publicDemand]);
 
   useEffect(() => {

@@ -1,8 +1,8 @@
-import { CryptoComponent } from '@/src/domains/trade/interfaces/ui/crypto/crypto.component.tsx';
-import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
+import { CryptoComponent } from '@/src/domains/exchange/interfaces/ui/crypto/crypto.component.tsx';
+import { useExchange } from '@/src/domains/exchange/interfaces/useExchange.ts';
 
 export const ExchangeComponent = () => {
-  const { exchange } = useTrade();
+  const exchange = useExchange();
 
   return Object.entries(exchange).map(([symbol, crypto]) => (
     <CryptoComponent

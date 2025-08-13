@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useAuth, useAuthDispatch } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useBusiness } from '@/src/domains/business/interfaces/useBusiness.ts';
+import { useExchange } from '@/src/domains/exchange/interfaces/useExchange.ts';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useInventory } from '@/src/domains/inventory/interfaces/useInventory.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
@@ -22,6 +23,7 @@ export const LogoutComponent = memo(() => {
   const { user } = useAuth();
   const profile = useProfile();
   const business = useBusiness();
+  const exchange = useExchange();
   const funds = useFunds();
   const inventory = useInventory();
   const it = useIT();
@@ -36,6 +38,7 @@ export const LogoutComponent = memo(() => {
   const logOut = () => {
     const factory = {
       business,
+      exchange,
       funds,
       inventory,
       it,

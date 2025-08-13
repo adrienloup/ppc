@@ -21,7 +21,7 @@ export const BatteryTowerComponent = () => {
     if (funds < batteryTowerCost) return;
     const newBatteryTowerCost = batteryTowerCost + (Math.random() * 2e3 + 2e3); // 0 1, 0 2e3, 2e3 4e3
     powerDispatch({ type: 'BATTERY_TOWER', cost: newBatteryTowerCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', cost: batteryTowerCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: batteryTowerCost });
   };
 
   return (

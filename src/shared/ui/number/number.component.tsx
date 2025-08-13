@@ -42,14 +42,18 @@ const WEIGHT: Record<'en' | 'fr', string> = {
 // };
 
 function formatShort(value: number) {
-  if (value < 1000) return { scaled: value, unit: '' };
+  if (value < 10000) {
+    return { scaled: value, unit: '' };
+  }
   let tier = Math.floor(Math.log10(value) / 3);
   if (tier >= UNITS.length) {
     tier = UNITS.length - 1;
   }
   const scale = Math.pow(10, tier * 3);
-  // const scale = Math.pow(10, tier * 2);
-  return { scaled: value / scale, unit: UNITS[tier] };
+  return {
+    scaled: value / scale,
+    unit: UNITS[tier],
+  };
 }
 
 export const NumberComponent = ({ className, value, valueMax, asset, decimal }: Number) => {

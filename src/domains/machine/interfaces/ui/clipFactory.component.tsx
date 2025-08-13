@@ -23,7 +23,7 @@ export const ClipFactoryComponent = () => {
     if (funds < clipFactoryCost) return;
     const newClipFactoryCost = clipFactoryCost + (Math.random() * 5e5 + 5e5); // 0 1, 0 5e5, 5e5 1e6
     mecaDispatch({ type: 'CLIP_FACTORY', cost: newClipFactoryCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', cost: clipFactoryCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipFactoryCost });
   };
 
   return (

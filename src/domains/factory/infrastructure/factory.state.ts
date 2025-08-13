@@ -1,4 +1,5 @@
 import { BUSINESS_STATE } from '@/src/domains/business/infrastructure/business.state.ts';
+import { EXCHANGE_STATE } from '@/src/domains/exchange/infrastructure/exchange.state.ts';
 import { FUNDS_STATE } from '@/src/domains/funds/infrastructure/funds.state.ts';
 import { INVENTORY_STATE } from '@/src/domains/inventory/infrastructure/inventory.state.ts';
 import { IT_STATE } from '@/src/domains/it/infrastructure/IT.state.ts';
@@ -13,6 +14,7 @@ import type { Factory } from '@/src/domains/factory/domain/factory.type.ts';
 
 export const FACTORY_STATE: Factory = {
   business: BUSINESS_STATE,
+  exchange: EXCHANGE_STATE,
   funds: FUNDS_STATE,
   inventory: INVENTORY_STATE,
   it: IT_STATE,
