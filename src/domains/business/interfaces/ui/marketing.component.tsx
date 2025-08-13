@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useBusiness, useBusiDispatch } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -6,14 +7,19 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const MarketingComponent = () => {
   // console.log('MarketingComponent');
+  const { t } = useTranslation();
   const businessDispatch = useBusiDispatch();
   const fundsDispatch = useFundsDispatch();
   const { marketing, marketingCost } = useBusiness();
   const { funds } = useFunds();
+
+  // const shutdown = marketing >= 10;
+  const shutdown = true;
 
   const buyMarketing = () => {
     if (marketing >= 10) return;
@@ -23,8 +29,7 @@ export const MarketingComponent = () => {
   };
 
   return (
-    <DialsComponent disabled={true}>
-      {/*<DialsComponent disabled={marketing >= 10}>*/}
+    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -50,18 +55,18 @@ export const MarketingComponent = () => {
           className={styles.button}
           prefix="+"
           value={1}
-          disabled={funds < marketingCost}
+          disabled={funds < marketingCost || shutdown}
           onClick={buyMarketing}
         >
           +
         </ClickerComponent>
-        {/*{marketing >= 10 && (*/}
-        <BadgeComponent
-          className={styles.badge}
-          status="warning"
-          label="shutdown"
-        />
-        {/*)}*/}
+        {shutdown && (
+          <BadgeComponent
+            className={styles.badge}
+            status="warning"
+            label={t('app.shutdown')}
+          />
+        )}
       </DialComponent>
     </DialsComponent>
   );

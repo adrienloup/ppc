@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useResDispatch, useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -6,14 +7,18 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const WireComponent = () => {
-  console.log('WireComponent');
+  const { t } = useTranslation();
   const resourcesDispatch = useResDispatch();
   const fundsDispatch = useFundsDispatch();
   const { wire, wireCost, wireQuantity } = useResources();
   const { funds } = useFunds();
+
+  // const shutdown = feature.clipFactory.unlocked;
+  const shutdown = false;
 
   const buyWire = () => {
     if (funds < wireCost) return;
@@ -23,7 +28,7 @@ export const WireComponent = () => {
   };
 
   return (
-    <DialsComponent>
+    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -47,20 +52,30 @@ export const WireComponent = () => {
         />
         <div className={styles.buttons}>
           <ClickerComponent
+            className={styles.button}
             prefix="+"
             value={wireQuantity}
-            disabled={funds < wireCost}
+            disabled={funds < wireCost || shutdown}
             onClick={buyWire}
           >
             +
           </ClickerComponent>
-          <BadgeComponent value={wireQuantity} />
+          {!shutdown && <BadgeComponent value={wireQuantity} />}
         </div>
-        <BadgeComponent
-          className={styles.badge}
-          status="warning"
-          label="shutdown"
-        />
+        {shutdown && (
+          <BadgeComponent
+            className={styles.badge}
+            status="warning"
+            label={t('app.shutdown')}
+          />
+        )}
+        {wire < 1 && !shutdown && (
+          <BadgeComponent
+            className={styles.badge}
+            status="error"
+            label={t('app.stockOut')}
+          />
+        )}
       </DialComponent>
     </DialsComponent>
   );

@@ -86,7 +86,7 @@ export const MerchandiseComponent = () => {
             }}
           />
         </span>
-        <div className={styles.buttons}>
+        <div className={styles.action}>
           <ButtonComponent
             className={styles.button}
             disabled={!(purchase[value.cost.asset] >= value.cost.value && !value.purchased)}
@@ -96,14 +96,14 @@ export const MerchandiseComponent = () => {
           </ButtonComponent>
           {purchase[value.cost.asset] < value.cost.value && !value.purchased && (
             <BadgeComponent
-              label={t('app.notFunds')}
-              status="warning"
+              label={t('app.noFunds')}
+              status="error"
             />
           )}
           {value.purchased && (
             <BadgeComponent
-              className={styles.badge}
               label={t('app.soldOut')}
+              status="warning"
             />
           )}
         </div>

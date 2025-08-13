@@ -16,26 +16,26 @@
 
 .stars1 {
   top: 2.5vh;
-  left: 10vw;
+  right: 5vw;
   width: 25rem;
   gap: var(--spacing-m);
   animation:
-    SlideLeft 0.5s var(--ease-quad) backwards,
+    SlideRight 0.5s var(--ease-quad) backwards,
     FadeIn 0.7s var(--ease-quad) backwards;
 }
 
 .stars2 {
   top: 65vh;
-  right: 5vw;
+  left: 10vw;
   width: 15rem;
   gap: var(--spacing-m);
   animation:
-    SlideRight 0.5s var(--ease-quad) backwards 0.1s,
+    SlideLeft 0.5s var(--ease-quad) backwards 0.1s,
     FadeIn 0.7s var(--ease-quad) backwards 0.1s;
 }
 
 .stars3 {
-  top: 140vh;
+  top: 130vh;
   right: 10vw;
   width: 35rem;
   gap: var(--spacing-l);
@@ -45,7 +45,7 @@
 }
 
 .stars4 {
-  top: 265vh;
+  top: 280vh;
   left: 5vw;
   width: 25rem;
   gap: var(--spacing-l);
@@ -62,70 +62,80 @@
 .star1 {
   width: 4rem;
   height: 2rem;
-  animation: Star1 100s infinite alternate;
+  //animation: Star1 100s infinite alternate;
+  left: 0;
   opacity: 0.15;
 }
 
 .star2 {
   width: 6rem;
   height: 4rem;
-  animation: Star2 100s infinite alternate;
+  //animation: Star2 100s infinite alternate;
+  left: 19rem;
   opacity: 0.1;
 }
 
 .star3 {
   width: 5rem;
   height: 3rem;
-  animation: Star3 80s infinite alternate;
+  //animation: Star3 80s infinite alternate;
+  left: 1rem;
   opacity: 0.25;
 }
 
 .star4 {
   width: 5rem;
   height: 3rem;
-  animation: Star4 100s infinite alternate;
+  //animation: Star4 100s infinite alternate;
+  left: 0;
   opacity: 0.1;
 }
 
 .star5 {
   width: 4rem;
   height: 2rem;
-  animation: Star5 100s infinite alternate;
+  //animation: Star5 100s infinite alternate;
+  left: 11rem;
   opacity: 0.15;
 }
 
 .star6 {
   width: 4rem;
   height: 2rem;
-  animation: Star6 120s infinite alternate;
+  //animation: Star6 120s infinite alternate;
+  left: 0;
   opacity: 0.15;
 }
 
 .star7 {
   width: 6rem;
   height: 4rem;
-  animation: Star7 120s infinite alternate;
+  //animation: Star7 120s infinite alternate;
+  left: 19rem;
   opacity: 0.1;
 }
 
 .star8 {
   width: 5rem;
   height: 3rem;
-  animation: Star8 100s infinite alternate;
+  //animation: Star8 100s infinite alternate;
+  left: 1rem;
   opacity: 0.2;
 }
 
 .star9 {
   width: 6rem;
   height: 4rem;
-  animation: Star9 100s infinite alternate;
+  //animation: Star9 100s infinite alternate;
+  left: 0;
   opacity: 0.15;
 }
 
 .star10 {
   width: 4rem;
   height: 2rem;
-  animation: Star10 120s infinite alternate;
+  //animation: Star10 120s infinite alternate;
+  left: 19rem;
   opacity: 0.1;
 }
 
@@ -150,122 +160,122 @@
   }
 }
 
-@keyframes Star1 {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: 16rem;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes Star2 {
-  0% {
-    left: 19rem;
-  }
-  50% {
-    left: 5rem;
-  }
-  100% {
-    left: 19rem;
-  }
-}
-
-@keyframes Star3 {
-  0% {
-    left: 1rem;
-  }
-  50% {
-    left: 20rem;
-  }
-  100% {
-    left: 1rem;
-  }
-}
-
-@keyframes Star4 {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: 10rem;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes Star5 {
-  0% {
-    left: 11rem;
-  }
-  50% {
-    left: 0;
-  }
-  100% {
-    left: 11rem;
-  }
-}
-
-@keyframes Star6 {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: 16rem;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes Star7 {
-  0% {
-    left: 19rem;
-  }
-  50% {
-    left: 5rem;
-  }
-  100% {
-    left: 19rem;
-  }
-}
-
-@keyframes Star8 {
-  0% {
-    left: 1rem;
-  }
-  50% {
-    left: 20rem;
-  }
-  100% {
-    left: 1rem;
-  }
-}
-
-@keyframes Star9 {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: 16rem;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes Star10 {
-  0% {
-    left: 19rem;
-  }
-  50% {
-    left: 5rem;
-  }
-  100% {
-    left: 19rem;
-  }
-}
+//@keyframes Star1 {
+//  0% {
+//    left: 0;
+//  }
+//  50% {
+//    left: 16rem;
+//  }
+//  100% {
+//    left: 0;
+//  }
+//}
+//
+//@keyframes Star2 {
+//  0% {
+//    left: 19rem;
+//  }
+//  50% {
+//    left: 5rem;
+//  }
+//  100% {
+//    left: 19rem;
+//  }
+//}
+//
+//@keyframes Star3 {
+//  0% {
+//    left: 1rem;
+//  }
+//  50% {
+//    left: 20rem;
+//  }
+//  100% {
+//    left: 1rem;
+//  }
+//}
+//
+//@keyframes Star4 {
+//  0% {
+//    left: 0;
+//  }
+//  50% {
+//    left: 10rem;
+//  }
+//  100% {
+//    left: 0;
+//  }
+//}
+//
+//@keyframes Star5 {
+//  0% {
+//    left: 11rem;
+//  }
+//  50% {
+//    left: 0;
+//  }
+//  100% {
+//    left: 11rem;
+//  }
+//}
+//
+//@keyframes Star6 {
+//  0% {
+//    left: 0;
+//  }
+//  50% {
+//    left: 16rem;
+//  }
+//  100% {
+//    left: 0;
+//  }
+//}
+//
+//@keyframes Star7 {
+//  0% {
+//    left: 19rem;
+//  }
+//  50% {
+//    left: 5rem;
+//  }
+//  100% {
+//    left: 19rem;
+//  }
+//}
+//
+//@keyframes Star8 {
+//  0% {
+//    left: 1rem;
+//  }
+//  50% {
+//    left: 20rem;
+//  }
+//  100% {
+//    left: 1rem;
+//  }
+//}
+//
+//@keyframes Star9 {
+//  0% {
+//    left: 0;
+//  }
+//  50% {
+//    left: 16rem;
+//  }
+//  100% {
+//    left: 0;
+//  }
+//}
+//
+//@keyframes Star10 {
+//  0% {
+//    left: 19rem;
+//  }
+//  50% {
+//    left: 5rem;
+//  }
+//  100% {
+//    left: 19rem;
+//  }
+//}

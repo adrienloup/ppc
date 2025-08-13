@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useMeca, useMecaDispatch } from '@/src/domains/machine/interfaces/useMeca.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -6,15 +7,19 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipperComponent = () => {
-  // console.log('ClipperComponent');
+  const { t } = useTranslation();
   const mecaDispatch = useMecaDispatch();
   const fundsDispatch = useFundsDispatch();
   // const { clipper, clipperBonus, clipperCost } = useMeca();
   const { clipper, clipperCost } = useMeca();
   const { funds } = useFunds();
+
+  // const shutdown = feature.clipFactory.unlocked;
+  const shutdown = false;
 
   const buyClipper = () => {
     if (funds < clipperCost) return;
@@ -23,11 +28,10 @@ export const ClipperComponent = () => {
     fundsDispatch({ type: 'DECREASE_FUNDS', cost: clipperCost });
   };
 
-  // if (!factory.feature.clipper.available || factory.feature.clipFactory.available) return null;
   // if (!feature.clipper.unlocked) return null;
 
   return (
-    <DialsComponent>
+    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -46,12 +50,14 @@ export const ClipperComponent = () => {
             className={styles.value}
             value={clipper}
           />
+          {/*{clipperBonus > 1 && !shutdown && (*/}
           <BadgeComponent
             prefix="x"
             // value={clipperBonus}
             value={500}
             status="success"
           />
+          {/*)}*/}
         </div>
         <LabelComponent
           className={styles.label}
@@ -61,16 +67,18 @@ export const ClipperComponent = () => {
           className={styles.button}
           prefix="+"
           value={1}
-          disabled={funds < clipperCost}
+          disabled={funds < clipperCost || shutdown}
           onClick={buyClipper}
         >
           +
         </ClickerComponent>
-        <BadgeComponent
-          className={styles.badge}
-          status="warning"
-          label="shutdown"
-        />
+        {shutdown && (
+          <BadgeComponent
+            className={styles.badge}
+            status="warning"
+            label={t('app.shutdown')}
+          />
+        )}
       </DialComponent>
     </DialsComponent>
   );

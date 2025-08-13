@@ -46,6 +46,7 @@ export const WireDroneComponent = () => {
         />
         <div className={styles.buttons}>
           <ClickerComponent
+            className={styles.button}
             prefix="+"
             value={1}
             disabled={funds < wireDroneCost}

@@ -20,8 +20,9 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
   const fundsDispatch = useFundsDispatch();
   const { clipPrice, publicDemand } = useBusiness();
 
-  const update = useCallback(() => {
-    // if (state.unsoldInventory < 1) return;
+  const autoInventory = useCallback(() => {
+    if (state.unsoldInventory < 1) return;
+    // console.log('autoInventory: updated every 0.5 second');
     const unsoldInventory = Math.max(0, Math.floor(state.unsoldInventory * (1 - publicDemand)));
     const funds = (state.unsoldInventory - unsoldInventory) * clipPrice;
     const fundsPerSecond = state.unsoldInventory * clipPrice;
@@ -43,7 +44,7 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
     inventoryStorage.set(state);
   }, [state]);
 
-  useInterval(update, 4e2, !!user && !pause);
+  useInterval(autoInventory, 4e2, !!user && !pause);
 
   return (
     <InventoryContext.Provider value={state}>

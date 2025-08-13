@@ -71,6 +71,12 @@ $tablet-landscape: 1440px;
   color: var(--mode-color-1);
 }
 
+.dials {
+  &.shutdown {
+    background-color: var(--color-4);
+  }
+}
+
 .badge {
   margin-top: var(--spacing-xs);
 }
@@ -102,6 +108,17 @@ $tablet-landscape: 1440px;
 
 .button {
   margin-top: var(--spacing-xs);
+
+  .buttons & {
+    margin-top: 0;
+  }
+
+  span:first-child {
+    // in ClickerComponent
+    .shutdown & {
+      color: var(--color-4);
+    }
+  }
 }
 
 @keyframes SlideUp {

@@ -36,6 +36,7 @@ export const ClipPriceComponent = () => {
         />
         <div className={styles.buttons}>
           <ClickerComponent
+            className={styles.button}
             prefix="-"
             value={0.01 * Math.max(1, marketingBonus)}
             disabled={clipPriceRef === 0.1}
@@ -45,6 +46,7 @@ export const ClipPriceComponent = () => {
             -
           </ClickerComponent>
           <ClickerComponent
+            className={styles.button}
             prefix="+"
             value={0.01 * Math.max(1, marketingBonus)}
             disabled={clipPriceRef === 1}

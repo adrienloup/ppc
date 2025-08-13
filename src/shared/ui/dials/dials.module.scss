@@ -5,9 +5,3 @@
   padding: var(--spacing-xs);
   background-color: var(--mode-color-2);
 }
-
-.disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
-}

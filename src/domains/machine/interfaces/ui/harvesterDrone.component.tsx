@@ -46,6 +46,7 @@ export const HarvesterDroneComponent = () => {
         />
         <div className={styles.buttons}>
           <ClickerComponent
+            className={styles.button}
             prefix="+"
             value={1}
             disabled={funds < harvesterDroneCost}

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useIT, useITDispatch } from '@/src/domains/it/interfaces/useIT.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -10,6 +11,7 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const TrustComponent = () => {
   // console.log('TrustComponent');
+  const { t } = useTranslation();
   const intelligenceDispatch = useITDispatch();
   const { trust } = useIT();
   const { clip } = useProd();
@@ -36,7 +38,7 @@ export const TrustComponent = () => {
         <BadgeComponent
           className={styles.badge}
           status="warning"
-          label="shutdown"
+          label={t('app.shutdown')}
         />
       </DialComponent>
     </DialsComponent>

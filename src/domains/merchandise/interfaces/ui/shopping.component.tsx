@@ -12,32 +12,44 @@ export const ShoppingComponent = () => {
   const unlockedGroup = Object.values(merchandise).filter((item) => item.unlocked).length;
   const clampedPurchased = Math.min(purchasedGroup, unlockedGroup);
   const clampedUnlocked = Math.min(unlockedGroup, total);
-  const purchasedPercent = (clampedPurchased / total) * 100;
-  const unlockedPercent = ((clampedUnlocked - clampedPurchased) / total) * 100;
+  const purchasedPercent = Math.round((clampedPurchased / total) * 100);
+  const unlockedPercent = Math.round(((clampedUnlocked - clampedPurchased) / total) * 100);
   const lockedPercent = 100 - purchasedPercent - unlockedPercent;
 
   return (
     <div className={styles.shopping}>
       <div className={classNames(styles.inner, styles.purchased)}>
+        <div
+          className={styles.progressbar}
+          style={{ width: `${purchasedPercent}%` }}
+        ></div>
         <NumberComponent
           value={purchasedPercent / 100}
           asset="percent"
         />
-        <span className={styles.label}>{t('app.purchased')}</span>
+        {t('app.purchased')}
       </div>
       <div className={classNames(styles.inner, styles.unlocked)}>
+        <div
+          className={styles.progressbar}
+          style={{ width: `${unlockedPercent}%` }}
+        ></div>
         <NumberComponent
           value={unlockedPercent / 100}
           asset="percent"
         />
-        <span className={styles.label}>{t('app.unlocked')}</span>
+        {t('app.unlocked')}
       </div>
-      <div className={styles.inner}>
+      <div className={classNames(styles.inner, styles.locked)}>
+        <div
+          className={styles.progressbar}
+          style={{ width: `${lockedPercent}%` }}
+        ></div>
         <NumberComponent
           value={lockedPercent / 100}
           asset="percent"
         />
-        <span className={styles.label}>{t('app.locked')}</span>
+        {t('app.locked')}
       </div>
     </div>
   );

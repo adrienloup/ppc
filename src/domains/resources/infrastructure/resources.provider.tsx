@@ -1,12 +1,11 @@
-// import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
-import { type FC, useEffect, useReducer, useRef } from 'react';
+import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
-// import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
+import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { resourcesReducer } from '@/src/domains/resources/application/resources.reducer.ts';
 import { ResourcesContext, ResourcesDisContext } from '@/src/domains/resources/infrastructure/resources.context.tsx';
 import { RESOURCES_KEY } from '@/src/domains/resources/infrastructure/resources.key.ts';
 import { RESOURCES_STATE } from '@/src/domains/resources/infrastructure/resources.state.ts';
-// import { useInterval } from '@/src/shared/hooks/useInterval.ts';
+import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -15,11 +14,11 @@ export const ResourcesProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(resourcesReducer, resourceStorage.get());
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
-  // const { pause } = useProfile();
+  const { pause } = useProfile();
 
-  // const update = useCallback(() => {
-  //   dispatch({ type: 'WIRE_COST' });
-  // }, []);
+  const autoWire = useCallback(() => {
+    dispatch({ type: 'WIRE_COST' });
+  }, []);
 
   useEffect(() => {
     if (!user || user === userRef.current) return;
@@ -34,7 +33,7 @@ export const ResourcesProvider: FC<{ children: Children }> = ({ children }) => {
     resourceStorage.set(state);
   }, [state]);
 
-  // useInterval(update, 1e4, !!user && !pause);
+  useInterval(autoWire, 1e4, !!user && !pause);
 
   return (
     <ResourcesContext.Provider value={state}>
