@@ -23,6 +23,9 @@ export const ClipperComponent = () => {
     fundsDispatch({ type: 'DECREASE_FUNDS', cost: clipperCost });
   };
 
+  // if (!factory.feature.clipper.available || factory.feature.clipFactory.available) return null;
+  // if (!feature.clipper.unlocked) return null;
+
   return (
     <DialsComponent>
       <DialComponent>

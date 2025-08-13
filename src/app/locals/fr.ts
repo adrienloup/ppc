@@ -6,6 +6,11 @@ export const fr: Translation = {
     empty: 'aucune donnée',
     play: 'play',
     pause: 'pause',
-    factory: 'jeu en pause',
+    game: 'jeu en pause',
+    purchased: 'acheté',
+    unlocked: 'débloqué',
+    locked: 'bloqué',
+    notFunds: 'pas de fonds',
+    soldOut: 'épuisé',
   },
 };

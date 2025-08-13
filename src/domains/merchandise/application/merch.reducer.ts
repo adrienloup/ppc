@@ -1,6 +1,6 @@
-import type { Merchandise, MerchandiseDispatch } from '@/src/domains/merchandise/domain/mer.type.ts';
+import type { Merchandise, MerchandiseDispatch } from '@/src/domains/merchandise/domain/merch.type.ts';
 
-export const merReducer = (state: Merchandise, action: MerchandiseDispatch): Merchandise => {
+export const merchReducer = (state: Merchandise, action: MerchandiseDispatch): Merchandise => {
   switch (action.type) {
     case 'LOAD':
       return action.merchandise;

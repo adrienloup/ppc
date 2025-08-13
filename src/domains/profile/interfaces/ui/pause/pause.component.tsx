@@ -8,7 +8,7 @@ export const PauseComponent = () => {
 
   return (
     <PopinComponent
-      text={t('app.factory')}
+      text={t('app.game')}
       button={t('app.play')}
       onPopin={() => profileDispatch({ type: 'PLAY_PAUSE' })}
     />

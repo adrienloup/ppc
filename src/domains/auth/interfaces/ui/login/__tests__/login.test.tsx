@@ -13,7 +13,7 @@ describe('login component', () => {
 
   beforeEach(() => {
     vi.spyOn(authHook, 'useAuth').mockReturnValue({
-      users: { emma: { account: { password: 'dGVzdA==' }, profile: PROFILE_STATE, factory: FACTORY_STATE } },
+      users: { emma: { account: { password: 'dGVzdA==' }, profile: PROFILE_STATE, game: FACTORY_STATE } },
       user: null,
     });
 

@@ -3,7 +3,7 @@ import type { Funds } from '@/src/domains/funds/domain/funds.type.ts';
 import type { Inventory } from '@/src/domains/inventory/domain/inventory.type.ts';
 import type { IT } from '@/src/domains/it/domain/it.type.ts';
 import type { Machine } from '@/src/domains/machine/domain/meca.type.ts';
-import type { Merchandise } from '@/src/domains/merchandise/domain/mer.type.ts';
+import type { Merchandise } from '@/src/domains/merchandise/domain/merch.type.ts';
 import type { Power } from '@/src/domains/power/domain/power.type.ts';
 import type { Production } from '@/src/domains/production/domain/prod.type.ts';
 import type { Resources } from '@/src/domains/resources/domain/resources.type.ts';

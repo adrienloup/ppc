@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
-import { useMerch } from '@/src/domains/merchandise/interfaces/useMer.ts';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
@@ -30,11 +30,11 @@ export const MerchandiseComponent = () => {
     {} as Record<string, typeof merch>
   );
 
-  const assets: Record<string, number> = {
-    creativity: creativity,
-    operation: operation,
-    trust: trust,
-    funds: funds,
+  const purchase: Record<string, number> = {
+    creativity,
+    operation,
+    funds,
+    trust,
   };
 
   return Object.entries(groupByCategory).map(([, merchandise]) =>
@@ -53,14 +53,14 @@ export const MerchandiseComponent = () => {
           <Trans
             i18nKey={`store.${key}.effect`}
             components={{
-              firstEffect: (
+              effect: (
                 <>
                   {Array.isArray(value.effect) && value.effect.every((r) => typeof r === 'object') ? (
                     <NumberComponent value={value.effect?.[0]?.value} />
                   ) : null}
                 </>
               ),
-              secondEffect: (
+              kissCoolEffect: (
                 <>
                   {Array.isArray(value.effect) && value.effect.every((r) => typeof r === 'object') ? (
                     <NumberComponent value={value.effect?.[1]?.value} />
@@ -89,21 +89,21 @@ export const MerchandiseComponent = () => {
         <div className={styles.buttons}>
           <ButtonComponent
             className={styles.button}
-            disabled={!(assets[value.cost.asset] >= value.cost.value && !value.purchased)}
+            disabled={!(purchase[value.cost.asset] >= value.cost.value && !value.purchased)}
             onClick={() => console.log('clicked')}
           >
             purchase
           </ButtonComponent>
-          {assets[value.cost.asset] < value.cost.value && !value.purchased && (
+          {purchase[value.cost.asset] < value.cost.value && !value.purchased && (
             <BadgeComponent
-              label="not funds"
+              label={t('app.notFunds')}
               status="warning"
             />
           )}
           {value.purchased && (
             <BadgeComponent
               className={styles.badge}
-              label="sold out"
+              label={t('app.soldOut')}
             />
           )}
         </div>

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { MerchContext } from '@/src/domains/merchandise/infrastructure/mer.context.tsx';
+import { MerchContext } from '@/src/domains/merchandise/infrastructure/merch.context.tsx';
 
 export const useMerch = () => {
   const ctx = useContext(MerchContext);

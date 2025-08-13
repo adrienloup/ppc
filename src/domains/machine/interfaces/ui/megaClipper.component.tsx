@@ -53,7 +53,7 @@ export const MegaClipperComponent = () => {
         </div>
         <LabelComponent
           className={styles.label}
-          label={t('factory.megaClippers')}
+          label={t('factory.megaClipper')}
         />
         <ClickerComponent
           className={styles.button}

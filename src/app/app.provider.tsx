@@ -5,7 +5,7 @@ import { FundsProvider } from '@/src/domains/funds/infrastructure/funds.provider
 import { InventoryProvider } from '@/src/domains/inventory/infrastructure/inventory.provider.tsx';
 import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
 import { MecaProvider } from '@/src/domains/machine/infrastructure/meca.provider.tsx';
-import { MerProvider } from '@/src/domains/merchandise/infrastructure/mer.provider.tsx';
+import { MerchProvider } from '@/src/domains/merchandise/infrastructure/merch.provider.tsx';
 import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
 import { PopinProvider } from '@/src/domains/popin/infrastructure/popin.provider.tsx';
 import { PowerProvider } from '@/src/domains/power/infrastructure/power.provider.tsx';
@@ -40,7 +40,7 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [ResourcesProvider],
   [MecaProvider],
   [ProdProvider],
-  [MerProvider],
+  [MerchProvider],
   [ITProvider],
   [TradeProvider],
   [SwarmProvider],

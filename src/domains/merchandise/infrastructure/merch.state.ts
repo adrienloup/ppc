@@ -1,23 +1,8 @@
-import type { Merchandise } from '@/src/domains/merchandise/domain/mer.type.ts';
+import type { Merchandise } from '@/src/domains/merchandise/domain/merch.type.ts';
 
 export const MERCHANDISE_STATE: Merchandise = {
-  merchandiseTest1: {
-    category: 'mechanic',
-    cost: { asset: 'operation', value: 5e2 },
-    effect: ['fundsPerSecond'],
-    unlocked: true,
-    purchased: true,
-    quantity: 0,
-  },
-  merchandiseTest2: {
-    category: 'mechanic',
-    cost: { asset: 'operation', value: 5e2 },
-    effect: ['fundsPerSecond'],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-  },
   revTracker: {
+    // @TODO
     category: 'mechanic',
     // cost: { asset: 'operation', value: 5e2 },
     cost: { asset: 'funds', value: 1 },
@@ -27,15 +12,33 @@ export const MERCHANDISE_STATE: Merchandise = {
     quantity: 1,
   },
   offerAnotherChance: {
+    // @TODO
     category: 'mechanic',
     cost: { asset: 'creativity', value: 7e4 },
     effect: { type: 'ALLOCATE_TRUST' },
     unlocked: true,
-    purchased: false,
-    quantity: 10,
-    requirement: { asset: 'creativity', value: 7e4 },
+    purchased: true,
+    // quantity: 10,
+    quantity: 0,
+    // requirement: { asset: 'creativity', value: 7e4 },
   },
-  algorithmic: {
+  begForMoreWire: {
+    category: 'wire',
+    cost: { asset: 'trust', value: 1 },
+    effect: [{ asset: 'funds', value: 100 }],
+    unlocked: true,
+    purchased: false,
+    quantity: 5,
+  },
+  improvedWireExtrusion: {
+    category: 'wire',
+    cost: { asset: 'operation', value: 1750 },
+    effect: [{ asset: 'wireQuantity', value: 5e2 }],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+  },
+  algorithmicTrading: {
     category: 'investing',
     cost: { asset: 'operation', value: 1e4 },
     effect: ['investments'],
@@ -43,67 +46,6 @@ export const MERCHANDISE_STATE: Merchandise = {
     purchased: false,
     quantity: 0,
     requirement: { asset: 'trust', value: 8 },
-  },
-  catchyJingle: {
-    category: 'marketing',
-    cost: { asset: 'operation', value: 75e2 },
-
-    effect: ['hypnoHarmonics'],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    // requirement: 'combinatoryHarmonics',
-  },
-  fullMonopoly: {
-    category: 'marketing',
-    cost: { asset: 'funds', value: 1e7 },
-    effect: [
-      { asset: 'marketingBonus', value: 1e2 },
-      { asset: 'trust', value: 1 },
-    ],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    requirement: { asset: 'funds', value: 1e7 },
-  },
-  harvesterDroneProcess: {
-    category: 'drones',
-    cost: { asset: 'operation', value: 25e3 },
-    effect: ['harvesterDrone'],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    // requirement: 'releaseHypnoDrone',
-  },
-  hostileTakeover: {
-    category: 'marketing',
-    cost: { asset: 'funds', value: 1e6 },
-    effect: [
-      { asset: 'marketingBonus', value: 10 },
-      { asset: 'trust', value: 1 },
-    ],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    requirement: { asset: 'funds', value: 1e7 },
-  },
-  hypnoHarmonics: {
-    category: 'marketing',
-    cost: { asset: 'operation', value: 75e2 },
-    effect: ['hypnoDrone'],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    // requirement: 'catchyJingle',
-  },
-  hypnoDrone: {
-    category: 'drones',
-    cost: { asset: 'operation', value: 7e4 },
-    effect: ['releaseHypnoDrone'],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    // requirement: 'hypnoHarmonics',
   },
   improvedClipper: {
     category: 'production',
@@ -159,7 +101,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     quantity: 1,
     // requirement: 'improvedMegaClipper',
   },
-  optimizedMegaClippers: {
+  optimizedMegaClipper: {
     category: 'production',
     cost: { asset: 'operation', value: 195e2 },
     effect: [{ asset: 'megaClipperBonus', value: 100 }],
@@ -168,6 +110,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     quantity: 1,
     // requirement: 'evenBetterMegaClipper',
   },
+  // @TODO: clipperMegaDiagrams
   newSlogan: {
     category: 'marketing',
     cost: { asset: 'operation', value: 25e2 },
@@ -175,6 +118,60 @@ export const MERCHANDISE_STATE: Merchandise = {
     unlocked: true,
     purchased: false,
     quantity: 1,
+  },
+  catchyJingle: {
+    category: 'marketing',
+    cost: { asset: 'operation', value: 75e2 },
+    effect: ['hypnoHarmonic'],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+    // requirement: 'combinatorHarmonic',
+  },
+  hypnoHarmonic: {
+    category: 'marketing',
+    cost: { asset: 'operation', value: 75e2 },
+    effect: ['hypnoDrone'],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+    // requirement: 'catchyJingle',
+  },
+  hostileTakeover: {
+    category: 'marketing',
+    cost: { asset: 'funds', value: 1e6 },
+    effect: [
+      { asset: 'marketingBonus', value: 10 },
+      { asset: 'trust', value: 1 },
+    ],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+    requirement: { asset: 'funds', value: 1e7 },
+  },
+  fullMonopoly: {
+    category: 'marketing',
+    cost: { asset: 'funds', value: 1e7 },
+    effect: [
+      { asset: 'marketingBonus', value: 1e2 },
+      { asset: 'trust', value: 1 },
+    ],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+    requirement: { asset: 'funds', value: 1e7 },
+  },
+  // @TODO: countyLimerick
+  // @TODO: lexicalProcessing
+  // @TODO: combinatorHarmonic
+  hypnoDrone: {
+    category: 'drones',
+    cost: { asset: 'operation', value: 7e4 },
+    effect: ['releaseHypnoDrone'],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+    // requirement: 'hypnoHarmonic',
   },
   releaseHypnoDrone: {
     category: 'drones',
@@ -184,21 +181,23 @@ export const MERCHANDISE_STATE: Merchandise = {
     purchased: false,
     quantity: 1,
   },
-  begForMoreWire: {
-    category: 'wire',
-    cost: { asset: 'trust', value: 1 },
-    effect: [{ asset: 'funds', value: 100 }],
-    unlocked: true,
-    purchased: false,
-    quantity: 5,
-  },
-  improvedWireExtrusion: {
-    category: 'wire',
-    cost: { asset: 'operation', value: 1750 },
-    effect: [{ asset: 'wireQuantity', value: 5e2 }],
+  harvesterDroneProcess: {
+    category: 'drones',
+    cost: { asset: 'operation', value: 25e3 },
+    effect: ['harvesterDrone'],
     unlocked: true,
     purchased: false,
     quantity: 1,
+    // requirement: 'releaseHypnoDrone',
+  },
+  wireDroneProcess: {
+    category: 'drones',
+    cost: { asset: 'operation', value: 25e3 },
+    effect: ['wireDrone', 'clipFactory'],
+    unlocked: true,
+    purchased: false,
+    quantity: 1,
+    // requirement: 'releaseHypnoDrone]
   },
   optimizedWireExtrusion: {
     category: 'wire',
@@ -239,14 +238,5 @@ export const MERCHANDISE_STATE: Merchandise = {
     unlocked: true,
     purchased: false,
     quantity: 1,
-  },
-  wireDroneProcess: {
-    category: 'drones',
-    cost: { asset: 'operation', value: 25e3 },
-    effect: ['wireDrone', 'clipFactory'],
-    unlocked: true,
-    purchased: false,
-    quantity: 1,
-    // requirement: 'releaseHypnoDrone]
   },
 };

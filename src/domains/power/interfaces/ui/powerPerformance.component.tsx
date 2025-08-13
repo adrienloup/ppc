@@ -20,7 +20,7 @@ export const PowerPerformanceComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="factory/drone performance"
+          label="clipFactory/drone performance"
         />
       </DialComponent>
     </DialsComponent>

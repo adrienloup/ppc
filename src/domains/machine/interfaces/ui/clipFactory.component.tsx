@@ -54,7 +54,7 @@ export const ClipFactoryComponent = () => {
         </div>
         <LabelComponent
           className={styles.label}
-          label={t('factory.clipFactories')}
+          label={t('factory.clipFactory')}
         />
         <ClickerComponent
           className={styles.button}
