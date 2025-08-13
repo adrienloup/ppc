@@ -44,7 +44,7 @@ export const HarvesterDroneComponent = () => {
           className={styles.label}
           label="harvester drone"
         />
-        <div className={styles.buttons}>
+        <div className={styles.action}>
           <ClickerComponent
             className={styles.button}
             prefix="+"

@@ -5,7 +5,7 @@ import { tradeReducer } from '@/src/domains/trade/application/trade.reducer.ts';
 import { TradeContext, TradeDisContext } from '@/src/domains/trade/infrastructure/trade.context.ts';
 import { TRADE_KEY } from '@/src/domains/trade/infrastructure/trade.key.ts';
 import { TRADE_STATE } from '@/src/domains/trade/infrastructure/trade.state.ts';
-import { getTokens } from '@/src/domains/trade/interfaces/utils/getTokens.ts';
+import { getExchange } from '@/src/domains/trade/interfaces/utils/getExchange.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
@@ -18,9 +18,9 @@ export const TradeProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useProfile();
 
   const autoTrade = useCallback(() => {
-    const token = getTokens(state.token);
-    dispatch({ type: 'UPDATE_TOKEN', token });
-  }, [state.token]);
+    const exchange = getExchange(state.exchange);
+    dispatch({ type: 'EXCHANGE', exchange });
+  }, [state.exchange]);
 
   useEffect(() => {
     if (!user || user === userRef.current) return;

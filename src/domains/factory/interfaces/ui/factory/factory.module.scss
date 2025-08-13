@@ -98,7 +98,7 @@ $tablet-landscape: 1440px;
   color: var(--mode-color-1);
 }
 
-.buttons {
+.action {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -109,12 +109,12 @@ $tablet-landscape: 1440px;
 .button {
   margin-top: var(--spacing-xs);
 
-  .buttons & {
+  .action & {
     margin-top: 0;
   }
 
+  // in ClickerComponent
   span:first-child {
-    // in ClickerComponent
     .shutdown & {
       color: var(--color-4);
     }

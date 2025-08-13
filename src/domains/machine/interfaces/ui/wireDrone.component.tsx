@@ -44,7 +44,7 @@ export const WireDroneComponent = () => {
           className={styles.label}
           label="wire drone"
         />
-        <div className={styles.buttons}>
+        <div className={styles.action}>
           <ClickerComponent
             className={styles.button}
             prefix="+"

@@ -4,10 +4,10 @@ export const tradeReducer = (state: Trade, action: TradeDispatch): Trade => {
   switch (action.type) {
     case 'LOAD':
       return action.trade;
-    case 'UPDATE_TOKEN':
+    case 'EXCHANGE':
       return {
         ...state,
-        token: action.token,
+        exchange: action.exchange,
       };
     case 'INCREASE_CASH':
       return state;

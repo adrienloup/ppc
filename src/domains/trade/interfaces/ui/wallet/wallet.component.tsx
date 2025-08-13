@@ -1,5 +1,5 @@
 import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
-import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
@@ -12,22 +12,22 @@ export const WalletComponent = () => {
 
   return (
     <DialsComponent>
-      {Object.entries(wallet).map(([symbol, token]) => (
+      {Object.entries(wallet).map(([symbol, crypto]) => (
         <DialComponent key={symbol}>
           <NumberComponent
             className={styles.value}
-            value={token.quantity}
+            value={crypto.quantity}
           />
           <LabelComponent
             className={styles.label}
-            label={`${token.name} wallet`}
+            label={crypto.name}
           />
-          <div className={styles.buttons}>
+          <div className={styles.action}>
             <ClickerComponent
               className={styles.button}
               prefix="-"
               value={0.1}
-              disabled={token.quantity < 1}
+              disabled={crypto.quantity < 1}
               onClick={() => console.log('decrease')}
             >
               -
@@ -51,14 +51,14 @@ export const WalletComponent = () => {
         />
         <LabelComponent
           className={styles.label}
-          label="thune"
+          label="cash wallet"
         />
-        <div className={styles.buttons}>
+        <div className={styles.action}>
           <ClickerComponent
             className={styles.button}
             prefix="-"
             value={100}
-            // disabled={token.quantity < 1}
+            // disabled={crypto.quantity < 1}
             onClick={() => console.log('decrease')}
           >
             -
@@ -72,13 +72,7 @@ export const WalletComponent = () => {
           >
             +
           </ClickerComponent>
-          <ButtonComponent
-            className={styles.button}
-            // disabled={funds < clipperCost || shutdown}
-            onClick={() => console.log('withdraw')}
-          >
-            withdraw
-          </ButtonComponent>
+          <BadgeComponent value={100} />
         </div>
       </DialComponent>
     </DialsComponent>

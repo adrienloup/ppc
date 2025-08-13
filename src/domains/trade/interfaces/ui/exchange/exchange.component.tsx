@@ -2,15 +2,15 @@ import { CryptoComponent } from '@/src/domains/trade/interfaces/ui/crypto/crypto
 import { useTrade } from '@/src/domains/trade/interfaces/useTrade.ts';
 
 export const ExchangeComponent = () => {
-  const { token } = useTrade();
+  const { exchange } = useTrade();
 
-  return Object.entries(token).map(([symbol, token]) => (
+  return Object.entries(exchange).map(([symbol, crypto]) => (
     <CryptoComponent
       key={symbol}
-      name={token.name}
-      price={token.price}
-      volume={token.volume}
-      change={token.change}
+      name={crypto.name}
+      price={crypto.price}
+      volume={crypto.volume}
+      change={crypto.change}
     />
   ));
 };

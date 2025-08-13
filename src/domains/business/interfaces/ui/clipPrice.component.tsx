@@ -34,7 +34,7 @@ export const ClipPriceComponent = () => {
           className={styles.label}
           label="clip selling price"
         />
-        <div className={styles.buttons}>
+        <div className={styles.action}>
           <ClickerComponent
             className={styles.button}
             prefix="-"

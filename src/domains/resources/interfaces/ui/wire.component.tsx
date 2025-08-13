@@ -50,7 +50,7 @@ export const WireComponent = () => {
           className={styles.label}
           label="wire stock"
         />
-        <div className={styles.buttons}>
+        <div className={styles.action}>
           <ClickerComponent
             className={styles.button}
             prefix="+"
