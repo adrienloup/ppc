@@ -27,16 +27,16 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useProfile();
 
   const autoProduction = useCallback(() => {
-    // console.log('autoProduction: updated every 1 second');
     const prod = getProd(wire, clipper, megaClipper, clipFactory);
     const prodClip =
       prod.clipper * Math.max(1, clipperBonus) +
       prod.megaClipper * 5e2 * Math.max(1, megaClipperBonus) +
       prod.clipFactory * 1e3 * Math.max(1, clipFactoryBonus);
 
-    dispatch({ type: 'INCREASE_CLIP', clip: prodClip, clipPerSecond: prodClip });
+    dispatch({ type: 'CLIP_PER_SECOND', clipPerSecond: prodClip });
 
     if (wire < 1) return;
+    dispatch({ type: 'INCREASE_CLIP', clip: prodClip });
     inventoryDispatch({ type: 'INCREASE_INVENTORY', unsoldInventory: prodClip });
     resourcesDispatch({ type: 'DECREASE_WIRE', wire: prod.wire });
   }, [wire, clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus]);

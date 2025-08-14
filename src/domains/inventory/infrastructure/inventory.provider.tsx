@@ -21,14 +21,15 @@ export const InventoryProvider: FC<{ children: Children }> = ({ children }) => {
   const { clipPrice, publicDemand } = useBusiness();
 
   const autoInventory = useCallback(() => {
-    if (state.unsoldInventory < 1) return;
     // console.log('autoInventory: updated every 0.5 second');
     const unsoldInventory = Math.max(0, Math.floor(state.unsoldInventory * (1 - publicDemand)));
     const funds = (state.unsoldInventory - unsoldInventory) * clipPrice;
     const fundsPerSecond = state.unsoldInventory * clipPrice;
 
-    dispatch({ type: 'DECREASE_INVENTORY', unsoldInventory });
     fundsDispatch({ type: 'FUNDS_PER_SECOND', fundsPerSecond });
+
+    if (state.unsoldInventory < 1) return;
+    dispatch({ type: 'DECREASE_INVENTORY', unsoldInventory });
     fundsDispatch({ type: 'INCREASE_FUNDS', funds });
   }, [state, clipPrice, publicDemand]);
 

@@ -9,7 +9,6 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipPerSecondComponent = () => {
-  // console.log('ClipPerSecondComponent');
   const productionDispatch = useProdDispatch();
   const resourcesDispatch = useResDispatch();
   const inventoryDispatch = useInventoryDispatch();
@@ -17,7 +16,8 @@ export const ClipPerSecondComponent = () => {
   const { wire } = useResources();
 
   const increaseClip = () => {
-    productionDispatch({ type: 'INCREASE_CLIP', clip: 1, clipPerSecond: clipPerSecond + 1 });
+    productionDispatch({ type: 'CLIP_PER_SECOND', clipPerSecond: clipPerSecond + 1 });
+    productionDispatch({ type: 'INCREASE_CLIP', clip: 1 });
     inventoryDispatch({ type: 'INCREASE_INVENTORY', unsoldInventory: 1 });
     resourcesDispatch({ type: 'DECREASE_WIRE', wire: 1 });
   };
