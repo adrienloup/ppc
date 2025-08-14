@@ -1,5 +1,5 @@
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
+import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';

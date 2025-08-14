@@ -1,6 +1,6 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
-import { useMeca } from '@/src/domains/machine/interfaces/useMeca.ts';
+import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { powerReducer } from '@/src/domains/power/application/power.reducer.ts';
 import { PowerContext, PowerDispatchContext } from '@/src/domains/power/infrastructure/power.context.tsx';
 import { POWER_KEY } from '@/src/domains/power/infrastructure/power.key.ts';

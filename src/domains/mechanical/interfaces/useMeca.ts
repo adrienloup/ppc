@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { MecaContext, MecaDispatchContext } from '@/src/domains/machine/infrastructure/meca.context.tsx';
+import { MecaContext, MecaDispatchContext } from '@/src/domains/mechanical/infrastructure/meca.context.tsx';
 
 export const useMeca = () => {
   const ctx = useContext(MecaContext);

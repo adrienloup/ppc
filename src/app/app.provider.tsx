@@ -5,7 +5,7 @@ import { ExchangeProvider } from '@/src/domains/exchange/infrastructure/exchange
 import { FundsProvider } from '@/src/domains/funds/infrastructure/funds.provider.tsx';
 import { InventoryProvider } from '@/src/domains/inventory/infrastructure/inventory.provider.tsx';
 import { ITProvider } from '@/src/domains/it/infrastructure/IT.provider.tsx';
-import { MecaProvider } from '@/src/domains/machine/infrastructure/meca.provider.tsx';
+import { MecaProvider } from '@/src/domains/mechanical/infrastructure/meca.provider.tsx';
 import { MerchProvider } from '@/src/domains/merchandise/infrastructure/merch.provider.tsx';
 import { NotifProvider } from '@/src/domains/notification/infrastructure/notif.provider.tsx';
 import { PopinProvider } from '@/src/domains/popin/infrastructure/popin.provider.tsx';

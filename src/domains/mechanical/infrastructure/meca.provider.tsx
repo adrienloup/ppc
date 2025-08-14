@@ -1,9 +1,9 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
-import { mecaReducer } from '@/src/domains/machine/application/meca.reducer.ts';
-import { MecaContext, MecaDispatchContext } from '@/src/domains/machine/infrastructure/meca.context.tsx';
-import { MECA_KEY } from '@/src/domains/machine/infrastructure/meca.key.ts';
-import { MECA_STATE } from '@/src/domains/machine/infrastructure/meca.state.ts';
+import { mecaReducer } from '@/src/domains/mechanical/application/meca.reducer.ts';
+import { MecaContext, MecaDispatchContext } from '@/src/domains/mechanical/infrastructure/meca.context.tsx';
+import { MECA_KEY } from '@/src/domains/mechanical/infrastructure/meca.key.ts';
+import { MECA_STATE } from '@/src/domains/mechanical/infrastructure/meca.state.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';
 import type { Children } from '@/src/shared/types/children.type.ts';
 
@@ -17,7 +17,7 @@ export const MecaProvider: FC<{ children: Children }> = ({ children }) => {
     if (!user || user === userRef.current) return;
     dispatch({
       type: 'LOAD',
-      machine: users[user].factory?.machine ?? MECA_STATE,
+      mechanical: users[user].factory?.mechanical ?? MECA_STATE,
     });
     userRef.current = user;
   }, [user]);

@@ -1,84 +1,78 @@
 import { useTranslation } from 'react-i18next';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useMeca, useMecaDispatch } from '@/src/domains/machine/interfaces/useMeca.ts';
+import { useMeca, useMecaDispatch } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
-import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const ClipperComponent = () => {
+export const ClipFactoryComponent = () => {
+  // console.log('ClipFactoryComponent');
   const { t } = useTranslation();
   const mecaDispatch = useMecaDispatch();
   const fundsDispatch = useFundsDispatch();
-  // const { clipper, clipperBonus, clipperCost } = useMeca();
-  const { clipper, clipperCost } = useMeca();
+  // const { clipFactory, clipFactoryBonus, clipFactoryCost } = useMeca();
+  const { clipFactory, clipFactoryCost } = useMeca();
   const { funds } = useFunds();
 
-  // const shutdown = feature.clipFactory.unlocked;
-  const shutdown = false;
-
-  const buyClipper = () => {
-    if (funds < clipperCost) return;
-    const newClipperCost = clipperCost + (Math.random() * 10 + 10); // 0 1, 0 10, 10 20
-    mecaDispatch({ type: 'CLIPPER', cost: newClipperCost });
-    fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipperCost });
+  const buyClipFactory = () => {
+    if (funds < clipFactoryCost) return;
+    const newClipFactoryCost = clipFactoryCost + (Math.random() * 5e5 + 5e5); // 0 1, 0 5e5, 5e5 1e6
+    mecaDispatch({ type: 'CLIP_FACTORY', cost: newClipFactoryCost });
+    fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipFactoryCost });
   };
 
-  // if (!feature.clipper.unlocked) return null;
-
   return (
-    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
+    <DialsComponent>
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          value={clipperCost}
+          value={clipFactoryCost}
           asset="currency"
-          decimal
         />
         <LabelComponent
           className={styles.label}
-          label="clipper cost"
+          label={t('factory.clipFactoryCost')}
         />
       </DialComponent>
       <DialComponent>
         <div className={styles.group}>
           <NumberComponent
             className={styles.value}
-            value={clipper}
+            value={clipFactory}
           />
-          {/*{clipperBonus > 1 && !shutdown && (*/}
           <BadgeComponent
             prefix="x"
-            // value={clipperBonus}
             value={500}
+            // value={clipFactoryBonus}
             status="success"
           />
-          {/*)}*/}
         </div>
         <LabelComponent
           className={styles.label}
-          label="clipper"
+          label={t('factory.clipFactory')}
         />
         <ClickerComponent
           className={styles.button}
           prefix="+"
           value={1}
-          disabled={funds < clipperCost || shutdown}
-          onClick={buyClipper}
+          disabled={funds < clipFactoryCost || clipFactory >= 1e8}
+          onClick={buyClipFactory}
         >
           +
         </ClickerComponent>
-        {shutdown && (
-          <BadgeComponent
-            className={styles.badge}
-            status="warning"
-            label={t('app.shutdown')}
-          />
-        )}
+        {/*{clipFactory >= 1e8 && (*/}
+        <BadgeComponent
+          className={styles.badge}
+          status="error"
+          label={t('factory.noSpace')}
+        />
+        {/*)}*/}
+        <OverConsumptionComponent clipFactory />
       </DialComponent>
     </DialsComponent>
   );

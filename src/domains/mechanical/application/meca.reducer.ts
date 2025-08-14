@@ -1,9 +1,9 @@
-import type { MachineDispatch, Machine } from '@/src/domains/machine/domain/meca.type.ts';
+import type { MechanicalDispatch, Mechanical } from '@/src/domains/mechanical/domain/meca.type.ts';
 
-export const mecaReducer = (state: Machine, action: MachineDispatch): Machine => {
+export const mecaReducer = (state: Mechanical, action: MechanicalDispatch): Mechanical => {
   switch (action.type) {
     case 'LOAD':
-      return action.machine;
+      return action.mechanical;
     case 'CLIPPER':
       return {
         ...state,
