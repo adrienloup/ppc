@@ -37,7 +37,7 @@
 .stars3 {
   top: 140vh;
   right: 10vw;
-  width: 30rem;
+  width: 35rem;
   gap: var(--spacing-l);
   animation:
     SlideRight 0.5s var(--ease-quad) backwards 0.2s,
@@ -103,7 +103,7 @@
   width: 5rem;
   height: 3rem;
   //animation: Star6 100s infinite alternate;
-  left: 1rem;
+  left: 5rem;
   opacity: 0.2;
 }
 
@@ -111,7 +111,7 @@
   width: 6rem;
   height: 4rem;
   //animation: Star7 120s infinite alternate;
-  left: 24rem;
+  left: 29rem;
   opacity: 0.1;
 }
 
