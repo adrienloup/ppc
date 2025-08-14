@@ -35,7 +35,7 @@
 }
 
 .stars3 {
-  top: 130vh;
+  top: 140vh;
   right: 10vw;
   width: 35rem;
   gap: var(--spacing-l);
@@ -45,12 +45,12 @@
 }
 
 .stars4 {
-  top: 280vh;
-  left: 5vw;
-  width: 25rem;
+  top: 300vh;
+  right: 5vw;
+  width: 20rem;
   gap: var(--spacing-l);
   animation:
-    SlideLeft 0.5s var(--ease-quad) backwards 0.3s,
+    SlideRight 0.5s var(--ease-quad) backwards 0.3s,
     FadeIn 0.7s var(--ease-quad) backwards 0.3s;
 }
 
@@ -135,7 +135,7 @@
   width: 4rem;
   height: 2rem;
   //animation: Star10 120s infinite alternate;
-  left: 19rem;
+  left: 16rem;
   opacity: 0.1;
 }
 

@@ -6,10 +6,18 @@ export const resourcesReducer = (state: Resources, action: ResourcesDispatch): R
       return action.resources;
     case 'WIRE': {
       const wireBW = state.wire + state.wireQuantity;
+      const wireCostBW = state.wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
       return {
         ...state,
         wire: wireBW,
-        wireCost: action.cost,
+        wireCost: wireCostBW,
+      };
+    }
+    case 'WIRE_COST': {
+      const wireCostWC = state.wireCost > 8 ? state.wireCost - 0.26 : Math.random() * 8 + 12;
+      return {
+        ...state,
+        wireCost: wireCostWC,
       };
     }
     case 'DECREASE_WIRE': {
@@ -25,13 +33,6 @@ export const resourcesReducer = (state: Resources, action: ResourcesDispatch): R
         ...state,
         wireQuantity: action.quantity,
       };
-    case 'WIRE_COST': {
-      const wireCostWC = state.wireCost > 8 ? state.wireCost - 0.26 : Math.random() * 8 + 12;
-      return {
-        ...state,
-        wireCost: wireCostWC,
-      };
-    }
     default:
       return state;
   }

@@ -14,12 +14,11 @@ export const ClipperComponent = () => {
   const { t } = useTranslation();
   const mecaDispatch = useMecaDispatch();
   const fundsDispatch = useFundsDispatch();
-  // const { clipper, clipperBonus, clipperCost } = useMeca();
-  const { clipper, clipperCost } = useMeca();
+  const { clipper, clipperBonus, clipperCost } = useMeca();
   const { funds } = useFunds();
 
   // const shutdown = feature.clipFactory.unlocked;
-  const shutdown = false;
+  const shutdown = true;
 
   const buyClipper = () => {
     if (funds < clipperCost) return;
@@ -50,14 +49,13 @@ export const ClipperComponent = () => {
             className={styles.value}
             value={clipper}
           />
-          {/*{clipperBonus > 1 && !shutdown && (*/}
-          <BadgeComponent
-            prefix="x"
-            // value={clipperBonus}
-            value={500}
-            status="success"
-          />
-          {/*)}*/}
+          {clipperBonus > 1 && !shutdown && (
+            <BadgeComponent
+              prefix="x"
+              value={clipperBonus}
+              status="success"
+            />
+          )}
         </div>
         <LabelComponent
           className={styles.label}

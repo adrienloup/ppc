@@ -33,7 +33,7 @@ export const ResourcesProvider: FC<{ children: Children }> = ({ children }) => {
     resourceStorage.set(state);
   }, [state]);
 
-  useInterval(autoWire, 1e4, !!user && !pause);
+  useInterval(autoWire, 1e4, !!user && !pause); // @TODO: !feature.clipFactory.unlocked
 
   return (
     <ResourcesContext.Provider value={state}>

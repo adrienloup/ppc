@@ -18,12 +18,11 @@ export const WireComponent = () => {
   const { funds } = useFunds();
 
   // const shutdown = feature.clipFactory.unlocked;
-  const shutdown = false;
+  const shutdown = true;
 
   const buyWire = () => {
     if (funds < wireCost) return;
-    const newWireCost = wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
-    resourcesDispatch({ type: 'WIRE', cost: newWireCost });
+    resourcesDispatch({ type: 'WIRE' });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: wireCost });
   };
 
@@ -69,13 +68,13 @@ export const WireComponent = () => {
             label={t('app.shutdown')}
           />
         )}
-        {wire < 1 && !shutdown && (
-          <BadgeComponent
-            className={styles.badge}
-            status="error"
-            label={t('app.stockOut')}
-          />
-        )}
+        {/*{wire < 1 && !shutdown && (*/}
+        <BadgeComponent
+          className={styles.badge}
+          status="error"
+          label={t('app.stockOut')}
+        />
+        {/*)}*/}
       </DialComponent>
     </DialsComponent>
   );

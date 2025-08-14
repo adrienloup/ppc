@@ -1,5 +1,5 @@
 import { SwarmDeliveryComponent } from '@/src/domains/swarm/interfaces/ui/swarmDelivery.component.tsx';
-import { SwarmGiftsComponent } from '@/src/domains/swarm/interfaces/ui/swarmGifts.component.tsx';
+import { SwarmDroneComponent } from '@/src/domains/swarm/interfaces/ui/swarmDrone.component.tsx';
 import { SwarmStrategyComponent } from '@/src/domains/swarm/interfaces/ui/swarmStrategy.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
@@ -16,9 +16,8 @@ export const SwarmComponent = () => {
         swarm
       </TitleComponent>
       <EmptyComponent />
-      <SwarmGiftsComponent />
       <SwarmDeliveryComponent />
-      {/*<SwarmDroneComponent />*/}
+      <SwarmDroneComponent />
       {/*<SwarmSynchronizeComponent />*/}
       {/*<SwarmEntertainmentComponent />*/}
       {/*<SwarmStatusComponent />*/}

@@ -7,15 +7,17 @@ import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const TrustComponent = () => {
-  // console.log('TrustComponent');
   const { t } = useTranslation();
   const intelligenceDispatch = useITDispatch();
   const { trust } = useIT();
   const { clip } = useProd();
   const clipRef = useRef<number>(clip);
+
+  const shutdown = true;
 
   useEffect(() => {
     if (clip < clipRef.current + 1e3) return;
@@ -24,7 +26,7 @@ export const TrustComponent = () => {
   }, [clip]);
 
   return (
-    <DialsComponent>
+    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -35,11 +37,13 @@ export const TrustComponent = () => {
           className={styles.label}
           label="trust level"
         />
-        <BadgeComponent
-          className={styles.badge}
-          status="warning"
-          label={t('app.shutdown')}
-        />
+        {shutdown && (
+          <BadgeComponent
+            className={styles.badge}
+            status="warning"
+            label={t('app.shutdown')}
+          />
+        )}
       </DialComponent>
     </DialsComponent>
   );
