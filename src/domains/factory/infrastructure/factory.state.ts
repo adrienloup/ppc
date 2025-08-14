@@ -4,6 +4,7 @@ import { EXCHANGE_STATE } from '@/src/domains/exchange/infrastructure/exchange.s
 import { FUNDS_STATE } from '@/src/domains/funds/infrastructure/funds.state.ts';
 import { INVENTORY_STATE } from '@/src/domains/inventory/infrastructure/inventory.state.ts';
 import { IT_STATE } from '@/src/domains/it/infrastructure/IT.state.ts';
+import { MATTER_STATE } from '@/src/domains/matter/infrastructure/matter.state.ts';
 import { MECA_STATE } from '@/src/domains/mechanical/infrastructure/meca.state.ts';
 import { MERCHANDISE_STATE } from '@/src/domains/merchandise/infrastructure/merch.state.ts';
 import { POWER_STATE } from '@/src/domains/power/infrastructure/power.state.ts';
@@ -20,6 +21,7 @@ export const FACTORY_STATE: Factory = {
   funds: FUNDS_STATE,
   inventory: INVENTORY_STATE,
   it: IT_STATE,
+  matter: MATTER_STATE,
   mechanical: MECA_STATE,
   merchandise: MERCHANDISE_STATE,
   power: POWER_STATE,

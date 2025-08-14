@@ -7,7 +7,6 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const SwarmComponent = () => {
-  // console.log('SwarmComponent');
   return (
     <CardComponent className={styles.card}>
       <TitleComponent

@@ -6,6 +6,7 @@ import { useExchange } from '@/src/domains/exchange/interfaces/useExchange.ts';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useInventory } from '@/src/domains/inventory/interfaces/useInventory.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
+import { useMatter } from '@/src/domains/matter/interfaces/useMatter.ts';
 import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { useNotifDispatch } from '@/src/domains/notification/interfaces/useNotif.ts';
@@ -29,6 +30,7 @@ export const LogoutComponent = memo(() => {
   const funds = useFunds();
   const inventory = useInventory();
   const it = useIT();
+  const matter = useMatter();
   const mechanical = useMeca();
   const merchandise = useMerch();
   const power = usePower();
@@ -45,6 +47,7 @@ export const LogoutComponent = memo(() => {
       funds,
       inventory,
       it,
+      matter,
       mechanical,
       merchandise,
       power,
