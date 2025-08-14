@@ -1,5 +1,6 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
+import { useElectronic } from '@/src/domains/electronic/interfaces/useElec.ts';
 import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { powerReducer } from '@/src/domains/power/application/power.reducer.ts';
 import { PowerContext, PowerDispatchContext } from '@/src/domains/power/infrastructure/power.context.tsx';
@@ -13,7 +14,8 @@ import type { Children } from '@/src/shared/types/children.type.ts';
 export const PowerProvider: FC<{ children: Children }> = ({ children }) => {
   const powerStorage = useLocalStorage(POWER_KEY, POWER_STATE);
   const [state, dispatch] = useReducer(powerReducer, powerStorage.get());
-  const { clipFactory, harvesterDrone, wireDrone } = useMeca();
+  const { clipFactory } = useMeca();
+  const { harvesterDrone, wireDrone } = useElectronic();
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
   const { pause } = useProfile();

@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import { AuthProvider } from '@/src/domains/auth/infrastructure/auth.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/infrastructure/business.provider.tsx';
+import { ElectronicProvider } from '@/src/domains/electronic/infrastructure/elect.provider.tsx';
 import { ExchangeProvider } from '@/src/domains/exchange/infrastructure/exchange.provider.tsx';
 import { FundsProvider } from '@/src/domains/funds/infrastructure/funds.provider.tsx';
 import { InventoryProvider } from '@/src/domains/inventory/infrastructure/inventory.provider.tsx';
@@ -40,6 +41,7 @@ export const AppProvider: FunctionComponent<{ children: Children }> = Providers(
   [InventoryProvider],
   [ResourcesProvider],
   [MecaProvider],
+  [ElectronicProvider],
   [ProdProvider],
   [MerchProvider],
   [ITProvider],

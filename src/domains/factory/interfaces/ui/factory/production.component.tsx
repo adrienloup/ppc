@@ -1,5 +1,5 @@
-import { HarvesterDroneComponent } from '@/src/domains/mechanical/interfaces/ui/harvesterDrone.component.tsx';
-import { WireDroneComponent } from '@/src/domains/mechanical/interfaces/ui/wireDrone.component.tsx';
+import { HarvesterDroneComponent } from '@/src/domains/electronic/interfaces/ui/harvesterDrone.component.tsx';
+import { WireDroneComponent } from '@/src/domains/electronic/interfaces/ui/wireDrone.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';

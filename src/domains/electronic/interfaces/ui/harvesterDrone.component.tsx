@@ -1,5 +1,5 @@
+import { useElectronic } from '@/src/domains/electronic/interfaces/useElec.ts';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
@@ -9,9 +9,8 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
-export const WireDroneComponent = () => {
-  // console.log('WireDroneComponent');
-  const { wireDrone, wireDroneCost } = useMeca();
+export const HarvesterDroneComponent = () => {
+  const { harvesterDrone, harvesterDroneBonus, harvesterDroneCost, harvesterDroneQuantity } = useElectronic();
   const { funds } = useFunds();
 
   return (
@@ -19,42 +18,43 @@ export const WireDroneComponent = () => {
       <DialComponent>
         <NumberComponent
           className={styles.value}
-          value={wireDroneCost}
+          value={harvesterDroneCost}
           asset="currency"
         />
         <LabelComponent
           className={styles.label}
-          label="wire drone cost"
+          label="harvester drone cost"
         />
       </DialComponent>
       <DialComponent>
         <div className={styles.group}>
           <NumberComponent
             className={styles.value}
-            value={wireDrone}
+            value={harvesterDrone}
           />
-          <BadgeComponent
-            prefix="x"
-            value={10}
-            // value={wireDroneBonus}
-            status="success"
-          />
+          {harvesterDroneBonus > 1 && (
+            <BadgeComponent
+              prefix="x"
+              value={harvesterDroneBonus}
+              status="success"
+            />
+          )}
         </div>
         <LabelComponent
           className={styles.label}
-          label="wire drone"
+          label="harvester drone"
         />
         <div className={styles.action}>
           <ClickerComponent
             className={styles.button}
             prefix="+"
             value={1}
-            disabled={funds < wireDroneCost}
-            onClick={() => console.log('buyWireDrone')}
+            disabled={funds < harvesterDroneCost}
+            onClick={() => console.log('buyHarvesterDrone')}
           >
             +
           </ClickerComponent>
-          <BadgeComponent value={10} />
+          <BadgeComponent value={harvesterDroneQuantity} />
         </div>
         <OverConsumptionComponent drone />
       </DialComponent>
