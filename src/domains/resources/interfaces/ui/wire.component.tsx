@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useResDispatch, useResources } from '@/src/domains/wire/interfaces/useResouces.ts';
+import { useResDispatch, useResources } from '@/src/domains/resources/interfaces/useResouces.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';

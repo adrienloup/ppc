@@ -1,4 +1,4 @@
-import type { Resources, ResourcesDispatch } from '@/src/domains/resources/domain/wire.type.ts';
+import type { Resources, ResourcesDispatch } from '@/src/domains/resources/domain/resources.type.ts';
 
 export const resourcesReducer = (state: Resources, action: ResourcesDispatch): Resources => {
   switch (action.type) {
