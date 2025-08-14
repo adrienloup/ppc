@@ -4,7 +4,6 @@ import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
 import styles from '@/src/domains/production/interfaces/ui/clip/clip.module.scss';
 
 export const ClipComponent = () => {
-  // console.log('ClipComponent');
   const { clip } = useProd();
 
   return (
@@ -13,7 +12,10 @@ export const ClipComponent = () => {
         className={styles.value}
         value={clip}
       />
-      <LabelComponent label="paperclips" />
+      <LabelComponent
+        className={styles.label}
+        label="paperclips"
+      />
     </div>
   );
 };

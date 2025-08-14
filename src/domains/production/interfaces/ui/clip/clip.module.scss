@@ -4,8 +4,6 @@
   align-items: center;
   padding: var(--spacing-xs);
   background-color: var(--mode-color-2);
-  font-size: var(--font-size-s);
-  color: var(--mode-color-1);
   animation:
     SlideUp 0.5s var(--ease-quad) backwards 0.2s,
     FadeIn 0.7s var(--ease-quad) backwards 0.2s;
@@ -16,7 +14,13 @@
   max-width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-l);
+  color: var(--mode-color-1);
+}
+
+.label {
+  font-size: var(--font-size-s);
+  color: var(--mode-color-1);
 }
 
 @keyframes SlideUp {
