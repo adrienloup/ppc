@@ -37,7 +37,7 @@
 .stars3 {
   top: 140vh;
   right: 10vw;
-  width: 35rem;
+  width: 30rem;
   gap: var(--spacing-l);
   animation:
     SlideRight 0.5s var(--ease-quad) backwards 0.2s,
@@ -100,27 +100,27 @@
 }
 
 .star6 {
-  width: 4rem;
-  height: 2rem;
-  //animation: Star6 120s infinite alternate;
-  left: 0;
-  opacity: 0.15;
+  width: 5rem;
+  height: 3rem;
+  //animation: Star6 100s infinite alternate;
+  left: 1rem;
+  opacity: 0.2;
 }
 
 .star7 {
   width: 6rem;
   height: 4rem;
   //animation: Star7 120s infinite alternate;
-  left: 19rem;
+  left: 24rem;
   opacity: 0.1;
 }
 
 .star8 {
-  width: 5rem;
-  height: 3rem;
-  //animation: Star8 100s infinite alternate;
-  left: 1rem;
-  opacity: 0.2;
+  width: 4rem;
+  height: 2rem;
+  //animation: Star8 120s infinite alternate;
+  left: 0;
+  opacity: 0.15;
 }
 
 .star9 {

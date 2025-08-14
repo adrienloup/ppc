@@ -1,4 +1,8 @@
 export interface Swarm {
+  entertainment: number;
+  entertainmentCost: number;
+  synchronization: number;
+  synchronizationCost: number;
   swarmEntertaining: number;
   swarmEntertainingCost: number;
   swarmStrategy: number;
