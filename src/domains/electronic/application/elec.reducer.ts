@@ -4,6 +4,17 @@ export const electronicReducer = (state: Electronic, action: ElectronicDispatch)
   switch (action.type) {
     case 'LOAD':
       return action.electronic;
+    case 'CLIP_FACTORY':
+      return {
+        ...state,
+        clipFactory: state.clipFactory + 1,
+        clipFactoryCost: action.cost,
+      };
+    case 'CLIP_FACTORY_BONUS':
+      return {
+        ...state,
+        clipFactoryBonus: action.bonus,
+      };
     default:
       return state;
   }

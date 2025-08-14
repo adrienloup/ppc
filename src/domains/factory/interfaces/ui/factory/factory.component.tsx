@@ -8,7 +8,7 @@ import { PowerComponent } from '@/src/domains/factory/interfaces/ui/factory/powe
 import { ProductionComponent } from '@/src/domains/factory/interfaces/ui/factory/production.component.tsx';
 import { SwarmComponent } from '@/src/domains/factory/interfaces/ui/factory/swarm.component.tsx';
 import { TechnologyComponent } from '@/src/domains/factory/interfaces/ui/factory/technology.component.tsx';
-import { ClipComponent } from '@/src/domains/production/interfaces/ui/clip/clip.component.tsx';
+import { ClipComponent } from '@/src/domains/production/interfaces/ui/clip.component.tsx';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';

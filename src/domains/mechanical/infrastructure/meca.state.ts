@@ -7,7 +7,4 @@ export const MECA_STATE: Mechanical = {
   megaClipper: 0,
   megaClipperBonus: 0,
   megaClipperCost: 5e2,
-  clipFactory: 0,
-  clipFactoryBonus: 0,
-  clipFactoryCost: 1e5,
 };

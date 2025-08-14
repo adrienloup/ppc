@@ -6,6 +6,26 @@ $tablet-landscape: 1440px;
   animation: FadeIn 0.7s var(--ease-quad) backwards 0.1s;
 }
 
+.clip {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+  padding: var(--spacing-xs);
+  background-color: var(--mode-color-2);
+  animation:
+    SlideUp 0.5s var(--ease-quad) backwards 0.2s,
+    FadeIn 0.7s var(--ease-quad) backwards 0.2s;
+}
+
+.total {
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--font-size-l);
+  color: var(--mode-color-1);
+}
+
 .cards {
   display: flex;
   flex-direction: column;

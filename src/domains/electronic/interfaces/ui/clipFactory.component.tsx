@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
+import { useElectronic, useElectronicDispatch } from '@/src/domains/electronic/interfaces/useElec.ts';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
-import { useMeca, useMecaDispatch } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
@@ -11,18 +11,17 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipFactoryComponent = () => {
-  // console.log('ClipFactoryComponent');
   const { t } = useTranslation();
-  const mecaDispatch = useMecaDispatch();
+  const electronicDispatch = useElectronicDispatch();
   const fundsDispatch = useFundsDispatch();
   // const { clipFactory, clipFactoryBonus, clipFactoryCost } = useMeca();
-  const { clipFactory, clipFactoryCost } = useMeca();
+  const { clipFactory, clipFactoryCost } = useElectronic();
   const { funds } = useFunds();
 
   const buyClipFactory = () => {
     if (funds < clipFactoryCost) return;
     const newClipFactoryCost = clipFactoryCost + (Math.random() * 5e5 + 5e5); // 0 1, 0 5e5, 5e5 1e6
-    mecaDispatch({ type: 'CLIP_FACTORY', cost: newClipFactoryCost });
+    electronicDispatch({ type: 'CLIP_FACTORY', cost: newClipFactoryCost });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipFactoryCost });
   };
 

@@ -1,5 +1,6 @@
 import { type FC, useCallback, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
+import { useElectronic } from '@/src/domains/electronic/interfaces/useElec.ts';
 import { useInventoryDispatch } from '@/src/domains/inventory/interfaces/useInventory.ts';
 import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { prodReducer } from '@/src/domains/production/application/prod.reducer.ts';
@@ -18,7 +19,8 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const [state, dispatch] = useReducer(prodReducer, prodStorage.get());
   const inventoryDispatch = useInventoryDispatch();
   const resourcesDispatch = useResDispatch();
-  const { clipper, clipperBonus, megaClipper, megaClipperBonus, clipFactory, clipFactoryBonus } = useMeca();
+  const { clipper, clipperBonus, megaClipper, megaClipperBonus } = useMeca();
+  const { clipFactory, clipFactoryBonus } = useElectronic();
   const { wire } = useResources();
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);

@@ -1,4 +1,4 @@
-import { ClipFactoryComponent } from '@/src/domains/mechanical/interfaces/ui/clipFactory.component.tsx';
+import { ClipFactoryComponent } from '@/src/domains/electronic/interfaces/ui/clipFactory.component.tsx';
 import { ClipperComponent } from '@/src/domains/mechanical/interfaces/ui/clipper.component.tsx';
 import { MegaClipperComponent } from '@/src/domains/mechanical/interfaces/ui/megaClipper.component.tsx';
 import { ClipPerSecondComponent } from '@/src/domains/production/interfaces/ui/clipPerSecond.component.tsx';
