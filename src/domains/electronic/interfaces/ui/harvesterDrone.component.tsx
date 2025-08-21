@@ -32,13 +32,13 @@ export const HarvesterDroneComponent = () => {
             className={styles.value}
             value={harvesterDrone}
           />
-          {harvesterDroneBonus > 1 && (
-            <BadgeComponent
-              prefix="x"
-              value={harvesterDroneBonus}
-              status="success"
-            />
-          )}
+          {/*{harvesterDroneBonus > 1 && (*/}
+          <BadgeComponent
+            prefix="x"
+            value={harvesterDroneBonus}
+            status="success"
+          />
+          {/*)}*/}
         </div>
         <LabelComponent
           className={styles.label}

@@ -29,11 +29,11 @@ export const AdminComponent = () => {
       className={styles.admin}
       role="complementary"
     >
-      <AdminMecaComponent />
-      <AdminInventoryComponent />
       <AdminFundsComponent />
-      {/*<AdminBusinessComponent />*/}
       <AdminITComponent />
+      <AdminInventoryComponent />
+      <AdminMecaComponent />
+      {/*<AdminBusinessComponent />*/}
       <AdminElecComponent />
     </div>
   ) : null;

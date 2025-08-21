@@ -11,7 +11,7 @@ export const itReducer = (state: IT, action: ITDispatch): IT => {
       };
     }
     case 'INCREASE_GIFTS': {
-      if (state.gifts > 100) return state;
+      // if (state.gifts > 100) return state;
       const gifts = Math.min(100, state.gifts + action.gifts);
       return {
         ...state,

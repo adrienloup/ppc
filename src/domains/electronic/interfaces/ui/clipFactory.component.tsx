@@ -64,13 +64,13 @@ export const ClipFactoryComponent = () => {
         >
           +
         </ClickerComponent>
-        {/*{clipFactory >= 1e8 && (*/}
-        <BadgeComponent
-          className={styles.badge}
-          status="error"
-          label={t('factory.noSpace')}
-        />
-        {/*)}*/}
+        {clipFactory >= 1e8 && (
+          <BadgeComponent
+            className={styles.badge}
+            status="error"
+            label={t('factory.noSpace')}
+          />
+        )}
         <OverConsumptionComponent clipFactory />
       </DialComponent>
     </DialsComponent>
