@@ -18,7 +18,7 @@ export const WireComponent = () => {
   const { funds } = useFunds();
 
   // const shutdown = feature.clipFactory.unlocked;
-  const shutdown = true;
+  const shutdown = false;
 
   const buyWire = () => {
     if (funds < wireCost) return;
@@ -33,7 +33,6 @@ export const WireComponent = () => {
           className={styles.value}
           value={wireCost}
           asset="currency"
-          decimal
         />
         <LabelComponent
           className={styles.label}
@@ -68,13 +67,13 @@ export const WireComponent = () => {
             label={t('app.shutdown')}
           />
         )}
-        {/*{wire < 1 && !shutdown && (*/}
-        <BadgeComponent
-          className={styles.badge}
-          status="error"
-          label={t('app.stockOut')}
-        />
-        {/*)}*/}
+        {wire < 1 && !shutdown && (
+          <BadgeComponent
+            className={styles.badge}
+            status="error"
+            label={t('app.stockOut')}
+          />
+        )}
       </DialComponent>
     </DialsComponent>
   );

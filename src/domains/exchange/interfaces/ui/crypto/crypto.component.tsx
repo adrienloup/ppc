@@ -13,14 +13,10 @@ export const CryptoComponent = ({ name, price, volume, change }: Crypto) => {
           className={styles.value}
           value={price}
           asset="currency"
-          decimal
         />
         <span className={styles.variation}>
           {change > 0 ? '+' : '-'}
-          <NumberComponent
-            value={Math.abs(change)}
-            decimal
-          />
+          <NumberComponent value={Math.abs(change)} />
         </span>
         <LabelComponent
           className={styles.label}

@@ -11,4 +11,5 @@ export type BusinessDispatch =
   | { type: 'LOAD'; business: Business }
   | { type: 'INCREASE_CLIP_PRICE' }
   | { type: 'DECREASE_CLIP_PRICE' }
-  | { type: 'INCREASE_MARKETING'; cost: number };
+  | { type: 'INCREASE_MARKETING' }
+  | { type: 'MARKETING_BONUS'; bonus: number };

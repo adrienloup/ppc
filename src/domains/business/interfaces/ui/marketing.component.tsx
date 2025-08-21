@@ -1,4 +1,6 @@
 import { useTranslation } from 'react-i18next';
+// import { getMarketingBonus } from '@/src/domains/business/interfaces/getMarketingBonus.ts';
+import { getMarketingBonus } from '@/src/domains/business/interfaces/getMarketingBonus.ts';
 import { useBusiness, useBusiDispatch } from '@/src/domains/business/interfaces/useBusiness.ts';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -17,13 +19,12 @@ export const MarketingComponent = () => {
   const { marketing, marketingCost } = useBusiness();
   const { funds } = useFunds();
 
-  // const shutdown = marketing >= 10;
-  const shutdown = true;
+  const shutdown = marketing >= 10;
 
   const buyMarketing = () => {
-    if (marketing >= 10) return;
-    const newMarketingCost = Math.max(100, Math.min(marketingCost * 2.5, 256e2));
-    businessDispatch({ type: 'INCREASE_MARKETING', cost: newMarketingCost });
+    if (shutdown) return;
+    businessDispatch({ type: 'INCREASE_MARKETING' });
+    businessDispatch({ type: 'MARKETING_BONUS', bonus: getMarketingBonus(marketing + 1) });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: marketingCost });
   };
 

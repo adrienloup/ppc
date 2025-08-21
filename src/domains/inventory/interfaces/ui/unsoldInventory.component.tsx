@@ -7,9 +7,7 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const UnsoldInventoryComponent = () => {
-  // console.log('UnsoldInventoryComponent');
-  const { unsoldInventory } = useInventory();
-  // const { unsoldInventory, unsoldInventoryBonus } = useInventory();
+  const { unsoldInventory, unsoldInventoryBonus } = useInventory();
 
   return (
     <DialsComponent>
@@ -19,12 +17,13 @@ export const UnsoldInventoryComponent = () => {
             className={styles.value}
             value={unsoldInventory}
           />
-          <BadgeComponent
-            prefix="x"
-            value={10}
-            // value={unsoldInventoryBonus}
-            status="success"
-          />
+          {unsoldInventoryBonus > 1 && (
+            <BadgeComponent
+              prefix="x"
+              value={unsoldInventoryBonus}
+              status="success"
+            />
+          )}
         </div>
         <LabelComponent
           className={styles.label}

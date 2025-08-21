@@ -35,7 +35,6 @@ export const CashComponent = () => {
           className={styles.value}
           value={cash}
           asset="currency"
-          decimal
         />
         <LabelComponent
           className={styles.label}

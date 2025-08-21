@@ -36,7 +36,6 @@ export const ClipperComponent = () => {
           className={styles.value}
           value={clipperCost}
           asset="currency"
-          decimal
         />
         <LabelComponent
           className={styles.label}

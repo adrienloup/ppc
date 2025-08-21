@@ -8,7 +8,6 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const ClipPriceComponent = () => {
-  // console.log('ClipPriceComponent');
   const businessDispatch = useBusiDispatch();
   const { clipPrice, clipPriceRef, marketingBonus } = useBusiness();
 
@@ -21,14 +20,14 @@ export const ClipPriceComponent = () => {
             className={styles.value}
             value={clipPrice}
             asset="currency"
-            decimal
           />
-          <BadgeComponent
-            prefix="x"
-            value={10}
-            // value={marketingBonus}
-            status="success"
-          />
+          {marketingBonus > 1 && (
+            <BadgeComponent
+              prefix="x"
+              value={marketingBonus}
+              status="success"
+            />
+          )}
         </div>
         <LabelComponent
           className={styles.label}
@@ -41,7 +40,6 @@ export const ClipPriceComponent = () => {
             value={0.01 * Math.max(1, marketingBonus)}
             disabled={clipPriceRef === 0.1}
             onClick={() => businessDispatch({ type: 'DECREASE_CLIP_PRICE' })}
-            decimal
           >
             -
           </ClickerComponent>
@@ -51,7 +49,6 @@ export const ClipPriceComponent = () => {
             value={0.01 * Math.max(1, marketingBonus)}
             disabled={clipPriceRef === 1}
             onClick={() => businessDispatch({ type: 'INCREASE_CLIP_PRICE' })}
-            decimal
           >
             +
           </ClickerComponent>

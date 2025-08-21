@@ -11,16 +11,7 @@ export interface Value {
   y: number;
 }
 
-export const ClickerComponent = ({
-  children,
-  className,
-  disabled,
-  value,
-  decimal,
-  prefix,
-  onClick,
-  ...props
-}: Clicker) => {
+export const ClickerComponent = ({ children, className, disabled, value, prefix, onClick, ...props }: Clicker) => {
   const [values, setValues] = useState<Value[]>([]);
   const timeouts = useRef<number[]>([]);
 
@@ -69,10 +60,7 @@ export const ClickerComponent = ({
           style={getStyle(v.x, v.y)}
         >
           {prefix}
-          <NumberComponent
-            value={value}
-            decimal={decimal}
-          />
+          <NumberComponent value={value} />
         </span>
       ))}
     </ButtonComponent>

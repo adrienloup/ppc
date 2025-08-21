@@ -17,7 +17,7 @@ export const TrustComponent = () => {
   const { clip } = useProd();
   const clipRef = useRef<number>(clip);
 
-  const shutdown = true;
+  const shutdown = false;
 
   useEffect(() => {
     if (clip < clipRef.current + 1e3) return;

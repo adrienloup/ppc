@@ -1,4 +1,4 @@
 export interface Value {
   className?: string;
-  value: number;
+  value: string;
 }

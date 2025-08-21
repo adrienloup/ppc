@@ -22,12 +22,12 @@ export const businessReducer = (state: Business, action: BusinessDispatch): Busi
         publicDemand: 0.1 / priceDCP,
       };
     }
-    case 'INCREASE_MARKETING': {
-      const marketingIM = Math.max(1, Math.min(state.marketing + 1, 10));
+    case 'MARKETING_BONUS': {
+      const clipPriceMB = state.clipPriceRef * Math.max(1, action.bonus);
       return {
         ...state,
-        marketing: marketingIM,
-        marketingCost: action.cost,
+        marketingBonus: action.bonus,
+        clipPrice: clipPriceMB,
       };
     }
     default:
