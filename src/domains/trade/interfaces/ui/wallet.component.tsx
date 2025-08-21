@@ -34,7 +34,7 @@ export const WalletComponent = () => {
           />
           <LabelComponent
             className={styles.label}
-            label={`${symbol} coin wallet`}
+            label={crypto.name}
           />
           <div className={styles.action}>
             <ClickerComponent

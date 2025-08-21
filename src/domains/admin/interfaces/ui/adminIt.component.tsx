@@ -1,21 +1,22 @@
 import { type ChangeEvent, useState } from 'react';
 import { useIT, useITDispatch } from '@/src/domains/it/interfaces/useIT.ts';
 
-export const DebugITComponent = () => {
+export const AdminITComponent = () => {
   const dispatch = useITDispatch();
   const state = useIT();
-  const [trust, setTrust] = useState('0');
+  const [trust, setTrust] = useState(0);
 
-  const trustChange = (e: ChangeEvent<HTMLInputElement>) => setTrust(e.target.value);
+  const trustChange = (e: ChangeEvent<HTMLInputElement>) => setTrust(parseInt(e.target.value));
   const trustSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch({
       type: 'LOAD',
       it: {
         ...state,
-        trust: parseInt(trust),
+        trust: Math.min(trust, 100),
       },
     });
+    setTrust(0);
   };
 
   return (

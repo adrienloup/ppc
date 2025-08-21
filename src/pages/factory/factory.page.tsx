@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DebugComponent } from '@/src/domains/debug/interfaces/ui/debug.component.tsx';
+import { AdminComponent } from '@/src/domains/admin/interfaces/ui/admin.component.tsx';
 import { FactoryComponent } from '@/src/domains/factory/interfaces/ui/factory/factory.component.tsx';
 import { useTitle } from '@/src/shared/hooks/useTitle.ts';
 import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
@@ -15,7 +15,7 @@ function FactoryPage() {
   return (
     <Suspense fallback={<LoaderComponent arial-label={t('app.loading')} />}>
       <LayoutComponent>
-        <DebugComponent />
+        <AdminComponent />
         <FactoryComponent />
       </LayoutComponent>
     </Suspense>

@@ -14,8 +14,7 @@ export const ClipFactoryComponent = () => {
   const { t } = useTranslation();
   const electronicDispatch = useElectronicDispatch();
   const fundsDispatch = useFundsDispatch();
-  // const { clipFactory, clipFactoryBonus, clipFactoryCost } = useMeca();
-  const { clipFactory, clipFactoryCost } = useElectronic();
+  const { clipFactory, clipFactoryBonus, clipFactoryCost } = useElectronic();
   const { funds } = useFunds();
 
   const buyClipFactory = () => {
@@ -44,12 +43,13 @@ export const ClipFactoryComponent = () => {
             className={styles.value}
             value={clipFactory}
           />
-          <BadgeComponent
-            prefix="x"
-            value={500}
-            // value={clipFactoryBonus}
-            status="success"
-          />
+          {clipFactoryBonus > 1 && (
+            <BadgeComponent
+              prefix="x"
+              value={clipFactoryBonus}
+              status="success"
+            />
+          )}
         </div>
         <LabelComponent
           className={styles.label}

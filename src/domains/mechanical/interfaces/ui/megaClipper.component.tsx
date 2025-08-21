@@ -18,7 +18,7 @@ export const MegaClipperComponent = () => {
   const { funds } = useFunds();
 
   // const shutdown = feature.clipFactory.unlocked;
-  const shutdown = true;
+  const shutdown = false;
 
   const buyMegaClipper = () => {
     if (funds < megaClipperCost) return;

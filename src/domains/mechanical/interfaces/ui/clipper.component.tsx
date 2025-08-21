@@ -18,7 +18,7 @@ export const ClipperComponent = () => {
   const { funds } = useFunds();
 
   // const shutdown = feature.clipFactory.unlocked;
-  const shutdown = true;
+  const shutdown = false;
 
   const buyClipper = () => {
     if (funds < clipperCost) return;
