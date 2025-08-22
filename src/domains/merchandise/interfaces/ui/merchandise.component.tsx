@@ -17,6 +17,10 @@ export const MerchandiseComponent = () => {
   const { funds } = useFunds();
   const merch = useMerch();
 
+  const assets: Record<string, number> = {
+    funds,
+  };
+
   const groupedByCategory = Object.entries(merch).reduce(
     (acc, [key, value]) => {
       if (!('category' in value)) return acc;
@@ -39,7 +43,48 @@ export const MerchandiseComponent = () => {
     trust,
   };
 
-  const buyMerchandise = (name: string) => merchandiseDispatch({ type: 'BUY_MERCHANDISE', name });
+  const buyMerchandise = (name: string) => {
+    const merchandise = merch[name];
+
+    if (!merchandise || merchandise.quantity === 0) {
+      console.info(`Merchandise: you cannot buy ${name}`);
+      return;
+    }
+
+    if (merchandise.cost) {
+      const { asset, value } = merchandise.cost;
+      const canBuy = assets[asset] >= value;
+
+      if (!canBuy) {
+        console.info(`Merchandise: not enough resources to buy ${name}`);
+        return;
+      }
+
+      const cost = assets[asset] ?? 0 - value;
+      console.log('cost', cost);
+      // fundsDispatch({ type: 'DECREASE_FUNDS', cost })
+      // decrese more
+
+      // if (Array.isArray(feature.effects)) {
+      //   if (feature.effects.every((e) => typeof e === 'string')) {
+      //     feature.effects?.forEach((f) => {
+      //       updatedFeatures[f] = {
+      //         ...updatedFeatures[f],
+      //         enabled: !updatedFeatures[f].enabled,
+      //       };
+      //     });
+      //   } else if (feature.effects.every((e) => typeof e === 'object')) {
+      //     feature.effects?.forEach(({ unit, value }) => {
+      //       updatedState[unit] = (state[unit] ?? 0) + value;
+      //     });
+      //   }
+      // } else {
+      //   console.info(`Feature: ${name} has no effect`);
+      // }
+    }
+
+    merchandiseDispatch({ type: 'BUY_MERCHANDISE', name });
+  };
 
   return Object.entries(groupedByCategory).map(([, merchandise]) =>
     Object.entries(merchandise).map(([key, value]) => (

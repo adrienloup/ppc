@@ -34,6 +34,7 @@ export const MerchProvider: FC<{ children: Children }> = ({ children }) => {
         const { asset, value } = requirement;
         unlocked = assets[asset] >= value;
       }
+
       if (unlocked) {
         dispatch({ type: 'UNLOCKED_MERCHANDISE', name, unlocked });
         notifDispatch({

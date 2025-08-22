@@ -5,22 +5,23 @@ export const merchReducer = (state: Merchandise, action: MerchandiseDispatch): M
     case 'LOAD':
       return action.merchandise;
     case 'BUY_MERCHANDISE': {
-      console.log('action.name', action.name);
-      // const featureName = action.feature;
-      // const feature = state.feature?.[featureName];
+      // const name = action.name;
+      // const merchandise = state[name];
+      // console.log('name', name, 'merchandise', merchandise);
       //
-      // if (!feature || feature.quantity === 0) {
-      //   console.info(`Feature: you cannot buy ${featureName}`);
+      // if (!merchandise || merchandise.quantity === 0) {
+      //   console.info(`Merchandise: you cannot buy ${name}`);
       //   return state;
       // }
-      //
-      // const canBuy = feature.costs?.every(({ unit, value }) => {
-      //   const available = state[unit] ?? 0;
+
+      // const canBuy = merchandise.cost?.every(({ asset, value }) => {
+      //   const available = state[asset] ?? 0;
       //   return available >= value;
       // });
+
       //
       // if (!canBuy) {
-      //   console.info(`Feature: not enough resources to buy ${featureName}`);
+      //   console.info(`Feature: not enough resources to buy ${name}`);
       //   return state;
       // }
       //
@@ -45,22 +46,22 @@ export const merchReducer = (state: Merchandise, action: MerchandiseDispatch): M
       //     });
       //   }
       // } else {
-      //   console.info(`Feature: ${featureName} has no effect`);
+      //   console.info(`Feature: ${name} has no effect`);
       // }
       //
       // if (feature.quantity! <= 1) {
-      //   updatedFeatures[featureName] = {
-      //     ...updatedFeatures[featureName],
+      //   updatedFeatures[name] = {
+      //     ...updatedFeatures[name],
       //     quantity: 0,
       //     enabled: false,
       //   };
       // } else {
-      //   updatedFeatures[featureName] = {
-      //     ...updatedFeatures[featureName],
-      //     quantity: updatedFeatures[featureName].quantity! - 1,
+      //   updatedFeatures[name] = {
+      //     ...updatedFeatures[name],
+      //     quantity: updatedFeatures[name].quantity! - 1,
       //   };
       // }
-      // console.info(`Feature: ${featureName} purchased`);
+      // console.info(`Feature: ${name} purchased`);
       // console.info(updatedState);
       //
       // return {

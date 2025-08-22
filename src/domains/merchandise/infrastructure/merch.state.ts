@@ -5,7 +5,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     // @TODO
     category: 'mechanic',
     // cost: { asset: 'operation', value: 5e2 },
-    cost: { asset: 'funds', value: 0 },
+    cost: { asset: 'funds', value: 2 },
     effect: ['fundsPerSecond'],
     unlocked: true,
     purchased: false,
