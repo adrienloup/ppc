@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
 import { useMerch, useMerDispatch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
@@ -12,6 +12,7 @@ import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss'
 
 export const MerchandiseComponent = () => {
   const merchandiseDispatch = useMerDispatch();
+  const fundsDispatch = useFundsDispatch();
   const { t } = useTranslation();
   const { creativity, operation, trust } = useIT();
   const { funds } = useFunds();
@@ -60,27 +61,29 @@ export const MerchandiseComponent = () => {
         return;
       }
 
-      const cost = assets[asset] ?? 0 - value;
-      console.log('cost', cost);
+      const funds = (assets[asset] ?? 0) - value;
+      console.log('funds', funds);
+      fundsDispatch({ type: 'DECREASE_FUNDS', funds });
       // fundsDispatch({ type: 'DECREASE_FUNDS', cost })
       // decrese more
 
-      // if (Array.isArray(feature.effects)) {
-      //   if (feature.effects.every((e) => typeof e === 'string')) {
-      //     feature.effects?.forEach((f) => {
-      //       updatedFeatures[f] = {
-      //         ...updatedFeatures[f],
-      //         enabled: !updatedFeatures[f].enabled,
-      //       };
-      //     });
-      //   } else if (feature.effects.every((e) => typeof e === 'object')) {
-      //     feature.effects?.forEach(({ unit, value }) => {
-      //       updatedState[unit] = (state[unit] ?? 0) + value;
-      //     });
-      //   }
-      // } else {
-      //   console.info(`Feature: ${name} has no effect`);
-      // }
+      if (Array.isArray(merchandise.effect)) {
+        if (merchandise.effect.every((e) => typeof e === 'string')) {
+          merchandise.effect?.forEach((name) => {
+            //       updatedFeatures[f] = {
+            //         ...updatedFeatures[f],
+            //         enabled: !updatedFeatures[f].enabled,
+            //       };
+            merchandiseDispatch({ type: 'UNLOCKED_MERCHANDISE', name, unlocked: true });
+          });
+        } else if (merchandise.effect.every((e) => typeof e === 'object')) {
+          merchandise.effect?.forEach(({ asset, value }) => {
+            //       updatedState[unit] = (state[unit] ?? 0) + value;
+          });
+        }
+      } else {
+        console.info(`Merchandise: ${name} has no effect`);
+      }
     }
 
     merchandiseDispatch({ type: 'BUY_MERCHANDISE', name });
