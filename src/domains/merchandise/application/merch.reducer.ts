@@ -4,9 +4,15 @@ export const merchReducer = (state: Merchandise, action: MerchandiseDispatch): M
   switch (action.type) {
     case 'LOAD':
       return action.merchandise;
-    case 'MERCHANDISE':
-      console.log('MERCHANDISE', action.merchandise);
-      return state;
+    case 'UNLOCKED_MERCHANDISE': {
+      return {
+        ...state,
+        [action.name]: {
+          ...state[action.name],
+          unlocked: action.unlocked ?? state[action.name].unlocked,
+        },
+      };
+    }
     default:
       return state;
   }

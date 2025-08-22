@@ -13,7 +13,7 @@ export const AdminFundsComponent = () => {
       type: 'LOAD',
       funds: {
         ...state,
-        funds: funds,
+        funds: Number(funds.toFixed(2)),
       },
     });
     setFunds(0);

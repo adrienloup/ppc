@@ -4,13 +4,15 @@ import { MemoryComponent } from '@/src/domains/it/interfaces/ui/memory.component
 import { OperationComponent } from '@/src/domains/it/interfaces/ui/operation.component.tsx';
 import { ProcessorComponent } from '@/src/domains/it/interfaces/ui/processor.component.tsx';
 import { TrustComponent } from '@/src/domains/it/interfaces/ui/trust.component.tsx';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { EmptyComponent } from '@/src/shared/ui/empty/empty.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const TechnologyComponent = () => {
-  // console.log('TechnologyComponent');
+  const { technology } = useMerch();
+
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
@@ -19,13 +21,18 @@ export const TechnologyComponent = () => {
       >
         technology
       </TitleComponent>
-      <EmptyComponent />
-      <TrustComponent />
-      <GiftsComponent />
-      <MemoryComponent />
-      <ProcessorComponent />
-      <OperationComponent />
-      <CreativityComponent />
+      {technology.unlocked ? (
+        <>
+          <TrustComponent />
+          <GiftsComponent />
+          <MemoryComponent />
+          <ProcessorComponent />
+          <OperationComponent />
+          <CreativityComponent />
+        </>
+      ) : (
+        <EmptyComponent />
+      )}
     </CardComponent>
   );
 };

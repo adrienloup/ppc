@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useIT, useITDispatch } from '@/src/domains/it/interfaces/useIT.ts';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { useProd } from '@/src/domains/production/interfaces/useProd.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -11,13 +12,12 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const TrustComponent = () => {
-  const { t } = useTranslation();
   const intelligenceDispatch = useITDispatch();
+  const { t } = useTranslation();
   const { trust } = useIT();
   const { clip } = useProd();
+  const { releaseHypnoDrone } = useMerch();
   const clipRef = useRef<number>(clip);
-
-  const shutdown = false;
 
   useEffect(() => {
     if (clip < clipRef.current + 1e3) return;
@@ -26,7 +26,7 @@ export const TrustComponent = () => {
   }, [clip]);
 
   return (
-    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
+    <DialsComponent className={classNames(releaseHypnoDrone.unlocked && styles.shutdown)}>
       <DialComponent>
         <NumberComponent
           className={styles.value}
@@ -37,7 +37,7 @@ export const TrustComponent = () => {
           className={styles.label}
           label="trust level"
         />
-        {shutdown && (
+        {releaseHypnoDrone.unlocked && (
           <BadgeComponent
             className={styles.badge}
             status="warning"

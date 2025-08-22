@@ -12,22 +12,19 @@ export const MERCHANDISE_STATE: Merchandise = {
     quantity: 1,
   },
   offerAnotherChance: {
-    // @TODO
     category: 'mechanic',
     cost: { asset: 'creativity', value: 7e4 },
     effect: { type: 'ALLOCATE_TRUST' },
-    unlocked: true,
-    purchased: true,
-    // quantity: 10,
-    quantity: 0,
-    // requirement: { asset: 'creativity', value: 7e4 },
+    unlocked: false,
+    purchased: false,
+    quantity: 10,
+    requirement: { asset: 'creativity', value: 7e4 },
   },
   begForMoreWire: {
-    // @TODO
     category: 'wire',
     cost: { asset: 'trust', value: 1 },
     effect: [{ asset: 'funds', value: 100 }],
-    unlocked: true,
+    unlocked: false,
     purchased: false,
     quantity: 5,
   },
@@ -35,7 +32,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     category: 'wire',
     cost: { asset: 'operation', value: 1750 },
     effect: [{ asset: 'wireQuantity', value: 5e2 }],
-    unlocked: true,
+    unlocked: false,
     purchased: false,
     quantity: 1,
   },
@@ -43,7 +40,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     category: 'investing',
     cost: { asset: 'operation', value: 1e4 },
     effect: ['investments'],
-    unlocked: true,
+    unlocked: false,
     purchased: false,
     quantity: 0,
     requirement: { asset: 'trust', value: 8 },
@@ -52,7 +49,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     category: 'production',
     cost: { asset: 'operation', value: 750 },
     effect: [{ asset: 'clipperBonus', value: 2 }],
-    unlocked: true,
+    unlocked: false,
     purchased: false,
     quantity: 1,
     requirement: { asset: 'operation', value: 750 },
@@ -240,4 +237,47 @@ export const MERCHANDISE_STATE: Merchandise = {
     purchased: false,
     quantity: 1,
   },
+  // clipper: {
+  //   unlocked: false,
+  //   requirement: { asset: 'funds', value: 5 },
+  // },
+  // clipFactory: {
+  //   unlocked: false,
+  // },
+  // swarm: {
+  //   unlocked: false,
+  // },
+  // fundsPerSecond: {
+  //   unlocked: false,
+  // },
+  // investments: {
+  //   unlocked: false,
+  // },
+  // megaClipper: {
+  //   unlocked: false,
+  //   requirement: { asset: 'clipper', value: 75 },
+  // },
+  // production: {
+  //   unlocked: false,
+  // },
+  // spaceExploration: {
+  //   unlocked: false,
+  // },
+  business: {
+    unlocked: false,
+    requirement: { asset: 'funds', value: 100 },
+  },
+  technology: {
+    unlocked: false,
+    requirement: { asset: 'funds', value: 200 },
+  },
+  // gifts: {
+  //   unlocked: false,
+  // },
+  // harvesterDrone: {
+  //   unlocked: false,
+  // },
+  // wireDrone: {
+  //   unlocked: false,
+  // },
 };

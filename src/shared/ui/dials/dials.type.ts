@@ -6,4 +6,5 @@ export interface Dials {
   className?: string;
   disabled?: boolean;
   style?: CSSProperties | undefined;
+  onAnimationEnd?: () => void;
 }

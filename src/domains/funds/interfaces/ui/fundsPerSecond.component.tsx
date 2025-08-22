@@ -6,7 +6,6 @@ import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const FundsPerSecondComponent = () => {
-  // console.log('FundsPerSecondComponent');
   const { fundsPerSecond } = useFunds();
 
   return (
