@@ -4,7 +4,7 @@ export const resourcesReducer = (state: Resources, action: ResourcesDispatch): R
   switch (action.type) {
     case 'LOAD':
       return action.resources;
-    case 'WIRE': {
+    case 'BUY_WIRE': {
       const wireBW = state.wire + state.wireQuantity;
       const wireCostBW = state.wireCost + (Math.random() + 0.25); // 0 1, 0.25 1.25
       return {

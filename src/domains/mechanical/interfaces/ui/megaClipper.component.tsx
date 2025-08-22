@@ -24,7 +24,7 @@ export const MegaClipperComponent = () => {
   const buyMegaClipper = () => {
     if (funds < megaClipperCost) return;
     const newMegaClipperCost = megaClipperCost + 11e2;
-    mecaDispatch({ type: 'MEGA_CLIPPER', cost: newMegaClipperCost });
+    mecaDispatch({ type: 'BUY_MEGA_CLIPPER', cost: newMegaClipperCost });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: megaClipperCost });
   };
 

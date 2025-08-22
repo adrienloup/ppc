@@ -22,7 +22,7 @@ export const WireComponent = () => {
 
   const buyWire = () => {
     if (funds < wireCost) return;
-    resourcesDispatch({ type: 'WIRE' });
+    resourcesDispatch({ type: 'BUY_WIRE' });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: wireCost });
   };
 

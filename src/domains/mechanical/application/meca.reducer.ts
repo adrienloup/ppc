@@ -4,13 +4,13 @@ export const mecaReducer = (state: Mechanical, action: MechanicalDispatch): Mech
   switch (action.type) {
     case 'LOAD':
       return action.mechanical;
-    case 'CLIPPER':
+    case 'BUY_CLIPPER':
       return {
         ...state,
         clipper: state.clipper + 1,
         clipperCost: action.cost,
       };
-    case 'MEGA_CLIPPER':
+    case 'BUY_MEGA_CLIPPER':
       return {
         ...state,
         megaClipper: state.megaClipper + 1,

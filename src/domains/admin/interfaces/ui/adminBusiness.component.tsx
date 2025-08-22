@@ -4,7 +4,7 @@
 //   const dispatch = useBusiDispatch();
 //   const state = useBusiness();
 //
-//   const updateMarketing = () => dispatch({ type: 'INCREASE_MARKETING' });
+//   const updateMarketing = () => dispatch({ type: 'BUY_MARKETING' });
 //
 //   return (
 //     <form>

@@ -7,7 +7,7 @@ export const fr: Translation = {
     clipFactory: 'clipFactory',
     clipFactoryCost: 'clipFactory cost',
     creativity: 'creativity',
-    clipper: 'clipper',
+    clipper: 'BUY_CLIPPER',
     clipperCost: 'clipper cost',
     disorganization: 'disorganization',
     synchronizationCost: 'synchronization cost',

@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
-import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
+import { useMerch, useMerDispatch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
@@ -11,6 +11,7 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss';
 
 export const MerchandiseComponent = () => {
+  const merchandiseDispatch = useMerDispatch();
   const { t } = useTranslation();
   const { creativity, operation, trust } = useIT();
   const { funds } = useFunds();
@@ -37,6 +38,8 @@ export const MerchandiseComponent = () => {
     funds,
     trust,
   };
+
+  const buyMerchandise = (name: string) => merchandiseDispatch({ type: 'BUY_MERCHANDISE', name });
 
   return Object.entries(groupedByCategory).map(([, merchandise]) =>
     Object.entries(merchandise).map(([key, value]) => (
@@ -92,7 +95,7 @@ export const MerchandiseComponent = () => {
             <ButtonComponent
               className={styles.button}
               disabled={!(purchase[value.cost.asset] >= value.cost.value && !value.purchased)}
-              onClick={() => console.log('clicked')}
+              onClick={() => buyMerchandise(key)}
             >
               purchase
             </ButtonComponent>

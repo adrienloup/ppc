@@ -24,7 +24,7 @@ export const ClipperComponent = () => {
   const buyClipper = () => {
     if (funds < clipperCost) return;
     const newClipperCost = clipperCost + (Math.random() * 10 + 10); // 0 1, 0 10, 10 20
-    mecaDispatch({ type: 'CLIPPER', cost: newClipperCost });
+    mecaDispatch({ type: 'BUY_CLIPPER', cost: newClipperCost });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipperCost });
   };
 

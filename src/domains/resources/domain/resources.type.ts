@@ -6,7 +6,7 @@ export type Resources = {
 
 export type ResourcesDispatch =
   | { type: 'LOAD'; resources: Resources }
-  | { type: 'WIRE' }
+  | { type: 'BUY_WIRE' }
   | { type: 'WIRE_COST' }
   | { type: 'DECREASE_WIRE'; wire: number }
   | { type: 'WIRE_QUANTITY'; quantity: number };

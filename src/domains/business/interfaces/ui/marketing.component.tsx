@@ -22,7 +22,7 @@ export const MarketingComponent = () => {
 
   const buyMarketing = () => {
     const bonus = getMarketingBonus(marketing + 1);
-    businessDispatch({ type: 'INCREASE_MARKETING' });
+    businessDispatch({ type: 'BUY_MARKETING' });
     businessDispatch({ type: 'MARKETING_BONUS', bonus });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: marketingCost });
   };

@@ -22,7 +22,7 @@ export const businessReducer = (state: Business, action: BusinessDispatch): Busi
         publicDemand: 0.1 / priceDCP,
       };
     }
-    case 'INCREASE_MARKETING': {
+    case 'BUY_MARKETING': {
       const marketingM = Math.max(0, Math.min(state.marketing + 1, 10));
       const marketingCostM = Math.max(100, Math.min(state.marketingCost * 2.5, 256e2));
       return {
