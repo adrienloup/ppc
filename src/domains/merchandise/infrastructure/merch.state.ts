@@ -6,7 +6,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     category: 'mechanic',
     // cost: { asset: 'operation', value: 5e2 },
     cost: { asset: 'funds', value: 0 },
-    effect: ['fundsPerSecond'],
+    effect: ['fundsAvailablePerSecond'],
     unlocked: true,
     purchased: false,
     quantity: 1,
@@ -237,19 +237,19 @@ export const MERCHANDISE_STATE: Merchandise = {
     purchased: false,
     quantity: 1,
   },
-  // clipper: {
-  //   unlocked: false,
-  //   requirement: { asset: 'funds', value: 5 },
-  // },
+  clipperProcess: {
+    unlocked: false,
+    requirement: { asset: 'funds', value: 5 },
+  },
   // clipFactory: {
   //   unlocked: false,
   // },
   // swarm: {
   //   unlocked: false,
   // },
-  // fundsPerSecond: {
-  //   unlocked: false,
-  // },
+  fundsAvailablePerSecond: {
+    unlocked: false,
+  },
   // investments: {
   //   unlocked: false,
   // },
@@ -263,11 +263,11 @@ export const MERCHANDISE_STATE: Merchandise = {
   // spaceExploration: {
   //   unlocked: false,
   // },
-  business: {
+  marketingFromBusiness: {
     unlocked: false,
     requirement: { asset: 'funds', value: 100 },
   },
-  technology: {
+  informationTechnology: {
     unlocked: false,
     requirement: { asset: 'funds', value: 200 },
   },

@@ -1,4 +1,5 @@
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
@@ -7,6 +8,9 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const FundsPerSecondComponent = () => {
   const { fundsPerSecond } = useFunds();
+  const { fundsAvailablePerSecond } = useMerch();
+
+  if (!fundsAvailablePerSecond.unlocked) return null;
 
   return (
     <DialsComponent>

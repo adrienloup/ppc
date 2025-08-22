@@ -11,7 +11,7 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const TechnologyComponent = () => {
-  const { technology } = useMerch();
+  const { informationTechnology } = useMerch();
 
   return (
     <CardComponent className={styles.card}>
@@ -21,7 +21,7 @@ export const TechnologyComponent = () => {
       >
         technology
       </TitleComponent>
-      {technology.unlocked ? (
+      {informationTechnology.unlocked ? (
         <>
           <TrustComponent />
           <GiftsComponent />

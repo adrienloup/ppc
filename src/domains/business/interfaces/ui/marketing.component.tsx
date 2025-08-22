@@ -17,7 +17,7 @@ export const MarketingComponent = () => {
   const fundsDispatch = useFundsDispatch();
   const { t } = useTranslation();
   const { marketing, marketingCost } = useBusiness();
-  const { business } = useMerch();
+  const { marketingFromBusiness } = useMerch();
   const { funds } = useFunds();
 
   const buyMarketing = () => {
@@ -27,7 +27,7 @@ export const MarketingComponent = () => {
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: marketingCost });
   };
 
-  if (!business.unlocked) return null;
+  if (!marketingFromBusiness.unlocked) return null;
 
   return (
     <DialsComponent className={classNames(marketing >= 10 && styles.shutdown)}>
