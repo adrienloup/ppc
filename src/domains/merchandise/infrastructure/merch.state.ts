@@ -15,7 +15,7 @@ export const MERCHANDISE_STATE: Merchandise = {
     category: 'mechanic',
     cost: { asset: 'creativity', value: 7e4 },
     effect: { type: 'ALLOCATE_TRUST' },
-    unlocked: false,
+    unlocked: true,
     purchased: false,
     quantity: 10,
     requirement: { asset: 'creativity', value: 7e4 },

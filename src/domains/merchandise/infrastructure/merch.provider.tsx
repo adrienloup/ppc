@@ -1,6 +1,8 @@
 import { type FC, useEffect, useReducer, useRef } from 'react';
 import { useAuth } from '@/src/domains/auth/interfaces/useAuth.ts';
 import { useFunds } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { useIT } from '@/src/domains/it/interfaces/useIT.ts';
+import { useMeca } from '@/src/domains/mechanical/interfaces/useMeca.ts';
 import { merchReducer } from '@/src/domains/merchandise/application/merch.reducer.ts';
 import { MerchContext, MerchDisContext } from '@/src/domains/merchandise/infrastructure/merch.context.tsx';
 import { MERCHANDISE_KEY } from '@/src/domains/merchandise/infrastructure/merch.key.ts';
@@ -13,6 +15,8 @@ export const MerchProvider: FC<{ children: Children }> = ({ children }) => {
   const merStorage = useLocalStorage(MERCHANDISE_KEY, MERCHANDISE_STATE);
   const [state, dispatch] = useReducer(merchReducer, merStorage.get());
   const notifDispatch = useNotifDispatch();
+  const { creativity, operation, trust } = useIT();
+  const { clipper } = useMeca();
   const { funds } = useFunds();
   const { user, users } = useAuth();
   const userRef = useRef<string | null>(user);
@@ -22,6 +26,10 @@ export const MerchProvider: FC<{ children: Children }> = ({ children }) => {
 
     const assets: Record<string, number> = {
       funds,
+      trust,
+      operation,
+      creativity,
+      clipper,
     };
 
     for (const name in state) {
@@ -47,7 +55,7 @@ export const MerchProvider: FC<{ children: Children }> = ({ children }) => {
         console.info(`${name} is unlocked`);
       }
     }
-  }, [funds]);
+  }, [funds, clipper, creativity, operation, trust]);
 
   useEffect(() => {
     if (!user || user === userRef.current) return;

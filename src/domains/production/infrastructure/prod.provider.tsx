@@ -27,6 +27,7 @@ export const ProdProvider: FC<{ children: Children }> = ({ children }) => {
   const { pause } = useProfile();
 
   const autoProduction = useCallback(() => {
+    console.log('autoProduction');
     const prod = getProd(wire, clipper, megaClipper, clipFactory);
     const prodClip =
       prod.clipper * Math.max(1, clipperBonus) +
