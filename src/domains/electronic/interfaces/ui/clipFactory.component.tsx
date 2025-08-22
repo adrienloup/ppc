@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useElectronic, useElectronicDispatch } from '@/src/domains/electronic/interfaces/useElec.ts';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { OverConsumptionComponent } from '@/src/domains/power/interfaces/ui/overConsumption.component.tsx';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
@@ -16,6 +17,7 @@ export const ClipFactoryComponent = () => {
   const fundsDispatch = useFundsDispatch();
   const { clipFactory, clipFactoryBonus, clipFactoryCost } = useElectronic();
   const { funds } = useFunds();
+  const merchandise = useMerch();
 
   const buyClipFactory = () => {
     if (funds < clipFactoryCost) return;
@@ -23,6 +25,8 @@ export const ClipFactoryComponent = () => {
     electronicDispatch({ type: 'CLIP_FACTORY', cost: newClipFactoryCost });
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipFactoryCost });
   };
+
+  if (!merchandise.clipFactory.unlocked) return null;
 
   return (
     <DialsComponent>

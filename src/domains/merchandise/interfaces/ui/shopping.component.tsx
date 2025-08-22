@@ -7,9 +7,10 @@ import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss'
 export const ShoppingComponent = () => {
   const { t } = useTranslation();
   const merchandise = useMerch();
-  const total = Object.keys(merchandise).length;
-  const purchasedGroup = Object.values(merchandise).filter((item) => item.purchased).length;
-  const unlockedGroup = Object.values(merchandise).filter((item) => item.unlocked).length;
+  const sorted = Object.fromEntries(Object.entries(merchandise).filter(([, value]) => value.category));
+  const total = Object.keys(sorted).length;
+  const purchasedGroup = Object.values(sorted).filter((item) => item.purchased).length;
+  const unlockedGroup = Object.values(sorted).filter((item) => item.unlocked).length;
   const clampedPurchased = Math.min(purchasedGroup, unlockedGroup);
   const clampedUnlocked = Math.min(unlockedGroup, total);
   const purchasedPercent = Math.round((clampedPurchased / total) * 100);

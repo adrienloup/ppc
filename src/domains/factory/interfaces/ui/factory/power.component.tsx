@@ -1,3 +1,4 @@
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { BatteryTowerComponent } from '@/src/domains/power/interfaces/ui/batteryTower.component.tsx';
 import { PowerConsumptionComponent } from '@/src/domains/power/interfaces/ui/powerConsumption.component.tsx';
 import { PowerPerformanceComponent } from '@/src/domains/power/interfaces/ui/powerPerformance.component.tsx';
@@ -10,7 +11,8 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const PowerComponent = () => {
-  // console.log('PowerComponent');
+  const merchandise = useMerch();
+
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
@@ -19,13 +21,18 @@ export const PowerComponent = () => {
       >
         power
       </TitleComponent>
-      <EmptyComponent />
-      <PowerPerformanceComponent />
-      <PowerConsumptionComponent />
-      <PowerProductionComponent />
-      <SolarFarmComponent />
-      <PowerStorageComponent />
-      <BatteryTowerComponent />
+      {merchandise.power.unlocked ? (
+        <>
+          <PowerPerformanceComponent />
+          <PowerConsumptionComponent />
+          <PowerProductionComponent />
+          <SolarFarmComponent />
+          <PowerStorageComponent />
+          <BatteryTowerComponent />
+        </>
+      ) : (
+        <EmptyComponent />
+      )}
     </CardComponent>
   );
 };

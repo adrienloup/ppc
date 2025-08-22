@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useFunds, useFundsDispatch } from '@/src/domains/funds/interfaces/useFunds.ts';
 import { useMeca, useMecaDispatch } from '@/src/domains/mechanical/interfaces/useMeca.ts';
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { BadgeComponent } from '@/src/shared/ui/badge/badge.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -16,8 +17,8 @@ export const MegaClipperComponent = () => {
   const fundsDispatch = useFundsDispatch();
   const { megaClipper, megaClipperBonus, megaClipperCost } = useMeca();
   const { funds } = useFunds();
+  const merchandise = useMerch();
 
-  // const shutdown = feature.clipFactory.unlocked;
   const shutdown = false;
 
   const buyMegaClipper = () => {
@@ -27,10 +28,10 @@ export const MegaClipperComponent = () => {
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: megaClipperCost });
   };
 
-  // if (!feature.megaClipper.unlocked) return null;
+  if (!merchandise.megaClipper.unlocked) return null;
 
   return (
-    <DialsComponent className={classNames(styles.dials, shutdown ? styles.shutdown : '')}>
+    <DialsComponent className={classNames(shutdown && styles.shutdown)}>
       <DialComponent>
         <NumberComponent
           className={styles.value}

@@ -12,12 +12,13 @@ import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss'
 
 export const MerchandiseComponent = () => {
   const { t } = useTranslation();
-  const merch = useMerch();
   const { creativity, operation, trust } = useIT();
   const { funds } = useFunds();
+  const merch = useMerch();
 
-  const groupByCategory = Object.entries(merch).reduce(
+  const groupedByCategory = Object.entries(merch).reduce(
     (acc, [key, value]) => {
+      if (!('category' in value)) return acc;
       const category = value.category;
       if (!acc[category!]) {
         acc[category!] = {};
@@ -37,7 +38,7 @@ export const MerchandiseComponent = () => {
     trust,
   };
 
-  return Object.entries(groupByCategory).map(([, merchandise]) =>
+  return Object.entries(groupedByCategory).map(([, merchandise]) =>
     Object.entries(merchandise).map(([key, value]) => (
       <CardComponent
         key={key}
@@ -86,27 +87,29 @@ export const MerchandiseComponent = () => {
             }}
           />
         </span>
-        <div className={styles.action}>
-          <ButtonComponent
-            className={styles.button}
-            disabled={!(purchase[value.cost.asset] >= value.cost.value && !value.purchased)}
-            onClick={() => console.log('clicked')}
-          >
-            purchase
-          </ButtonComponent>
-          {purchase[value.cost.asset] < value.cost.value && !value.purchased && (
-            <BadgeComponent
-              label={t('app.noFunds')}
-              status="error"
-            />
-          )}
-          {value.purchased && (
-            <BadgeComponent
-              label={t('app.soldOut')}
-              status="warning"
-            />
-          )}
-        </div>
+        {value.cost && (
+          <div className={styles.action}>
+            <ButtonComponent
+              className={styles.button}
+              disabled={!(purchase[value.cost.asset] >= value.cost.value && !value.purchased)}
+              onClick={() => console.log('clicked')}
+            >
+              purchase
+            </ButtonComponent>
+            {purchase[value.cost.asset] < value.cost.value && !value.purchased && (
+              <BadgeComponent
+                label={t('app.noFunds')}
+                status="error"
+              />
+            )}
+            {value.purchased && (
+              <BadgeComponent
+                label={t('app.soldOut')}
+                status="warning"
+              />
+            )}
+          </div>
+        )}
       </CardComponent>
     ))
   );

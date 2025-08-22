@@ -8,7 +8,6 @@ import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/store/store.module.scss';
 
 export const StoreComponent = () => {
-  console.log('StoreComponent');
   const { user } = useAuth();
 
   return user ? (

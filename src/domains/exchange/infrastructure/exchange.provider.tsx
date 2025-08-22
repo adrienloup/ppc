@@ -4,7 +4,7 @@ import { exchangeReducer } from '@/src/domains/exchange/application/exchange.red
 import { ExchangeContext, ExchangeDisContext } from '@/src/domains/exchange/infrastructure/exchange.context.ts';
 import { EXCHANGE_KEY } from '@/src/domains/exchange/infrastructure/exchange.key.ts';
 import { EXCHANGE_STATE } from '@/src/domains/exchange/infrastructure/exchange.state.ts';
-import { getExchange } from '@/src/domains/exchange/interfaces/utils/getExchange.ts';
+import { getExchange } from '@/src/domains/exchange/interfaces/getExchange.ts';
 import { useProfile } from '@/src/domains/profile/interfaces/useProfile.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage.ts';

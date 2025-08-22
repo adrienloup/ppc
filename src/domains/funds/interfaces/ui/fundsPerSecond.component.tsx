@@ -8,9 +8,9 @@ import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.s
 
 export const FundsPerSecondComponent = () => {
   const { fundsPerSecond } = useFunds();
-  const { fundsAvailablePerSecond } = useMerch();
+  const merchandise = useMerch();
 
-  if (!fundsAvailablePerSecond.unlocked) return null;
+  if (!merchandise.fundsPerSecond.unlocked) return null;
 
   return (
     <DialsComponent>

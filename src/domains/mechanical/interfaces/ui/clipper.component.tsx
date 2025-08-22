@@ -17,9 +17,8 @@ export const ClipperComponent = () => {
   const fundsDispatch = useFundsDispatch();
   const { clipper, clipperBonus, clipperCost } = useMeca();
   const { funds } = useFunds();
-  const { clipperProcess } = useMerch();
+  const merchandise = useMerch();
 
-  // const shutdown = feature.clipFactory.unlocked;
   const shutdown = false;
 
   const buyClipper = () => {
@@ -29,7 +28,7 @@ export const ClipperComponent = () => {
     fundsDispatch({ type: 'DECREASE_FUNDS', funds: clipperCost });
   };
 
-  if (!clipperProcess.unlocked) return null;
+  if (!merchandise.clipper.unlocked) return null;
 
   return (
     <DialsComponent className={classNames(shutdown && styles.shutdown)}>

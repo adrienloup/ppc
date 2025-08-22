@@ -21,7 +21,7 @@ export const MerchProvider: FC<{ children: Children }> = ({ children }) => {
     if (!user) return;
 
     const assets: Record<string, number> = {
-      funds: funds,
+      funds,
     };
 
     for (const name in state) {

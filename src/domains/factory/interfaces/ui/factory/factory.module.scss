@@ -58,7 +58,8 @@ $tablet-landscape: 1440px;
     &:nth-child(4),
     &:nth-child(5),
     &:nth-child(6),
-    &:nth-child(7) {
+    &:nth-child(7),
+    &:nth-child(8) {
       & > * {
         @for $i from 1 through 10 {
           &:nth-child(#{$i}) {

@@ -1,3 +1,4 @@
+import { useMerch } from '@/src/domains/merchandise/interfaces/useMerch.ts';
 import { SwarmDeliveryComponent } from '@/src/domains/swarm/interfaces/ui/swarmDelivery.component.tsx';
 import { SwarmDroneComponent } from '@/src/domains/swarm/interfaces/ui/swarmDrone.component.tsx';
 import { SwarmEntertainmentComponent } from '@/src/domains/swarm/interfaces/ui/swarmEntertainment.component.tsx';
@@ -10,6 +11,8 @@ import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import styles from '@/src/domains/factory/interfaces/ui/factory/factory.module.scss';
 
 export const SwarmComponent = () => {
+  const merchandise = useMerch();
+
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
@@ -18,13 +21,18 @@ export const SwarmComponent = () => {
       >
         swarm
       </TitleComponent>
-      <EmptyComponent />
-      <SwarmDeliveryComponent />
-      <SwarmDroneComponent />
-      <SwarmSynchronizeComponent />
-      <SwarmEntertainmentComponent />
-      <SwarmStatusComponent />
-      <SwarmStrategyComponent />
+      {merchandise.swarm.unlocked ? (
+        <>
+          <SwarmDeliveryComponent />
+          <SwarmDroneComponent />
+          <SwarmSynchronizeComponent />
+          <SwarmEntertainmentComponent />
+          <SwarmStatusComponent />
+          <SwarmStrategyComponent />
+        </>
+      ) : (
+        <EmptyComponent />
+      )}
     </CardComponent>
   );
 };
