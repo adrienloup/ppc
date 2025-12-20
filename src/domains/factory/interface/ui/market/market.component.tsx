@@ -1,4 +1,3 @@
-import { useBusiness } from '@/src/domains/business/interface/useBusiness.ts';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -6,18 +5,16 @@ import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
-import styles from '@/src/domains/business/interface/ui/business/business.module.scss';
+import styles from '@/src/domains/factory/interface/ui/market/market.module.scss';
 
-export const BusinessComponent = () => {
-  const { funds, inventory } = useBusiness();
-
+export const MarketComponent = () => {
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
         className={styles.title}
         tag="h2"
       >
-        business
+        market
       </TitleComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
@@ -31,10 +28,6 @@ export const BusinessComponent = () => {
           >
             +1
           </ClickerComponent>
-        </DialComponent>
-        <DialComponent>
-          <div>inventory {inventory.quantity}</div>
-          <div>funds {funds.quantity}</div>
         </DialComponent>
       </DialsComponent>
     </CardComponent>

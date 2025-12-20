@@ -1,15 +1,19 @@
 @mixin font {
-  --font-text: 'Text', sans-serif;
+  --font-text: 'Text';
+  --font-icon: 'Icon';
 }
 
 @mixin color {
   --color-1: #030009;
-  --color-2: #140049;
-  --color-3: #4800ff;
-  --color-5: #6300ff;
-  --color-6: #00f7ff;
-  --color-7: #00ffb2;
-  --color-8: #48ff00;
+  --color-2: #150053;
+  --color-3: #3b00ff;
+  --color-4: #4600ff;
+  --color-5: #5500ff;
+  --color-6: #6300ff;
+  --color-7: #7200ff;
+  --color-8: #8400ff;
+  --color-9: #00ff9d;
+  --color-10: #1aff00;
 }
 
 @mixin size {
@@ -20,6 +24,7 @@
 }
 
 @mixin spacing {
+  --spacing-wide: 3rem;
   --spacing-large: 2.5rem;
   --spacing-medium: 1rem;
   --spacing-small: 0.5rem;
@@ -28,6 +33,7 @@
 @mixin easing {
   --ease-expo: cubic-bezier(0.25, 0.8, 0.25, 1);
   --ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --ease-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 :root {

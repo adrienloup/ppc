@@ -5,13 +5,13 @@ $mobile-portrait: 768px;
   height: 0;
   background-color: var(--theme-color-3);
   transition-property: height;
-  transition-duration: 0.25s;
+  transition-duration: 250ms;
   transition-timing-function: var(--ease-expo);
   will-change: height;
 
   &.open {
     height: 22rem;
-    transition-duration: 0.45s;
+    transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
       height: 8rem;
@@ -29,7 +29,7 @@ $mobile-portrait: 768px;
   height: 0;
   visibility: hidden;
   transition-property: height;
-  transition-duration: 0.25s;
+  transition-duration: 250ms;
   transition-timing-function: var(--ease-expo);
   will-change: height;
   color: var(--theme-color-1);
@@ -37,7 +37,7 @@ $mobile-portrait: 768px;
   .open & {
     height: 22rem;
     visibility: visible;
-    transition-duration: 0.45s;
+    transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
       height: 8rem;
@@ -49,10 +49,14 @@ $mobile-portrait: 768px;
   position: absolute;
   top: 100%;
   left: 0;
-  padding: var(--spacing-small);
+  padding: var(--spacing-small) var(--spacing-small) var(--spacing-small) 0;
   background-color: var(--theme-color-3);
   line-height: var(--font-size-small);
   font-size: var(--font-size-small);
   color: var(--theme-color-1);
   outline-offset: -0.25rem;
+}
+
+.icon {
+  font-size: var(--font-size-medium);
 }

@@ -7,10 +7,10 @@ $mobile-portrait: 768px;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-small);
-  padding: var(--spacing-small);
+  padding: var(--spacing-large) var(--spacing-small) var(--spacing-small);
 
   @media (min-width: $mobile-portrait) {
     gap: var(--spacing-medium);
-    padding: var(--spacing-medium);
+    padding: var(--spacing-wide) var(--spacing-medium) var(--spacing-medium);
   }
 }

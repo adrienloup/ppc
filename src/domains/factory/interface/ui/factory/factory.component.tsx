@@ -1,11 +1,14 @@
 import { useCallback } from 'react';
-import { BusinessComponent } from '@/src/domains/business/interface/ui/business/business.component.tsx';
 import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
 import { useEnginery, useEngineryDispatch } from '@/src/domains/enginery/interface/useEnginery.ts';
 import { getQuantity } from '@/src/domains/enginery/utils/getQuantity.ts';
+import { BusinessComponent } from '@/src/domains/factory/interface/ui/business/business.component.tsx';
 import { ManufactureComponent } from '@/src/domains/factory/interface/ui/manufacture/manufacture.component.tsx';
+import { MarketComponent } from '@/src/domains/factory/interface/ui/market/market.component.tsx';
+import { PaperclipComponent } from '@/src/domains/factory/interface/ui/paperclip/paperclip.component.tsx';
+import { StageComponent } from '@/src/domains/factory/interface/ui/stage/stage.component.tsx';
+import { TechnologyComponent } from '@/src/domains/factory/interface/ui/technology/technology.component.tsx';
 import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/useSupply.ts';
-import { TechnologyComponent } from '@/src/domains/technology/interface/ui/technology/technology.component.tsx';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
@@ -62,10 +65,13 @@ function FactoryComponent() {
 
   return (
     <ArticleComponent>
+      <PaperclipComponent />
       <CardsComponent className={styles.cards}>
         <ManufactureComponent />
         <BusinessComponent />
         <TechnologyComponent />
+        <MarketComponent />
+        <StageComponent />
         <CardComponent>
           megaClipper
           <ClickerComponent

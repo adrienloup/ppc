@@ -1,4 +1,6 @@
 .button {
+  display: inline-flex;
+  align-items: center;
   border: none;
   line-height: 1;
   text-decoration: none;
@@ -8,7 +10,7 @@
 
   &:focus-visible,
   &:active {
-    outline: 0.25rem solid var(--theme-color-7);
+    outline: 0.35rem solid var(--theme-color-9);
   }
 
   &:disabled {

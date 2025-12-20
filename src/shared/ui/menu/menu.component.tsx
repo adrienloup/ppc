@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import menu from '@/src/assets/sounds/menu.mp3';
+import { IconComponent } from '@/src/shared/ui/icon/icon.component.tsx';
 import { NavigationComponent } from '@/src/shared/ui/navigation/navigation.component.tsx';
 import { ReaderComponent } from '@/src/shared/ui/reader/reader.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
@@ -38,6 +39,10 @@ export const MenuComponent = () => {
         innerRef={buttonRef}
         sound={menu}
       >
+        <IconComponent
+          className={styles.icon}
+          icon={open ? 'arrow_menu_open' : 'arrow_menu_close'}
+        />
         menu
       </ReaderComponent>
       <div className={styles.inside}>

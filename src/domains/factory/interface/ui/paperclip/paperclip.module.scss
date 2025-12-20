@@ -1,0 +1,28 @@
+.paperclip {
+  display: flex;
+  gap: var(--spacing-small);
+  align-items: center;
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-4);
+  animation:
+    SlideUp 500ms var(--ease-quad) backwards 200ms,
+    FadeIn 700ms var(--ease-quad) backwards 200ms;
+}
+
+@keyframes SlideUp {
+  0% {
+    transform: translate3d(0, 120vh, 0);
+  }
+  20% {
+    transform: translate3d(0, 10vh, 0);
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+}
