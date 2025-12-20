@@ -6,6 +6,7 @@ $mobile-portrait: 768px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: var(--spacing-small);
   margin: 0 var(--spacing-small) var(--spacing-small);
 
   @media (min-width: $mobile-portrait) {

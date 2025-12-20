@@ -1,0 +1,30 @@
+.banner {
+  display: flex;
+  gap: var(--spacing-medium);
+  flex-wrap: wrap;
+  align-items: center;
+  animation: FadeIn 700ms var(--ease-quad) backwards 100ms;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: var(--font-size-large);
+  color: var(--mode-color-2);
+}
+
+.button {
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-3);
+  text-transform: uppercase;
+  font-size: var(--font-size-medium);
+  color: var(--theme-color-1);
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+}

@@ -11,6 +11,7 @@ import { TechnologyComponent } from '@/src/domains/factory/interface/ui/technolo
 import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/useSupply.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
+import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
@@ -65,6 +66,10 @@ function FactoryComponent() {
 
   return (
     <ArticleComponent>
+      <BannerComponent
+        title="factory"
+        button="store"
+      />
       <PaperclipComponent />
       <CardsComponent className={styles.cards}>
         <ManufactureComponent />

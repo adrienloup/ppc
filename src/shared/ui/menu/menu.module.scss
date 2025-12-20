@@ -10,11 +10,11 @@ $mobile-portrait: 768px;
   will-change: height;
 
   &.open {
-    height: 22rem;
+    height: 20rem;
     transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
-      height: 8rem;
+      height: 10rem;
     }
   }
 }
@@ -24,7 +24,7 @@ $mobile-portrait: 768px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: var(--spacing-s);
+  gap: var(--spacing-small);
   overflow: hidden;
   height: 0;
   visibility: hidden;
@@ -35,12 +35,12 @@ $mobile-portrait: 768px;
   color: var(--theme-color-1);
 
   .open & {
-    height: 22rem;
+    height: 20rem;
     visibility: visible;
     transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
-      height: 8rem;
+      height: 10rem;
     }
   }
 }
@@ -55,6 +55,11 @@ $mobile-portrait: 768px;
   font-size: var(--font-size-small);
   color: var(--theme-color-1);
   outline-offset: -0.25rem;
+
+  &:focus-visible,
+  &:active {
+    outline: 0.25rem solid var(--theme-color-9);
+  }
 }
 
 .icon {

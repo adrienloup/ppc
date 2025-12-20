@@ -5,6 +5,11 @@
   line-height: var(--font-size-large);
   font-size: var(--font-size-large);
 
+  &:focus-visible,
+  &:active {
+    outline: 0.35rem solid var(--theme-color-9);
+  }
+
   &.disabled {
     opacity: 0.5;
   }
