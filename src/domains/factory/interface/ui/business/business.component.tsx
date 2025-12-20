@@ -34,7 +34,7 @@ export const BusinessComponent = () => {
         </DialComponent>
         <DialComponent>
           <div>inventory {inventory.quantity}</div>
-          <div>funds {funds.quantity}</div>
+          <div>funds {funds.quantity.toFixed(2)}</div>
         </DialComponent>
       </DialsComponent>
     </CardComponent>

@@ -28,8 +28,10 @@ export const ManufactureComponent = () => {
   };
 
   const increaseWireQuantity = () => {
-    const quantity = getQuantity(paperclip.quantity);
-    supplyDispatch({ type: 'INCREASE_WIRE_QUANTITY', quantity });
+    const wireQuantity = getQuantity(paperclip.quantity);
+    const fundsQuantity = wire.cost.value;
+    supplyDispatch({ type: 'INCREASE_WIRE_QUANTITY', quantity: wireQuantity });
+    businessDispatch({ type: 'DECREASE_FUNDS_QUANTITY', quantity: fundsQuantity });
   };
 
   const buyAutoClipper = () => {
@@ -52,7 +54,7 @@ export const ManufactureComponent = () => {
       </TitleComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>0</ValueComponent>
+          <ValueComponent>{0}</ValueComponent>
           <LabelComponent>paperclips per second</LabelComponent>
           <ClickerComponent
             className={styles.button}
@@ -66,7 +68,7 @@ export const ManufactureComponent = () => {
       </DialsComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>${wire.cost.value.toFixed(2)}</ValueComponent>
+          <ValueComponent>{wire.cost.value.toFixed(2)}</ValueComponent>
           <LabelComponent>wire cost</LabelComponent>
         </DialComponent>
         <DialComponent>
@@ -85,11 +87,12 @@ export const ManufactureComponent = () => {
       </DialsComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>${autoClipper.cost.value.toFixed(2)}</ValueComponent>
+          <ValueComponent>{autoClipper.cost.value.toFixed(2)}</ValueComponent>
           <LabelComponent>auto clipper cost</LabelComponent>
           <ClickerComponent
             prefix="+"
             value={1}
+            disabled={funds.quantity < autoClipper.cost.value}
             onClick={buyAutoClipper}
           >
             +1
