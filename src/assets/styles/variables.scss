@@ -1,25 +1,27 @@
 @mixin font {
-  --font-text: 'Text';
+  --font-text: 'Text', sans-serif;
 }
 
 @mixin color {
   --color-1: #030009;
-  --color-2: #17003c;
-  --color-3: #6300ff;
-  --color-4: #00f7ff;
-  --color-5: #00ffb2;
-  --color-6: #48ff00;
+  --color-2: #140049;
+  --color-3: #4800ff;
+  --color-5: #6300ff;
+  --color-6: #00f7ff;
+  --color-7: #00ffb2;
+  --color-8: #48ff00;
 }
 
 @mixin size {
-  --font-size-large: 4rem;
-  --font-size-medium: 2rem;
+  --font-size-wide: 4rem;
+  --font-size-large: 2.5rem;
+  --font-size-medium: 1.5rem;
   --font-size-small: 1rem;
 }
 
 @mixin spacing {
   --spacing-large: 2.5rem;
-  --spacing-medium: 1.5rem;
+  --spacing-medium: 1rem;
   --spacing-small: 0.5rem;
 }
 

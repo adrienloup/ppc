@@ -20,9 +20,9 @@ $mobile-portrait: 768px;
 }
 
 .title {
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-large);
 
   @media (min-width: $mobile-portrait) {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-wide);
   }
 }

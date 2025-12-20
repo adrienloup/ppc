@@ -4,7 +4,7 @@ import { PageComponent } from '@/src/shared/ui/page/page.component.tsx';
 import { delay } from '@/src/shared/utils/delay.ts';
 
 const FactoryComponent = lazy(() =>
-  delay(import('@/src/domains/factory/factory.component.tsx'), 5e3)
+  delay(import('@/src/domains/factory/interface/ui/factory/factory.component.tsx'), 5e3)
 );
 
 function FactoryPage() {

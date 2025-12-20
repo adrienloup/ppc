@@ -11,6 +11,7 @@ export const SUPPLY_STATE: SupplyType = {
     quantity: 0,
   },
   wire: {
-    quantity: 1e3,
+    cost: { asset: 'funds', value: 20 },
+    quantity: 1e2,
   },
 };

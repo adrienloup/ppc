@@ -9,7 +9,9 @@ export const useInterval = (callback: () => void, delay: number, enabled: boolea
 
   useEffect(() => {
     if (!enabled) return;
-    const id = setInterval(() => savedCallback.current(), delay);
-    return () => clearInterval(id);
+
+    const interval = setInterval(() => savedCallback.current(), delay);
+
+    return () => clearInterval(interval);
   }, [delay, enabled]);
 };

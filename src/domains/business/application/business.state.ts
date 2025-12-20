@@ -20,7 +20,4 @@ export const BUSINESS_STATE: BusinessType = {
     bonus: 0,
     quantity: 0,
   },
-  wire: {
-    cost: { asset: 'funds', value: 20 },
-  },
 };

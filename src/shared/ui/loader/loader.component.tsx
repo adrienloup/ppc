@@ -4,7 +4,7 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { LoaderType } from '@/src/shared/ui/loader/loader.type.ts';
 import styles from '@/src/shared/ui/loader/loader.module.scss';
 
-export const LoaderComponent = ({ duration = 5e3, className }: LoaderType) => {
+export const LoaderComponent = ({ duration = 45e2, className }: LoaderType) => {
   return (
     <div className={classNames(styles.loader, className)}>
       <TitleComponent className={styles.title}>paperclips</TitleComponent>

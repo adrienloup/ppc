@@ -4,12 +4,7 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { ProgressType } from '@/src/shared/ui/progress/progress.type.ts';
 import styles from '@/src/shared/ui/progress/progress.module.scss';
 
-export const ProgressComponent = ({
-  className,
-  duration = 1e3,
-  label = 'label',
-  size = 'medium',
-}: ProgressType) => {
+export const ProgressComponent = ({ className, duration = 1e3, label, size = 'large' }: ProgressType) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -35,16 +30,9 @@ export const ProgressComponent = ({
   }, []);
 
   return (
-    <div
-      className={classNames(
-        styles.progress,
-        styles[size],
-        progress === 100 ? styles.completed : '',
-        className
-      )}
-    >
+    <div className={classNames(styles.progress, styles[size], progress === 100 ? styles.completed : '', className)}>
       <ProgressbarComponent
-        size="large"
+        size={size}
         valueNow={progress}
         valueMin={0}
         valueMax={100}

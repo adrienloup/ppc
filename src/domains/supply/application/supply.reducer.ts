@@ -2,6 +2,17 @@ import type { SupplyDispatchType, SupplyType } from '@/src/domains/supply/applic
 
 export const supplyReducer = (state: SupplyType, action: SupplyDispatchType): SupplyType => {
   switch (action.type) {
+    case 'UPDATE_WIRE_COST':
+      return {
+        ...state,
+        wire: {
+          ...state.wire,
+          cost: {
+            ...state.wire.cost,
+            value: state.wire.cost.value > 8 ? state.wire.cost.value - 0.2 : Math.random() * 10 + 10, // 0|1 0|10 10|20
+          },
+        },
+      };
     case 'INCREASE_ENERGY_QUANTITY':
       return {
         ...state,
@@ -48,6 +59,7 @@ export const supplyReducer = (state: SupplyType, action: SupplyDispatchType): Su
       return {
         ...state,
         wire: {
+          ...state.wire,
           quantity: state.wire.quantity + action.quantity,
         },
       };
@@ -55,6 +67,7 @@ export const supplyReducer = (state: SupplyType, action: SupplyDispatchType): Su
       return {
         ...state,
         wire: {
+          ...state.wire,
           quantity: Math.max(0, state.wire.quantity - action.quantity),
         },
       };

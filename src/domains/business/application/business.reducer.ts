@@ -14,16 +14,6 @@ export const businessReducer = (state: BusinessType, action: BusinessDispatchTyp
           quantity: Math.min(state.marketing.quantity + 1, 10),
         },
       };
-    case 'UPDATE_WIRE_COST':
-      return {
-        ...state,
-        wire: {
-          cost: {
-            ...state.wire.cost,
-            value: state.wire.cost.value > 8 ? state.wire.cost.value - 0.2 : Math.random() * 10 + 10, // 0|1 0|10 10|20
-          },
-        },
-      };
     case 'INCREASE_SELLING_PRICE': {
       const priceHigher = Math.min(state.selling.ref + 0.01, 1);
       return {

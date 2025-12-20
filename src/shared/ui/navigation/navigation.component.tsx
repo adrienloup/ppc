@@ -6,7 +6,7 @@ import styles from '@/src/shared/ui/navigation/navigation.module.scss';
 export const NavigationComponent = ({ className, id = 'main-navigation', links }: Navigation) => {
   return (
     <nav
-      className={classNames(styles.nav, className)}
+      className={classNames(styles.navigation, className)}
       id={id}
       role="navigation"
     >

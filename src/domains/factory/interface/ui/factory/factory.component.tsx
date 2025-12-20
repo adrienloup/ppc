@@ -1,22 +1,25 @@
+import { useCallback } from 'react';
+import { BusinessComponent } from '@/src/domains/business/interface/ui/business/business.component.tsx';
 import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
 import { useEnginery, useEngineryDispatch } from '@/src/domains/enginery/interface/useEnginery.ts';
 import { getQuantity } from '@/src/domains/enginery/utils/getQuantity.ts';
+import { ManufactureComponent } from '@/src/domains/factory/interface/ui/manufacture/manufacture.component.tsx';
 import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/useSupply.ts';
+import { TechnologyComponent } from '@/src/domains/technology/interface/ui/technology/technology.component.tsx';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
+import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
+import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
+import styles from '@/src/domains/factory/interface/ui/factory/factory.module.scss';
 
 function FactoryComponent() {
   const supplyDispatch = useSupplyDispatch();
   const businessDispatch = useBusinessDispatch();
   const engineryDispatch = useEngineryDispatch();
   const { paperclip, wire } = useSupply();
-  const { funds, publicDemand, inventory } = useBusiness();
-  const { clipper, autoClipper, paperclipFactory, megaClipper } = useEnginery();
-
-  const buyAutoClipper = () => {
-    engineryDispatch({ type: 'BUY_AUTO_CLIPPER' });
-  };
+  const { publicDemand, inventory } = useBusiness();
+  const { autoClipper, paperclipFactory, megaClipper } = useEnginery();
 
   const buyMegaClipper = () => {
     engineryDispatch({ type: 'BUY_MEGA_CLIPPER' });
@@ -26,25 +29,25 @@ function FactoryComponent() {
     engineryDispatch({ type: 'BUY_PAPERCLIP_FACTORY' });
   };
 
-  const increasePaperClipQuantity = () => {
-    supplyDispatch({ type: 'DECREASE_WIRE_QUANTITY', quantity: 1 });
-    businessDispatch({ type: 'INCREASE_INVENTORY_QUANTITY', quantity: 1 });
-    supplyDispatch({ type: 'INCREASE_PAPERCLIP_QUANTITY', quantity: 1 });
-  };
-
-  const autoProduction = () => {
+  const autoProduction = useCallback(() => {
     if (!wire.quantity) return;
-
     const quantity = getQuantity(wire.quantity, autoClipper.quantity, megaClipper.quantity, paperclipFactory.quantity);
 
     if (!quantity) return;
-
     supplyDispatch({ type: 'DECREASE_WIRE_QUANTITY', quantity });
     businessDispatch({ type: 'INCREASE_INVENTORY_QUANTITY', quantity });
     supplyDispatch({ type: 'INCREASE_PAPERCLIP_QUANTITY', quantity });
-  };
+  }, [
+    supplyDispatch,
+    businessDispatch,
+    supplyDispatch,
+    wire.quantity,
+    autoClipper.quantity,
+    megaClipper.quantity,
+    paperclipFactory.quantity,
+  ]);
 
-  const autoSell = () => {
+  const autoSell = useCallback(() => {
     if (!inventory.quantity) return;
 
     const inventoryQuantity = Math.max(0, Math.floor(inventory.quantity * (1 - publicDemand.quantity)));
@@ -52,34 +55,18 @@ function FactoryComponent() {
 
     businessDispatch({ type: 'DECREASE_INVENTORY_QUANTITY', quantity: inventoryQuantity });
     businessDispatch({ type: 'INCREASE_FUNDS_QUANTITY', quantity: fundsQuantity });
-  };
+  }, [businessDispatch, businessDispatch, inventory.quantity, publicDemand.quantity]);
 
   useInterval(autoProduction, 1e3, true);
   useInterval(autoSell, 5e2, true);
 
   return (
     <ArticleComponent>
-      <div style={{ margin: 'auto' }}>
-        <div>
-          <div>paperclip : {paperclip.quantity}</div>
-          <div>0</div>
-          <div>paperclips per second</div>
-          <ClickerComponent
-            prefix="+"
-            value={clipper.quantity}
-            onClick={increasePaperClipQuantity}
-          >
-            +{clipper.quantity}
-          </ClickerComponent>
-          <div>${autoClipper.cost.value} auto clipper cost</div>
-          <div>{autoClipper.quantity} auto clipper</div>
-          <ClickerComponent
-            prefix="+"
-            value={1}
-            onClick={buyAutoClipper}
-          >
-            +1
-          </ClickerComponent>
+      <CardsComponent className={styles.cards}>
+        <ManufactureComponent />
+        <BusinessComponent />
+        <TechnologyComponent />
+        <CardComponent>
           megaClipper
           <ClickerComponent
             prefix="+"
@@ -88,18 +75,23 @@ function FactoryComponent() {
           >
             +1
           </ClickerComponent>
-          paperclipFactory
-          <ClickerComponent
-            prefix="+"
-            value={1}
-            onClick={buyPaperclipFactory}
-          >
-            +1
-          </ClickerComponent>
-        </div>
-        <div>inventory {inventory.quantity}</div>
-        <div>funds {funds.quantity}</div>
-      </div>
+        </CardComponent>
+        <CardComponent>
+          <div>
+            paperclipFactory
+            <ClickerComponent
+              prefix="+"
+              value={1}
+              onClick={buyPaperclipFactory}
+            >
+              +1
+            </ClickerComponent>
+          </div>
+        </CardComponent>
+        <CardComponent>
+          <div>paperclip : {paperclip.quantity}</div>
+        </CardComponent>
+      </CardsComponent>
     </ArticleComponent>
   );
 }
