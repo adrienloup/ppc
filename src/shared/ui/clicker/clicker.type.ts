@@ -1,7 +1,8 @@
-import type { Button } from '@/src/shared/ui/button/button.type.ts';
+import type { MouseEvent } from 'react';
+import type { ButtonType } from '@/src/shared/ui/button/button.type.ts';
 
-export interface Clicker extends Button<HTMLButtonElement> {
-  value: number;
+export interface ClickerType extends ButtonType<HTMLButtonElement> {
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   prefix: string;
-  onClick: () => void;
+  value: number;
 }

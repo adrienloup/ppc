@@ -1,5 +1,5 @@
-import type { Children } from '@/src/shared/types/children.type.ts';
+import type { ChildrenType } from '@/src/shared/types/children.type.ts';
 
-export interface Article {
-  children: Children;
+export interface ArticleType {
+  children: ChildrenType;
 }

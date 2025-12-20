@@ -1,23 +1,18 @@
 import { lazy, Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
-import { AdminComponent } from '@/src/domains/admin/interfaces/ui/admin.component.tsx';
-import { FactoryComponent } from '@/src/domains/factory/interfaces/ui/factory/factory.component.tsx';
-import { useTitle } from '@/src/shared/hooks/useTitle.ts';
 import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
-import { fallback } from '@/src/shared/utils/fallback.ts';
+import { PageComponent } from '@/src/shared/ui/page/page.component.tsx';
+import { delay } from '@/src/shared/utils/delay.ts';
 
-const LayoutComponent = lazy(() => fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3));
+const FactoryComponent = lazy(() =>
+  delay(import('@/src/domains/factory/factory.component.tsx'), 5e3)
+);
 
 function FactoryPage() {
-  const { t } = useTranslation();
-  useTitle(t('factory.titlePage'));
-
   return (
-    <Suspense fallback={<LoaderComponent arial-label={t('app.loading')} />}>
-      <LayoutComponent>
-        <AdminComponent />
+    <Suspense fallback={<LoaderComponent />}>
+      <PageComponent>
         <FactoryComponent />
-      </LayoutComponent>
+      </PageComponent>
     </Suspense>
   );
 }

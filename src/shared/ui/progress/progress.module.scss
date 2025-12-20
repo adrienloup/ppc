@@ -1,0 +1,20 @@
+.progress {
+  display: flex;
+  flex-direction: column;
+
+  &.small {
+    font-size: var(--font-size-small);
+  }
+
+  &.medium {
+    font-size: var(--font-size-medium);
+  }
+
+  &.large {
+    font-size: var(--font-size-large);
+  }
+
+  &.completed {
+    color: var(--theme-color-6);
+  }
+}

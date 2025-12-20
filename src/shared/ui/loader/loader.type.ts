@@ -1,7 +1,4 @@
-import type { Size } from '@/src/shared/types/size.type.ts';
-
-export interface Loader {
+export interface LoaderType {
   className?: string;
   duration?: number;
-  size?: Size;
 }

@@ -1,9 +1,0 @@
-$mobile-portrait: 768px;
-
-.cards {
-  gap: var(--spacing-xs);
-
-  @media (min-width: $mobile-portrait) {
-    gap: var(--spacing-s);
-  }
-}

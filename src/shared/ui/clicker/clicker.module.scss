@@ -1,5 +1,9 @@
 .button {
   position: relative;
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-3);
+  line-height: var(--font-size-medium);
+  font-size: var(--font-size-medium);
 }
 
 .inner {
@@ -7,11 +11,6 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 3.5rem;
-  height: 2rem;
-  background-color: var(--mode-color-1);
-  font-size: var(--font-size-m);
-  color: var(--mode-color-2);
 
   .disabled & {
     opacity: 0.5;
@@ -25,8 +24,8 @@
   z-index: 2;
   white-space: nowrap;
   animation: SlideUp 0.5s var(--ease-out);
-  font-size: var(--font-size-l);
-  color: var(--color-6);
+  font-size: var(--font-size-medium);
+  color: var(--theme-color-5);
 }
 
 @keyframes SlideUp {

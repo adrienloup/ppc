@@ -1,29 +1,27 @@
-import { useEffect, useState } from 'react';
-import { ProgressBarComponent } from '@/src/shared/ui/progressbar/progressBar.component.tsx';
+import { ProgressComponent } from '@/src/shared/ui/progress/progress.component.tsx';
+import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import type { Loader } from '@/src/shared/ui/loader/loader.type.ts';
+import type { LoaderType } from '@/src/shared/ui/loader/loader.type.ts';
 import styles from '@/src/shared/ui/loader/loader.module.scss';
 
-export const LoaderComponent = ({ className, duration = 5e2, size = 'medium', ...props }: Loader) => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (progress >= 100) return;
-    const interval = setInterval(() => setProgress((prev) => Math.min(prev + 1, 100)), duration / 100);
-    return () => clearInterval(interval);
-  }, [progress, duration]);
-
+export const LoaderComponent = ({ duration = 5e3, className }: LoaderType) => {
   return (
-    <div
-      className={classNames(styles.loader, className)}
-      {...props}
-    >
-      <span className={styles.label}>{progress}%</span>
-      <ProgressBarComponent
-        valueNow={progress}
-        valueMin={0}
-        valueMax={100}
-        size={size}
+    <div className={classNames(styles.loader, className)}>
+      <TitleComponent className={styles.title}>paperclips</TitleComponent>
+      <ProgressComponent
+        className={styles.progress}
+        duration={duration}
+        label="setup"
+      />
+      <ProgressComponent
+        className={styles.progress}
+        duration={duration}
+        label="media"
+      />
+      <ProgressComponent
+        className={styles.progress}
+        duration={duration}
+        label="state"
       />
     </div>
   );

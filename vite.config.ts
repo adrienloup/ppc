@@ -1,5 +1,5 @@
-import * as path from 'path';
-import react from '@vitejs/plugin-react';
+import path from 'path';
+import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -8,16 +8,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve('./'),
-    },
-  },
-  server: {
-    port: 3030,
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern',
-      },
     },
   },
 });

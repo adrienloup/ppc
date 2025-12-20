@@ -1,23 +1,18 @@
 import { lazy, Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
-import { AdminComponent } from '@/src/domains/admin/interfaces/ui/admin.component.tsx';
-import { ProfileComponent } from '@/src/domains/profile/interfaces/ui/profile/profile.component.tsx';
-import { useTitle } from '@/src/shared/hooks/useTitle.ts';
 import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
-import { fallback } from '@/src/shared/utils/fallback.ts';
+import { PageComponent } from '@/src/shared/ui/page/page.component.tsx';
+import { delay } from '@/src/shared/utils/delay.ts';
 
-const LayoutComponent = lazy(() => fallback(import('@/src/shared/ui/layout/layout.component.tsx'), 1e3));
+const ProfileComponent = lazy(() =>
+  delay(import('@/src/domains/profile/profile.component.tsx'), 5e3)
+);
 
 function ProfilePage() {
-  const { t } = useTranslation();
-  useTitle(t('profile.titlePage'));
-
   return (
-    <Suspense fallback={<LoaderComponent arial-label={t('app.loading')} />}>
-      <LayoutComponent>
-        <AdminComponent />
+    <Suspense fallback={<LoaderComponent />}>
+      <PageComponent>
         <ProfileComponent />
-      </LayoutComponent>
+      </PageComponent>
     </Suspense>
   );
 }

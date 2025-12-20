@@ -1,10 +1,9 @@
 $mobile-portrait: 768px;
-$mobile-landscape: 1024px;
 
 .menu {
   position: relative;
   height: 0;
-  background-color: var(--mode-color-2);
+  background-color: var(--theme-color-3);
   transition-property: height;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
@@ -33,6 +32,7 @@ $mobile-landscape: 1024px;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
   will-change: height;
+  color: var(--theme-color-1);
 
   .open & {
     height: 22rem;
@@ -45,21 +45,14 @@ $mobile-landscape: 1024px;
   }
 }
 
-.group {
-  display: flex;
-  flex-flow: row wrap;
-  gap: var(--spacing-xs);
-  padding: 0 var(--spacing-xs);
-}
-
 .button {
   position: absolute;
   top: 100%;
   left: 0;
-  padding: var(--spacing-xs);
-  background-color: var(--mode-color-2);
-  text-transform: uppercase;
-  font-size: var(--font-size-xs);
-  color: var(--mode-color-1);
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-3);
+  line-height: var(--font-size-small);
+  font-size: var(--font-size-small);
+  color: var(--theme-color-1);
   outline-offset: -0.25rem;
 }

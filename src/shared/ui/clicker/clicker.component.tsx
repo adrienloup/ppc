@@ -1,8 +1,8 @@
 import { type CSSProperties, type MouseEvent, useEffect, useRef, useState } from 'react';
-import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
-import { NumberComponent } from '@/src/shared/ui/number/number.component.tsx';
+import clicker from '@/src/assets/sounds/clicker.mp3';
+import { ReaderComponent } from '@/src/shared/ui/reader/reader.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
-import type { Clicker } from '@/src/shared/ui/clicker/clicker.type.ts';
+import type { ClickerType } from '@/src/shared/ui/clicker/clicker.type.ts';
 import styles from '@/src/shared/ui/clicker/clicker.module.scss';
 
 export interface Value {
@@ -11,13 +11,16 @@ export interface Value {
   y: number;
 }
 
-export const ClickerComponent = ({ children, className, disabled, value, prefix, onClick, ...props }: Clicker) => {
+export const ClickerComponent = ({
+  children,
+  className,
+  disabled,
+  onClick,
+  prefix,
+  value,
+}: ClickerType) => {
   const [values, setValues] = useState<Value[]>([]);
-  const timeouts = useRef<number[]>([]);
-
-  useEffect(() => {
-    return () => timeouts.current.forEach((id) => clearTimeout(id));
-  }, []);
+  const timeoutsRef = useRef<number[]>([]);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     const { currentTarget } = e;
@@ -38,19 +41,22 @@ export const ClickerComponent = ({ children, className, disabled, value, prefix,
       setValues((prev) => prev.slice(1));
     }, 4e2);
 
-    timeouts.current.push(timeoutId);
-
-    onClick();
+    timeoutsRef.current.push(timeoutId);
+    onClick(e);
   };
 
   const getStyle = (x: number, y: number) => ({ left: x, top: y }) as CSSProperties;
 
+  useEffect(() => {
+    return () => timeoutsRef.current.forEach((id) => clearTimeout(id));
+  }, []);
+
   return (
-    <ButtonComponent
+    <ReaderComponent
       className={classNames(styles.button, className, disabled ? styles.disabled : '')}
       disabled={disabled}
       onClick={handleClick}
-      {...props}
+      sound={clicker}
     >
       <span className={styles.inner}>{children}</span>
       {values.map((v) => (
@@ -60,9 +66,9 @@ export const ClickerComponent = ({ children, className, disabled, value, prefix,
           style={getStyle(v.x, v.y)}
         >
           {prefix}
-          <NumberComponent value={value} />
+          {value}
         </span>
       ))}
-    </ButtonComponent>
+    </ReaderComponent>
   );
 };

@@ -1,11 +1,11 @@
 import type { ButtonHTMLAttributes, LinkHTMLAttributes, MouseEventHandler, RefObject } from 'react';
 
-type ButtonAttributes<A> = ButtonHTMLAttributes<A> & LinkHTMLAttributes<A>;
+type ButtonAttributes<T> = ButtonHTMLAttributes<T> & LinkHTMLAttributes<T>;
 
-export interface Button<T> extends ButtonAttributes<T> {
-  href?: string;
-  to?: string;
+export interface ButtonType<T> extends ButtonAttributes<T> {
   disabled?: boolean;
-  innerRef?: RefObject<HTMLButtonElement>;
+  href?: string;
+  innerRef?: RefObject<HTMLButtonElement | null>;
   onClick?: MouseEventHandler<T>;
+  to?: string;
 }

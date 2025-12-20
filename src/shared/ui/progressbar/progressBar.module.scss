@@ -1,27 +1,26 @@
-.progressBar {
-  border: 0.35rem solid var(--mode-color-2);
+.progressbar {
+  background-color: var(--theme-color-2);
 
   &.small {
-    width: 6rem;
-    height: 3rem;
+    height: 1rem;
   }
 
   &.medium {
-    width: 8rem;
-    height: 4rem;
+    height: 1.5rem;
   }
 
   &.large {
-    width: 10rem;
-    height: 5rem;
+    height: 3rem;
   }
 }
 
 .progress {
   width: 0;
   height: 100%;
-  background-color: var(--mode-color-2);
-  //background: -webkit-linear-gradient(90deg, var(--color-11) 0%, var(--color-13) 100%);
-  //background: -moz-linear-gradient(90deg, var(--color-11) 0%, var(--color-13) 100%);
-  //background: linear-gradient(90deg, var(--color-11) 0%, var(--color-13) 100%);
+  background-color: var(--theme-color-3);
+  transition: 100ms width var(--ease-out);
+
+  &.completed {
+    background-color: var(--theme-color-6);
+  }
 }

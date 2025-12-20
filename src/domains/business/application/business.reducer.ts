@@ -1,44 +1,109 @@
-import type { Business, BusinessDispatch } from '@/src/domains/business/domain/business.type.ts';
+import type { BusinessDispatchType, BusinessType } from '@/src/domains/business/application/business.type.ts';
 
-export const businessReducer = (state: Business, action: BusinessDispatch): Business => {
+export const businessReducer = (state: BusinessType, action: BusinessDispatchType): BusinessType => {
   switch (action.type) {
-    case 'LOAD':
-      return action.business;
-    case 'INCREASE_CLIP_PRICE': {
-      const priceICP = Math.min(state.clipPriceRef + 0.01, 1);
+    case 'BUY_MARKETING':
       return {
         ...state,
-        clipPriceRef: priceICP,
-        clipPrice: priceICP * Math.max(1, state.marketingBonus),
-        publicDemand: 0.1 / priceICP,
+        marketing: {
+          ...state.marketing,
+          cost: {
+            ...state.marketing.cost,
+            value: Math.min(state.marketing.cost.value * 2.5, 256e2),
+          },
+          quantity: Math.min(state.marketing.quantity + 1, 10),
+        },
       };
-    }
-    case 'DECREASE_CLIP_PRICE': {
-      const priceDCP = Math.max(state.clipPriceRef - 0.01, 0.1);
+    case 'UPDATE_WIRE_COST':
       return {
         ...state,
-        clipPriceRef: priceDCP,
-        clipPrice: priceDCP * Math.max(1, state.marketingBonus),
-        publicDemand: 0.1 / priceDCP,
+        wire: {
+          cost: {
+            ...state.wire.cost,
+            value: state.wire.cost.value > 8 ? state.wire.cost.value - 0.2 : Math.random() * 10 + 10, // 0|1 0|10 10|20
+          },
+        },
       };
-    }
-    case 'BUY_MARKETING': {
-      const marketingM = Math.max(0, Math.min(state.marketing + 1, 10));
-      const marketingCostM = Math.max(100, Math.min(state.marketingCost * 2.5, 256e2));
+    case 'INCREASE_SELLING_PRICE': {
+      const priceHigher = Math.min(state.selling.ref + 0.01, 1);
       return {
         ...state,
-        marketing: marketingM,
-        marketingCost: marketingCostM,
+        selling: {
+          price: priceHigher * Math.max(1, state.marketing.bonus),
+          ref: priceHigher,
+        },
+        publicDemand: {
+          quantity: 0.1 / priceHigher,
+        },
       };
     }
-    case 'MARKETING_BONUS': {
-      const clipPriceMB = state.clipPriceRef * Math.max(1, action.bonus);
+    case 'DECREASE_SELLING_PRICE': {
+      const priceLower = Math.max(state.selling.ref - 0.01, 0.1);
       return {
         ...state,
-        marketingBonus: action.bonus,
-        clipPrice: clipPriceMB,
+        selling: {
+          price: priceLower * Math.max(1, state.marketing.bonus),
+          ref: priceLower,
+        },
+        publicDemand: {
+          quantity: 0.1 / priceLower,
+        },
       };
     }
+    case 'INCREASE_FUNDS_QUANTITY': {
+      return {
+        ...state,
+        funds: {
+          quantity: state.funds.quantity + action.quantity * state.selling.price,
+        },
+      };
+    }
+    case 'DECREASE_FUNDS_QUANTITY': {
+      return {
+        ...state,
+        funds: {
+          quantity: Math.max(0, state.funds.quantity - action.quantity),
+        },
+      };
+    }
+    case 'INCREASE_INVENTORY_QUANTITY': {
+      return {
+        ...state,
+        inventory: {
+          ...state.inventory,
+          quantity: state.inventory.quantity + action.quantity * Math.max(1, state.inventory.bonus),
+        },
+      };
+    }
+    case 'DECREASE_INVENTORY_QUANTITY': {
+      return {
+        ...state,
+        inventory: {
+          ...state.inventory,
+          quantity: action.quantity,
+        },
+      };
+    }
+    case 'UPDATE_MARKETING_BONUS':
+      return {
+        ...state,
+        marketing: {
+          ...state.marketing,
+          bonus: action.bonus,
+        },
+        selling: {
+          ...state.selling,
+          price: state.selling.price * Math.max(1, action.bonus),
+        },
+      };
+    case 'UPDATE_INVENTORY_BONUS':
+      return {
+        ...state,
+        inventory: {
+          ...state.inventory,
+          bonus: action.bonus,
+        },
+      };
     default:
       return state;
   }

@@ -1,13 +1,28 @@
+$mobile-portrait: 768px;
+
 .loader {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-xs);
   justify-content: center;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
   height: 100vh;
+
+  @media (min-width: $mobile-portrait) {
+    padding: var(--spacing-medium);
+  }
 }
 
-.label {
-  font-size: var(--font-size-xl);
-  color: var(--mode-color-2);
+.progress {
+  max-width: 20rem;
+  width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-medium);
+
+  @media (min-width: $mobile-portrait) {
+    font-size: var(--font-size-large);
+  }
 }

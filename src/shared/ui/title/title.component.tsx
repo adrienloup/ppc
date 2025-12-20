@@ -1,5 +1,5 @@
-import type { Title } from '@/src/shared/ui/title/title.type.ts';
+import type { TitleType } from '@/src/shared/ui/title/title.type.ts';
 
-export const TitleComponent = ({ className, children, tag: Tag = 'h1' }: Title) => {
+export const TitleComponent = ({ children, className, tag: Tag = 'h1' }: TitleType) => {
   return <Tag className={className}>{children}</Tag>;
 };

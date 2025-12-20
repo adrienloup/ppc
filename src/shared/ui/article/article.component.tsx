@@ -1,7 +1,7 @@
-import type { Article } from '@/src/shared/ui/article/article.type.ts';
+import type { ArticleType } from '@/src/shared/ui/article/article.type.ts';
 import styles from '@/src/shared/ui/article/article.module.scss';
 
-export const ArticleComponent = ({ children }: Article) => {
+export const ArticleComponent = ({ children }: ArticleType) => {
   return (
     <article
       className={styles.article}
