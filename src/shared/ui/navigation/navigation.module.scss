@@ -16,5 +16,10 @@ $mobile-portrait: 768px;
   text-transform: uppercase;
   font-size: var(--font-size-medium);
   color: var(--theme-color-1);
-  outline-offset: 0.25rem;
+
+  &:focus-visible,
+  &:active {
+    outline-width: 0.25rem;
+    outline-offset: 0.25rem;
+  }
 }

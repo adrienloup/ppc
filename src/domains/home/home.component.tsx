@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import vanish from '@/src/assets/sounds/vanish.mp3';
-import { useNoticeDispatch } from '@/src/domains/notice/interface/useNotice.ts';
+import notice from '@/src/assets/sounds/notice.mp3';
+import { useNotice } from '@/src/domains/notice/interface/useNotice.ts';
 import { useAudioUnlock } from '@/src/shared/hooks/useAudio.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
@@ -8,9 +8,7 @@ import { ReaderComponent } from '@/src/shared/ui/reader/reader.component.tsx';
 import styles from '@/src/domains/home/home.module.scss';
 
 function HomeComponent() {
-  const noticeDispatch = useNoticeDispatch();
-  useAudioUnlock(); // <-- débloque automatiquement après 1 geste
-
+  const [, addNotice] = useNotice();
   const audioRef = useRef<HTMLAudioElement>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const timeoutRef = useRef<number>(0);
@@ -22,7 +20,7 @@ function HomeComponent() {
       console.log('Auto trigger sound');
       buttonRef.current?.click();
       audioRef.current?.play().catch(() => {});
-    }, 2000);
+    }, 2e3);
 
     return () => clearTimeout(timeoutRef.current);
   }, []);
@@ -37,29 +35,17 @@ function HomeComponent() {
       >
         button
       </ClickerComponent>
+      <button onClick={() => addNotice({ text: 'tut' })}>button</button>
+      <button onClick={() => addNotice({ text: 'tut' })}>button</button>
+      <button onClick={() => addNotice({ text: 'tut' })}>button</button>
       <ReaderComponent
         className={styles.button}
-        onClick={() => console.log('player')}
+        onClick={() => addNotice({ text: 'tut' })}
         innerRef={buttonRef}
-        sound={vanish}
+        sound={notice}
       >
-        ReaderComponent
+        1
       </ReaderComponent>
-      <button
-        onClick={() =>
-          noticeDispatch({
-            type: 'ADD_ALERT',
-            alert: {
-              id: 'log-in',
-              text: `tutu is connected`,
-              status: 'success',
-              timeout: 1e4,
-            },
-          })
-        }
-      >
-        notification
-      </button>
     </ArticleComponent>
   );
 }

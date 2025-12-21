@@ -1,37 +1,40 @@
-import { type FC, useReducer } from 'react';
+import { type FC, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { noticeReducer } from '@/src/domains/notice/application/notice.reducer.ts';
-import { NoticeContext, NoticeDispatchContext } from '@/src/domains/notice/interface/notice.context.ts';
-import { AlertComponent } from '@/src/domains/notice/ui/alert/alert.component.tsx';
-import { AlertsComponent } from '@/src/domains/notice/ui/alerts/alerts.component.tsx';
-import type { AlertType } from '@/src/domains/notice/ui/alert/alert.type.ts';
+import { NoticeContext } from '@/src/domains/notice/interface/notice.context.ts';
+import { NoticeComponent } from '@/src/domains/notice/ui/notice/notice.component.tsx';
+import { NoticesComponent } from '@/src/domains/notice/ui/notices/notices.component.tsx';
+import type { NoticeType } from '@/src/domains/notice/ui/notice/notice.type.ts';
 import type { ChildrenType } from '@/src/shared/types/children.type.ts';
 
 export const NoticeProvider: FC<{ children: ChildrenType }> = ({ children }) => {
-  const [state, dispatch] = useReducer(noticeReducer, []);
+  const [notices, setNotices] = useState<NoticeType[]>([]);
+
+  const addNotice = (notice: NoticeType) => {
+    const id = Math.random().toString(36).slice(2, 9) + new Date().getTime().toString(36);
+    setNotices((prev) => [{ ...notice, id }, ...prev]);
+  };
+
+  const removeNotice = (id: string) => {
+    setNotices((prev) => prev.filter((notice) => notice.id !== id));
+  };
 
   return (
-    <NoticeContext.Provider value={state}>
-      <NoticeDispatchContext.Provider value={dispatch}>
-        {children}
-        {state.length
-          ? createPortal(
-              <AlertsComponent>
-                {state.map((alert: AlertType) => (
-                  <AlertComponent
-                    key={alert.id}
-                    id={alert.id}
-                    text={alert.text}
-                    status={alert.status}
-                    timeout={alert.timeout}
-                    onRemove={() => dispatch({ type: 'REMOVE_ALERT', id: alert.id })}
-                  />
-                ))}
-              </AlertsComponent>,
-              document.getElementById('_ppc_emma0_1')!
-            )
-          : null}
-      </NoticeDispatchContext.Provider>
+    <NoticeContext.Provider value={[notices, addNotice]}>
+      {children}
+      {notices.length
+        ? createPortal(
+            <NoticesComponent>
+              {notices.map((notice: NoticeType) => (
+                <NoticeComponent
+                  key={notice.id}
+                  {...notice}
+                  remove={() => removeNotice(notice.id!)}
+                />
+              ))}
+            </NoticesComponent>,
+            document.getElementById('_ppc_emma0_1')!
+          )
+        : null}
     </NoticeContext.Provider>
   );
 };

@@ -1,5 +1,5 @@
 import type { ChildrenType } from '@/src/shared/types/children.type.ts';
 
-export interface AlertsType {
+export interface NoticesType {
   children: ChildrenType;
 }
