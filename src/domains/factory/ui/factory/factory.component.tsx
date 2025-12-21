@@ -3,11 +3,13 @@ import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interfa
 import { useEnginery, useEngineryDispatch } from '@/src/domains/enginery/interface/useEnginery.ts';
 import { getQuantity } from '@/src/domains/enginery/utils/getQuantity.ts';
 import { BusinessComponent } from '@/src/domains/factory/ui/business/business.component.tsx';
-import { ManufactureComponent } from '@/src/domains/factory/ui/manufacture/manufacture.component.tsx';
-import { MarketComponent } from '@/src/domains/factory/ui/market/market.component.tsx';
+import { ComputingComponent } from '@/src/domains/factory/ui/computing/computing.component.tsx';
+import { ManufacturingComponent } from '@/src/domains/factory/ui/manufacturing/manufacturing.component.tsx';
 import { PaperclipComponent } from '@/src/domains/factory/ui/paperclip/paperclip.component.tsx';
+import { PowerComponent } from '@/src/domains/factory/ui/power/power.component.tsx';
 import { StageComponent } from '@/src/domains/factory/ui/stage/stage.component.tsx';
 import { TechnologyComponent } from '@/src/domains/factory/ui/technology/technology.component.tsx';
+import { TradeComponent } from '@/src/domains/factory/ui/trade/trade.component.tsx';
 import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/useSupply.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
@@ -72,11 +74,13 @@ function FactoryComponent() {
       />
       <PaperclipComponent />
       <CardsComponent className={styles.cards}>
-        <ManufactureComponent />
+        <ManufacturingComponent />
         <BusinessComponent />
         <TechnologyComponent />
-        <MarketComponent />
+        <TradeComponent />
         <StageComponent />
+        <ComputingComponent />
+        <PowerComponent />
         <CardComponent>
           megaClipper
           <ClickerComponent

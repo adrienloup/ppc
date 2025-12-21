@@ -8,6 +8,12 @@
   font-weight: normal;
   cursor: pointer;
 
+  &:focus-visible,
+  &:active {
+    outline-color: var(--theme-color-14);
+    outline-style: solid;
+  }
+
   &:disabled {
     pointer-events: none;
     cursor: default;

@@ -7,21 +7,23 @@
 }
 
 .title {
+  display: flex;
+  gap: var(--spacing-small);
   text-transform: uppercase;
   font-size: var(--font-size-large);
-  color: var(--mode-color-2);
+  color: var(--theme-color-3);
 }
 
 .button {
+  gap: var(--spacing-small);
   padding: var(--spacing-small);
   background-color: var(--theme-color-3);
-  text-transform: uppercase;
   font-size: var(--font-size-medium);
   color: var(--theme-color-1);
 
   &:focus-visible,
   &:active {
-    outline: 0.35rem solid var(--theme-color-9);
+    outline-width: 0.35rem;
   }
 }
 

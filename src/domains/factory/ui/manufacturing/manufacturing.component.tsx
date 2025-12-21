@@ -13,9 +13,9 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { TagComponent } from '@/src/shared/ui/tag/tag.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
-import styles from '@/src/domains/factory/ui/manufacture/manufacture.module.scss';
+import styles from '@/src/domains/factory/ui/manufacturing/manufacturing.module.scss';
 
-export const ManufactureComponent = () => {
+export const ManufacturingComponent = () => {
   const businessDispatch = useBusinessDispatch();
   const engineryDispatch = useEngineryDispatch();
   const supplyDispatch = useSupplyDispatch();
@@ -32,6 +32,7 @@ export const ManufactureComponent = () => {
   const increaseWireQuantity = () => {
     const wireQuantity = getQuantity(paperclip.quantity);
     const fundsQuantity = wire.cost.value;
+
     supplyDispatch({ type: 'INCREASE_WIRE_QUANTITY', quantity: wireQuantity });
     businessDispatch({ type: 'DECREASE_FUNDS_QUANTITY', quantity: fundsQuantity });
   };

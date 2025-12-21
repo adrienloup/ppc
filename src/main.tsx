@@ -9,4 +9,4 @@ createRoot(document.getElementById('_ppc_emma0_1')!).render(
   </StrictMode>
 );
 
-console.log(`[ppc] ${version} %c@jff`, 'padding: 1px 3px; background-color: #4600ff; color: #fff;');
+console.info(`[ppc] ${version} %c@jff`, 'padding: 1px 3px; background-color: #4600ff; color: #fff;');
