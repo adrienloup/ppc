@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
 import { useEnginery, useEngineryDispatch } from '@/src/domains/enginery/interface/useEnginery.ts';
 import { getQuantity } from '@/src/domains/enginery/utils/getQuantity.ts';
-import { BusinessComponent } from '@/src/domains/factory/interface/ui/business/business.component.tsx';
-import { ManufactureComponent } from '@/src/domains/factory/interface/ui/manufacture/manufacture.component.tsx';
-import { MarketComponent } from '@/src/domains/factory/interface/ui/market/market.component.tsx';
-import { PaperclipComponent } from '@/src/domains/factory/interface/ui/paperclip/paperclip.component.tsx';
-import { StageComponent } from '@/src/domains/factory/interface/ui/stage/stage.component.tsx';
-import { TechnologyComponent } from '@/src/domains/factory/interface/ui/technology/technology.component.tsx';
+import { BusinessComponent } from '@/src/domains/factory/ui/business/business.component.tsx';
+import { ManufactureComponent } from '@/src/domains/factory/ui/manufacture/manufacture.component.tsx';
+import { MarketComponent } from '@/src/domains/factory/ui/market/market.component.tsx';
+import { PaperclipComponent } from '@/src/domains/factory/ui/paperclip/paperclip.component.tsx';
+import { StageComponent } from '@/src/domains/factory/ui/stage/stage.component.tsx';
+import { TechnologyComponent } from '@/src/domains/factory/ui/technology/technology.component.tsx';
 import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/useSupply.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
@@ -15,7 +15,7 @@ import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
-import styles from '@/src/domains/factory/interface/ui/factory/factory.module.scss';
+import styles from '@/src/domains/factory/ui/factory/factory.module.scss';
 
 function FactoryComponent() {
   const supplyDispatch = useSupplyDispatch();

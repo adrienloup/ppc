@@ -18,6 +18,11 @@
   text-transform: uppercase;
   font-size: var(--font-size-medium);
   color: var(--theme-color-1);
+
+  &:focus-visible,
+  &:active {
+    outline: 0.35rem solid var(--theme-color-9);
+  }
 }
 
 @keyframes FadeIn {

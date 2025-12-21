@@ -48,17 +48,17 @@ $mobile-portrait: 768px;
 .button {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   padding: var(--spacing-small) var(--spacing-small) var(--spacing-small) 0;
   background-color: var(--theme-color-3);
   line-height: var(--font-size-small);
   font-size: var(--font-size-small);
   color: var(--theme-color-1);
-  outline-offset: -0.25rem;
 
   &:focus-visible,
   &:active {
     outline: 0.25rem solid var(--theme-color-9);
+    outline-offset: -0.25rem;
   }
 }
 

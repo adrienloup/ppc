@@ -5,16 +5,16 @@ import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
-import styles from '@/src/domains/factory/interface/ui/market/market.module.scss';
+import styles from '@/src/domains/factory/ui/stage/stage.module.scss';
 
-export const MarketComponent = () => {
+export const StageComponent = () => {
   return (
     <CardComponent className={styles.card}>
       <TitleComponent
         className={styles.title}
         tag="h2"
       >
-        market
+        stage
       </TitleComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>

@@ -23,6 +23,6 @@ $mobile-portrait: 768px;
   font-size: var(--font-size-large);
 
   @media (min-width: $mobile-portrait) {
-    font-size: var(--font-size-wide);
+    font-size: var(--font-size-x-large);
   }
 }

@@ -3,16 +3,16 @@ import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 import { PageComponent } from '@/src/shared/ui/page/page.component.tsx';
 import { delay } from '@/src/shared/utils/delay.ts';
 
-const FactoryComponent = lazy(() => delay(import('@/src/domains/factory/ui/factory/factory.component.tsx'), 5e3));
+const StoreComponent = lazy(() => delay(import('@/src/domains/store/store.component.tsx'), 5e3));
 
-function FactoryPage() {
+function StorePage() {
   return (
     <Suspense fallback={<LoaderComponent />}>
       <PageComponent>
-        <FactoryComponent />
+        <StoreComponent />
       </PageComponent>
     </Suspense>
   );
 }
 
-export default FactoryPage;
+export default StorePage;

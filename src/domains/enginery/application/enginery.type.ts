@@ -1,4 +1,4 @@
-import type { CostType } from '@/src/shared/types/costType.ts';
+import type { CostType } from '@/src/shared/types/cost.type.ts';
 
 export type EngineryType = Record<
   string,

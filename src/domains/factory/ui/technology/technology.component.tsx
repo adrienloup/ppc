@@ -5,7 +5,7 @@ import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
-import styles from '@/src/domains/factory/interface/ui/technology/technology.module.scss';
+import styles from '@/src/domains/factory/ui/technology/technology.module.scss';
 
 export const TechnologyComponent = () => {
   return (

@@ -8,10 +8,12 @@ import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
 import { DialsComponent } from '@/src/shared/ui/dials/dials.component.tsx';
+import { GroupComponent } from '@/src/shared/ui/group/group.component.tsx';
 import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
+import { TagComponent } from '@/src/shared/ui/tag/tag.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
-import styles from '@/src/domains/factory/interface/ui/manufacture/manufacture.module.scss';
+import styles from '@/src/domains/factory/ui/manufacture/manufacture.module.scss';
 
 export const ManufactureComponent = () => {
   const businessDispatch = useBusinessDispatch();
@@ -68,11 +70,21 @@ export const ManufactureComponent = () => {
       </DialsComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>{wire.cost.value.toFixed(2)}</ValueComponent>
+          <ValueComponent>${wire.cost.value.toFixed(2)}</ValueComponent>
           <LabelComponent>wire cost</LabelComponent>
         </DialComponent>
         <DialComponent>
-          <ValueComponent>{wire.quantity}</ValueComponent>
+          <GroupComponent>
+            <ValueComponent>{wire.quantity}</ValueComponent>
+            {wire.quantity === 0 && (
+              <TagComponent
+                className={styles.box}
+                icon="block"
+              >
+                empty
+              </TagComponent>
+            )}
+          </GroupComponent>
           <LabelComponent>wire stock</LabelComponent>
           <ClickerComponent
             className={styles.button}
@@ -87,8 +99,8 @@ export const ManufactureComponent = () => {
       </DialsComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>{autoClipper.cost.value.toFixed(2)}</ValueComponent>
-          <LabelComponent>auto clipper cost</LabelComponent>
+          <ValueComponent>${autoClipper.cost.value.toFixed(2)}</ValueComponent>
+          <LabelComponent>autoclipper cost</LabelComponent>
           <ClickerComponent
             prefix="+"
             value={1}

@@ -1,0 +1,30 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-x-small);
+  padding: var(--spacing-x-small);
+  border: 0.1rem solid var(--theme-color-1);
+  line-height: var(--font-size-medium);
+  font-size: var(--font-size-medium);
+  color: var(--theme-color-1);
+
+  &.orange {
+    background-color: var(--theme-color-11);
+  }
+
+  &.pink {
+    background-color: var(--theme-color-9);
+  }
+
+  &.purple {
+    background-color: var(--theme-color-8);
+  }
+
+  &.red {
+    background-color: var(--theme-color-10);
+  }
+}
+
+.icon {
+  font-size: var(--font-size-medium);
+}

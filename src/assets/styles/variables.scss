@@ -12,22 +12,27 @@
   --color-6: #6300ff;
   --color-7: #7200ff;
   --color-8: #8400ff;
-  --color-9: #00ff9d;
-  --color-10: #1aff00;
+  --color-9: #ff006a;
+  --color-10: #ff0026;
+  --color-11: #ff7300;
+  --color-12: #f7ff00;
+  --color-13: #1aff00;
+  --color-14: #00ff9d;
 }
 
 @mixin size {
-  --font-size-wide: 4rem;
+  --font-size-x-large: 4rem;
   --font-size-large: 2.5rem;
   --font-size-medium: 1.5rem;
   --font-size-small: 1rem;
 }
 
 @mixin spacing {
-  --spacing-wide: 3rem;
+  --spacing-x-large: 3rem;
   --spacing-large: 2.5rem;
   --spacing-medium: 1rem;
   --spacing-small: 0.5rem;
+  --spacing-x-small: 0.15rem;
 }
 
 @mixin easing {
