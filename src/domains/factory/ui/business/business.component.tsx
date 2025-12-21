@@ -1,4 +1,4 @@
-import { useBusiness } from '@/src/domains/business/interface/useBusiness.ts';
+import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
 import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import { DialComponent } from '@/src/shared/ui/dial/dial.component.tsx';
@@ -11,7 +11,8 @@ import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
 import styles from '@/src/domains/factory/ui/business/business.module.scss';
 
 export const BusinessComponent = () => {
-  const { funds, inventory } = useBusiness();
+  const businessDispatch = useBusinessDispatch();
+  const { funds, inventory, marketing, selling } = useBusiness();
 
   return (
     <CardComponent className={styles.card}>
@@ -38,16 +39,28 @@ export const BusinessComponent = () => {
       </DialsComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>A</ValueComponent>
-          <LabelComponent>A</LabelComponent>
-          <ClickerComponent
-            className={styles.button}
-            prefix="+"
-            value={1}
-            onClick={() => console.log('onClick')}
-          >
-            +1
-          </ClickerComponent>
+          <ValueComponent>{selling.price.toFixed(2)}</ValueComponent>
+          <LabelComponent>selling price</LabelComponent>
+          <GroupComponent>
+            <ClickerComponent
+              className={styles.button}
+              prefix="-"
+              value={0.01 * Math.max(1, marketing.bonus)}
+              disabled={selling.ref === 0.1}
+              onClick={() => businessDispatch({ type: 'DECREASE_SELLING_PRICE' })}
+            >
+              -
+            </ClickerComponent>
+            <ClickerComponent
+              className={styles.button}
+              prefix="+"
+              value={0.01 * Math.max(1, marketing.bonus)}
+              disabled={selling.ref === 1}
+              onClick={() => businessDispatch({ type: 'INCREASE_SELLING_PRICE' })}
+            >
+              +
+            </ClickerComponent>
+          </GroupComponent>
         </DialComponent>
       </DialsComponent>
     </CardComponent>
