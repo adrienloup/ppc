@@ -1,6 +1,7 @@
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
 import { BusinessProvider } from '@/src/domains/business/interface/business.provider.tsx';
 import { EngineryProvider } from '@/src/domains/enginery/interface/enginery.provider.tsx';
+import { NoticeProvider } from '@/src/domains/notice/interface/notice.provider.tsx';
 import { SupplyProvider } from '@/src/domains/supply/interface/supply.provider.tsx';
 import type { ChildrenType } from '@/src/shared/types/children.type.ts';
 
@@ -18,6 +19,7 @@ const Providers = (providers: ProviderType[]) =>
   );
 
 export const AppProvider: FunctionComponent<{ children: ChildrenType }> = Providers([
+  [NoticeProvider],
   [BusinessProvider],
   [EngineryProvider],
   [SupplyProvider],

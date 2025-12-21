@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
 import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
-import { useEnginery, useEngineryDispatch } from '@/src/domains/enginery/interface/useEnginery.ts';
+import { useEnginery } from '@/src/domains/enginery/interface/useEnginery.ts';
 import { getQuantity } from '@/src/domains/enginery/utils/getQuantity.ts';
 import { BusinessComponent } from '@/src/domains/factory/ui/business/business.component.tsx';
 import { ComputingComponent } from '@/src/domains/factory/ui/computing/computing.component.tsx';
 import { ManufacturingComponent } from '@/src/domains/factory/ui/manufacturing/manufacturing.component.tsx';
+import { ModelingComponent } from '@/src/domains/factory/ui/modeling/modeling.component.tsx';
 import { PaperclipComponent } from '@/src/domains/factory/ui/paperclip/paperclip.component.tsx';
 import { PowerComponent } from '@/src/domains/factory/ui/power/power.component.tsx';
 import { StageComponent } from '@/src/domains/factory/ui/stage/stage.component.tsx';
@@ -14,26 +15,15 @@ import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/use
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
-import { CardComponent } from '@/src/shared/ui/card/card.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
-import { ClickerComponent } from '@/src/shared/ui/clicker/clicker.component.tsx';
 import styles from '@/src/domains/factory/ui/factory/factory.module.scss';
 
 function FactoryComponent() {
   const supplyDispatch = useSupplyDispatch();
   const businessDispatch = useBusinessDispatch();
-  const engineryDispatch = useEngineryDispatch();
-  const { paperclip, wire } = useSupply();
+  const { wire } = useSupply();
   const { publicDemand, inventory } = useBusiness();
   const { autoClipper, paperclipFactory, megaClipper } = useEnginery();
-
-  const buyMegaClipper = () => {
-    engineryDispatch({ type: 'BUY_MEGA_CLIPPER' });
-  };
-
-  const buyPaperclipFactory = () => {
-    engineryDispatch({ type: 'BUY_PAPERCLIP_FACTORY' });
-  };
 
   const autoProduction = useCallback(() => {
     if (!wire.quantity) return;
@@ -81,31 +71,7 @@ function FactoryComponent() {
         <StageComponent />
         <ComputingComponent />
         <PowerComponent />
-        <CardComponent>
-          megaClipper
-          <ClickerComponent
-            prefix="+"
-            value={1}
-            onClick={buyMegaClipper}
-          >
-            +1
-          </ClickerComponent>
-        </CardComponent>
-        <CardComponent>
-          <div>
-            paperclipFactory
-            <ClickerComponent
-              prefix="+"
-              value={1}
-              onClick={buyPaperclipFactory}
-            >
-              +1
-            </ClickerComponent>
-          </div>
-        </CardComponent>
-        <CardComponent>
-          <div>paperclip : {paperclip.quantity}</div>
-        </CardComponent>
+        <ModelingComponent />
       </CardsComponent>
     </ArticleComponent>
   );

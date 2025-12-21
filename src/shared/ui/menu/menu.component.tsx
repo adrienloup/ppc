@@ -46,7 +46,7 @@ export const MenuComponent = () => {
         menu
       </ReaderComponent>
       <div className={styles.inside}>
-        <NavigationComponent links={['profile', 'factory', 'store', 'explore']} />
+        <NavigationComponent links={['home', 'profile', 'factory', 'store', 'explore']} />
       </div>
     </div>
   );

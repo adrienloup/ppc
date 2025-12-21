@@ -41,6 +41,14 @@ export const ManufacturingComponent = () => {
     engineryDispatch({ type: 'BUY_AUTO_CLIPPER' });
   };
 
+  const buyMegaClipper = () => {
+    engineryDispatch({ type: 'BUY_MEGA_CLIPPER' });
+  };
+
+  const buyPaperclipFactory = () => {
+    engineryDispatch({ type: 'BUY_PAPERCLIP_FACTORY' });
+  };
+
   const autoUpdateWireCost = useCallback(() => {
     supplyDispatch({ type: 'UPDATE_WIRE_COST' });
   }, [supplyDispatch]);
@@ -53,7 +61,7 @@ export const ManufacturingComponent = () => {
         className={styles.title}
         tag="h2"
       >
-        manufacture
+        manufacturing
       </TitleComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
@@ -107,6 +115,30 @@ export const ManufacturingComponent = () => {
             value={1}
             disabled={funds.quantity < autoClipper.cost.value}
             onClick={buyAutoClipper}
+          >
+            +1
+          </ClickerComponent>
+        </DialComponent>
+      </DialsComponent>
+      <DialsComponent className={styles.dials}>
+        <DialComponent>
+          megaClipper
+          <ClickerComponent
+            prefix="+"
+            value={1}
+            onClick={buyMegaClipper}
+          >
+            +1
+          </ClickerComponent>
+        </DialComponent>
+      </DialsComponent>
+      <DialsComponent className={styles.dials}>
+        <DialComponent>
+          paperclipFactory
+          <ClickerComponent
+            prefix="+"
+            value={1}
+            onClick={buyPaperclipFactory}
           >
             +1
           </ClickerComponent>
