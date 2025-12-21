@@ -85,14 +85,7 @@ export const ManufacturingComponent = () => {
         <DialComponent>
           <GroupComponent>
             <ValueComponent>{wire.quantity}</ValueComponent>
-            {wire.quantity === 0 && (
-              <TagComponent
-                className={styles.box}
-                icon="block"
-              >
-                empty
-              </TagComponent>
-            )}
+            {wire.quantity === 0 && <TagComponent icon="block">empty</TagComponent>}
           </GroupComponent>
           <LabelComponent>wire stock</LabelComponent>
           <ClickerComponent

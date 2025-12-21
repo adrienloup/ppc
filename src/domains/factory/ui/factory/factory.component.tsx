@@ -30,9 +30,18 @@ function FactoryComponent() {
     const quantity = getQuantity(wire.quantity, autoClipper.quantity, megaClipper.quantity, paperclipFactory.quantity);
 
     if (!quantity) return;
-    supplyDispatch({ type: 'DECREASE_WIRE_QUANTITY', quantity });
-    businessDispatch({ type: 'INCREASE_INVENTORY_QUANTITY', quantity });
-    supplyDispatch({ type: 'INCREASE_PAPERCLIP_QUANTITY', quantity });
+    supplyDispatch({
+      type: 'DECREASE_WIRE_QUANTITY',
+      quantity,
+    });
+    businessDispatch({
+      type: 'INCREASE_INVENTORY_QUANTITY',
+      quantity,
+    });
+    supplyDispatch({
+      type: 'INCREASE_PAPERCLIP_QUANTITY',
+      quantity,
+    });
   }, [
     supplyDispatch,
     businessDispatch,
@@ -49,12 +58,18 @@ function FactoryComponent() {
     const inventoryQuantity = Math.max(0, Math.floor(inventory.quantity * (1 - publicDemand.quantity)));
     const fundsQuantity = inventory.quantity - inventoryQuantity;
 
-    businessDispatch({ type: 'DECREASE_INVENTORY_QUANTITY', quantity: inventoryQuantity });
-    businessDispatch({ type: 'INCREASE_FUNDS_QUANTITY', quantity: fundsQuantity });
+    businessDispatch({
+      type: 'DECREASE_INVENTORY_QUANTITY',
+      quantity: inventoryQuantity,
+    });
+    businessDispatch({
+      type: 'INCREASE_FUNDS_QUANTITY',
+      quantity: fundsQuantity,
+    });
   }, [businessDispatch, businessDispatch, inventory.quantity, publicDemand.quantity]);
 
-  useInterval(autoProduction, 1e3, true);
-  useInterval(autoSell, 5e2, true);
+  useInterval(autoProduction, 1e3);
+  useInterval(autoSell, 5e2);
 
   return (
     <ArticleComponent>

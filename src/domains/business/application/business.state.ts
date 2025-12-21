@@ -17,7 +17,7 @@ export const BUSINESS_STATE: BusinessType = {
     ref: 0.2,
   },
   inventory: {
-    bonus: 0,
+    bonus: 2,
     quantity: 0,
   },
 };
