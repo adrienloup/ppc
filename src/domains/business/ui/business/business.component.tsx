@@ -8,11 +8,11 @@ import { LabelComponent } from '@/src/shared/ui/label/label.component.tsx';
 import { TagComponent } from '@/src/shared/ui/tag/tag.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
-import styles from '@/src/domains/factory/ui/business/business.module.scss';
+import styles from '@/src/domains/business/ui/business/business.module.scss';
 
 export const BusinessComponent = () => {
   const businessDispatch = useBusinessDispatch();
-  const { funds, inventory, marketing, selling } = useBusiness();
+  const { funds, inventory, marketing, price } = useBusiness();
 
   return (
     <CardComponent className={styles.card}>
@@ -32,33 +32,35 @@ export const BusinessComponent = () => {
         <DialComponent>
           <GroupComponent>
             <ValueComponent>{inventory.quantity}</ValueComponent>
-            {inventory.bonus ? <TagComponent color="green">x{inventory.bonus}</TagComponent> : null}
+            {inventory.bonus > 1 ? <TagComponent color="green">x{inventory.bonus}</TagComponent> : null}
           </GroupComponent>
           <LabelComponent>unsold inventory</LabelComponent>
         </DialComponent>
       </DialsComponent>
       <DialsComponent className={styles.dials}>
         <DialComponent>
-          <ValueComponent>{selling.price.toFixed(2)}</ValueComponent>
+          <GroupComponent>
+            <ValueComponent>${(price.quantity * marketing.bonus).toFixed(2)}</ValueComponent>
+            {marketing.bonus > 1 ? <TagComponent color="green">x{marketing.bonus}</TagComponent> : null}
+          </GroupComponent>
           <LabelComponent>selling price</LabelComponent>
           <GroupComponent>
             <ClickerComponent
               className={styles.button}
-              prefix="-"
-              value={0.01 * Math.max(1, marketing.bonus)}
-              disabled={selling.ref === 0.1}
+              value={`-${0.1 * marketing.bonus}`}
+              disabled={price.quantity === 0.1}
               onClick={() => businessDispatch({ type: 'DECREASE_SELLING_PRICE' })}
             >
-              -
+              -{0.1 * marketing.bonus}
             </ClickerComponent>
+            <div>{price.quantity}</div>
             <ClickerComponent
               className={styles.button}
-              prefix="+"
-              value={0.01 * Math.max(1, marketing.bonus)}
-              disabled={selling.ref === 1}
+              value={`+${0.1 * marketing.bonus}`}
+              disabled={price.quantity === 1}
               onClick={() => businessDispatch({ type: 'INCREASE_SELLING_PRICE' })}
             >
-              +
+              +{0.1 * marketing.bonus}
             </ClickerComponent>
           </GroupComponent>
         </DialComponent>

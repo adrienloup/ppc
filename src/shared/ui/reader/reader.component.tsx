@@ -4,7 +4,15 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { ReaderType } from '@/src/shared/ui/reader/reader.type.ts';
 import styles from '@/src/shared/ui/reader/reader.module.scss';
 
-export const ReaderComponent = ({ children, className, disabled, innerRef, onClick, sound, ...props }: ReaderType) => {
+export const ReaderComponent = ({
+  children,
+  className,
+  disabled,
+  innerRef,
+  onClick,
+  sound,
+  ...props
+}: ReaderType) => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {

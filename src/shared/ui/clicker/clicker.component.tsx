@@ -11,14 +11,7 @@ export interface Value {
   y: number;
 }
 
-export const ClickerComponent = ({
-  children,
-  className,
-  disabled,
-  onClick,
-  prefix,
-  value,
-}: ClickerType) => {
+export const ClickerComponent = ({ children, className, disabled, onClick, value }: ClickerType) => {
   const [values, setValues] = useState<Value[]>([]);
   const timeoutsRef = useRef<number[]>([]);
 
@@ -65,7 +58,6 @@ export const ClickerComponent = ({
           className={styles.value}
           style={getStyle(v.x, v.y)}
         >
-          {prefix}
           {value}
         </span>
       ))}

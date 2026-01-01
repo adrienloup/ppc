@@ -15,28 +15,26 @@ export const businessReducer = (state: BusinessType, action: BusinessDispatchTyp
         },
       };
     case 'INCREASE_SELLING_PRICE': {
-      const priceHigher = Math.min(state.selling.ref + 0.01, 1);
+      const raise = Math.round(Math.min(state.price.quantity + 0.1, 1) * 100) / 100;
       return {
         ...state,
-        selling: {
-          price: priceHigher * Math.max(1, state.marketing.bonus),
-          ref: priceHigher,
+        price: {
+          quantity: raise,
         },
         publicDemand: {
-          quantity: 0.1 / priceHigher,
+          quantity: 0.1 / raise,
         },
       };
     }
     case 'DECREASE_SELLING_PRICE': {
-      const priceLower = Math.max(state.selling.ref - 0.01, 0.1);
+      const lower = Math.round(Math.max(state.price.quantity - 0.1, 0.1) * 100) / 100;
       return {
         ...state,
-        selling: {
-          price: priceLower * Math.max(1, state.marketing.bonus),
-          ref: priceLower,
+        price: {
+          quantity: lower,
         },
         publicDemand: {
-          quantity: 0.1 / priceLower,
+          quantity: 0.1 / lower,
         },
       };
     }
@@ -44,7 +42,7 @@ export const businessReducer = (state: BusinessType, action: BusinessDispatchTyp
       return {
         ...state,
         funds: {
-          quantity: state.funds.quantity + action.quantity * state.selling.price,
+          quantity: state.funds.quantity + action.quantity * (state.price.quantity * state.marketing.bonus),
         },
       };
     }
@@ -61,7 +59,7 @@ export const businessReducer = (state: BusinessType, action: BusinessDispatchTyp
         ...state,
         inventory: {
           ...state.inventory,
-          quantity: state.inventory.quantity + action.quantity * Math.max(1, state.inventory.bonus),
+          quantity: state.inventory.quantity + action.quantity * state.inventory.bonus,
         },
       };
     }
@@ -81,10 +79,10 @@ export const businessReducer = (state: BusinessType, action: BusinessDispatchTyp
           ...state.marketing,
           bonus: action.bonus,
         },
-        selling: {
-          ...state.selling,
-          price: state.selling.price * Math.max(1, action.bonus),
-        },
+        // selling: {
+        //   ...state.selling,
+        //   price: state.price.quantity * action.bonus,
+        // },
       };
     case 'UPDATE_INVENTORY_BONUS':
       return {

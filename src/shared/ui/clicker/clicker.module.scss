@@ -1,16 +1,11 @@
 .button {
   position: relative;
-  padding: var(--spacing-small);
-  background-color: var(--theme-color-1);
-  font-size: var(--font-size-large);
+  background-color: transparent;
+  font-size: var(--font-size-medium);
 
   &:focus-visible,
   &:active {
     outline-width: 0.35rem;
-  }
-
-  &.disabled {
-    opacity: 0.5;
   }
 }
 
@@ -19,6 +14,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-1);
+
+  .disabled & {
+    opacity: 0.5;
+  }
 }
 
 .value {
@@ -29,8 +30,9 @@
   white-space: nowrap;
   padding: var(--spacing-small);
   animation: SlideUp 500ms var(--ease-out);
+  background-color: var(--theme-color-13);
   font-size: var(--font-size-large);
-  color: var(--theme-color-15);
+  color: var(--theme-color-1);
 }
 
 @keyframes SlideUp {

@@ -19,7 +19,8 @@ export const NoticeProvider: FC<{ children: ChildrenType }> = ({ children }) => 
   };
 
   return (
-    <NoticeContext.Provider value={[notices, addNotice]}>
+    <NoticeContext.Provider value={addNotice}>
+      {/*<NoticeContext.Provider value={[notices, addNotice]}> @TODO */}
       {children}
       {notices.length
         ? createPortal(

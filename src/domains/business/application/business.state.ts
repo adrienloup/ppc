@@ -5,19 +5,18 @@ export const BUSINESS_STATE: BusinessType = {
     quantity: 0,
   },
   marketing: {
-    bonus: 0,
+    bonus: 1,
     cost: { asset: 'funds', value: 100 },
     quantity: 0,
   },
   publicDemand: {
     quantity: 0.5,
   },
-  selling: {
-    price: 0.2,
-    ref: 0.2,
+  price: {
+    quantity: 0.2,
   },
   inventory: {
-    bonus: 2,
+    bonus: 1,
     quantity: 0,
   },
 };

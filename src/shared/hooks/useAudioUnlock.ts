@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const useAudio = () => {
+export function useAudioUnlock() {
   const unlockedRef = useRef(false);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ export const useAudio = () => {
   }, []);
 
   return unlockedRef;
-};
+}

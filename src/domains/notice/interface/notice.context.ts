@@ -1,4 +1,5 @@
 import { createContext, type Dispatch } from 'react';
 import type { NoticeType } from '@/src/domains/notice/ui/notice/notice.type.ts';
 
-export const NoticeContext = createContext<[NoticeType[], Dispatch<NoticeType>] | undefined>(undefined);
+// export const NoticeContext = createContext<[NoticeType[], Dispatch<NoticeType>] | undefined>(undefined); @TODO
+export const NoticeContext = createContext<Dispatch<NoticeType> | undefined>(undefined);

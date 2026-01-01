@@ -12,9 +12,8 @@ export interface BusinessType {
   publicDemand: {
     quantity: number;
   };
-  selling: {
-    price: number;
-    ref: number;
+  price: {
+    quantity: number;
   };
   inventory: {
     bonus: number;

@@ -1,6 +1,7 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
 import { useEnginery, useEngineryDispatch } from '@/src/domains/enginery/interface/useEnginery.ts';
+import { useNotice } from '@/src/domains/notice/interface/useNotice.ts';
 import { useSupply, useSupplyDispatch } from '@/src/domains/supply/interface/useSupply.ts';
 import { getQuantity } from '@/src/domains/supply/utils/getQuantity.ts';
 import { useInterval } from '@/src/shared/hooks/useInterval.ts';
@@ -16,12 +17,14 @@ import { ValueComponent } from '@/src/shared/ui/value/value.component.tsx';
 import styles from '@/src/domains/factory/ui/manufacturing/manufacturing.module.scss';
 
 export const ManufacturingComponent = () => {
+  const addNotice = useNotice();
   const businessDispatch = useBusinessDispatch();
   const engineryDispatch = useEngineryDispatch();
   const supplyDispatch = useSupplyDispatch();
   const { autoClipper } = useEnginery();
   const { paperclip, wire } = useSupply();
   const { funds } = useBusiness();
+  const wireQuantityRef = useRef(wire.quantity);
 
   const increasePaperClipQuantity = () => {
     supplyDispatch({ type: 'DECREASE_WIRE_QUANTITY', quantity: 1 });
@@ -53,6 +56,13 @@ export const ManufacturingComponent = () => {
     supplyDispatch({ type: 'UPDATE_WIRE_COST' });
   }, [supplyDispatch]);
 
+  useEffect(() => {
+    if (wireQuantityRef.current !== 0 && wire.quantity === 0) {
+      addNotice({ text: 'empty wire stock', status: 'error' });
+    }
+    wireQuantityRef.current = wire.quantity;
+  }, [wire.quantity]);
+
   useInterval(autoUpdateWireCost, 1e4, true);
 
   return (
@@ -66,11 +76,11 @@ export const ManufacturingComponent = () => {
       <DialsComponent className={styles.dials}>
         <DialComponent>
           <ValueComponent>{0}</ValueComponent>
-          <LabelComponent>paperclips per second</LabelComponent>
+          <LabelComponent>per second</LabelComponent>
           <ClickerComponent
             className={styles.button}
-            prefix="+"
-            value={1}
+            value="+1"
+            disabled={wire.quantity === 0}
             onClick={increasePaperClipQuantity}
           >
             +1
@@ -90,8 +100,7 @@ export const ManufacturingComponent = () => {
           <LabelComponent>wire stock</LabelComponent>
           <ClickerComponent
             className={styles.button}
-            prefix="+"
-            value={getQuantity(paperclip.quantity)}
+            value={`+${getQuantity(paperclip.quantity)}`}
             disabled={funds.quantity < wire.cost.value}
             onClick={increaseWireQuantity}
           >
@@ -103,9 +112,13 @@ export const ManufacturingComponent = () => {
         <DialComponent>
           <ValueComponent>${autoClipper.cost.value.toFixed(2)}</ValueComponent>
           <LabelComponent>autoclipper cost</LabelComponent>
+        </DialComponent>
+        <DialComponent>
+          <ValueComponent>{autoClipper.quantity}</ValueComponent>
+          <LabelComponent>autoclipper</LabelComponent>
           <ClickerComponent
-            prefix="+"
-            value={1}
+            className={styles.button}
+            value="+1"
             disabled={funds.quantity < autoClipper.cost.value}
             onClick={buyAutoClipper}
           >
@@ -117,8 +130,7 @@ export const ManufacturingComponent = () => {
         <DialComponent>
           megaClipper
           <ClickerComponent
-            prefix="+"
-            value={1}
+            value="+1"
             onClick={buyMegaClipper}
           >
             +1
@@ -129,8 +141,7 @@ export const ManufacturingComponent = () => {
         <DialComponent>
           paperclipFactory
           <ClickerComponent
-            prefix="+"
-            value={1}
+            value="+1"
             onClick={buyPaperclipFactory}
           >
             +1

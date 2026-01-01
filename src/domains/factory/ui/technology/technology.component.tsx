@@ -22,8 +22,7 @@ export const TechnologyComponent = () => {
           <LabelComponent>A</LabelComponent>
           <ClickerComponent
             className={styles.button}
-            prefix="+"
-            value={1}
+            value="+1"
             onClick={() => console.log('onClick')}
           >
             +1

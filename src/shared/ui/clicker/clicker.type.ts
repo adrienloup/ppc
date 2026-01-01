@@ -3,6 +3,5 @@ import type { ButtonType } from '@/src/shared/ui/button/button.type.ts';
 
 export interface ClickerType extends ButtonType<HTMLButtonElement> {
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-  prefix: string;
-  value: number;
+  value: string;
 }

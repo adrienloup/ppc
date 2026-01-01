@@ -33,7 +33,7 @@
   }
 
   &.error {
-    background-color: var(--theme-color-11);
+    background-color: var(--theme-color-10);
   }
 }
 
@@ -91,7 +91,7 @@
   }
 
   .error & {
-    color: var(--theme-color-11);
+    color: var(--theme-color-10);
   }
 }
 

@@ -95,7 +95,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         autoClipper: {
           ...state.autoClipper,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_MEGA_CLIPPER_BONUS':
@@ -103,7 +103,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         megaClipper: {
           ...state.megaClipper,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_PAPERCLIP_FACTORY_BONUS':
@@ -111,7 +111,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         paperclipFactory: {
           ...state.paperclipFactory,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_BATTERY_TOWER_BONUS':
@@ -119,7 +119,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         batteryTower: {
           ...state.batteryTower,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_SOLAR_FARM_BONUS':
@@ -127,7 +127,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         solarFarm: {
           ...state.solarFarm,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_FRAMER_DRONE_BONUS':
@@ -135,7 +135,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         farmerDrone: {
           ...state.farmerDrone,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_HARVESTER_DRONE_BONUS':
@@ -143,7 +143,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         harvesterDrone: {
           ...state.harvesterDrone,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     case 'UPDATE_FIGHTER_DRONE_BONUS':
@@ -151,7 +151,7 @@ export const engineryReducer = (state: EngineryType, action: EngineryDispatchTyp
         ...state,
         fighterDrone: {
           ...state.fighterDrone,
-          bonus: Math.max(1, action.bonus),
+          bonus: action.bonus,
         },
       };
     default:

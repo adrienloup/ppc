@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useBusiness, useBusinessDispatch } from '@/src/domains/business/interface/useBusiness.ts';
+import { BusinessComponent } from '@/src/domains/business/ui/business/business.component.tsx';
 import { useEnginery } from '@/src/domains/enginery/interface/useEnginery.ts';
 import { getQuantity } from '@/src/domains/enginery/utils/getQuantity.ts';
-import { BusinessComponent } from '@/src/domains/factory/ui/business/business.component.tsx';
 import { ComputingComponent } from '@/src/domains/factory/ui/computing/computing.component.tsx';
 import { ManufacturingComponent } from '@/src/domains/factory/ui/manufacturing/manufacturing.component.tsx';
 import { ModelingComponent } from '@/src/domains/factory/ui/modeling/modeling.component.tsx';
@@ -27,9 +27,16 @@ function FactoryComponent() {
 
   const autoProduction = useCallback(() => {
     if (!wire.quantity) return;
-    const quantity = getQuantity(wire.quantity, autoClipper.quantity, megaClipper.quantity, paperclipFactory.quantity);
+
+    const quantity = getQuantity(
+      wire.quantity,
+      autoClipper.quantity,
+      megaClipper.quantity,
+      paperclipFactory.quantity
+    );
 
     if (!quantity) return;
+
     supplyDispatch({
       type: 'DECREASE_WIRE_QUANTITY',
       quantity,
