@@ -20,7 +20,9 @@ export const ReaderComponent = ({
       audioRef.current.currentTime = 0;
       audioRef.current.play().catch(() => {});
     }
-    onClick(e);
+    if (onClick) {
+      onClick(e);
+    }
   };
 
   return (

@@ -41,7 +41,7 @@ export const MenuComponent = () => {
       >
         <IconComponent
           className={styles.icon}
-          icon={open ? 'arrow_menu_open' : 'arrow_menu_close'}
+          icon={open ? 'arrow_menu_close' : 'arrow_menu_open'}
         />
         menu
       </ReaderComponent>

@@ -1,0 +1,25 @@
+.starter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-small);
+  margin: auto;
+  max-width: 60rem;
+}
+
+.button {
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-3);
+  font-size: var(--font-size-medium);
+  color: var(--theme-color-1);
+
+  &:focus-visible,
+  &:active {
+    outline-width: 0.35rem;
+  }
+}
+
+.text {
+  font-size: var(--font-size-large);
+}
