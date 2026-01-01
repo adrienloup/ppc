@@ -39,10 +39,7 @@ export const MenuComponent = () => {
         innerRef={buttonRef}
         sound={menu}
       >
-        <IconComponent
-          className={styles.icon}
-          icon={open ? 'arrow_menu_close' : 'arrow_menu_open'}
-        />
+        <IconComponent icon={open ? 'arrow_menu_close' : 'arrow_menu_open'} />
         menu
       </ReaderComponent>
       <div className={styles.inside}>

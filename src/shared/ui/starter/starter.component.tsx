@@ -1,17 +1,18 @@
-import start from '@/src/assets/sounds/start.mp3';
-import { ReaderComponent } from '@/src/shared/ui/reader/reader.component.tsx';
+import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
+import type { StarterType } from '@/src/shared/ui/starter/starter.type.ts';
 import styles from '@/src/shared/ui/starter/starter.module.scss';
 
-export const StarterComponent = () => {
+export const StarterComponent = ({ className, onStart }: StarterType) => {
   return (
-    <div className={styles.starter}>
+    <div className={classNames(styles.starter, className)}>
       <p className={styles.text}>Your session has been restored. Ready to work?</p>
-      <ReaderComponent
+      <ButtonComponent
         className={styles.button}
-        sound={start}
+        onClick={onStart}
       >
         Press Start
-      </ReaderComponent>
+      </ButtonComponent>
     </div>
   );
 };
