@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x-small);
+}
+
+.errorMessage {
+  color: var(--theme-color-11);
+}
+
+.helperText {
+  color: var(--theme-color-14);
+}

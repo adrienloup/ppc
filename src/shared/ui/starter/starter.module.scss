@@ -7,6 +7,10 @@
   max-width: 60rem;
 }
 
+.title {
+  font-size: var(--font-size-large);
+}
+
 .button {
   gap: var(--spacing-small);
   padding: var(--spacing-small);
@@ -18,8 +22,4 @@
   &:active {
     outline-width: 0.35rem;
   }
-}
-
-.text {
-  font-size: var(--font-size-large);
 }

@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
+import { useAuthDispatch } from '@/src/domains/auth/interface/useAuth.ts';
 
 export const useBeforeUnload = () => {
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      console.log('log>logout');
-    };
+  const AuthDispatch = useAuthDispatch();
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  useEffect(() => {
+    const onPagehide = () => AuthDispatch({ type: 'LOG_OUT' });
+
+    window.addEventListener('pagehide', onPagehide);
+    return () => window.removeEventListener('pagehide', onPagehide);
   }, []);
 };

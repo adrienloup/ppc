@@ -39,8 +39,11 @@ export const MenuComponent = () => {
         innerRef={buttonRef}
         sound={menu}
       >
-        <IconComponent icon={open ? 'arrow_menu_close' : 'arrow_menu_open'} />
         menu
+        <IconComponent
+          className={styles.icon}
+          icon={open ? 'top_panel_close' : 'top_panel_open'}
+        />
       </ReaderComponent>
       <div className={styles.inside}>
         <NavigationComponent links={['home', 'profile', 'factory', 'store', 'explore']} />

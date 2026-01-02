@@ -26,14 +26,15 @@
   --font-size-large: 2.5rem;
   --font-size-medium: 1.5rem;
   --font-size-small: 1rem;
+  --font-size-x-small: 0.5rem;
 }
 
 @mixin spacing {
-  --spacing-x-large: 3rem;
+  --spacing-x-large: 4rem;
   --spacing-large: 2.5rem;
   --spacing-medium: 1rem;
   --spacing-small: 0.5rem;
-  --spacing-x-small: 0.15rem;
+  --spacing-x-small: 0.25rem;
 }
 
 @mixin easing {

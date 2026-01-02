@@ -6,7 +6,7 @@ function ProfileComponent() {
 
   return (
     <ArticleComponent>
-      <button onClick={() => addNotice({ text: 'tut' })}>button</button>
+      <button onClick={() => addNotice({ text: '${name} is connected' })}>button</button>
     </ArticleComponent>
   );
 }

@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react';
-import { useBeforeUnload } from '@/src/shared/hooks/useBeforeUnload.ts';
 import { useTitle } from '@/src/shared/hooks/useTitle.ts';
 import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 import { PageComponent } from '@/src/shared/ui/page/page.component.tsx';
@@ -11,7 +10,6 @@ const FactoryComponent = lazy(() =>
 
 function FactoryPage() {
   useTitle('factory');
-  useBeforeUnload();
 
   return (
     <Suspense fallback={<LoaderComponent />}>

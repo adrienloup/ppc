@@ -21,7 +21,7 @@ export const LoaderComponent = ({ duration = 45e2, className }: LoaderType) => {
       <ProgressComponent
         className={styles.progress}
         duration={duration}
-        label="data"
+        label="state"
       />
     </div>
   );
