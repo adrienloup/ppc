@@ -4,7 +4,7 @@
   border: 0.35rem solid var(--theme-color-2);
 
   &.focus {
-    outline: 0.35rem solid var(--theme-color-15);
+    outline: 0.35rem solid var(--theme-color-10);
     outline-offset: -0.35rem;
   }
 
@@ -27,7 +27,7 @@
   font-weight: normal;
   font-size: var(--font-size-medium);
   color: var(--theme-color-3);
-  outline: 0;
+  outline: none;
 
   &::placeholder {
     font-style: italic;

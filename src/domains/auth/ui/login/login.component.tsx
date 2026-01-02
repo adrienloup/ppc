@@ -98,7 +98,7 @@ export const LoginComponent = ({ className }: LoginType) => {
       className={classNames(styles.login, className)}
       onSubmit={logIn}
     >
-      <TitleComponent className={styles.title}>an account is required to play</TitleComponent>
+      <TitleComponent className={styles.title}>an account is required</TitleComponent>
       <FieldComponent
         // className={styles.name}
         placeholder="name"

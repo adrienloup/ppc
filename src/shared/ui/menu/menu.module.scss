@@ -10,16 +10,16 @@ $mobile-portrait: 768px;
   will-change: height;
 
   &.open {
-    height: 20rem;
+    height: 10rem;
     transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
-      height: 10rem;
+      height: 5rem;
     }
   }
 }
 
-.inside {
+.inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -35,12 +35,12 @@ $mobile-portrait: 768px;
   color: var(--theme-color-1);
 
   .open & {
-    height: 20rem;
+    height: 10rem;
     visibility: visible;
     transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
-      height: 10rem;
+      height: 5rem;
     }
   }
 }
@@ -49,19 +49,41 @@ $mobile-portrait: 768px;
   position: absolute;
   top: 100%;
   right: 0;
-  gap: var(--spacing-x-small);
   padding: var(--spacing-small);
   background-color: var(--theme-color-3);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   color: var(--theme-color-1);
 
-  &:focus-visible,
-  &:active {
+  &:hover,
+  &:active,
+  &:focus-visible {
     outline-width: 0.25rem;
     outline-offset: -0.25rem;
   }
 }
 
-.icon {
-  font-size: var(--font-size-medium);
+.label {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  z-index: -1;
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(100%, 0, 0);
+  transition-property: opacity, visibility, transform;
+  transition-duration: 0ms, 0ms, 250ms;
+  transition-timing-function: var(--ease-expo);
+  transition-delay: 250ms, 250ms, 0ms;
+  font-size: var(--font-size-small);
+  color: var(--theme-color-3);
+
+  .open & {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+    transition-duration: 0ms, 0ms, 500ms;
+    transition-delay: 0ms;
+  }
 }

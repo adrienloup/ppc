@@ -1,12 +1,13 @@
 @use '@/src/assets/styles/index' as *;
 
 #_app_ppc03_1 {
+  overflow-x: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background: var(--theme-color-1);
+  background-color: var(--theme-color-1);
   font-family: var(--font-text), sans-serif;
   color: var(--theme-color-3);
 }

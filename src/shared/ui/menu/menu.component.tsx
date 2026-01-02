@@ -12,12 +12,11 @@ export const MenuComponent = () => {
 
   useEffect(() => {
     if (!open) return;
+
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        buttonRef.current?.click();
-        //setOpen(false);
-      }
+      if (e.key === 'Escape') buttonRef.current?.click();
     };
+
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open]);
@@ -35,17 +34,14 @@ export const MenuComponent = () => {
         aria-label={open ? 'close menu' : 'open menu'}
         aria-expanded={open}
         aria-controls="menu"
-        onClick={() => setOpen(!open)}
         innerRef={buttonRef}
-        sound={menu}
+        onClick={() => setOpen(!open)}
+        src={menu}
       >
-        menu
-        <IconComponent
-          className={styles.icon}
-          icon={open ? 'top_panel_close' : 'top_panel_open'}
-        />
+        <IconComponent icon={open ? 'top_panel_open' : 'top_panel_close'} />
+        <span className={styles.label}>menu</span>
       </ReaderComponent>
-      <div className={styles.inside}>
+      <div className={styles.inner}>
         <NavigationComponent links={['home', 'profile', 'factory', 'store', 'explore']} />
       </div>
     </div>

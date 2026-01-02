@@ -7,9 +7,9 @@ import styles from '@/src/domains/notice/ui/notice/notice.module.scss';
 
 export const NoticeComponent = ({ text, status = 'info', timeout = 5e3, remove = () => {} }: NoticeType) => {
   const [out, setOut] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const outTimerRef = useRef(0);
   const removeTimerRef = useRef(0);
+  const audio = new Audio(notice);
 
   const onClick = useCallback(() => {
     setOut(true);
@@ -27,10 +27,7 @@ export const NoticeComponent = ({ text, status = 'info', timeout = 5e3, remove =
       remove();
     }, timeout + 5e2); // CSS animation duration
 
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch(() => {});
-    }
+    audio.play().catch(() => {});
 
     return () => {
       clearTimeout(outTimerRef.current);
@@ -53,12 +50,6 @@ export const NoticeComponent = ({ text, status = 'info', timeout = 5e3, remove =
           x
         </ButtonComponent>
       </div>
-      <audio
-        className={styles.audio}
-        ref={audioRef}
-        src={notice}
-        preload="auto"
-      />
     </div>
   );
 };

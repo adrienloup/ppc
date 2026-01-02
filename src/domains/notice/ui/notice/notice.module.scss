@@ -3,8 +3,6 @@
   width: 25rem;
   color: var(--theme-color-1);
   pointer-events: initial;
-  //will-change: width, opacity, transform;
-  //backface-visibility: hidden;
 
   &.in {
     animation: Appear 500ms var(--ease-expo);

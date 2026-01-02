@@ -5,15 +5,15 @@ import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { ClickerType } from '@/src/shared/ui/clicker/clicker.type.ts';
 import styles from '@/src/shared/ui/clicker/clicker.module.scss';
 
-export interface Value {
-  id: number;
-  x: number;
-  y: number;
-}
-
 export const ClickerComponent = ({ children, className, disabled, onClick, value }: ClickerType) => {
-  const [values, setValues] = useState<Value[]>([]);
-  const timeoutsRef = useRef<number[]>([]);
+  const [values, setValues] = useState<
+    {
+      id: number;
+      x: number;
+      y: number;
+    }[]
+  >([]);
+  const timerRef = useRef<number[]>([]);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     const { currentTarget } = e;
@@ -34,14 +34,14 @@ export const ClickerComponent = ({ children, className, disabled, onClick, value
       setValues((prev) => prev.slice(1));
     }, 4e2);
 
-    timeoutsRef.current.push(timeoutId);
+    timerRef.current.push(timeoutId);
     onClick(e);
   };
 
   const getStyle = (x: number, y: number) => ({ left: x, top: y }) as CSSProperties;
 
   useEffect(() => {
-    return () => timeoutsRef.current.forEach((id) => clearTimeout(id));
+    return () => timerRef.current.forEach((id) => clearTimeout(id));
   }, []);
 
   return (
@@ -49,7 +49,7 @@ export const ClickerComponent = ({ children, className, disabled, onClick, value
       className={classNames(styles.button, className, disabled ? styles.disabled : '')}
       disabled={disabled}
       onClick={handleClick}
-      sound={clicker}
+      src={clicker}
     >
       <span className={styles.inner}>{children}</span>
       {values.map((v) => (

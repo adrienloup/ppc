@@ -3,6 +3,7 @@ import { AuthProvider } from '@/src/domains/auth/interface/auth.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/interface/business.provider.tsx';
 import { EngineryProvider } from '@/src/domains/enginery/interface/enginery.provider.tsx';
 import { NoticeProvider } from '@/src/domains/notice/interface/notice.provider.tsx';
+import { ProfileProvider } from '@/src/domains/profile/interface/profile.provider.tsx';
 import { SupplyProvider } from '@/src/domains/supply/interface/supply.provider.tsx';
 import type { ChildrenType } from '@/src/shared/types/children.type.ts';
 
@@ -22,6 +23,7 @@ const Providers = (providers: ProviderType[]) =>
 export const AppProvider: FunctionComponent<{ children: ChildrenType }> = Providers([
   [AuthProvider],
   [NoticeProvider],
+  [ProfileProvider],
   [BusinessProvider],
   [EngineryProvider],
   [SupplyProvider],

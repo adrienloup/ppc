@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useBeforeUnload } from '@/src/shared/hooks/useBeforeUnload.ts';
+import { usePagehide } from '@/src/shared/hooks/usePagehide.ts';
 import { FooterComponent } from '@/src/shared/ui/footer/footer.component.tsx';
 import { HeaderComponent } from '@/src/shared/ui/header/header.component.tsx';
 import { MainComponent } from '@/src/shared/ui/main/main.component.tsx';
@@ -10,7 +10,7 @@ export const PageComponent = ({ children }: PageType) => {
     window.scroll(0, 0);
   }, []);
 
-  useBeforeUnload();
+  usePagehide();
 
   return (
     <>
