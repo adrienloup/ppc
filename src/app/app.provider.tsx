@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComp
 import { AuthProvider } from '@/src/domains/auth/interface/auth.provider.tsx';
 import { BusinessProvider } from '@/src/domains/business/interface/business.provider.tsx';
 import { EngineryProvider } from '@/src/domains/enginery/interface/enginery.provider.tsx';
+import { GameProvider } from '@/src/domains/game/interface/game.provider.tsx';
 import { NoticeProvider } from '@/src/domains/notice/interface/notice.provider.tsx';
 import { ProfileProvider } from '@/src/domains/profile/interface/profile.provider.tsx';
 import { SupplyProvider } from '@/src/domains/supply/interface/supply.provider.tsx';
@@ -24,6 +25,7 @@ export const AppProvider: FunctionComponent<{ children: ChildrenType }> = Provid
   [AuthProvider],
   [NoticeProvider],
   [ProfileProvider],
+  [GameProvider],
   [BusinessProvider],
   [EngineryProvider],
   [SupplyProvider],

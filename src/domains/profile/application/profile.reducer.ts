@@ -8,8 +8,6 @@ export const profileReducer = (state: ProfileType, action: ProfileDispatchType):
       return { ...state, mode: action.mode };
     case 'SET_THEME':
       return { ...state, theme: action.theme };
-    case 'SET_START':
-      return { ...state, start: !state.start };
     default:
       return state;
   }

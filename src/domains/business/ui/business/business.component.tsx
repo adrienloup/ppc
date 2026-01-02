@@ -53,7 +53,6 @@ export const BusinessComponent = () => {
             >
               -{0.1 * marketing.bonus}
             </ClickerComponent>
-            <div>{price.quantity}</div>
             <ClickerComponent
               className={styles.button}
               value={`+${0.1 * marketing.bonus}`}

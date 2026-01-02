@@ -1,6 +1,5 @@
 import { type FC, useEffect, useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
-import start from '@/src/assets/sounds/start.mp3';
 import { PROFILE_KEY } from '@/src/domains/profile/application/profile.key.ts';
 import { profileReducer } from '@/src/domains/profile/application/profile.reducer.ts';
 import { PROFILE_STATE } from '@/src/domains/profile/application/profile.state.ts';
@@ -15,7 +14,6 @@ export const ProfileProvider: FC<{ children: ChildrenType }> = ({ children }) =>
   const profileStorage = useLocalStorage(PROFILE_KEY, PROFILE_STATE);
   const [state, dispatch] = useReducer(profileReducer, profileStorage.get());
   const { i18n } = useTranslation();
-  const audio = new Audio(start);
 
   const updateLang = (lang: LangType) => {
     i18n.changeLanguage(lang).then(() => undefined);
@@ -45,10 +43,6 @@ export const ProfileProvider: FC<{ children: ChildrenType }> = ({ children }) =>
     }
   };
 
-  const updateStart = () => {
-    audio.play().catch(() => {});
-  };
-
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = (event: MediaQueryListEvent) => {
@@ -63,9 +57,8 @@ export const ProfileProvider: FC<{ children: ChildrenType }> = ({ children }) =>
     updateLang(state.lang);
     updateTheme(state.theme);
     updateMode(state.mode);
-    updateStart();
     profileStorage.set(state);
-  }, [state.lang, state.theme, state.mode]);
+  }, [state]);
 
   return (
     <ProfileContext.Provider value={state}>

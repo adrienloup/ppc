@@ -4,7 +4,6 @@ import type { ThemeType } from '@/src/domains/profile/application/theme.type.ts'
 
 export interface ProfileType {
   date: string;
-  start: boolean;
   lang: LangType;
   mode: ModeType;
   theme: ThemeType;
@@ -13,5 +12,4 @@ export interface ProfileType {
 export type ProfileDispatchType =
   | { type: 'SET_LANG'; lang: LangType }
   | { type: 'SET_MODE'; mode: ModeType }
-  | { type: 'SET_THEME'; theme: ThemeType }
-  | { type: 'SET_START' };
+  | { type: 'SET_THEME'; theme: ThemeType };

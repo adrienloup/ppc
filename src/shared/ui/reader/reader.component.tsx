@@ -1,4 +1,4 @@
-import { type MouseEvent } from 'react';
+import { type MouseEvent, useEffect, useRef } from 'react';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { ReaderType } from '@/src/shared/ui/reader/reader.type.ts';
@@ -13,10 +13,22 @@ export const ReaderComponent = ({
   src,
   ...props
 }: ReaderType) => {
-  const audio = new Audio(src);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio(src);
+    return () => {
+      audioRef.current = null;
+    };
+  }, []);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     if (onClick) onClick(e);
+
+    const audio = audioRef.current;
+
+    if (!audio) return;
+    audio.currentTime = 0;
     audio.play().catch(() => {});
   };
 
