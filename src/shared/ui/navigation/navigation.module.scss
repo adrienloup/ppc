@@ -1,4 +1,5 @@
 $mobile-portrait: 768px;
+$mobile-landscape: 1024px;
 
 .navigation {
   display: flex;
@@ -10,16 +11,22 @@ $mobile-portrait: 768px;
     flex-flow: row wrap;
     gap: var(--spacing-medium);
   }
+  @media (min-width: $mobile-landscape) {
+    gap: var(--spacing-large);
+  }
 }
 
 .link {
-  text-transform: uppercase;
   font-size: var(--font-size-medium);
   color: var(--theme-color-1);
 
   &:focus-visible,
   &:active {
     outline-width: 0.25rem;
-    outline-offset: 0.25rem;
+    outline-offset: 0.15rem;
+
+    @media (min-width: $mobile-portrait) {
+      outline-offset: 0.25rem;
+    }
   }
 }

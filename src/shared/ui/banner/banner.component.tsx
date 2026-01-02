@@ -8,12 +8,14 @@ export const BannerComponent = ({ button, className, title }: BannerType) => {
   return (
     <div className={classNames(styles.banner, className)}>
       <TitleComponent className={styles.title}>{title}</TitleComponent>
-      <ButtonComponent
-        className={styles.button}
-        to={`/ppc/${button}`}
-      >
-        {button}
-      </ButtonComponent>
+      {button && (
+        <ButtonComponent
+          className={styles.button}
+          to={`/ppc/${button}`}
+        >
+          {button}
+        </ButtonComponent>
+      )}
     </div>
   );
 };

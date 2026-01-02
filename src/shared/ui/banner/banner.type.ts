@@ -1,5 +1,5 @@
 export interface BannerType {
-  button: string;
+  button?: string;
   className?: string;
   title: string;
 }

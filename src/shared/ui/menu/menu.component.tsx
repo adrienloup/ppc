@@ -42,7 +42,7 @@ export const MenuComponent = () => {
         <span className={styles.label}>menu</span>
       </ReaderComponent>
       <div className={styles.inner}>
-        <NavigationComponent links={['home', 'profile', 'factory', 'store', 'explore']} />
+        <NavigationComponent links={['account_circle', 'factory', 'store', 'explore']} />
       </div>
     </div>
   );
