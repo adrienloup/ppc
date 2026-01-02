@@ -10,7 +10,7 @@ $mobile-portrait: 768px;
   will-change: height;
 
   &.open {
-    height: 10rem;
+    height: 9rem;
     transition-duration: 450ms;
 
     @media (min-width: $mobile-portrait) {
@@ -22,7 +22,6 @@ $mobile-portrait: 768px;
 .inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: var(--spacing-small);
   overflow: hidden;
@@ -34,8 +33,12 @@ $mobile-portrait: 768px;
   will-change: height;
   color: var(--theme-color-1);
 
+  @media (min-width: $mobile-portrait) {
+    align-items: center;
+  }
+
   .open & {
-    height: 10rem;
+    height: 9rem;
     visibility: visible;
     transition-duration: 450ms;
 

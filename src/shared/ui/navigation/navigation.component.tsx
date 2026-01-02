@@ -13,12 +13,15 @@ export const NavigationComponent = ({ className, id = 'main-navigation', links }
     >
       {links.map((link) => (
         <ButtonComponent
-          key={link}
+          key={link.label}
           className={styles.link}
-          to={`/ppc/${link}`}
+          to={`/ppc/${link.label}`}
         >
-          <IconComponent icon={link} />
-          {link}
+          <IconComponent
+            className={styles.icon}
+            icon={link.icon}
+          />
+          <span className={styles.label}>{link.label}</span>
         </ButtonComponent>
       ))}
     </nav>

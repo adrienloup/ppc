@@ -15,6 +15,7 @@
 }
 
 .button {
+  gap: var(--spacing-small);
   padding: var(--spacing-small);
   background-color: var(--theme-color-3);
   font-size: var(--font-size-medium);

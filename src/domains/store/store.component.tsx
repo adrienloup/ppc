@@ -5,8 +5,9 @@ function StoreComponent() {
   return (
     <ArticleComponent>
       <BannerComponent
+        icon="factory"
+        label="factory"
         title="store"
-        button="factory"
       />
     </ArticleComponent>
   );

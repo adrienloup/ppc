@@ -1,4 +1,5 @@
 export interface GameType {
-  startGame: () => void;
+  // level: number;
   game: boolean;
+  startGame: () => void;
 }

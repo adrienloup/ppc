@@ -4,21 +4,26 @@ $mobile-landscape: 1024px;
 .navigation {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-small);
   padding: 0 var(--spacing-small);
 
   @media (min-width: $mobile-portrait) {
     flex-flow: row wrap;
-    gap: var(--spacing-medium);
   }
+
   @media (min-width: $mobile-landscape) {
     gap: var(--spacing-large);
   }
 }
 
 .link {
-  font-size: var(--font-size-medium);
+  display: flex;
+  gap: var(--spacing-small);
+  padding: var(--spacing-x-small);
   color: var(--theme-color-1);
+
+  @media (min-width: $mobile-portrait) {
+    padding: var(--spacing-small);
+  }
 
   &:focus-visible,
   &:active {
@@ -26,7 +31,19 @@ $mobile-landscape: 1024px;
     outline-offset: 0.15rem;
 
     @media (min-width: $mobile-portrait) {
-      outline-offset: 0.25rem;
+      outline-offset: 0;
     }
+  }
+}
+
+.label {
+  font-size: var(--font-size-medium);
+}
+
+.icon {
+  font-size: var(--font-size-medium);
+
+  @media (min-width: $mobile-portrait) {
+    font-size: var(--font-size-large);
   }
 }

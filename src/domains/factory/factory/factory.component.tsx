@@ -81,8 +81,9 @@ function FactoryComponent() {
   return (
     <ArticleComponent>
       <BannerComponent
+        icon="storefront"
+        label="store"
         title="factory"
-        button="store"
       />
       <PaperclipComponent />
       <CardsComponent className={styles.cards}>

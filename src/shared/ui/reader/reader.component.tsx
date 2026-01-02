@@ -10,13 +10,13 @@ export const ReaderComponent = ({
   disabled,
   innerRef,
   onClick,
-  src,
+  sound,
   ...props
 }: ReaderType) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio(src);
+    audioRef.current = new Audio(sound);
     return () => {
       audioRef.current = null;
     };
