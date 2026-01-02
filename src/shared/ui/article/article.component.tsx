@@ -6,15 +6,15 @@ import type { ArticleType } from '@/src/shared/ui/article/article.type.ts';
 import styles from '@/src/shared/ui/article/article.module.scss';
 
 export const ArticleComponent = ({ children }: ArticleType) => {
-  const { session } = useAuth();
-  const { started } = useGame();
+  const { user } = useAuth();
+  const { game } = useGame();
 
   return (
     <article
       className={styles.article}
       role="article"
     >
-      {session ? started ? children : <StartComponent /> : <LoginComponent />}
+      {user ? game ? children : <StartComponent /> : <LoginComponent />}
     </article>
   );
 };

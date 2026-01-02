@@ -5,7 +5,7 @@ export const authReducer = (state: AuthType, action: AuthDispatchType): AuthType
     case 'SIGN_UP': {
       if (state.users[action.name]) return state;
       return {
-        session: action.name,
+        user: action.name,
         users: {
           ...state.users,
           [action.name]: {
@@ -19,14 +19,14 @@ export const authReducer = (state: AuthType, action: AuthDispatchType): AuthType
       if (!state.users[action.name]) return state;
       return {
         ...state,
-        session: action.name,
+        user: action.name,
       };
     }
     case 'LOG_OUT': {
-      if (!state.session) return state;
+      if (!state.user) return state;
       return {
         ...state,
-        session: '',
+        user: '',
       };
     }
     default:

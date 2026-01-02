@@ -1,7 +1,7 @@
 import type { UsersType } from '@/src/domains/auth/application/users.type.ts';
 
 export interface AuthType {
-  session: string;
+  user: string;
   users: UsersType;
 }
 
