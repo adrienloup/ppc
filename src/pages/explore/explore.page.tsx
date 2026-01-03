@@ -1,18 +1,20 @@
 import { lazy, Suspense } from 'react';
+// import ExploreComponent from '@/src/domains/explore/explore.component.tsx';
 import { useTitle } from '@/src/shared/hooks/useTitle.ts';
-import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
+// import { LoaderComponent } from '@/src/shared/ui/loader/loader.component.tsx';
 import { PageComponent } from '@/src/shared/ui/page/page.component.tsx';
-import { delay } from '@/src/shared/utils/delay.ts';
+// import { delay } from '@/src/shared/utils/delay.ts';
 
-const ProfileComponent = lazy(() => delay(import('@/src/domains/explore/explore.component.tsx'), 5e3));
+// const ExploreComponent = lazy(() => delay(import('@/src/domains/explore/explore.component.tsx'), 5e3));
+const ExploreComponent = lazy(() => import('@/src/domains/explore/explore.component.tsx'));
 
 function ExplorePage() {
   useTitle('explore');
 
   return (
-    <Suspense fallback={<LoaderComponent />}>
+    <Suspense fallback={<div>loading...</div>}>
       <PageComponent>
-        <ProfileComponent />
+        <ExploreComponent />
       </PageComponent>
     </Suspense>
   );

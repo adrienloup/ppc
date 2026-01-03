@@ -4,6 +4,8 @@ import { FactoryRoutes } from '@/src/pages/factory/factory.routes.tsx';
 import { ProfileRoutes } from '@/src/pages/profile/profile.routes.tsx';
 import { StoreRoutes } from '@/src/pages/store/store.routes.tsx';
 
-export const AppRoutes = () => {
+function AppRoutes() {
   return useRoutes([...ExploreRoutes, ...FactoryRoutes, ...ProfileRoutes, ...StoreRoutes]);
-};
+}
+
+export default AppRoutes;

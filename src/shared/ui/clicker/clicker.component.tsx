@@ -1,5 +1,5 @@
 import { type CSSProperties, type MouseEvent, useEffect, useRef, useState } from 'react';
-import clicker from '@/src/assets/sounds/clicker.mp3';
+import clickerSound from '@/src/assets/sounds/clicker.mp3';
 import { ReaderComponent } from '@/src/shared/ui/reader/reader.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { ClickerType } from '@/src/shared/ui/clicker/clicker.type.ts';
@@ -49,7 +49,7 @@ export const ClickerComponent = ({ children, className, disabled, onClick, value
       className={classNames(styles.button, className, disabled ? styles.disabled : '')}
       disabled={disabled}
       onClick={handleClick}
-      src={clicker}
+      sound={clickerSound}
     >
       <span className={styles.inner}>{children}</span>
       {values.map((v) => (

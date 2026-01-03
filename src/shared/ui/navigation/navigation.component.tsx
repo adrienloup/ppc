@@ -14,7 +14,7 @@ export const NavigationComponent = ({ className, id = 'main-navigation', links }
       {links.map((link) => (
         <ButtonComponent
           key={link.label}
-          className={styles.link}
+          className={styles.button}
           to={`/ppc/${link.label}`}
         >
           <IconComponent

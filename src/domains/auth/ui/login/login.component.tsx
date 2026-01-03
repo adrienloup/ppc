@@ -3,7 +3,6 @@ import { useAuth, useAuthDispatch } from '@/src/domains/auth/interface/useAuth.t
 import { useNotice } from '@/src/domains/notice/interface/useNotice.ts';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { FieldComponent } from '@/src/shared/ui/field/field.component.tsx';
-import { IconComponent } from '@/src/shared/ui/icon/icon.component.tsx';
 import { TitleComponent } from '@/src/shared/ui/title/title.component.tsx';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
@@ -89,6 +88,7 @@ export const LoginComponent = ({ className }: LoginType) => {
       type: 'LOG_IN',
       name: name,
     });
+
     addNotice({
       text: `${name} is connected`,
       status: 'success',
@@ -100,7 +100,7 @@ export const LoginComponent = ({ className }: LoginType) => {
       className={classNames(styles.login, className)}
       onSubmit={logIn}
     >
-      <TitleComponent className={styles.title}>a member account is required</TitleComponent>
+      <TitleComponent className={styles.title}>an account is required</TitleComponent>
       <FieldComponent
         // className={styles.name}
         placeholder="name"
@@ -122,14 +122,12 @@ export const LoginComponent = ({ className }: LoginType) => {
           className={styles.button}
           onClick={signUp}
         >
-          <IconComponent icon="app_registration" />
           sign up
         </ButtonComponent>
         <ButtonComponent
           className={styles.button}
           type="submit"
         >
-          <IconComponent icon="login" />
           log in
         </ButtonComponent>
       </div>

@@ -30,9 +30,10 @@
   white-space: nowrap;
   padding: var(--spacing-small);
   animation: SlideUp 500ms var(--ease-out);
-  background-color: var(--theme-color-13);
+  //background-color: var(--theme-color-13);
   font-size: var(--font-size-large);
-  color: var(--theme-color-1);
+  //color: var(--theme-color-1);
+  color: var(--theme-color-15);
 }
 
 @keyframes SlideUp {

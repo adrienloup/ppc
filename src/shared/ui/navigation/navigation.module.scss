@@ -15,7 +15,7 @@ $mobile-landscape: 1024px;
   }
 }
 
-.link {
+.button {
   display: flex;
   gap: var(--spacing-small);
   padding: var(--spacing-x-small);
@@ -28,9 +28,10 @@ $mobile-landscape: 1024px;
   &:focus-visible,
   &:active {
     outline-width: 0.25rem;
-    outline-offset: 0.15rem;
+    outline-offset: -0.15rem;
 
     @media (min-width: $mobile-portrait) {
+      outline-width: 0.35rem;
       outline-offset: 0;
     }
   }

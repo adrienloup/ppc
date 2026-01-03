@@ -17,7 +17,7 @@ const links: { label: string; icon: string }[] = [
   },
   {
     label: 'store',
-    icon: 'store',
+    icon: 'storefront',
   },
   {
     label: 'explore',
