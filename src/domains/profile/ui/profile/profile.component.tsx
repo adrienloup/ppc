@@ -4,7 +4,7 @@ import { useProfile } from '@/src/domains/profile/interface/useProfile.ts';
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 
-function ProfileComponent() {
+export const ProfileComponent = () => {
   const { user } = useAuth();
   const { date, lang, mode, theme } = useProfile();
   const addNotice = useNotice();
@@ -20,6 +20,4 @@ function ProfileComponent() {
       <button onClick={() => addNotice({ text: `${user} is connected` })}>button</button>
     </ArticleComponent>
   );
-}
-
-export default ProfileComponent;
+};

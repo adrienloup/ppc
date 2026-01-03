@@ -18,7 +18,7 @@ import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 import { CardsComponent } from '@/src/shared/ui/cards/cards.component.tsx';
 import styles from '@/src/domains/factory/factory/factory.module.scss';
 
-function FactoryComponent() {
+export const FactoryComponent = () => {
   const supplyDispatch = useSupplyDispatch();
   const businessDispatch = useBusinessDispatch();
   const { wire } = useSupply();
@@ -98,6 +98,6 @@ function FactoryComponent() {
       </CardsComponent>
     </ArticleComponent>
   );
-}
+};
 
 export default FactoryComponent;

@@ -1,7 +1,5 @@
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 
-function ExploreComponent() {
+export const ExploreComponent = () => {
   return <ArticleComponent>Explore</ArticleComponent>;
-}
-
-export default ExploreComponent;
+};

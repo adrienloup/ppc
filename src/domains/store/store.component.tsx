@@ -1,7 +1,7 @@
 import { ArticleComponent } from '@/src/shared/ui/article/article.component.tsx';
 import { BannerComponent } from '@/src/shared/ui/banner/banner.component.tsx';
 
-function StoreComponent() {
+export const StoreComponent = () => {
   return (
     <ArticleComponent>
       <BannerComponent
@@ -11,6 +11,4 @@ function StoreComponent() {
       />
     </ArticleComponent>
   );
-}
-
-export default StoreComponent;
+};
