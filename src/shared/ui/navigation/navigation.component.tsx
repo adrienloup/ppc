@@ -21,7 +21,7 @@ export const NavigationComponent = ({ className, id = 'main-navigation', links }
             className={styles.icon}
             icon={link.icon}
           />
-          <span className={styles.label}>{link.label}</span>
+          {/*<span className={styles.label}>{link.label}</span>*/}
         </ButtonComponent>
       ))}
     </nav>

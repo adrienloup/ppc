@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import notice from '@/src/assets/sounds/notice.mp3';
+import noticeSound from '@/src/assets/sounds/notice.mp3';
 import { ButtonComponent } from '@/src/shared/ui/button/button.component.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import type { NoticeType } from '@/src/domains/notice/ui/notice/notice.type.ts';
@@ -9,7 +9,7 @@ export const NoticeComponent = ({ text, status = 'info', timeout = 5e3, remove =
   const [out, setOut] = useState(false);
   const outTimerRef = useRef(0);
   const removeTimerRef = useRef(0);
-  const audio = new Audio(notice);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const onClick = useCallback(() => {
     setOut(true);
@@ -27,11 +27,18 @@ export const NoticeComponent = ({ text, status = 'info', timeout = 5e3, remove =
       remove();
     }, timeout + 5e2); // CSS animation duration
 
+    audioRef.current = new Audio(noticeSound);
+
+    const audio = audioRef.current;
+
+    if (!audio) return;
+    audio.currentTime = 0;
     audio.play().catch(() => {});
 
     return () => {
       clearTimeout(outTimerRef.current);
       clearTimeout(removeTimerRef.current);
+      audioRef.current = null;
     };
   }, []);
 
