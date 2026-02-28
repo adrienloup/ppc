@@ -5,34 +5,38 @@ import { settingsState } from '@/src/context/settings/settingsState.ts';
 export const accountReducer = (state: AccountType, action: AccountDispatchType): AccountType => {
   switch (action.type) {
     case 'LOG_IN': {
-      if (!state.user[action.username]) return state;
+      if (!state.user[action.name]) return state;
       return {
         ...state,
-        online: action.username,
+        online: action.name,
       };
     }
     case 'LOG_OUT': {
       if (!state.online) return state;
       return {
-        ...state,
+        online: null,
         user: {
           ...state.user,
           [state.online]: {
             ...state.user[state.online],
             data: action.data,
-            settings: action.settings,
+            settings: {
+              ...action.settings,
+              date: new Date().toLocaleString('fr-FR', {
+                timeZone: 'Europe/Paris',
+              }),
+            },
           },
         },
-        online: null,
       };
     }
     case 'SIGN_UP': {
-      if (state.user[action.username]) return state;
+      if (state.user[action.name]) return state;
       return {
-        ...state,
+        online: action.name,
         user: {
           ...state.user,
-          [action.username]: {
+          [action.name]: {
             data: dataState,
             password: action.password,
             settings: {
@@ -43,7 +47,6 @@ export const accountReducer = (state: AccountType, action: AccountDispatchType):
             },
           },
         },
-        online: action.username,
       };
     }
     default:

@@ -14,11 +14,15 @@ export const Profile = () => {
 
   useTitle('profile');
 
+  // console.log(Object.keys(user).find((k) => user[k].date));
+  // const obj = Object.values(user).find((v) => v.date);
+  // console.log(obj!.date);
+
   return (
     <Article>
       profile
       <div>user: {online}</div>
-      <div>date: {settings.date}</div>
+      <div>last connection: {settings.date}</div>
       <div>lang: {settings.lang}</div>
       <div>mode: {settings.mode}</div>
       <div>
@@ -27,10 +31,9 @@ export const Profile = () => {
         <button onClick={() => SettingsDispatch({ type: 'SET_MODE', mode: 'light' })}>light</button>
         <button
           onClick={() => {
-            // if (!user) return;
             accountDispatch({
               type: 'LOG_OUT',
-              // username: online,
+              data: { business: '' },
               settings,
             });
           }}

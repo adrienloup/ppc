@@ -17,32 +17,32 @@ export const Login = ({ className }: LoginType) => {
   const { user } = useAccount();
   const accountDispatch = useAccountDispatch();
   // const { users } = useAuth();
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const [usernameError, setUsernameError] = useState('');
+  const [nameError, setNameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const resetErrors = () => {
-    setUsernameError('');
+    setNameError('');
     setPasswordError('');
   };
 
   const requiredErrors = () => {
-    if (!username) setUsernameError('username required');
+    if (!name) setNameError('name required');
     if (!password) setPasswordError('password required');
   };
 
   const signUp = async () => {
     resetErrors();
 
-    if (!username || !password) return requiredErrors();
+    if (!name || !password) return requiredErrors();
 
-    if (user[username]) return setUsernameError('username already taken');
+    if (user[name]) return setNameError('name already taken');
 
     let valid = true;
 
-    if (!regexTest(/^[A-Za-z]{3,10}$/, username)) {
-      setUsernameError('username must contain at least 5 alphabetic characters without spaces');
+    if (!regexTest(/^[A-Za-z]{3,10}$/, name)) {
+      setNameError('name must contain at least 5 alphabetic characters without spaces');
       valid = false;
     }
 
@@ -57,13 +57,13 @@ export const Login = ({ className }: LoginType) => {
 
     accountDispatch({
       type: 'SIGN_UP',
-      username: username,
+      name: name,
       password: hashPassword,
     });
 
     // addNotice({
     //   status: 'success',
-    //   text: `${username} successfully registered`,
+    //   text: `${name} successfully registered`,
     // });
   };
 
@@ -72,28 +72,28 @@ export const Login = ({ className }: LoginType) => {
 
     resetErrors();
 
-    if (!username || !password) return requiredErrors();
+    if (!name || !password) return requiredErrors();
 
     const hashPassword = await base64Encode(password);
-    const _user = user[username];
+    const username = user[name];
 
-    if (!_user) {
-      setUsernameError('unknown username');
+    if (!username) {
+      setNameError('unknown name');
       return;
     }
 
-    if (_user.password !== hashPassword) {
+    if (username.password !== hashPassword) {
       setPasswordError('incorrect password');
       return;
     }
 
     accountDispatch({
       type: 'LOG_IN',
-      username: username,
+      name: name,
     });
 
     // addNotice({
-    //   text: `${username} is connected`,
+    //   text: `${name} is connected`,
     //   status: 'success',
     // });
   };
@@ -106,10 +106,10 @@ export const Login = ({ className }: LoginType) => {
       <Title className={styles.title}>an account is required</Title>
       <Field
         placeholder="name"
-        value={username}
-        errorMessage={usernameError}
-        onChange={(e) => setUsername(e.target.value)}
-        suffix={usernameError ? 'error' : ''}
+        value={name}
+        errorMessage={nameError}
+        onChange={(e) => setName(e.target.value)}
+        suffix={nameError ? 'error' : ''}
       />
       <Field
         placeholder="password"

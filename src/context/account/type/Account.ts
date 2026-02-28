@@ -8,6 +8,6 @@ export interface AccountType {
 }
 
 export type AccountDispatchType =
-  | { type: 'LOG_IN'; username: string }
+  | { type: 'LOG_IN'; name: string }
   | { type: 'LOG_OUT'; data: DataType; settings: SettingsType }
-  | { type: 'SIGN_UP'; username: string; password: string };
+  | { type: 'SIGN_UP'; name: string; password: string };
