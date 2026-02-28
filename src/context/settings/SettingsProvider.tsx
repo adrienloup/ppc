@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from 'react';
+import { useAccount } from '@/src/context/account/useAccount.ts';
 import { SettingsContext, SettingsDispatchContext } from '@/src/context/settings/SettingsContext.ts';
 import { settingsReducer } from '@/src/context/settings/settingsReducer.ts';
 import { settingsState } from '@/src/context/settings/settingsState.ts';
@@ -10,6 +11,7 @@ import type { ChildrenType } from '@/src/shared/type/Children.ts';
 export function SettingsProvider({ children }: { children: ChildrenType }) {
   const storage = useLocalStorage<SettingsType>('_settings_ppc03_1', settingsState);
   const [state, dispatch] = useReducer(settingsReducer, storage.get());
+  const { online, user } = useAccount();
   // const { i18n } = useTranslation();
   //
   // const updateLang = (lang: LangType) => {
@@ -48,6 +50,15 @@ export function SettingsProvider({ children }: { children: ChildrenType }) {
     updateMode(state.mode);
     storage.set(state);
   }, [state.lang, state.mode]);
+
+  useEffect(() => {
+    if (!online) return;
+
+    dispatch({
+      type: 'LOAD',
+      settings: user[online].settings ?? settingsState,
+    });
+  }, [online, user]);
 
   return (
     <SettingsContext.Provider value={state}>

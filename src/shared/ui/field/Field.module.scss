@@ -4,16 +4,16 @@
   border: 0.35rem solid var(--mode-color-2);
 
   &.focus {
-    outline: 0.35rem solid var(--mode-color-15);
+    outline: 0.35rem solid var(--color-15);
     outline-offset: -0.35rem;
   }
 
   &.success {
-    border-color: var(--mode-color-14);
+    border-color: var(--color-14);
   }
 
   &.error {
-    border-color: var(--mode-color-11);
+    border-color: var(--color-11);
   }
 }
 
@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
   font-size: var(--font-size-medium);
-  color: var(--mode-color-11);
+  color: var(--color-11);
 }
 
 .prefix {

@@ -7,4 +7,7 @@ export interface SettingsType {
   mode: ModeType;
 }
 
-export type SettingsDispatchType = { type: 'SET_LANG'; lang: LangType } | { type: 'SET_MODE'; mode: ModeType };
+export type SettingsDispatchType =
+  | { type: 'LOAD'; settings: SettingsType }
+  | { type: 'SET_LANG'; lang: LangType }
+  | { type: 'SET_MODE'; mode: ModeType };

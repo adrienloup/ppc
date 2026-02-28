@@ -14,7 +14,7 @@ import styles from '@/src/context/account/ui/login/Login.module.scss';
 export const Login = ({ className }: LoginType) => {
   // const addNotice = useNotice();
   // const authDispatch = useAuthDispatch();
-  const account = useAccount();
+  const { user } = useAccount();
   const accountDispatch = useAccountDispatch();
   // const { users } = useAuth();
   const [username, setUsername] = useState('');
@@ -37,7 +37,7 @@ export const Login = ({ className }: LoginType) => {
 
     if (!username || !password) return requiredErrors();
 
-    if (account[username]) return setUsernameError('username already taken');
+    if (user[username]) return setUsernameError('username already taken');
 
     let valid = true;
 
@@ -75,14 +75,14 @@ export const Login = ({ className }: LoginType) => {
     if (!username || !password) return requiredErrors();
 
     const hashPassword = await base64Encode(password);
-    const user = account[username];
+    const _user = user[username];
 
-    if (!user) {
+    if (!_user) {
       setUsernameError('unknown username');
       return;
     }
 
-    if (user.password !== hashPassword) {
+    if (_user.password !== hashPassword) {
       setPasswordError('incorrect password');
       return;
     }
