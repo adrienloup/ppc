@@ -1,46 +1,25 @@
 @mixin font {
-  --font-text: 'Text';
-  --font-icon: 'Icon';
+  --font-title: "Title";
+  --font-text: "Text";
 }
 
 @mixin color {
-  --color-1: #030009;
-  --color-2: #160055;
-  --color-3: #3b00ff;
-  --color-4: #4600ff;
-  --color-5: #5500ff;
-  --color-6: #6300ff;
-  --color-7: #7200ff;
-  --color-8: #7b00ff;
-  --color-9: #8c00ff;
-  --color-10: #ff0099;
-  --color-11: #ff0026;
-  --color-12: #ff7300;
-  --color-13: #e4fd02;
-  --color-14: #1aff00;
-  --color-15: #00f7ff;
+  --color-1: #49cc68;
+  --color-2: #1e9e75;
+  --color-3: #ffdb36;
+  --color-4: #ffffff;
 }
 
 @mixin size {
-  --font-size-x-large: 4rem;
-  --font-size-large: 2.5rem;
-  --font-size-medium: 1.5rem;
+  --font-size-large: 4rem;
+  --font-size-medium: 2rem;
   --font-size-small: 1rem;
-  --font-size-x-small: 0.75rem;
 }
 
 @mixin spacing {
-  --spacing-x-large: 4rem;
   --spacing-large: 2.5rem;
   --spacing-medium: 1rem;
   --spacing-small: 0.5rem;
-  --spacing-x-small: 0.25rem;
-}
-
-@mixin easing {
-  --ease-expo: cubic-bezier(0.25, 0.8, 0.25, 1);
-  --ease-out: cubic-bezier(0, 0, 0.58, 1);
-  --ease-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 :root {
@@ -48,5 +27,4 @@
   @include color();
   @include size();
   @include spacing();
-  @include easing();
 }

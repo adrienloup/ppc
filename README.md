@@ -44,4 +44,6 @@ npm run format
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [React@19](https://react.dev)
+- [React Compiler](https://react.dev/learn/react-compiler)
 - [Vite](https://vitejs.dev)
+
