@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { version } from "@/package.json";
 import App from "@/src/app/App.tsx";
 
-createRoot(document.getElementById("_kumi_emma3_1")!).render(
+createRoot(document.getElementById("_app_ppc03_1")!).render(
   <StrictMode>
     <App />
   </StrictMode>,

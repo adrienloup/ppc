@@ -1,12 +1,13 @@
 @use "@/src/assets/styles/index" as *;
 
-#_kumi_emma3_1 {
+#_app_ppc03_1 {
+  overflow-x: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color-2);
+  background-color: var(--theme-color-1);
   font-family: var(--font-text), sans-serif;
-  color: var(--color-1);
+  color: var(--theme-color-3);
 }
