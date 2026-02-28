@@ -1,5 +1,5 @@
+import type { ChildrenType } from "@/src/shared/type/Children.ts";
+
 export interface CaseType {
-  button?: string;
-  icon?: string;
-  title: string;
+  children: ChildrenType;
 }

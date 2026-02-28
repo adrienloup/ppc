@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import { Factory } from "@/src/page/Factory.tsx";
-import { NotFound } from "@/src/page/NotFound.tsx";
+import { NotFound } from "@/src/page/not-found/NotFound.tsx";
 import { Profile } from "@/src/page/Profile.tsx";
 import { Page } from "@/src/shared/ui/page/Page.tsx";
 
