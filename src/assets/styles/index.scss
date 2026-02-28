@@ -1,4 +1,6 @@
-@forward 'reset';
-@forward 'fonts';
-@forward 'variables';
-@forward 'themes/dusk';
+@forward "reset";
+@forward "fonts";
+@forward "variables";
+@forward "semantic";
+@forward "modes/dark";
+@forward "modes/light";

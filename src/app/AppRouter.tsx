@@ -5,14 +5,14 @@ import { Profile } from "@/src/page/Profile.tsx";
 import { Page } from "@/src/shared/ui/page/Page.tsx";
 
 function AppRouter() {
-  const element = useRoutes([
+  const routes = useRoutes([
     { path: "/", element: <Profile /> },
     { path: "/profile", element: <Profile /> },
     { path: "/factory", element: <Factory /> },
     { path: "/*", element: <NotFound /> },
   ]);
 
-  return <Page>{element}</Page>;
+  return <Page>{routes}</Page>;
 }
 
 export default AppRouter;

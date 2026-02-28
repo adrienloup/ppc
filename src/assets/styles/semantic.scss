@@ -1,0 +1,12 @@
+@mixin semantic {
+  --semantic-color-1: var(--color-10);
+  --semantic-color-2: var(--color-11);
+  --semantic-color-3: var(--color-12);
+  --semantic-color-4: var(--color-13);
+  --semantic-color-5: var(--color-14);
+  --semantic-color-6: var(--color-15);
+}
+
+:root {
+  @include semantic();
+}
