@@ -1,5 +1,5 @@
 .progressbar {
-  background-color: var(--theme-color-2);
+  background-color: var(--mode-color-2);
 
   &.small {
     height: 1rem;
@@ -17,10 +17,10 @@
 .progress {
   width: 0;
   height: 100%;
-  background-color: var(--theme-color-3);
+  background-color: var(--mode-color-3);
   transition: 100ms width var(--ease-out);
 
   &.completed {
-    background-color: var(--theme-color-14);
+    background-color: var(--color-14);
   }
 }

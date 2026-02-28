@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComponent } from 'react';
-import { AccountProvider } from '@/src/domain/account/AccountProvider.tsx';
-import { SettingsProvider } from '@/src/domain/settings/SettingsProvider.tsx';
+import { AccountProvider } from '@/src/context/account/AccountProvider.tsx';
+import { SettingsProvider } from '@/src/context/settings/SettingsProvider.tsx';
 import type { ChildrenType } from '@/src/shared/type/Children.ts';
 
 type ProvidersType = [ComponentType<{ children: ChildrenType }>, ComponentPropsWithoutRef<ElementType>?];

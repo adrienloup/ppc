@@ -74,9 +74,9 @@ $mobile-landscape: 1024px;
   opacity: 0;
   visibility: hidden;
   transition-property: right, opacity, visibility;
-  transition-duration: 250ms, 250ms, 0ms;
+  transition-duration: 300ms, 300ms, 0ms;
   transition-timing-function: var(--ease-expo);
-  transition-delay: 0ms, 0ms, 250ms;
+  transition-delay: 0ms, 0ms, 300ms;
   font-size: var(--font-size-small);
   color: var(--mode-color-3);
 
@@ -86,7 +86,7 @@ $mobile-landscape: 1024px;
     right: 100%;
     opacity: 1;
     visibility: visible;
-    transition-duration: 450ms, 450ms, 0ms;
+    transition-duration: 400ms, 400ms, 0ms;
     transition-delay: 0ms;
   }
 }

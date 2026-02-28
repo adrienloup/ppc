@@ -1,8 +1,8 @@
 import { useEffect, useReducer } from 'react';
-import { AccountContext, AccountDispatchContext } from '@/src/domain/account/AccountContext.ts';
-import { accountReducer } from '@/src/domain/account/accountReducer.ts';
-import { accountState } from '@/src/domain/account/accountState.ts';
-import type { AccountType } from '@/src/domain/account/type/Account.ts';
+import type { AccountType } from '@/src/context/account/Account.ts';
+import { AccountContext, AccountDispatchContext } from '@/src/context/account/AccountContext.ts';
+import { accountReducer } from '@/src/context/account/accountReducer.ts';
+import { accountState } from '@/src/context/account/accountState.ts';
 import { useLocalStorage } from '@/src/shared/hook/useLocalStorage.ts';
 import type { ChildrenType } from '@/src/shared/type/Children.ts';
 

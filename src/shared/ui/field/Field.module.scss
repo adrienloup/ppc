@@ -1,0 +1,52 @@
+.field {
+  overflow: hidden;
+  display: flex;
+  border: 0.35rem solid var(--mode-color-2);
+
+  &.focus {
+    outline: 0.35rem solid var(--mode-color-15);
+    outline-offset: -0.35rem;
+  }
+
+  &.success {
+    border-color: var(--mode-color-14);
+  }
+
+  &.error {
+    border-color: var(--mode-color-11);
+  }
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--mode-color-1);
+  border: 0;
+  font-family: var(--font-text), sans-serif;
+  font-weight: normal;
+  font-size: var(--font-size-medium);
+  color: var(--mode-color-3);
+  outline: none;
+
+  &::placeholder {
+    font-style: italic;
+    color: var(--mode-color-3);
+  }
+}
+
+.prefix,
+.suffix {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-medium);
+  color: var(--mode-color-11);
+}
+
+.prefix {
+  padding-left: var(--spacing-medium);
+}
+
+.suffix {
+  padding-right: var(--spacing-medium);
+}
