@@ -1,0 +1,28 @@
+$mobile-portrait: 768px;
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+  height: 100vh;
+
+  @media (min-width: $mobile-portrait) {
+    padding: var(--spacing-medium);
+  }
+}
+
+.progress {
+  max-width: 20rem;
+  width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-large);
+
+  @media (min-width: $mobile-portrait) {
+    font-size: var(--font-size-x-large);
+  }
+}
