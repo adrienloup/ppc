@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 
-function ProfilePage() {
+export const NotFound = () => {
   return (
     <>
-      profile
+      notfound
       <Link to="/factory">factory</Link>
+      <Link to="/profile">profile</Link>
     </>
   );
-}
-
-export default ProfilePage;
+};

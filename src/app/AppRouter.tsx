@@ -1,13 +1,14 @@
 import { useRoutes } from "react-router-dom";
-import FactoryPage from "@/src/page/FactoryPage.tsx";
-import ProfilePage from "@/src/page/ProfilePage.tsx";
+import { Factory } from "@/src/page/Factory.tsx";
+import { NotFound } from "@/src/page/NotFound.tsx";
+import { Profile } from "@/src/page/Profile.tsx";
 
 function AppRouter() {
   return useRoutes([
-    { path: "/", element: <ProfilePage /> },
-    { path: "/*", element: <ProfilePage /> },
-    { path: "/profile", element: <ProfilePage /> },
-    { path: "/factory", element: <FactoryPage /> },
+    { path: "/", element: <Profile /> },
+    { path: "/profile", element: <Profile /> },
+    { path: "/factory", element: <Factory /> },
+    { path: "/*", element: <NotFound /> },
   ]);
 }
 

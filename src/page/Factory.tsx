@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 
-function FactoryPage() {
+export const Factory = () => {
   return (
     <>
       factory
       <Link to="/profile">profile</Link>
     </>
   );
-}
-
-export default FactoryPage;
+};
