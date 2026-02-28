@@ -8,10 +8,9 @@
   font-weight: normal;
   cursor: pointer;
 
-  &:focus-visible,
-  &:active {
-    outline-color: var(--theme-color-15);
+  &:focus-visible {
     outline-style: solid;
+    outline-color: var(--theme-color-15);
   }
 
   &:disabled {

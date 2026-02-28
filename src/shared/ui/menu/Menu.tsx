@@ -6,21 +6,21 @@ import { Reader } from "@/src/shared/ui/reader/Reader.tsx";
 import { classNames } from "@/src/shared/utils/classNames.ts";
 import styles from "@/src/shared/ui/menu/Menu.module.scss";
 
-const links: { label: string; icon: string }[] = [
+const links: { page: string; icon: string }[] = [
   {
-    label: "profile",
+    page: "profile",
     icon: "account_circle",
   },
   {
-    label: "factory",
+    page: "factory",
     icon: "factory",
   },
   {
-    label: "store",
+    page: "store",
     icon: "storefront",
   },
   {
-    label: "explore",
+    page: "explore",
     icon: "explore",
   },
 ];

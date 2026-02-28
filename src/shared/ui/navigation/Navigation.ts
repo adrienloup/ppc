@@ -2,7 +2,7 @@ export interface NavigationType {
   className?: string;
   id?: string;
   links: {
-    label: string;
+    page: string;
     icon: string;
   }[];
 }

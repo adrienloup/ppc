@@ -7,15 +7,10 @@ $mobile-portrait: 768px;
   transition-property: height;
   transition-duration: 250ms;
   transition-timing-function: var(--ease-expo);
-  will-change: height;
 
   &.open {
-    height: 9rem;
+    height: 4rem;
     transition-duration: 450ms;
-
-    @media (min-width: $mobile-portrait) {
-      height: 4rem;
-    }
   }
 }
 
@@ -30,7 +25,6 @@ $mobile-portrait: 768px;
   transition-property: height;
   transition-duration: 250ms;
   transition-timing-function: var(--ease-expo);
-  will-change: height;
   color: var(--theme-color-1);
 
   @media (min-width: $mobile-portrait) {
@@ -38,13 +32,9 @@ $mobile-portrait: 768px;
   }
 
   .open & {
-    height: 9rem;
+    height: 4rem;
     visibility: visible;
     transition-duration: 450ms;
-
-    @media (min-width: $mobile-portrait) {
-      height: 4rem;
-    }
   }
 }
 
@@ -80,10 +70,8 @@ $mobile-portrait: 768px;
   transition-delay: 250ms, 0ms;
   font-size: var(--font-size-small);
   color: var(--theme-color-3);
-  will-change: transform;
 
-  .open &,
-  .button:hover & {
+  .open & {
     visibility: visible;
     transform: translate3d(0, 0, 0);
     transition-duration: 0ms, 450ms;

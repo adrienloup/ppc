@@ -1,4 +1,4 @@
-import { Button } from "@/src/shared/ui/button/Button.tsx";
+import { NavLink } from "react-router-dom";
 import { Icon } from "@/src/shared/ui/icon/Icon.tsx";
 import type { NavigationType } from "@/src/shared/ui/navigation/Navigation.ts";
 import { classNames } from "@/src/shared/utils/classNames.ts";
@@ -16,14 +16,16 @@ export const Navigation = ({
       role="navigation"
     >
       {links.map((link) => (
-        <Button
-          key={link.label}
-          className={styles.button}
-          to={`/ppc/${link.label}`}
+        <NavLink
+          key={link.page}
+          className={({ isActive }) =>
+            [styles.button, isActive && styles.active].filter(Boolean).join(" ")
+          }
+          to={`/${link.page}`}
         >
           <Icon className={styles.icon} icon={link.icon} />
-          <span className={styles.label}>{link.label}</span>
-        </Button>
+          <span className={styles.label}>{link.page}</span>
+        </NavLink>
       ))}
     </nav>
   );
