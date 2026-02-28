@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { useTitle } from "@/src/shared/hook/useTitle.ts";
+import { Case } from "@/src/shared/ui/case/Case.tsx";
 
 export const NotFound = () => {
+  useTitle("page not found");
+
   return (
-    <>
-      notfound
-      <Link to="/factory">factory</Link>
-      <Link to="/profile">profile</Link>
-    </>
+    <Case
+      icon="error"
+      title="sorry, page not found. please continue your trip."
+      button="profile"
+    />
   );
 };

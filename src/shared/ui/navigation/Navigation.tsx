@@ -21,7 +21,7 @@ export const Navigation = ({
           className={({ isActive }) =>
             [styles.button, isActive && styles.active].filter(Boolean).join(" ")
           }
-          to={`/${link.page}`}
+          to={"/" + link.page}
         >
           <Icon className={styles.icon} icon={link.icon} />
           <span className={styles.label}>{link.page}</span>

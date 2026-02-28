@@ -1,0 +1,30 @@
+.case {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-medium);
+  margin: auto;
+  max-width: 50rem;
+}
+
+.icon {
+  font-size: var(--font-size-x-large);
+}
+
+.title {
+  font-size: var(--font-size-large);
+}
+
+.button {
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+  background-color: var(--theme-color-3);
+  font-size: var(--font-size-medium);
+  color: var(--theme-color-1);
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    outline-width: 0.25rem;
+  }
+}
