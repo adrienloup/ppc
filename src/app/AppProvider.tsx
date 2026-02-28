@@ -2,6 +2,7 @@ import type { ComponentPropsWithoutRef, ComponentType, ElementType, FunctionComp
 import { AccountProvider } from '@/src/context/account/AccountProvider.tsx';
 import { SettingsProvider } from '@/src/context/settings/SettingsProvider.tsx';
 import type { ChildrenType } from '@/src/shared/type/Children.ts';
+import { NoticeProvider } from '@/src/shared/ui/notice/NoticeProvider.tsx';
 
 type ProvidersType = [ComponentType<{ children: ChildrenType }>, ComponentPropsWithoutRef<ElementType>?];
 
@@ -16,4 +17,8 @@ const Providers = (providers: ProvidersType[]) =>
     ({ children }: { children: ChildrenType }) => <>{children}</>
   );
 
-export const AppProvider: FunctionComponent<{ children: ChildrenType }> = Providers([[AccountProvider], [SettingsProvider]]);
+export const AppProvider: FunctionComponent<{ children: ChildrenType }> = Providers([
+  [NoticeProvider],
+  [AccountProvider],
+  [SettingsProvider],
+]);

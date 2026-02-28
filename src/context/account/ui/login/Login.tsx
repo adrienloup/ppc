@@ -1,10 +1,10 @@
-import { type FormEvent, useState } from 'react';
-// import { useAuth, useAuthDispatch } from '@/src/domains/auth/interface/useAuth.ts';
+import { type SyntheticEvent, useState } from 'react';
 import type { LoginType } from '@/src/context/account/ui/login/Login.ts';
 import { useAccount, useAccountDispatch } from '@/src/context/account/useAccount.ts';
-// import { useNotice } from '@/src/domains/notice/interface/useNotice.ts';
+import { useSettingsDispatch } from '@/src/context/settings/useSettings.ts';
 import { Button } from '@/src/shared/ui/button/Button.tsx';
 import { Field } from '@/src/shared/ui/field/Field.tsx';
+import { useNoticeDispatch } from '@/src/shared/ui/notice/useNoticeDispatch.ts';
 import { Title } from '@/src/shared/ui/title/Title.tsx';
 import { base64Encode } from '@/src/shared/utils/base64Encode.ts';
 import { classNames } from '@/src/shared/utils/classNames.ts';
@@ -12,11 +12,10 @@ import { regexTest } from '@/src/shared/utils/regexTest.ts';
 import styles from '@/src/context/account/ui/login/Login.module.scss';
 
 export const Login = ({ className }: LoginType) => {
-  // const addNotice = useNotice();
-  // const authDispatch = useAuthDispatch();
   const { user } = useAccount();
   const accountDispatch = useAccountDispatch();
-  // const { users } = useAuth();
+  const settingsDispatch = useSettingsDispatch();
+  const noticeDispatch = useNoticeDispatch();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [nameError, setNameError] = useState('');
@@ -42,12 +41,12 @@ export const Login = ({ className }: LoginType) => {
     let valid = true;
 
     if (!regexTest(/^[A-Za-z]{3,10}$/, name)) {
-      setNameError('name must contain at least 5 alphabetic characters without spaces');
+      setNameError('name must contain at least 3 alphabetic characters without spaces');
       valid = false;
     }
 
-    if (!regexTest(/^[A-Za-z0-9]{5,10}$/, password)) {
-      setPasswordError('password must contain at least 5 alphabetic characters without spaces');
+    if (!regexTest(/^[A-Za-z0-9]{3,10}$/, password)) {
+      setPasswordError('password must contain at least 3 alphabetic characters without spaces');
       valid = false;
     }
 
@@ -61,13 +60,13 @@ export const Login = ({ className }: LoginType) => {
       password: hashPassword,
     });
 
-    // addNotice({
-    //   status: 'success',
-    //   text: `${name} successfully registered`,
-    // });
+    noticeDispatch({
+      status: 'success',
+      text: `${name} successfully registered`,
+    });
   };
 
-  const logIn = async (e: FormEvent<HTMLFormElement>) => {
+  const logIn = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     resetErrors();
@@ -92,10 +91,15 @@ export const Login = ({ className }: LoginType) => {
       name: name,
     });
 
-    // addNotice({
-    //   text: `${name} is connected`,
-    //   status: 'success',
-    // });
+    settingsDispatch({
+      type: 'LOAD',
+      settings: username.settings,
+    });
+
+    noticeDispatch({
+      status: 'success',
+      text: `${name} is connected`,
+    });
   };
 
   return (
