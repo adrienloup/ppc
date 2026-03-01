@@ -1,9 +1,12 @@
-import { version } from "@/package.json";
-import styles from "@/src/shared/ui/footer/Footer.module.scss";
+import { version } from '@/package.json';
+import styles from '@/src/shared/ui/footer/Footer.module.scss';
 
 export const Footer = () => {
   return (
-    <footer className={styles.footer} role="contentinfo">
+    <footer
+      className={styles.footer}
+      role="contentinfo"
+    >
       {version}
     </footer>
   );

@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import type { ButtonType } from "@/src/shared/ui/button/Button.ts";
-import { classNames } from "@/src/shared/utils/classNames.ts";
-import styles from "@/src/shared/ui/button/Button.module.scss";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import type { ButtonType } from '@/src/shared/ui/button/Button.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
+import styles from '@/src/shared/ui/button/Button.module.scss';
 
 export const Button = ({
   children,
@@ -17,19 +17,23 @@ export const Button = ({
   const [active, setActive] = useState(false);
 
   const onKeyDown = (e: { key: string }) => {
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === 'Enter' || e.key === ' ') {
       setActive(true);
     }
   };
 
   const onKeyUp = (e: { key: string }) => {
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === 'Enter' || e.key === ' ') {
       setActive(false);
     }
   };
 
   const link = (
-    <Link to={to!} className={classNames(styles.button, className)} {...props}>
+    <Link
+      to={to!}
+      className={classNames(styles.button, className)}
+      {...props}
+    >
       {children}
     </Link>
   );
@@ -55,11 +59,7 @@ export const Button = ({
       onKeyDown={onKeyDown}
       onKeyUp={onKeyUp}
       onClick={onClick}
-      className={classNames(
-        styles.button,
-        className,
-        active ? styles.active : "",
-      )}
+      className={classNames(styles.button, className, active ? styles.active : '')}
       {...props}
     >
       {children}

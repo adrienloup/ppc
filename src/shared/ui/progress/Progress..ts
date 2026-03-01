@@ -1,4 +1,4 @@
-import type { SizeType } from "@/src/shared/type/Size.ts";
+import type { SizeType } from '@/src/shared/type/Size.ts';
 
 export interface ProgressType {
   className?: string;

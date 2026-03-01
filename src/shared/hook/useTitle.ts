@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export const useTitle = (title: string) => {
   useEffect(() => {
-    document.title = title + " - ppc";
+    document.title = title + ' - ppc';
   }, [title]);
 };

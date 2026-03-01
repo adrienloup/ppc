@@ -1,15 +1,12 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { version } from "@/package.json";
-import App from "@/src/app/App.tsx";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { version } from '@/package.json';
+import App from '@/src/app/App.tsx';
 
-createRoot(document.getElementById("_app_ppc03_1")!).render(
+createRoot(document.getElementById('_app_ppc03_1')!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );
 
-console.info(
-  `[ppc] ${version} %c@jff`,
-  "padding: 1px 3px; background-color: #3b00ff; color: #fff;",
-);
+console.info(`[ppc] ${version} %c@jff`, 'padding: 1px 3px; background-color: #3B00FF; color: #fff;');
