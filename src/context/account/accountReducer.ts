@@ -25,6 +25,7 @@ export const accountReducer = (state: AccountType, action: AccountDispatchType):
               date: new Date().toLocaleString('fr-FR', {
                 timeZone: 'Europe/Paris',
               }),
+              start: false,
             },
           },
         },

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useTitle } from '@/src/shared/hook/useTitle.ts';
 import { Article } from '@/src/shared/ui/article/Article.tsx';
 import { Button } from '@/src/shared/ui/button/Button.tsx';
-import { Icon } from '@/src/shared/ui/icon/Icon.tsx';
 import { Title } from '@/src/shared/ui/title/Title.tsx';
 import styles from '@/src/page/factory/Factory.module.scss';
 
@@ -17,7 +16,6 @@ export const Factory = () => {
           className={styles.button}
           to="/store"
         >
-          <Icon icon="storefront" />
           store
         </Button>
       </div>

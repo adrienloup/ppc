@@ -19,7 +19,7 @@
   --color-13: #e4fd02;
   --color-14: #1aff00;
   --color-15: #00f7ff;
-  --color-16: #004cff;
+  --color-16: #0056ff;
 }
 
 @mixin size {
@@ -32,9 +32,9 @@
 
 @mixin spacing {
   --spacing-xl: 4rem;
-  --spacing-l: 2.5rem;
+  --spacing-l: 2.25rem;
   --spacing-m: 1rem;
-  --spacing-s: 0.5rem;
+  --spacing-s: 0.75rem;
   --spacing-xs: 0.25rem;
 }
 

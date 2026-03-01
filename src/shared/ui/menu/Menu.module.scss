@@ -11,9 +11,9 @@ $mobile-landscape: 1024px;
 
   &.open {
     height: 4rem;
-    transition-duration: 0.45s;
+    transition-duration: 0.35s;
 
-    @media (min-width: $mobile-landscape) {
+    @media (min-width: $mobile-portrait) {
       height: 5rem;
     }
   }
@@ -26,8 +26,9 @@ $mobile-landscape: 1024px;
   gap: var(--spacing-s);
   overflow: hidden;
   height: 0;
+  opacity: 0;
   visibility: hidden;
-  transition-property: height;
+  transition-property: height, opacity;
   transition-duration: 0.25s;
   transition-timing-function: var(--ease-expo);
   color: var(--mode-color-1);
@@ -38,10 +39,11 @@ $mobile-landscape: 1024px;
 
   .open & {
     height: 4rem;
+    opacity: 1;
     visibility: visible;
-    transition-duration: 0.45s;
+    transition-duration: 0.35s;
 
-    @media (min-width: $mobile-landscape) {
+    @media (min-width: $mobile-portrait) {
       height: 5rem;
     }
   }
@@ -75,20 +77,17 @@ $mobile-landscape: 1024px;
   opacity: 0;
   visibility: hidden;
   transition-property: right, opacity, visibility;
-  transition-duration: 0.3s, 0.3s, 0s;
+  transition-duration: 0.3s, 0.2s, 0s;
   transition-timing-function: var(--ease-in-out-quad);
   transition-delay: 0s, 0s, 0.3s;
   font-size: var(--font-size-s);
   color: var(--mode-color-3);
 
-  //.open &,
-  //.button:hover &,
-  //.button:focus-visible & {
   .open & {
     right: 100%;
     opacity: 1;
     visibility: visible;
-    transition-duration: 0.4s, 0.4s, 0s;
+    transition-duration: 0.4s, 0.6s, 0s;
     transition-delay: 0s;
   }
 }

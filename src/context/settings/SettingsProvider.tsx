@@ -1,7 +1,9 @@
 import { useEffect, useReducer } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SettingsContext, SettingsDispatchContext } from '@/src/context/settings/SettingsContext.ts';
 import { settingsReducer } from '@/src/context/settings/settingsReducer.ts';
 import { settingsState } from '@/src/context/settings/settingsState.ts';
+import type { LangType } from '@/src/context/settings/type/Lang.ts';
 import type { ModeType } from '@/src/context/settings/type/Mode.ts';
 import type { SettingsType } from '@/src/context/settings/type/Settings.ts';
 import { useLocalStorage } from '@/src/shared/hook/useLocalStorage.ts';
@@ -10,14 +12,13 @@ import type { ChildrenType } from '@/src/shared/type/Children.ts';
 export function SettingsProvider({ children }: { children: ChildrenType }) {
   const storage = useLocalStorage<SettingsType>('_settings_ppc03_1', settingsState);
   const [state, dispatch] = useReducer(settingsReducer, storage.get());
-  // const { i18n } = useTranslation();
-  //
-  // const updateLang = (lang: LangType) => {
-  //   i18n.changeLanguage(lang).then(() => undefined);
-  //   document.documentElement.lang = lang;
-  // };
-  //
-  //
+  const { i18n } = useTranslation();
+
+  const updateLang = (lang: LangType) => {
+    i18n.changeLanguage(lang).then(() => undefined);
+    document.documentElement.lang = lang;
+  };
+
   const updateMode = (mode: ModeType) => {
     const classMode = {
       _contrast_ppc03_1: mode === 'contrast',
@@ -44,10 +45,10 @@ export function SettingsProvider({ children }: { children: ChildrenType }) {
   }, [state.mode]);
 
   useEffect(() => {
-    // updateLang(state.lang);
+    updateLang(state.lang);
     updateMode(state.mode);
     storage.set(state);
-  }, [state]);
+  }, [state.lang, state.mode, state.start]);
 
   return (
     <SettingsContext.Provider value={state}>

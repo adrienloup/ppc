@@ -5,10 +5,15 @@ $mobile-landscape: 1024px;
   flex: 1;
   display: flex;
   justify-content: center;
+  height: 8vh;
+
+  @media (min-width: $mobile-portrait) {
+    height: 9vh;
+  }
 }
 
 .button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   padding: 0 var(--spacing-m);
   text-decoration: none;
@@ -23,9 +28,9 @@ $mobile-landscape: 1024px;
     padding: 0 var(--spacing-m);
   }
 
-  &.active {
-    background-color: var(--color-16);
-  }
+  //&.active {
+  //  background-color: var(--color-16);
+  //}
 
   &:focus-visible {
     outline: 0.25rem solid var(--color-15);
@@ -34,6 +39,7 @@ $mobile-landscape: 1024px;
 }
 
 .label {
+  backface-visibility: hidden;
   font-size: 0;
 
   @media (min-width: $mobile-portrait) {
@@ -42,5 +48,6 @@ $mobile-landscape: 1024px;
 }
 
 .icon {
+  backface-visibility: hidden;
   font-size: var(--font-size-l);
 }

@@ -8,6 +8,10 @@ export const settingsReducer = (state: SettingsType, action: SettingsDispatchTyp
       return { ...state, lang: action.lang };
     case 'SET_MODE':
       return { ...state, mode: action.mode };
+    case 'SET_START':
+      return { ...state, start: true };
+    case 'SET_PAUSE':
+      return { ...state, pause: !state.pause };
     default:
       return state;
   }

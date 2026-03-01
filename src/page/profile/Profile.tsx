@@ -3,6 +3,7 @@ import { useAccount, useAccountDispatch } from '@/src/context/account/useAccount
 import { useSettings, useSettingsDispatch } from '@/src/context/settings/useSettings.ts';
 import { useTitle } from '@/src/shared/hook/useTitle.ts';
 import { Article } from '@/src/shared/ui/article/Article.tsx';
+import { Button } from '@/src/shared/ui/button/Button.tsx';
 import { useNoticeDispatch } from '@/src/shared/ui/notice/useNoticeDispatch.ts';
 import { Title } from '@/src/shared/ui/title/Title.tsx';
 import styles from '@/src/page/factory/Factory.module.scss';
@@ -26,7 +27,6 @@ export const Profile = () => {
       data: { business: '' },
       settings,
     });
-
     noticeDispatch({
       status: 'success',
       text: `${online} is disconnected`,
@@ -35,7 +35,15 @@ export const Profile = () => {
 
   return (
     <Article>
-      <Title className={styles.title}>profile</Title>
+      <div className={styles.heading}>
+        <Title className={styles.title}>profile</Title>
+        <Button
+          className={styles.button}
+          onClick={logout}
+        >
+          log ou
+        </Button>
+      </div>
       <div>user: {online}</div>
       <div>last connection: {settings.date}</div>
       <div>lang: {settings.lang}</div>
@@ -44,7 +52,14 @@ export const Profile = () => {
         <button onClick={() => settingsDispatch({ type: 'SET_MODE', mode: 'contrast' })}>contrast</button>
         <button onClick={() => settingsDispatch({ type: 'SET_MODE', mode: 'dark' })}>dark</button>
         <button onClick={() => settingsDispatch({ type: 'SET_MODE', mode: 'light' })}>light</button>
+        <br />
+        <button onClick={() => settingsDispatch({ type: 'SET_LANG', lang: 'en' })}>en</button>
+        <button onClick={() => settingsDispatch({ type: 'SET_LANG', lang: 'fr' })}>fr</button>
+        <br />
+        <button onClick={() => settingsDispatch({ type: 'SET_PAUSE' })}>pause</button>
+        <br />
         <button onClick={logout}>log out</button>
+        <br />
         <button
           onClick={() =>
             noticeDispatch({

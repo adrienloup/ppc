@@ -7,7 +7,7 @@ export const Footer = () => {
       className={styles.footer}
       role="contentinfo"
     >
-      {version}
+      ppc {version}
     </footer>
   );
 };

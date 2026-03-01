@@ -1,0 +1,16 @@
+.title {
+  font-size: var(--font-size-l);
+}
+
+.button {
+  gap: var(--spacing-s);
+  padding: var(--spacing-s);
+  background-color: var(--mode-color-3);
+  font-size: var(--font-size-m);
+  color: var(--mode-color-1);
+
+  &:focus-visible,
+  &:active {
+    outline-width: 0.25rem;
+  }
+}
