@@ -22,6 +22,9 @@ export const Factory = () => {
         </Button>
       </div>
       <Link to="/profile">profile</Link>
+      <div style={{ height: '1000px' }}>test</div>
+      <div className={styles.toTop}>top</div>
+      <div style={{ height: '1000px' }}>test</div>
     </Article>
   );
 };
