@@ -9,4 +9,4 @@ createRoot(document.getElementById('_app_ppc03_1')!).render(
   </StrictMode>
 );
 
-console.info(`[ppc] ${version} %c@jff`, 'padding: 1px 3px; background-color: #3B00FF; color: #fff;');
+console.info(`[ppc] ${version} %c@jff`, 'padding: 1px 3px; background-color: #2900ff; color: #fff;');
