@@ -18,7 +18,7 @@ export default defineConfig({
         description: 'An addictive Idle/Incremental/Clicker game inspired by Universal Paperclips built with React.',
         start_url: '/',
         display: 'standalone',
-        theme_color: '#2900ff',
+        theme_color: '#3100ff',
         background_color: '#fff',
         icons: [
           {
