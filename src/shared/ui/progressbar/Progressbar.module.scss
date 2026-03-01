@@ -18,7 +18,7 @@
   width: 0;
   height: 100%;
   background-color: var(--mode-color-3);
-  transition: 100ms width var(--ease-out);
+  transition: 0.1s width var(--ease-out);
 
   &.completed {
     background-color: var(--color-14);

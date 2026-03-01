@@ -5,7 +5,7 @@
   pointer-events: initial;
 
   &.in {
-    animation: Appear 500ms var(--ease-expo);
+    animation: Appear 0.5s var(--ease-expo);
   }
 
   &.out {
@@ -13,8 +13,8 @@
     opacity: 0;
     transform: translateX(-4rem);
     transition-property: width, opacity, transform;
-    transition-duration: 500ms, 300ms, 500ms;
-    transition-delay: 0ms, 100ms, 0ms;
+    transition-duration: 0.5s, 0.3s, 0.5s;
+    transition-delay: 0s, 0.1s, 0s;
     transition-timing-function: var(--ease-expo);
   }
 
@@ -54,7 +54,7 @@
   color: var(--mode-color-1);
 
   .out & {
-    transition: transform 500ms var(--ease-expo);
+    transition: transform 0.5s var(--ease-expo);
     transform: translateX(-10rem);
   }
 }
