@@ -1,14 +1,29 @@
-import { NavLink } from "react-router-dom";
-import { Icon } from "@/src/shared/ui/icon/Icon.tsx";
-import type { NavigationType } from "@/src/shared/ui/navigation/Navigation.ts";
-import { classNames } from "@/src/shared/utils/classNames.ts";
-import styles from "@/src/shared/ui/navigation/Navigation.module.scss";
+import { NavLink } from 'react-router-dom';
+import { Icon } from '@/src/shared/ui/icon/Icon.tsx';
+import type { NavigationType } from '@/src/shared/ui/navigation/Navigation.ts';
+import { classNames } from '@/src/shared/utils/classNames.ts';
+import styles from '@/src/shared/ui/navigation/Navigation.module.scss';
 
-export const Navigation = ({
-  className,
-  id = "main-navigation",
-  links,
-}: NavigationType) => {
+const links: { page: string; icon: string }[] = [
+  {
+    page: 'profile',
+    icon: 'account_circle',
+  },
+  {
+    page: 'factory',
+    icon: 'factory',
+  },
+  {
+    page: 'store',
+    icon: 'storefront',
+  },
+  {
+    page: 'explore',
+    icon: 'explore',
+  },
+];
+
+export const Navigation = ({ className, id = 'main-navigation' }: NavigationType) => {
   return (
     <nav
       className={classNames(styles.navigation, className)}
@@ -18,12 +33,13 @@ export const Navigation = ({
       {links.map((link) => (
         <NavLink
           key={link.page}
-          className={({ isActive }) =>
-            [styles.button, isActive && styles.active].filter(Boolean).join(" ")
-          }
-          to={"/" + link.page}
+          className={({ isActive }) => [styles.button, isActive && styles.active].filter(Boolean).join(' ')}
+          to={'/' + link.page}
         >
-          <Icon className={styles.icon} icon={link.icon} />
+          <Icon
+            className={styles.icon}
+            icon={link.icon}
+          />
           <span className={styles.label}>{link.page}</span>
         </NavLink>
       ))}

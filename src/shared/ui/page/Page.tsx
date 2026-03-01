@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { usePageHide } from '@/src/shared/hook/usePageHide.ts';
+import { usePagehide } from '@/src/shared/hook/usePagehide.ts';
 import { Footer } from '@/src/shared/ui/footer/Footer.tsx';
 import { Header } from '@/src/shared/ui/header/Header.tsx';
 import { Main } from '@/src/shared/ui/main/Main.tsx';
@@ -10,7 +10,7 @@ export const Page = ({ children }: PageType) => {
     window.scroll(0, 0);
   }, []);
 
-  usePageHide();
+  usePagehide();
 
   return (
     <>

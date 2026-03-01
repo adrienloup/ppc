@@ -45,6 +45,8 @@ export const Profile = () => {
         <button onClick={logout}>log out</button>
       </div>
       <Link to="/factory">factory</Link>
+      <div style={{ height: '500px' }}></div>
+      <div style={{ position: 'sticky', top: 0, background: 'red' }}>test</div>
       <div style={{ height: '2000px' }}></div>
     </Article>
   );

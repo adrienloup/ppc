@@ -6,25 +6,6 @@ import { Reader } from '@/src/shared/ui/reader/Reader.tsx';
 import { classNames } from '@/src/shared/utils/classNames.ts';
 import styles from '@/src/shared/ui/menu/Menu.module.scss';
 
-const links: { page: string; icon: string }[] = [
-  {
-    page: 'profile',
-    icon: 'account_circle',
-  },
-  {
-    page: 'factory',
-    icon: 'factory',
-  },
-  {
-    page: 'store',
-    icon: 'storefront',
-  },
-  {
-    page: 'explore',
-    icon: 'explore',
-  },
-];
-
 export const Menu = () => {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -62,7 +43,7 @@ export const Menu = () => {
         <span className={styles.label}>menu</span>
       </Reader>
       <div className={styles.inner}>
-        <Navigation links={links} />
+        <Navigation />
       </div>
     </div>
   );

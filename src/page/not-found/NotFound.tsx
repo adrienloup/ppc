@@ -8,8 +8,8 @@ export const NotFound = () => {
 
   return (
     <Case className={styles.case}>
-      <Title className={styles.title}>oops!</Title>
-      <p className={styles.text}>page not found. you can navigate to another page using the navigation.</p>
+      <Title className={styles.title}>oops,</Title>
+      <p className={styles.text}>page not found</p>
     </Case>
   );
 };
