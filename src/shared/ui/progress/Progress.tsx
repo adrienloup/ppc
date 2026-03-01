@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
-import type { ProgressType } from "@/src/shared/ui/progress/Progress..ts";
-import { Progressbar } from "@/src/shared/ui/progressbar/Progressbar.tsx";
-import { classNames } from "@/src/shared/utils/classNames.ts";
-import styles from "@/src/shared/ui/progress/Progress.module.scss";
+import { useEffect, useState } from 'react';
+import type { ProgressType } from '@/src/shared/ui/progress/Progress..ts';
+import { Progressbar } from '@/src/shared/ui/progressbar/Progressbar.tsx';
+import { classNames } from '@/src/shared/utils/classNames.ts';
+import styles from '@/src/shared/ui/progress/Progress.module.scss';
 
-export const Progress = ({
-  className,
-  duration = 1e3,
-  label,
-  size = "large",
-}: ProgressType) => {
+export const Progress = ({ className, duration = 1e3, label, size = 'l' }: ProgressType) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -35,14 +30,7 @@ export const Progress = ({
   }, []);
 
   return (
-    <div
-      className={classNames(
-        styles.progress,
-        styles[size],
-        progress === 100 ? styles.completed : "",
-        className,
-      )}
-    >
+    <div className={classNames(styles.progress, styles[size], progress === 100 ? styles.completed : '', className)}>
       <Progressbar
         size={size}
         valueNow={progress}

@@ -19,23 +19,23 @@
   --color-13: #e4fd02;
   --color-14: #1aff00;
   --color-15: #00f7ff;
-  --color-16: #0066ff;
+  --color-16: #004cff;
 }
 
 @mixin size {
-  --font-size-x-large: 4rem;
-  --font-size-large: 2.5rem;
-  --font-size-medium: 1.5rem;
-  --font-size-small: 1rem;
-  --font-size-x-small: 0.75rem;
+  --font-size-xl: 4rem;
+  --font-size-l: 2.5rem;
+  --font-size-m: 1.5rem;
+  --font-size-s: 1rem;
+  --font-size-xs: 0.75rem;
 }
 
 @mixin spacing {
-  --spacing-x-large: 4rem;
-  --spacing-large: 2.5rem;
-  --spacing-medium: 1rem;
-  --spacing-small: 0.5rem;
-  --spacing-x-small: 0.25rem;
+  --spacing-xl: 4rem;
+  --spacing-l: 2.5rem;
+  --spacing-m: 1rem;
+  --spacing-s: 0.5rem;
+  --spacing-xs: 0.25rem;
 }
 
 @mixin easing {

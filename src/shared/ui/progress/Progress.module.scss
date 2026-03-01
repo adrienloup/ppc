@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
 
-  &.small {
-    font-size: var(--font-size-small);
+  &.s {
+    font-size: var(--font-size-s);
   }
 
-  &.medium {
-    font-size: var(--font-size-medium);
+  &.m {
+    font-size: var(--font-size-m);
   }
 
-  &.large {
-    font-size: var(--font-size-large);
+  &.l {
+    font-size: var(--font-size-l);
   }
 
   &.completed {

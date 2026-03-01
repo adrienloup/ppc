@@ -10,17 +10,17 @@ $mobile-landscape: 1024px;
 .button {
   display: inline-flex;
   align-items: center;
-  padding: 0 var(--spacing-medium);
+  padding: 0 var(--spacing-m);
   text-decoration: none;
   color: var(--mode-color-1);
 
   @media (min-width: $mobile-portrait) {
-    gap: var(--spacing-small);
-    padding: 0 var(--spacing-small);
+    gap: var(--spacing-s);
+    padding: 0 var(--spacing-s);
   }
 
   @media (min-width: $mobile-landscape) {
-    padding: 0 var(--spacing-medium);
+    padding: 0 var(--spacing-m);
   }
 
   &.active {
@@ -37,10 +37,10 @@ $mobile-landscape: 1024px;
   font-size: 0;
 
   @media (min-width: $mobile-portrait) {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-m);
   }
 }
 
 .icon {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-l);
 }

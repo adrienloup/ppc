@@ -1,33 +1,28 @@
-.login {
-  position: relative;
+.heading {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-s);
-  margin: auto;
-  max-width: 20rem;
+  gap: var(--spacing-m);
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .title {
-  font-size: var(--font-size-l);
-}
-
-.buttons {
   display: flex;
   gap: var(--spacing-s);
+  text-transform: uppercase;
+  font-size: var(--font-size-l);
+  color: var(--mode-color-3);
 }
 
 .button {
-  display: flex;
-  align-items: center;
   gap: var(--spacing-s);
   padding: var(--spacing-s);
   background-color: var(--mode-color-3);
-  text-transform: uppercase;
   font-size: var(--font-size-m);
   color: var(--mode-color-1);
 
-  &:focus-visible,
-  &:active {
+  &:active,
+  &:focus-visible {
     outline-width: 0.25rem;
+    outline-offset: -0.25rem;
   }
 }

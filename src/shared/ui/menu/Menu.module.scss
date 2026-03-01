@@ -23,7 +23,7 @@ $mobile-landscape: 1024px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--spacing-small);
+  gap: var(--spacing-s);
   overflow: hidden;
   height: 0;
   visibility: hidden;
@@ -51,12 +51,11 @@ $mobile-landscape: 1024px;
   position: absolute;
   top: 100%;
   right: 0;
-  padding: var(--spacing-small);
+  padding: var(--spacing-s);
   background-color: var(--mode-color-3);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-m);
   color: var(--mode-color-1);
 
-  &:hover,
   &:active,
   &:focus-visible {
     outline-width: 0.25rem;
@@ -71,8 +70,7 @@ $mobile-landscape: 1024px;
   z-index: -1;
   display: flex;
   align-items: center;
-  height: 100%;
-  padding: 0 var(--spacing-small);
+  padding: var(--spacing-s);
   background-color: var(--mode-color-2);
   opacity: 0;
   visibility: hidden;
@@ -80,7 +78,7 @@ $mobile-landscape: 1024px;
   transition-duration: 0.3s, 0.3s, 0s;
   transition-timing-function: var(--ease-in-out-quad);
   transition-delay: 0s, 0s, 0.3s;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-s);
   color: var(--mode-color-3);
 
   //.open &,

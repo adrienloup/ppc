@@ -39,7 +39,7 @@ export const Menu = () => {
         onClick={() => setOpen(!open)}
         sound={menuSound}
       >
-        <Icon icon="apps" />
+        <Icon icon={open ? 'menu_open' : 'menu'} />
         <span className={styles.label}>menu</span>
       </Reader>
       <div className={styles.inner}>

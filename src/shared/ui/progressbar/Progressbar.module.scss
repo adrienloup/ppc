@@ -1,15 +1,15 @@
 .progressbar {
   background-color: var(--mode-color-2);
 
-  &.small {
+  &.s {
     height: 1rem;
   }
 
-  &.medium {
+  &.m {
     height: 1.5rem;
   }
 
-  &.large {
+  &.l {
     height: 3rem;
   }
 }

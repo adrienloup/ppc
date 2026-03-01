@@ -6,11 +6,11 @@ $mobile-portrait: 768px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--spacing-small);
-  margin: 0 var(--spacing-small) var(--spacing-small);
-  font-size: var(--font-size-small);
+  gap: var(--spacing-s);
+  margin: 0 var(--spacing-s) var(--spacing-s);
+  font-size: var(--font-size-s);
 
   @media (min-width: $mobile-portrait) {
-    margin: 0 var(--spacing-medium) var(--spacing-medium);
+    margin: 0 var(--spacing-m) var(--spacing-m);
   }
 }
